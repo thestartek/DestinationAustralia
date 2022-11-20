@@ -1,0 +1,6 @@
+module Pods_HaamiNepali {
+  umbrella header "Pods-HaamiNepali-umbrella.h"
+
+  export *
+  module * { export * }
+}
