@@ -20,7 +20,7 @@ const Header = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.headerText}>Haami Nepali</Text>
+      <Text style={styles.headerText}>Journey to Australia</Text>
 
       {/* <Image
           source={require("../../assets/logoRectangle.png")}

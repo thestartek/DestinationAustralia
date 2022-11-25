@@ -32,9 +32,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} />
       <Divider width={0.25} />
-      <Highlights/>
+      <CreatePost navigation={navigation} />
+      
 
       {loading ? (
         <ScrollView>
