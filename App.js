@@ -14,7 +14,7 @@ import DrawerNavigatior from "./components/DrawerNavigatior";
 import { NavigationContainer } from "@react-navigation/native";
 import AddNewPost from "./components/newPost/AddNewPost";
 import CommentScreen from "./screens/CommentsScreen";
-import Post from "./components/home/Post";
+import Post from "./components/community/Post";
 import HomeStack from "./components/HomeStack";
 import NewPostForm from "./components/newPost/NewPostForm";
 import ProfileScreen from "./screens/ProfileScreen";
@@ -23,7 +23,7 @@ import ChooseCategory from "./components/newPost/ChooseCategory";
 import ChooseCity from "./components/newPost/ChooseCity";
 import ProfileScreen_others from "./screens/ProfileScreen_others";
 import DeleteAccountScreen from "./screens/DeleteAccountScreen";
-import AddComment from "./components/home/AddComment";
+import AddComment from "./components/community/AddComment";
 import NewComponent from "./components/NewComponent";
 
 export default function App() {

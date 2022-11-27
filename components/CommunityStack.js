@@ -6,10 +6,10 @@ import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const CommunityStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="CommunityScreen"
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
@@ -23,4 +23,4 @@ const HomeStack = () => {
   );
 };
 
-export default HomeStack;
+export default CommunityStack;

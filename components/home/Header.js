@@ -29,15 +29,9 @@ const Header = ({ navigation }) => {
 
       <View style={styles.iconContainer}>
         <TouchableOpacity>
-          <TouchableOpacity>
-            <View style={styles.unreadBadge}>
-              <Text style={styles.unreadBadgeText}>??</Text>
-            </View>
-          </TouchableOpacity>
-          {/* <Ionicons name="notifications" size={28} color="#545050" /> */}
           <Image
             style={styles.icons}
-            source={require("../../assets/notificationIcon.png")}
+            source={require("../../assets/searchIcon.png")}
           />
         </TouchableOpacity>
 
@@ -49,7 +43,7 @@ const Header = ({ navigation }) => {
           </TouchableOpacity>
           <Image
             style={styles.icons}
-            source={require("../../assets/messageIcon.png")}
+            source={require("../../assets/notificationIcon.png")}
           />
         </TouchableOpacity>
       </View>
@@ -74,7 +68,7 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    width: 90,
+    width: 80,
     //marginLeft: 25,
     flexDirection: "row",
     justifyContent: "space-around",

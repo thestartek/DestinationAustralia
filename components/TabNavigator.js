@@ -8,6 +8,7 @@ import DrawerNavigator from "../components/DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../screens/NewPostScreen";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import CommunityStack from "./CommunityStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -38,17 +39,17 @@ const TabNavigator = (navigation) => {
                   style={{
                     width: 30,
                     height: 30,
-                    tintColor: focused ? "red" : "grey",
+                    tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "red" : "grey" }}>Home</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Home</Text>
               </View>
             ),
           }}
         />
         <Tab.Screen
           name="Community"
-          component={CommunityScreen}
+          component={CommunityStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View
@@ -64,10 +65,10 @@ const TabNavigator = (navigation) => {
                   style={{
                     width: 30,
                     height: 30,
-                    tintColor: focused ? "red" : "grey",
+                    tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "red" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
                   Community
                 </Text>
               </View>
@@ -93,10 +94,10 @@ const TabNavigator = (navigation) => {
                   style={{
                     width: 30,
                     height: 30,
-                    tintColor: focused ? "red" : "grey",
+                    tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "red" : "grey" }}>Tools</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Tools</Text>
               </View>
             ),
           }}
@@ -120,10 +121,10 @@ const TabNavigator = (navigation) => {
                   style={{
                     width: 30,
                     height: 30,
-                    tintColor: focused ? "red" : "grey",
+                    tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "red" : "grey" }}>Support</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Support</Text>
               </View>
             ),
           }}
@@ -147,10 +148,10 @@ const TabNavigator = (navigation) => {
                   style={{
                     width: 30,
                     height: 30,
-                    tintColor: focused ? "red" : "grey",
+                    tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "red" : "grey" }}>Profile</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Profile</Text>
               </View>
             ),
           }}

@@ -11,7 +11,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Divider } from "react-native-elements";
-import Post from "../components/home/Post";
+import Post from "../components/community/Post";
 import SettingsModel from "../components/profile/SettingsModal";
 
 import { db, auth } from "../Firebase";

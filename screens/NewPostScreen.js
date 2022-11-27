@@ -48,28 +48,35 @@ const NewPostScreen = ({ navigation }) => {
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <TouchableOpacity>
-            {!currentLoggedInUser.profile_picture ? 
-            <Image
-              source={require("../assets/profileIcon.png")}
-              style={[styles.profileThumbnail, {tintColor: 'grey'}]}
-            /> : <Image
-            source={{uri: currentLoggedInUser.profile_picture}}
-            style={styles.profileThumbnail}
-          />}
+            {!currentLoggedInUser.profile_picture ? (
+              <Image
+                source={require("../assets/profileIcon.png")}
+                style={[styles.profileThumbnail, { tintColor: "grey" }]}
+              />
+            ) : (
+              <Image
+                source={{ uri: currentLoggedInUser.profile_picture }}
+                style={styles.profileThumbnail}
+              />
+            )}
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text
-              style={{
-                marginLeft: 10,
-                marginBottom: 5,
-                fontWeight: "bold",
-                fontSize: 16,
-                color: "#1267E9",
-              }}
-            >
-              {currentLoggedInUser.fullname}
-            </Text>
+            {!currentLoggedInUser.fullname ? (
+              <Text></Text>
+            ) : (
+              <Text
+                style={{
+                  marginLeft: 10,
+                  marginBottom: 5,
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  color: "#1267E9",
+                }}
+              >
+                {currentLoggedInUser.fullname}
+              </Text>
+            )}
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
@@ -78,28 +85,6 @@ const NewPostScreen = ({ navigation }) => {
     </View>
   );
 };
-
-// const NewPostHeader = ({ navigation }) => {
-//   return (
-//     <View style={styles.headerContainer}>
-//       <View style={{ marginBottom: 5 }}>
-//         <TouchableOpacity
-//           style={{ flexDirection: "row", alignItems: "center" }}
-//           onPress={() => {
-//             navigation.push("HomeScreen");
-//           }}
-//         >
-//           <Ionicons name="chevron-back" size={28} color="#1267E9" />
-
-//           <Text style={styles.backText}>Home</Text>
-//         </TouchableOpacity>
-//       </View>
-
-//       <Text style={styles.headerText}>New post</Text>
-//       <Text> </Text>
-//     </View>
-//   );
-// };
 
 export default NewPostScreen;
 

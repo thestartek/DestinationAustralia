@@ -65,30 +65,30 @@ const AddNewPost = ({ post, navigation }) => {
     getUserDetails();
   }, []);
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.photo,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 0.75,
-    });
+  // const pickImage = async () => {
+  //   // No permissions request is necessary for launching the image library
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.photo,
+  //     allowsEditing: true,
+  //     aspect: [4, 3],
+  //     quality: 0.75,
+  //   });
 
-    console.log(result);
+  //   console.log(result);
 
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
+  //   if (!result.cancelled) {
+  //     setImage(result.uri);
+  //   }
+  // };
 
   const uploadPost = async () => {
-    const imageUrl = await uploadImage();
-    console.log(imageUrl);
+    // const imageUrl = await uploadImage();
+    // console.log(imageUrl);
     try {
       const postRef = doc(collection(db, "posts"));
       const postTask = setDoc(postRef, {
         uid: user.uid,
-        imageUrl: imageUrl,
+        // imageUrl: imageUrl,
         user: user.email,
         likes: [],
         shares: [],
@@ -96,8 +96,8 @@ const AddNewPost = ({ post, navigation }) => {
         comments: [],
         fullname: currentLoggedInUser.fullname,
         profile_picture: currentLoggedInUser.profile_picture,
-        category: category,
-        city: city,
+        // category: category,
+        // city: city,
         created: serverTimestamp(Date),
         postedDate: date + " " + months[month],
       });
@@ -110,44 +110,44 @@ const AddNewPost = ({ post, navigation }) => {
   };
 
   // uploading photo to firebase storage
-  const uploadImage = async () => {
-    if (image == null) {
-      return null;
-    }
-    try {
-      let filename =
-        user.email +
-        "/" +
-        "postImages" +
-        "/" +
-        image.substring(image.lastIndexOf("/") + 1);
-      const extension = filename.split(".").pop();
-      const name = filename.split(".").slice(0, -1).join(".");
-      const imageFilename = name + Date.now() + "." + extension;
+  // const uploadImage = async () => {
+  //   if (image == null) {
+  //     return null;
+  //   }
+  //   try {
+  //     let filename =
+  //       user.email +
+  //       "/" +
+  //       "postImages" +
+  //       "/" +
+  //       image.substring(image.lastIndexOf("/") + 1);
+  //     const extension = filename.split(".").pop();
+  //     const name = filename.split(".").slice(0, -1).join(".");
+  //     const imageFilename = name + Date.now() + "." + extension;
 
-      const imageRef = ref(storage, imageFilename);
-      const img = await fetch(image);
-      const bytes = await img.blob();
-      const uploadTask = uploadBytesResumable(imageRef, bytes);
+  //     const imageRef = ref(storage, imageFilename);
+  //     const img = await fetch(image);
+  //     const bytes = await img.blob();
+  //     const uploadTask = uploadBytesResumable(imageRef, bytes);
 
-      uploadTask.on("state_changed", (snapshot) => {
-        //FirebaseStorage.maxUplodRetryTime(60000);
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        //console.log("Upload is " + progress + "% done");
-        setIsLoading(true);
-        setPercentage(progress);
-      });
+  //     uploadTask.on("state_changed", (snapshot) => {
+  //       //FirebaseStorage.maxUplodRetryTime(60000);
+  //       const progress = Math.round(
+  //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+  //       );
+  //       //console.log("Upload is " + progress + "% done");
+  //       setIsLoading(true);
+  //       setPercentage(progress);
+  //     });
 
-      await uploadTask;
-      const url = await getDownloadURL(imageRef);
-      return url;
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
-  };
+  //     await uploadTask;
+  //     const url = await getDownloadURL(imageRef);
+  //     return url;
+  //   } catch (error) {
+  //     console.log(error);
+  //     return null;
+  //   }
+  // };
 
   return (
     <View>
@@ -161,7 +161,7 @@ const AddNewPost = ({ post, navigation }) => {
         style={styles.postBox}
       />
 
-      <View style={styles.optionsBar}>
+      {/* <View style={styles.optionsBar}>
         <View>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             {image != null ? (
@@ -191,9 +191,9 @@ const AddNewPost = ({ post, navigation }) => {
 
           <ChooseCity cityOptions={(city) => setCity(city)} />
         </View>
-      </View>
+      </View> */}
 
-      {caption == null && image == null ? (
+      {caption == null ? (
         <TouchableWithoutFeedback style={styles.postButtonDisabled}>
           <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
             Post
@@ -206,7 +206,7 @@ const AddNewPost = ({ post, navigation }) => {
           </Text>
         </TouchableOpacity>
       )}
-      <Text>Uploading {percentage} % done</Text>
+      {/* <Text>Uploading {percentage} % done</Text> */}
     </View>
   );
 };

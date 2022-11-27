@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "../components/home/Header.js";
-import Post from "../components/home/Post.js";
+import Post from "../components/community/Post.js";
 import { collection, onSnapshot, orderBy } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -9,7 +9,7 @@ import { Button, Divider } from "react-native-elements";
 import SkeletonContent from "react-native-skeleton-content";
 import Highlights from "../components/home/Highlights.js";
 
-const HomeScreen = ({ isLoading, navigation }) => {
+const CommunityScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = auth.currentUser;
@@ -34,196 +34,11 @@ const HomeScreen = ({ isLoading, navigation }) => {
     <View style={styles.container}>
       <Divider width={0.25} />
       <CreatePost navigation={navigation} />
-      
-
-      {loading ? (
-        <ScrollView>
-          <SkeletonContent
-            containerStyle={{ flex: 1, width: 300 }}
-            isLoading={isLoading}
-            layout={[
-              {
-                key: "highlights1",
-                marginHorizontal: 10,
-                marginTop: 10,
-                width: 110,
-                height: 80,
-                borderRadius: 5,
-              },
-              {
-                key: "hightlights2",
-                marginLeft: 140,
-                marginTop: -80,
-                width: 110,
-                height: 80,
-                borderRadius: 5,
-              },
-              {
-                key: "hightlights3",
-                marginLeft: 270,
-                marginTop: -80,
-                width: 110,
-                height: 80,
-                borderRadius: 5,
-              },
-              {
-                key: "profile_pic",
-                marginHorizontal: 10,
-                width: 40,
-                height: 40,
-                marginVertical: 10,
-                borderRadius: 20,
-              },
-              {
-                key: "name",
-                marginLeft: 60,
-                width: 120,
-                height: 18,
-                marginTop: -48,
-                borderRadius: 4,
-              },
-              {
-                key: "date",
-                marginLeft: 60,
-                width: 50,
-                height: 15,
-                marginTop: 5,
-                borderRadius: 4,
-              },
-              {
-                key: "caption_line_long",
-                marginHorizontal: 10,
-                marginVertical: 10,
-                width: 370,
-                height: 15,
-                borderRadius: 4,
-              },
-              {
-                key: "caption_line_short",
-                marginHorizontal: 10,
-                marginTop: -5,
-                width: 250,
-                height: 15,
-                borderRadius: 4,
-              },
-              {
-                key: "post_image",
-                marginHorizontal: 10,
-                width: 370,
-                height: 260,
-                marginVertical: 10,
-                borderRadius: 5,
-              },
-              {
-                key: "like_button",
-                marginHorizontal: 10,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-              {
-                key: "comment_button",
-                marginLeft: 140,
-                marginTop: -36,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-              {
-                key: "share_button",
-                marginLeft: 280,
-                marginTop: -36,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-            ]}
-          ></SkeletonContent>
-          <SkeletonContent
-            containerStyle={{ flex: 1, width: 300 }}
-            isLoading={isLoading}
-            layout={[
-              {
-                key: "profile_pic",
-                marginHorizontal: 10,
-                width: 40,
-                height: 40,
-                marginVertical: 10,
-                borderRadius: 20,
-              },
-              {
-                key: "name",
-                marginLeft: 60,
-                width: 120,
-                height: 18,
-                marginTop: -48,
-                borderRadius: 4,
-              },
-              {
-                key: "date",
-                marginLeft: 60,
-                width: 50,
-                height: 15,
-                marginTop: 5,
-                borderRadius: 4,
-              },
-              {
-                key: "caption_line_long",
-                marginHorizontal: 10,
-                marginVertical: 10,
-                width: 370,
-                height: 15,
-                borderRadius: 4,
-              },
-              {
-                key: "caption_line_short",
-                marginHorizontal: 10,
-                marginTop: -5,
-                width: 250,
-                height: 15,
-                borderRadius: 4,
-              },
-              {
-                key: "post_image",
-                marginHorizontal: 10,
-                width: 370,
-                height: 260,
-                marginVertical: 10,
-                borderRadius: 5,
-              },
-              {
-                key: "like_button",
-                marginHorizontal: 10,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-              {
-                key: "comment_button",
-                marginLeft: 140,
-                marginTop: -36,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-              {
-                key: "share_button",
-                marginLeft: 280,
-                marginTop: -36,
-                width: 100,
-                height: 36,
-                borderRadius: 5,
-              },
-            ]}
-          ></SkeletonContent>
-        </ScrollView>
-      ) : (
-        <ScrollView>
-          {posts.map((post, index) => (
-            <Post post={post} key={index} navigation={navigation} />
-          ))}
-        </ScrollView>
-      )}
+      <ScrollView>
+        {posts.map((post, index) => (
+          <Post post={post} key={index} navigation={navigation} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
@@ -260,4 +75,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-export default HomeScreen;
+export default CommunityScreen;
