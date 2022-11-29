@@ -63,8 +63,9 @@ const styles = StyleSheet.create({
     //height: 90,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
+    color: "#1267E9"
   },
 
   iconContainer: {

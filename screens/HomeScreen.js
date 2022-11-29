@@ -57,11 +57,21 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <View style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <Divider width={5} />
-      <Text style={styles.headingText}>Highlights</Text>
+      <Divider width={8} />
+      {/* <Text style={styles.headingText}>Highlights</Text> */}
 
-      <View style={styles.outerContainer}>
-        <View style={styles.bodyContainerHightlights}>
+      <ScrollView style={styles.outerContainer}>
+        <Text
+          style={{
+            backgroundColor: "white",
+            fontWeight: "bold",
+            fontSize: 20,
+            margin: 10,
+          }}
+        >
+          Highlights
+        </Text>
+        <ScrollView horizontal={true} style={styles.bodyContainerHightlights}>
           {highlights.map((highlights, index) => (
             <Highlights
               highlights={highlights}
@@ -69,23 +79,22 @@ const HomeScreen = ({ isLoading, navigation }) => {
               navigation={navigation}
             />
           ))}
-        </View>
-
-        <ScrollView>
-          <View style={styles.bodyContainerNews}>
-            <Text style={styles.headingText}>Latest News</Text>
-            <ScrollView>
-              {newsposts.map((newspost, index) => (
-                <NewsPost
-                  newspost={newspost}
-                  key={index}
-                  navigation={navigation}
-                />
-              ))}
-            </ScrollView>
-          </View>
         </ScrollView>
-      </View>
+        <Divider width={8} />
+
+        <View style={styles.bodyContainerNews}>
+          <Text style={styles.headingText}>Latest News</Text>
+          <View>
+            {newsposts.map((newspost, index) => (
+              <NewsPost
+                newspost={newspost}
+                key={index}
+                navigation={navigation}
+              />
+            ))}
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -96,17 +105,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   outerContainer: {
-    backgroundColor: "lightgrey",
+    backgroundColor: "white",
   },
   bodyContainerHightlights: {
     flexDirection: "row",
     backgroundColor: "white",
-    borderRadius: 10,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10
   },
   bodyContainerNews: {
     backgroundColor: "white",
-    margin: 10,
-    borderRadius: 10,
+    // marginTop: 5,
+    // borderRadius: 10,
     // height: 150,
   },
   headingText: {

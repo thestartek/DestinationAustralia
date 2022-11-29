@@ -18,16 +18,31 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     alignItems: "flex-start",
     backgroundColor: "white",
-    margin: 10
+    marginHorizontal: 5,
+    marginVertical: 10,
+    width: 120,
+    // borderColor: "#1267E9",
+    borderWidth: 2,
+    borderRadius: 10,
+    height: 166,
+    borderColor: "lightgrey"
   },
   image: {
-    width: 85,
-    height: 85,
+    width: 116,
+    height: 166,
     borderRadius: 10,
+    borderTopRightRadius: 10
   },
   text: {
     marginVertical: 5,
-    maxHeight: 100,
-    width: 85
+    maxHeight: 50,
+    width: 110,
+    marginTop: -50,
+    marginHorizontal: 5,
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "white",
+    textShadowRadius: 10,
+    textShadowColor: "black",
   },
 });
