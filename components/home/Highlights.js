@@ -1,15 +1,33 @@
-import { View, ScrollView, Text, Image, StyleSheet } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableHighlight,
+  Linking,
+} from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements";
+import {
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from "react-native-gesture-handler";
 
 const Highlights = ({ highlights, navigation }) => {
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: highlights.image }} style={styles.image} />
-      <Text style={styles.text}>{highlights.caption} </Text>
-    </View>
+    <TouchableOpacity onPress={()=> Linking.openURL(highlights.link)}>
+      <View style={styles.container}>
+        <Image source={{ uri: highlights.image }} style={styles.image} />
+        <Text style={styles.text}>{highlights.caption} </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
+
+function onPress(highlights) {
+  Linking.openURL(highlights.link)
+}
 
 export default Highlights;
 
@@ -25,13 +43,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     height: 166,
-    borderColor: "lightgrey"
+    borderColor: "lightgrey",
   },
   image: {
     width: 116,
     height: 166,
     borderRadius: 10,
-    borderTopRightRadius: 10
+    borderTopRightRadius: 10,
   },
   text: {
     marginVertical: 5,

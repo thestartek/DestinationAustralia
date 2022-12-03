@@ -1,23 +1,12 @@
-import {
-  ScrollView,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Alert,
-} from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements/dist/divider/Divider";
-import { TouchableOpacity, Share } from "react-native";
+import { TouchableOpacity, Share, Linking } from "react-native";
 import { auth, db } from "../../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import {
-  doc,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { Button } from "react-native-elements";
 //import { color } from "react-native-reanimated";
 
 const NewsPost = ({ newspost, navigation }) => {
@@ -44,9 +33,13 @@ const NewsPost = ({ newspost, navigation }) => {
     });
   };
   return (
-    <ScrollView>
+    <ScrollView style={{ marginHorizontal: 10 }}>
       <PostHeader newspost={newspost} />
-      {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
+      <View style={{ flexDirection: "row" }}>
+        {newspost.image != null ? <PostImage newspost={newspost} /> : null}
+        {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
+      </View>
+
       {/* {newspost.imageUrl != null ? <PostImage newspost={newspost} /> : <Divider />} */}
 
       <View style={styles.postFooterContainer}>
@@ -54,7 +47,7 @@ const NewsPost = ({ newspost, navigation }) => {
         <Divider width={1} orientation="vertical" />
         <CommentButton newspost={newspost} navigation={navigation} />
         <Divider width={1} orientation="vertical" />
-        <ShareButton newspost={newspost} handleShare={handleShare}/>
+        <ShareButton newspost={newspost} handleShare={handleShare} />
       </View>
       {/* const CommentInput  */}
       <Divider width={2} />
@@ -65,28 +58,37 @@ const NewsPost = ({ newspost, navigation }) => {
 const PostHeader = ({ newspost }) => (
   <View style={{ flexDirection: "row", margin: 10 }}>
     <View style={{ flexDirection: "column" }}>
-      <TouchableOpacity>
-        <Text
-          style={{
-            marginLeft: 5,
-            // marginTop: 4,
-            fontWeight: "bold",
-            fontSize: 15,
-            color: "#1267E9",
-          }}
-        >
-          {newspost.headline}
-        </Text>
-      </TouchableOpacity>
+      <Text
+        style={{
+          marginLeft: 5,
+          // marginTop: 4,
+          fontWeight: "bold",
+          fontSize: 15,
+          color: "#1267E9",
+        }}
+      >
+        {newspost.headline}
+      </Text>
+
       <Text style={styles.timstampText}>{newspost.date}</Text>
     </View>
   </View>
 );
 
 const Caption = ({ newspost }) => (
-  <Text style={{ marginLeft: 15, marginRight: 10, marginBottom: 10 }}>
-    {newspost.abstract}
-  </Text>
+  <View>
+    <Text style={{ marginHorizontal: 10 }}>{newspost.abstract}</Text>
+    <TouchableOpacity onPress={()=> Linking.openURL(newspost.link)}>
+      <Text style={{ margin: 10, color: "#1267E9" }}>Read more...</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+const PostImage = ({ newspost }) => (
+  <Image
+    source={{ uri: newspost.image }}
+    style={{ height: 100, width: 100, marginLeft: 10 }}
+  />
 );
 
 const LikeButton = ({ newspost, handleLike, focused }) => {
@@ -171,7 +173,9 @@ const ShareButton = ({ newspost }) => {
         <Feather name="share" size={24} color="#545050" />
 
         {!!newspost.shares.length && (
-          <Text style={styles.postFooterIconsText}>{newspost.shares.length}</Text>
+          <Text style={styles.postFooterIconsText}>
+            {newspost.shares.length}
+          </Text>
         )}
       </TouchableOpacity>
     </View>

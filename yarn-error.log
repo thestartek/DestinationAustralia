@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "haaminepali",
+    "name": "journeytoaustralia",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {

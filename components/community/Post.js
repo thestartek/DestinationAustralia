@@ -38,7 +38,7 @@ const Post = ({ post, navigation }) => {
     <ScrollView>
       <PostHeader post={post} />
       {post.caption != null ? <Caption post={post} /> : null}
-      {post.imageUrl != null ? <PostImage post={post} /> : <Divider />}
+      {/* {post.imageUrl != null ? <PostImage post={post} /> : <Divider />} */}
 
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
@@ -93,14 +93,14 @@ const Caption = ({ post }) => (
   </Text>
 );
 
-const PostImage = ({ post }) => (
-  <View style={{ width: "100%", maxHeight: 300 }}>
-    <Image
-      source={{ uri: post.imageUrl }}
-      style={{ height: "100%", resizeMode: "cover" }}
-    />
-  </View>
-);
+// const PostImage = ({ post }) => (
+//   <View style={{ width: "100%", maxHeight: 300 }}>
+//     <Image
+//       source={{ uri: post.imageUrl }}
+//       style={{ height: "100%", resizeMode: "cover" }}
+//     />
+//   </View>
+// );
 
 // const onLiked=(post) => (post.liked ?
 // <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> :

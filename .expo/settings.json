@@ -3,7 +3,7 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": null,
+  "urlRandomness": "8v-53f",
   "https": false,
   "scheme": "org.name.HaamiNepali",
   "devClient": false

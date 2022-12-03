@@ -13,11 +13,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.name.HaamiNepali</string>
+	<string>org.name.journeytoaustralia</string>
 	<key>PROJECT_ID</key>
-	<string>haaminepali-8dd13</string>
+	<string>journeytoaustralia-b21d4</string>
 	<key>STORAGE_BUCKET</key>
-	<string>haaminepali-8dd13.appspot.com</string>
+	<string>journeytoaustralia-b21d4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

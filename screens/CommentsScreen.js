@@ -30,7 +30,8 @@ const CommentsScreen = ({ navigation }) => {
 
   return (
     <View>
-      {posts.map((post, index) => (
+      <Text style={{margin: 10, fontWeight: "bold"}}>Comments are on the way.</Text>
+      {/* {posts.map((post, index) => (
         <AddComment post={post} key={index} />
       ))}
       <ScrollView>
@@ -39,7 +40,7 @@ const CommentsScreen = ({ navigation }) => {
         ))}
       </ScrollView>
 
-      <Divider />
+      <Divider /> */}
     </View>
   );
 };
