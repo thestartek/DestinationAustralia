@@ -17,7 +17,7 @@ const CommunityScreen = ({ isLoading, navigation }) => {
   useEffect(() => {
     const unsub = onSnapshot(
       collection(db, "posts"),
-      orderBy("creatd"),
+      orderBy("caption"),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))

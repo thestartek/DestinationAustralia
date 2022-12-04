@@ -2,13 +2,22 @@ import { ScrollView, StyleSheet, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "../components/home/Header.js";
 import Post4home from "../components/home/Post4home.js";
-import { collection, onSnapshot, orderBy } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  limit,
+  query,
+} from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Button, Divider } from "react-native-elements";
 import SkeletonContent from "react-native-skeleton-content";
 import Highlights from "../components/home/Highlights.js";
 import NewsPost from "../components/home/NewsPost.js";
+import CommunityScreen from "./CommunityScreen.js";
+import Post from "../components/community/Post.js";
+import CommunityStack from "../components/CommunityStack.js";
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -19,8 +28,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      collection(db, "highlights"),
-      orderBy("creatd"),
+      query(collection(db, "highlights"), orderBy("date", "desc")),
       (snapshot) => {
         setHighlights(
           snapshot.docs.map((highlights) => ({
@@ -38,8 +46,31 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      collection(db, "newsposts"),
-      orderBy("id"),
+      query(collection(db, "posts"), orderBy("postedDate", "desc"), limit(3)),
+      (snapshot) => {
+        setPosts(
+          snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
+        );
+        if (loading) {
+          setLoading(false);
+        }
+      }
+    );
+    return unsub;
+  }, []);
+
+  // const q = query(collection(db, "newspost"), where("date", "==", "27 Nov"));
+  // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  //   const newsposts = [];
+  //   querySnapshot.forEach((doc) => {
+  //     newspost.push(doc.data().name);
+  //   });
+  //   console.log("Current cities in CA: ", cities.join(", "));
+  // });
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      query(collection(db, "newsposts"), orderBy("date", "desc")),
       (snapshot) => {
         setNewsPosts(
           snapshot.docs.map((newspost) => ({
@@ -54,6 +85,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
     );
     return unsub;
   }, []);
+
   return (
     <View style={styles.mainContainer}>
       <Header navigation={navigation} />
@@ -71,7 +103,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
         >
           Highlights
         </Text>
-        <ScrollView horizontal={true} style={styles.bodyContainerHightlights}>
+        <ScrollView horizontal={true}>
           {highlights.map((highlights, index) => (
             <Highlights
               highlights={highlights}
@@ -81,8 +113,38 @@ const HomeScreen = ({ isLoading, navigation }) => {
           ))}
         </ScrollView>
         <Divider width={8} />
-
-        <View style={styles.bodyContainerNews}>
+        <Text
+          style={{
+            backgroundColor: "white",
+            fontWeight: "bold",
+            fontSize: 20,
+            margin: 10,
+          }}
+        >
+          Latest posts
+        </Text>
+        <View style={{ flexDirection: "row" }}>
+          {posts.map((post, index) => (
+            <Post4home post={post} key={index} navigation={navigation} />
+          ))}
+        </View>
+        <TouchableOpacity
+          onPress={()=> navigation.push("Community")}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+              color: "#1267E9",
+              marginBottom: 15,
+              fontSize: 15,
+              fontWeight: "bold",
+            }}
+          >
+            More posts...
+          </Text>
+        </TouchableOpacity>
+        <Divider width={8} />
+        <View >
           <Text style={styles.headingText}>Latest News</Text>
           <View>
             {newsposts.map((newspost, index) => (
@@ -106,18 +168,6 @@ const styles = StyleSheet.create({
   },
   outerContainer: {
     backgroundColor: "white",
-  },
-  bodyContainerHightlights: {
-    flexDirection: "row",
-    backgroundColor: "white",
-    // borderBottomLeftRadius: 10,
-    // borderBottomRightRadius: 10
-  },
-  bodyContainerNews: {
-    backgroundColor: "white",
-    // marginTop: 5,
-    // borderRadius: 10,
-    // height: 150,
   },
   headingText: {
     margin: 10,

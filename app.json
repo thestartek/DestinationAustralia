@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HaamiNepali",
-    "slug": "HaamiNepali",
+    "name": "journeytoaustralia",
+    "slug": "journeytoaustralia",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
@@ -15,7 +15,7 @@
       ]
     ],
     "ios": {
-      "bundleIdentifier": "org.name.HaamiNepali",
+      "bundleIdentifier": "org.name.journeytoaustralia",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends.",
         "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
@@ -29,8 +29,8 @@
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "org.name.HaamiNepali"
+      "package": "org.name.journeytoaustralia"
     }
   },
-  "name": "HaamiNepali"
+  "name": "journeytoaustralia"
 }

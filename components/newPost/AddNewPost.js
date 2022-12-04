@@ -31,7 +31,7 @@ const AddNewPost = ({ post, navigation }) => {
   const [percentage, setPercentage] = useState(null);
 
   const date = new Date().getDate();
-  const month = new Date().getMonth() + 1;
+  const month = new Date().getMonth();
   //const year = new Date().getFullYear();
   const months = [
     "Jan",
@@ -95,7 +95,7 @@ const AddNewPost = ({ post, navigation }) => {
         caption: caption,
         comments: [],
         fullname: currentLoggedInUser.fullname,
-        profile_picture: currentLoggedInUser.profile_picture,
+        profile_picture: currentLoggedInUser.profile_picture || null,
         // category: category,
         // city: city,
         created: serverTimestamp(Date),

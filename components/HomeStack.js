@@ -2,6 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import CommentsScreen from "../screens/CommentsScreen";
+import CommunityStack from "./CommunityStack";
 // import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +19,7 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Comments" component={CommentsScreen} />
-      {/* <Stack.Screen name="New post" component={NewPostScreen} /> */}
+      <Stack.Screen name="Community" component={CommunityStack} />
     </Stack.Navigator>
   );
 };

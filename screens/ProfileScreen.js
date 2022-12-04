@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { onSnapshot, doc, collection } from "firebase/firestore";
+import { onSnapshot, doc, collection, where, orderBy, limit } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -62,11 +62,11 @@ const ProfileScreen = ({ navigation }) => {
   useEffect(() => {
     const unsub = onSnapshot(
       collection(db, "posts"),
-      // where("id", "==", auth.currentUser.uid),
+      // where("posts.id", "==", auth.currentUser.uid),
       // orderBy("creatd"),
       (snapshot) => {
         setPosts(
-          snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
+          snapshot.docs.map((post) => ({ id: post.id, ...post.data()}))
         );
         if (loading) {
           setLoading(false);
@@ -76,75 +76,9 @@ const ProfileScreen = ({ navigation }) => {
     return unsub;
   }, []);
 
-  // const fetchPosts = async () => {
-  //   try {
-  //     const list = [];
-
-  //     await firestore()
-  //       .collection('posts')
-  //       .where('userId', '==', route.params ? route.params.userId : user.uid)
-  //       .orderBy('postTime', 'desc')
-  //       .get()
-  //       .then((querySnapshot) => {
-  //         // console.log('Total Posts: ', querySnapshot.size);
-
-  //         querySnapshot.forEach((doc) => {
-  //           const {
-  //             userId,
-  //             post,
-  //             postImg,
-  //             postTime,
-  //             likes,
-  //             comments,
-  //           } = doc.data();
-  //           list.push({
-  //             id: doc.id,
-  //             userId,
-  //             userName: 'Test Name',
-  //             userImg:
-  //               'https://lh5.googleusercontent.com/-b0PKyNuQv5s/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclxAM4M1SCBGAO7Rp-QP6zgBEUkOQ/s96-c/photo.jpg',
-  //             postTime: postTime,
-  //             post,
-  //             postImg,
-  //             liked: false,
-  //             likes,
-  //             comments,
-  //           });
-  //         });
-  //       });
-
-  //     setPosts(list);
-
-  //     if (loading) {
-  //       setLoading(false);
-  //     }
-
-  //     console.log('Posts: ', posts);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
-  // const getUser = async() => {
-  //   await firestore()
-  //   .collection('users')
-  //   .doc( route.params ? route.params.userId : user.uid)
-  //   .get()
-  //   .then((documentSnapshot) => {
-  //     if( documentSnapshot.exists ) {
-  //       console.log('User Data', documentSnapshot.data());
-  //       setUserData(documentSnapshot.data());
-  //     }
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   getUser();
-  //   fetchPosts();
-  //   navigation.addListener("focus", () => setLoading(!loading));
-  // }, [navigation, loading]);
-
-  // const handleDelete = () => {};
+//   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+//     console.log("Current data: ", doc.data());
+// });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
