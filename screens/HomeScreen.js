@@ -16,8 +16,9 @@ import SkeletonContent from "react-native-skeleton-content";
 import Highlights from "../components/home/Highlights.js";
 import NewsPost from "../components/home/NewsPost.js";
 import CommunityScreen from "./CommunityScreen.js";
-import Post from "../components/community/Post.js";
+import Post from "../components/post/Post.js";
 import CommunityStack from "../components/CommunityStack.js";
+import Tools4Home from "../components/home/Tools4Home.js";
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -46,7 +47,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("postedDate", "desc"), limit(3)),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(3)),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
@@ -93,16 +94,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
       {/* <Text style={styles.headingText}>Highlights</Text> */}
 
       <ScrollView style={styles.outerContainer}>
-        <Text
-          style={{
-            backgroundColor: "white",
-            fontWeight: "bold",
-            fontSize: 20,
-            margin: 10,
-          }}
-        >
-          Highlights
-        </Text>
+        <Text style={styles.headingText}>Highlights</Text>
         <ScrollView horizontal={true}>
           {highlights.map((highlights, index) => (
             <Highlights
@@ -113,38 +105,29 @@ const HomeScreen = ({ isLoading, navigation }) => {
           ))}
         </ScrollView>
         <Divider width={8} />
-        <Text
-          style={{
-            backgroundColor: "white",
-            fontWeight: "bold",
-            fontSize: 20,
-            margin: 10,
-          }}
-        >
-          Latest posts
-        </Text>
+
+        <Text style={styles.headingText}>Latest posts</Text>
         <View style={{ flexDirection: "row" }}>
           {posts.map((post, index) => (
             <Post4home post={post} key={index} navigation={navigation} />
           ))}
         </View>
-        <TouchableOpacity
-          onPress={()=> navigation.push("Community")}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              color: "#1267E9",
-              marginBottom: 15,
-              fontSize: 15,
-              fontWeight: "bold",
-            }}
-          >
-            More posts...
-          </Text>
+        <TouchableOpacity onPress={() => navigation.push("Posts")}>
+          <Text style={styles.seeMoreText}>More posts...</Text>
         </TouchableOpacity>
+
         <Divider width={8} />
-        <View >
+        <Text style={styles.headingText}>Tools</Text>
+        {/* List tools here */}
+        <Tools4Home navigation={navigation} />
+
+        <TouchableOpacity onPress={() => navigation.push("Tools")}>
+          <Text style={styles.seeMoreText}>More tools...</Text>
+        </TouchableOpacity>
+
+        <Divider width={8} />
+
+        <View>
           <Text style={styles.headingText}>Latest News</Text>
           <View>
             {newsposts.map((newspost, index) => (
@@ -173,7 +156,16 @@ const styles = StyleSheet.create({
     margin: 10,
     fontWeight: "bold",
     fontSize: 20,
-    // color: "black",
+    fontWeight: "bold",
+    fontSize: 20,
+    margin: 10,
+  },
+  seeMoreText: {
+    textAlign: "center",
+    color: "#1267E9",
+    marginBottom: 20,
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });
 export default HomeScreen;

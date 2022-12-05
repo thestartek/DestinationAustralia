@@ -18,7 +18,7 @@ import {
   Modal,
 } from "react-native";
 import { Divider } from "react-native-elements";
-import Post from "../components/community/Post";
+import Post from "../components/post/Post";
 
 import { db, auth } from "../Firebase";
 //import {AuthContext} from '../navigation/AuthProvider';

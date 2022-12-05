@@ -8,25 +8,21 @@ import PrPointsCalculator from "./tools/PrPointsCalculator";
 import IncomeCalculator from "./tools/IncomeCalculator";
 import UniversityFinder from "./tools/UniversityFinder";
 import ExpenseEstimator from "./tools/ExpenseEstimator";
-import PostScreen from "./post/PostsScreen";
 // import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const ToolsStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="Tools"
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="Tools"
+        component={ToolsScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Comments" component={CommentsScreen} />
-      <Stack.Screen name="Posts" component={PostScreen} />
-      <Stack.Screen name="Tools" component={ToolsScreen} />
       <Stack.Screen
         name="PR Points Calculator"
         component={PrPointsCalculator}
@@ -38,4 +34,4 @@ const HomeStack = () => {
   );
 };
 
-export default HomeStack;
+export default ToolsStack;

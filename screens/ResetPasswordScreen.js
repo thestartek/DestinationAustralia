@@ -20,7 +20,7 @@ const ResetPasswordScreen = ({ navigation }) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         Alert.alert(
-          "Password reset email sent! Please check your email for details"
+          "Password reset email sent! If you didn't receive the link in your Inbox, please check the Spam folder."
         );
         navigation.push("Login");
       })

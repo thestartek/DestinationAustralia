@@ -1,15 +1,15 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
-import Header from "../components/home/Header.js";
-import Post from "../components/post/Post.js";
+import Header from "../home/Header.js";
+import Post from "./Post.js";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db, auth } from "../Firebase";
+import { db, auth } from "../../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Button, Divider } from "react-native-elements";
 import SkeletonContent from "react-native-skeleton-content";
-import Highlights from "../components/home/Highlights.js";
+import Highlights from "../home/Highlights.js";
 
-const CommunityScreen = ({ isLoading, navigation }) => {
+const PostScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = auth.currentUser;
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-export default CommunityScreen;
+export default PostScreen;

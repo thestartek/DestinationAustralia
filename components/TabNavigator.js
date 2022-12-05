@@ -42,7 +42,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Home</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                  Home
+                </Text>
               </View>
             ),
           }}
@@ -77,7 +79,7 @@ const TabNavigator = (navigation) => {
         />
 
         <Tab.Screen
-          name="Tools"
+          name="NewPost"
           component={NewPostScreen}
           options={{
             tabBarIcon: ({ focused }) => (
@@ -89,7 +91,7 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/classifiedIcon_Active.png")}
+                  source={require("../assets/plusIcon.png")}
                   resizeMode="contain"
                   style={{
                     width: 30,
@@ -97,7 +99,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Tools</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                  Post
+                </Text>
               </View>
             ),
           }}
@@ -124,7 +128,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Support</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                  Support
+                </Text>
               </View>
             ),
           }}
@@ -151,7 +157,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>Profile</Text>
+                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                  Profile
+                </Text>
               </View>
             ),
           }}

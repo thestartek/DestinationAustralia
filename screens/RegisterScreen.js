@@ -34,7 +34,7 @@ const RegisterScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [percentage, setPercentage] = useState(0)
+  const [percentage, setPercentage] = useState(0);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -76,7 +76,8 @@ const RegisterScreen = ({ navigation }) => {
           console.error("Error adding user", e);
         }
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => Alert.alert(error.message));
+    // Alert.alert(error.message);
   };
 
   // useEffect(() => {

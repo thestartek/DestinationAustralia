@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import React, { useState, useEffect } from "react";
-import Comments from "../components/community/Comments";
+import Comments from "../components/post/Comments";
 import { auth, db } from "../Firebase";
 import { onSnapshot, doc, orderBy, collection } from "firebase/firestore";
-import AddComment from "../components/community/AddComment";
+import AddComment from "../components/post/AddComment";
 import { Divider } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -30,7 +30,9 @@ const CommentsScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text style={{margin: 10, fontWeight: "bold"}}>Comments are on the way.</Text>
+      <Text style={{ margin: 10, fontWeight: "bold" }}>
+        Comments are on the way.
+      </Text>
       {/* {posts.map((post, index) => (
         <AddComment post={post} key={index} />
       ))}

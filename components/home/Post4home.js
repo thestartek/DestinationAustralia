@@ -25,24 +25,8 @@ const Post4home = ({ post, navigation }) => {
 
   return (
     <View>
-      <View>
-        <PostHeader post={post} />
-
-        {post.caption != null ? <Caption post={post} /> : null}
-        {/* {post.imageUrl != null ? <PostImage post={post} /> : null} */}
-
-        {/* <Divider width={10} /> */}
-        {/* <View style={styles.postFooterContainer}>
-          <LikeButton post={post} handleLike={handleLike} />
-          <Divider width={1} orientation="vertical" />
-          <CommentButton post={post} navigation={navigation} />
-          <Divider width={1} orientation="vertical" />
-          <ShareButton post={post} />
-        </View> */}
-      </View>
-
-      {/* const CommentInput  */}
-      {/* <Divider width={10}/> */}
+      <PostHeader post={post} />
+      {post.caption != null ? <Caption post={post} /> : null}
     </View>
   );
 };
@@ -77,101 +61,10 @@ const PostHeader = ({ post }) => (
 );
 
 const Caption = ({ post }) => (
-  <Text style={{ marginLeft: 10, marginRight: 10, width: 120, height: 60 }}>
+  <Text style={{ marginLeft: 10, marginRight: 10,marginBottom: -20, width: 120, height: 60 }}>
     {post.caption}
   </Text>
 );
-
-// const PostImage = ({ post }) => (
-//   <View style={{ width: "90%", maxHeight: 100 }}>
-//     <Image
-//       source={{ uri: post.imageUrl }}
-//       style={{ height: "100%", resizeMode: "cover" }}
-//     />
-//   </View>
-// );
-
-// const LikeButton = ({ post, handleLike, focused }) => {
-//   // onLiked = post.liked ? "like1" : "like2";
-//   const onLikedColor = post.likes.includes(auth.currentUser.email)
-//     ? "#1267E9"
-//     : "#545050";
-
-//   return (
-//     <View>
-//       <TouchableOpacity
-//         style={{ flexDirection: "row" }}
-//         onPress={() => {
-//           handleLike(post);
-//         }}
-//       >
-//         {post.likes.includes(auth.currentUser.email) ? (
-//           <AntDesign name="like1" size={20} color="#1267E9" />
-//         ) : (
-//           <AntDesign name="like2" size={20} color="#545050" />
-//         )}
-//         {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
-//         {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
-
-//         {!!post.likes.length && (
-//           <Text style={[styles.postFooterIconsText, { color: onLikedColor }]}>
-//             {post.likes.length}
-//           </Text>
-//         )}
-//       </TouchableOpacity>
-//     </View>
-//   );
-// };
-
-// const CommentButton = ({ post, postId, navigation }) => {
-//   //const [modalVisible, setModalVisible] = useState(false);
-//   return (
-//     <View>
-//       <FontAwesome name="commenting-o" size={20} color="#545050" />
-
-//       {!!post.comments.length && (
-//         <Text style={styles.postFooterIconsText}>
-//           {/* View
-//             {post.comments.length > 1 ? " all " : " "} */}
-//           {post.comments.length}
-//           {/* {post.comments.length > 1 ? " comments" : " comment"} */}
-//         </Text>
-//       )}
-//     </View>
-//   );
-// };
-
-// const ShareButton = ({ post }) => {
-//   const onShare = async () => {
-//     try {
-//       const result = await Share.share({
-//         message:
-//           "Haami Nepali | A community app for connecting all Nepalese living in Australia",
-//       });
-//       if (result.action === Share.sharedAction) {
-//         if (result.activityType) {
-//           Alert.alert("Sharing successful");
-//         } else {
-//           // shared
-//         }
-//       } else if (result.action === Share.dismissedAction) {
-//         //alert("Sharing cancelled")
-//       }
-//     } catch (error) {
-//       alert(error.message);
-//     }
-//   };
-
-//   return (
-//     <View>
-//       <Feather name="share" size={20} color="#545050" />
-
-//       {!!post.shares.length && (
-//         <Text style={styles.postFooterIconsText}>{post.shares.length}</Text>
-//       )}
-//     </View>
-//   );
-// };
 
 export default Post4home;
 

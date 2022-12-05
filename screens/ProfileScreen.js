@@ -1,5 +1,13 @@
 import { signOut } from "firebase/auth";
-import { onSnapshot, doc, collection, where, orderBy, limit } from "firebase/firestore";
+import {
+  onSnapshot,
+  doc,
+  collection,
+  where,
+  orderBy,
+  limit,
+  query,
+} from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -11,7 +19,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Divider } from "react-native-elements";
-import Post from "../components/community/Post";
+import Post from "../components/post/Post";
 import SettingsModel from "../components/profile/SettingsModal";
 
 import { db, auth } from "../Firebase";
@@ -61,12 +69,14 @@ const ProfileScreen = ({ navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      collection(db, "posts"),
-      // where("posts.id", "==", auth.currentUser.uid),
-      // orderBy("creatd"),
+      query(
+        collection(db, "posts"),
+        where("user", "==", auth.currentUser.email),
+        orderBy("created", "desc")
+      ),
       (snapshot) => {
         setPosts(
-          snapshot.docs.map((post) => ({ id: post.id, ...post.data()}))
+          snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
         );
         if (loading) {
           setLoading(false);
@@ -76,9 +86,9 @@ const ProfileScreen = ({ navigation }) => {
     return unsub;
   }, []);
 
-//   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
-//     console.log("Current data: ", doc.data());
-// });
+  //   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+  //     console.log("Current data: ", doc.data());
+  // });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -121,8 +131,18 @@ const ProfileScreen = ({ navigation }) => {
         ))} */}
       </View>
 
-      <Divider width={5} />
+      <Divider width={2} />
 
+      <Text
+        style={{
+          backgroundColor: "white",
+          fontWeight: "bold",
+          fontSize: 20,
+          margin: 10,
+        }}
+      >
+        Your posts
+      </Text>
       <ScrollView>
         {/* <View style={styles.postIcon}>
           <Text style={styles.postText}>Posts</Text>
