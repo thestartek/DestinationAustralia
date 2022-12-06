@@ -1,13 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const DonateScreen = () => {
+const NotificationScreen = () => {
   return (
     <View>
       
-      <Text>DonateScreen</Text>
+      <Text>Notification Screen</Text>
     </View>
   )
 }
 
-export default DonateScreen
+export default NotificationScreen

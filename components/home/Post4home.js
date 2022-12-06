@@ -14,19 +14,26 @@ const Post4home = ({ post, navigation }) => {
   //   <Image source={require("../../assets/profileIcon.png")} />
   // );
 
-  // const handleLike = (post) => {
-  //   const currentLikeStatus = !post.likes.includes(user.email);
-  //   updateDoc(doc(db, "posts", post.id), {
-  //     likes: currentLikeStatus
-  //       ? arrayUnion(user.email)
-  //       : arrayRemove(user.email),
-  //   });
-  // };
+  const handleLike = (post) => {
+    const currentLikeStatus = !post.likes.includes(user.email);
+    updateDoc(doc(db, "posts", post.id), {
+      likes: currentLikeStatus
+        ? arrayUnion(user.email)
+        : arrayRemove(user.email),
+    });
+  };
 
   return (
     <View>
       <PostHeader post={post} />
       {post.caption != null ? <Caption post={post} /> : null}
+      <Divider width={1} marginHorizontal={10} />
+      <View style={styles.postFooterContainer}>
+        <LikeButton post={post} handleLike={handleLike} />
+        <Divider width={1} orientation="vertical" />
+        <CommentButton post={post} navigation={navigation} />
+      </View>
+      <Divider width={1} marginHorizontal={10} />
     </View>
   );
 };
@@ -61,10 +68,107 @@ const PostHeader = ({ post }) => (
 );
 
 const Caption = ({ post }) => (
-  <Text style={{ marginLeft: 10, marginRight: 10,marginBottom: -20, width: 120, height: 60 }}>
+  <Text
+    style={{
+      marginLeft: 10,
+      marginRight: 10,
+      // marginBottom: -20,
+      width: 120,
+      height: 60,
+    }}
+  >
     {post.caption}
   </Text>
 );
+
+const LikeButton = ({ post, handleLike, focused }) => {
+  // onLiked = post.liked ? "like1" : "like2";
+  const onLikedColor = post.likes.includes(auth.currentUser.email)
+    ? "#1267E9"
+    : "#545050";
+
+  return (
+    <View>
+      <TouchableOpacity
+        style={{ flexDirection: "row" }}
+        onPress={() => {
+          handleLike(post);
+        }}
+      >
+        {post.likes.includes(auth.currentUser.email) ? (
+          <AntDesign name="like1" size={25} color="#1267E9" />
+        ) : (
+          <AntDesign name="like2" size={25} color="#545050" />
+        )}
+        {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
+        {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
+
+        {!!post.likes.length && (
+          <Text style={[styles.postFooterIconsText, { color: onLikedColor }]}>
+            {post.likes.length}
+          </Text>
+        )}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const CommentButton = ({ post, postId, navigation }) => {
+  //const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View>
+      <TouchableOpacity
+        onPress={() => navigation.push("Comments")}
+        style={{ flexDirection: "row" }}
+      >
+        <FontAwesome name="commenting-o" size={25} color="#545050" />
+
+        {!!post.comments.length && (
+          <Text style={styles.postFooterIconsText}>
+            {/* View
+            {post.comments.length > 1 ? " all " : " "} */}
+            {post.comments.length}
+            {/* {post.comments.length > 1 ? " comments" : " comment"} */}
+          </Text>
+        )}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const ShareButton = ({ post }) => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          "Haami Nepali | A community app for connecting all Nepalese living in Australia",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          Alert.alert("Sharing successful");
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        //alert("Sharing cancelled")
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  return (
+    <View>
+      <TouchableOpacity onPress={onShare} style={{ flexDirection: "row" }}>
+        <Feather name="share" size={24} color="#545050" />
+
+        {!!post.shares.length && (
+          <Text style={styles.postFooterIconsText}>{post.shares.length}</Text>
+        )}
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export default Post4home;
 
@@ -88,19 +192,12 @@ const styles = StyleSheet.create({
   },
 
   postFooterContainer: {
-    alignItems: "center",
+    // alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginHorizontal: 10,
-    marginVertical: 10,
-    width: "80%",
+    justifyContent: "space-around",
+    marginRight: 10,
+    marginVertical: 5
   },
-
-  // postFooterIcons: {
-  //   // height: 25,
-  //   // width: 25,
-  //   //tintColor: "grey",
-  // },
 
   postFooterIconsText: {
     fontSize: 12,
@@ -108,45 +205,5 @@ const styles = StyleSheet.create({
     marginTop: 6,
     marginLeft: 5,
     color: "#545050",
-  },
-
-  buttonStyle: (focused) => ({
-    tintColor: focused ? "red" : "grey",
-  }),
-
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
   },
 });

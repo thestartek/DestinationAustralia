@@ -1,14 +1,15 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Image } from "react-native";
-import CommunityScreen from "../screens/CommunityScreen";
-import DonateScreen from "../screens/DonateScreen";
+import { View, Text, Image, StyleSheet } from "react-native";
+import CommunityScreen from "./learn/LearnScreen";
+import NotificationScreen from "./notifications/NotificationScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "../components/DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../screens/NewPostScreen";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CommunityStack from "./CommunityStack";
+import LearnScreen from "./learn/LearnScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,8 +51,8 @@ const TabNavigator = (navigation) => {
           }}
         />
         <Tab.Screen
-          name="Community"
-          component={CommunityStack}
+          name="Learn"
+          component={LearnScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View
@@ -62,7 +63,7 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/commentIcon_Active.png")}
+                  source={require("../assets/learnIcon.png")}
                   resizeMode="contain"
                   style={{
                     width: 30,
@@ -71,7 +72,7 @@ const TabNavigator = (navigation) => {
                   }}
                 />
                 <Text style={{ color: focused ? "#1267E9" : "grey" }}>
-                  Community
+                  Learn
                 </Text>
               </View>
             ),
@@ -79,7 +80,7 @@ const TabNavigator = (navigation) => {
         />
 
         <Tab.Screen
-          name="NewPost"
+          name="New post"
           component={NewPostScreen}
           options={{
             tabBarIcon: ({ focused }) => (
@@ -108,8 +109,8 @@ const TabNavigator = (navigation) => {
         />
 
         <Tab.Screen
-          name="Support"
-          component={DonateScreen}
+          name="Notifications"
+          component={NotificationScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View
@@ -120,7 +121,7 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/donateIcon_Active.png")}
+                  source={require("../assets/notificationIcon_Active.png")}
                   resizeMode="contain"
                   style={{
                     width: 30,
@@ -129,7 +130,7 @@ const TabNavigator = (navigation) => {
                   }}
                 />
                 <Text style={{ color: focused ? "#1267E9" : "grey" }}>
-                  Support
+                  Notifications
                 </Text>
               </View>
             ),

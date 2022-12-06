@@ -15,7 +15,7 @@ import { Button, Divider } from "react-native-elements";
 import SkeletonContent from "react-native-skeleton-content";
 import Highlights from "../components/home/Highlights.js";
 import NewsPost from "../components/home/NewsPost.js";
-import CommunityScreen from "./CommunityScreen.js";
+import CommunityScreen from "../components/learn/LearnScreen.js";
 import Post from "../components/post/Post.js";
 import CommunityStack from "../components/CommunityStack.js";
 import Tools4Home from "../components/home/Tools4Home.js";
@@ -47,7 +47,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("created", "desc"), limit(3)),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(6)),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
@@ -107,11 +107,11 @@ const HomeScreen = ({ isLoading, navigation }) => {
         <Divider width={8} />
 
         <Text style={styles.headingText}>Latest posts</Text>
-        <View style={{ flexDirection: "row" }}>
+        <ScrollView horizontal={true}>
           {posts.map((post, index) => (
             <Post4home post={post} key={index} navigation={navigation} />
           ))}
-        </View>
+        </ScrollView>
         <TouchableOpacity onPress={() => navigation.push("Posts")}>
           <Text style={styles.seeMoreText}>More posts...</Text>
         </TouchableOpacity>
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#1267E9",
     marginBottom: 20,
+    marginTop: 10,
     fontSize: 15,
     fontWeight: "bold",
   },

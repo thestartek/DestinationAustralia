@@ -48,8 +48,8 @@ const NewsPost = ({ newspost, navigation }) => {
 
       <View style={styles.postFooterContainer}>
         <LikeButton newspost={newspost} handleLike={handleLike} />
-        <Divider width={1} orientation="vertical" />
-        <CommentButton newspost={newspost} navigation={navigation} />
+        {/* <Divider width={1} orientation="vertical" />
+        <CommentButton newspost={newspost} navigation={navigation} /> */}
         <Divider width={1} orientation="vertical" />
         <ShareButton newspost={newspost} handleShare={handleShare} />
       </View>
@@ -210,8 +210,9 @@ const styles = StyleSheet.create({
   postFooterContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 30,
+    marginHorizontal: 50,
     marginVertical: 10,
+    // width: "80%"
   },
 
   postFooterIcons: {
@@ -226,45 +227,5 @@ const styles = StyleSheet.create({
     marginTop: 6,
     marginLeft: 5,
     color: "#545050",
-  },
-
-  buttonStyle: (focused) => ({
-    tintColor: focused ? "red" : "grey",
-  }),
-
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
   },
 });

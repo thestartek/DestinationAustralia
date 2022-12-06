@@ -15,6 +15,7 @@ import {
 
 import { db, auth } from "../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
+import { Divider } from "react-native-elements";
 
 const NewPostScreen = ({ navigation }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
@@ -35,6 +36,7 @@ const NewPostScreen = ({ navigation }) => {
   }, []);
   return (
     <View>
+      <Divider width={5}/>
       {/* <NewPostHeader navigation={navigation} /> */}
       <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
