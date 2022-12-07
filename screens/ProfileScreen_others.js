@@ -167,7 +167,9 @@ const ProfileScreen = ({ navigation }) => {
         {!currentLoggedInUser.profile_picture ? (
           <Image
             style={styles.userImg}
-            source={require("../assets/profileIcon.png")}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+            }}
           />
         ) : (
           <Image

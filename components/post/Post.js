@@ -1,23 +1,11 @@
-import {
-  ScrollView,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Alert,
-} from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements/dist/divider/Divider";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import {
-  doc,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 //import { color } from "react-native-reanimated";
 
 const Post = ({ post, navigation }) => {
@@ -59,7 +47,9 @@ const PostHeader = ({ post }) => (
     <TouchableOpacity>
       {!post.profile_picture ? (
         <Image
-          source={require("../../assets/profileIcon.png")}
+          source={{
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+          }}
           style={styles.profileThumbnail}
         />
       ) : (
@@ -202,6 +192,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
+    tintColor: "#3a3b3c",
   },
   profileThumbnail: {
     width: 44,

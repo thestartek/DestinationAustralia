@@ -132,15 +132,6 @@ const RegisterScreen = ({ navigation }) => {
                 />
               </TouchableOpacity>
             )}
-
-            {/* {image != null ? (
-              <Image
-                source={{ uri: image }}
-                style={[styles.logoContainer, styles.selectedPhoto]}
-              />
-            ) : (
-              <View style={styles.logoContainer}>{image}</View>
-            )} */}
           </View>
 
           <View
@@ -194,6 +185,7 @@ const RegisterScreen = ({ navigation }) => {
           {fullname == null ||
           email == null ||
           password == null ||
+          image == null ||
           city == null ? (
             <View style={styles.buttonContainer}>
               <View

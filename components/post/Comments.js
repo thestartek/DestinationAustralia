@@ -27,9 +27,9 @@ const Comments = ({ post, comment }) => {
   }, []);
 
   return (
-    <View >
+    <View>
       <ScrollView>
-        <View style={{ width: '80%'}}>
+        <View style={{ width: "80%" }}>
           {post.comments.map((comment, index) => (
             <View key={index} style={styles.commentContainer}>
               <TouchableOpacity style={{ flexDirection: "row" }}>
@@ -40,7 +40,9 @@ const Comments = ({ post, comment }) => {
                   />
                 ) : (
                   <Image
-                    source={require("../../assets/profileIcon.png")}
+                    source={{
+                      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+                    }}
                     style={[styles.profile, { tintColor: "grey" }]}
                   />
                 )}
