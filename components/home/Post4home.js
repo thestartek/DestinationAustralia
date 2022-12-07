@@ -136,40 +136,6 @@ const CommentButton = ({ post, postId, navigation }) => {
   );
 };
 
-const ShareButton = ({ post }) => {
-  const onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          "Haami Nepali | A community app for connecting all Nepalese living in Australia",
-      });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          Alert.alert("Sharing successful");
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        //alert("Sharing cancelled")
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  return (
-    <View>
-      <TouchableOpacity onPress={onShare} style={{ flexDirection: "row" }}>
-        <Feather name="share" size={24} color="#545050" />
-
-        {!!post.shares.length && (
-          <Text style={styles.postFooterIconsText}>{post.shares.length}</Text>
-        )}
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 export default Post4home;
 
 const styles = StyleSheet.create({

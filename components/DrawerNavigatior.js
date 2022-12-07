@@ -2,8 +2,8 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
-import Screen_1 from "./drawer/Screen_1";
-import Screen_2 from "./drawer/Screen_2";
+import DonateScreen from "./drawer/DonateScreen";
+import AboutusScreen from "./drawer/AboutusScreen";
 import HomeStack from "./HomeStack";
 
 const Drawer = createDrawerNavigator();
@@ -22,13 +22,13 @@ const DrawerNavigatior = () => {
     <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen
         options={{
-          headerShown: false
+          headerShown: false,
         }}
         name="Home"
         component={HomeStack}
       />
-      <Drawer.Screen name="Screen_1" component={Screen_1} />
-      <Drawer.Screen name="Screen_2" component={Screen_2} />
+      <Drawer.Screen name="Donate" component={DonateScreen} />
+      <Drawer.Screen name="About us" component={AboutusScreen} />
     </Drawer.Navigator>
   );
 };

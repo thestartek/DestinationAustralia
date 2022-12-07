@@ -9,6 +9,7 @@ import IncomeCalculator from "./tools/IncomeCalculator";
 import UniversityFinder from "./tools/UniversityFinder";
 import ExpenseEstimator from "./tools/ExpenseEstimator";
 import PostScreen from "./post/PostsScreen";
+import ExploreAustralia from "./tools/ExploreAustralia";
 // import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,7 @@ const HomeStack = () => {
       <Stack.Screen name="Income Calculator" component={IncomeCalculator} />
       <Stack.Screen name="University Finder" component={UniversityFinder} />
       <Stack.Screen name="Expense Estimator" component={ExpenseEstimator} />
+      <Stack.Screen name="Explore Australia" component={ExploreAustralia} />
     </Stack.Navigator>
   );
 };

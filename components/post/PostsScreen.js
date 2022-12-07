@@ -43,19 +43,19 @@ const PostScreen = ({ isLoading, navigation }) => {
   );
 };
 
-const CreatePost = ({ navigation }) => {
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.push("New post");
-      }}
-    >
-      <View style={styles.createPostButton}>
-        <Text style={styles.postButtonText}>Create a post</Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+// const CreatePost = ({ navigation }) => {
+//   return (
+//     <TouchableOpacity
+//       onPress={() => {
+//         navigation.push("New post");
+//       }}
+//     >
+//       <View style={styles.createPostButton}>
+//         <Text style={styles.postButtonText}>Create a post</Text>
+//       </View>
+//     </TouchableOpacity>
+//   );
+// };
 
 const styles = StyleSheet.create({
   container: {

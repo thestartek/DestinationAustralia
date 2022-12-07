@@ -35,7 +35,7 @@ const Header = ({ navigation }) => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <TouchableOpacity>
             <View style={styles.unreadBadge}>
               <Text style={styles.unreadBadgeText}>??</Text>
@@ -45,7 +45,7 @@ const Header = ({ navigation }) => {
             style={styles.icons}
             source={require("../../assets/notificationIcon.png")}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
@@ -65,21 +65,16 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#1267E9"
+    color: "#1267E9",
+    marginLeft: 40,
   },
 
   iconContainer: {
     width: 80,
     //marginLeft: 25,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "flex-end",
     marginRight: 10,
-  },
-
-  logo: {
-    width: 150,
-    height: 50,
-    resizeMode: "contain",
   },
 
   icons: {
@@ -87,19 +82,19 @@ const styles = StyleSheet.create({
     height: 25,
     resizeMode: "contain",
   },
-  unreadBadge: {
-    backgroundColor: "red",
-    position: "absolute",
-    left: 10,
-    bottom: -10,
-    width: 25,
-    height: 18,
-    borderRadius: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 100,
-  },
-  unreadBadgeText: {
-    color: "white",
-  },
+  // unreadBadge: {
+  //   backgroundColor: "red",
+  //   position: "absolute",
+  //   left: 10,
+  //   bottom: -10,
+  //   width: 25,
+  //   height: 18,
+  //   borderRadius: 25,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   zIndex: 100,
+  // },
+  // unreadBadgeText: {
+  //   color: "white",
+  // },
 });

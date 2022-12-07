@@ -163,8 +163,7 @@ const styles = StyleSheet.create({
   seeMoreText: {
     textAlign: "center",
     color: "#1267E9",
-    marginBottom: 20,
-    marginTop: 10,
+    marginVertical: 20,
     fontSize: 15,
     fontWeight: "bold",
   },

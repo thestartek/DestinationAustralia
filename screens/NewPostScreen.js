@@ -36,7 +36,7 @@ const NewPostScreen = ({ navigation }) => {
   }, []);
   return (
     <View>
-      <Divider width={5}/>
+      <Divider width={5} />
       {/* <NewPostHeader navigation={navigation} /> */}
       <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
@@ -49,7 +49,7 @@ const NewPostScreen = ({ navigation }) => {
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <TouchableOpacity>
+          <View>
             {!currentLoggedInUser.profile_picture ? (
               <Image
                 source={require("../assets/profileIcon.png")}
@@ -61,9 +61,9 @@ const NewPostScreen = ({ navigation }) => {
                 style={styles.profileThumbnail}
               />
             )}
-          </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity>
+          <View>
             {!currentLoggedInUser.fullname ? (
               <Text></Text>
             ) : (
@@ -79,7 +79,7 @@ const NewPostScreen = ({ navigation }) => {
                 {currentLoggedInUser.fullname}
               </Text>
             )}
-          </TouchableOpacity>
+          </View>
         </View>
       </TouchableWithoutFeedback>
 

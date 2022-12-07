@@ -26,14 +26,14 @@ const ToolsScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => navigation.push("Income Calculator")}
+          onPress={() => navigation.push("Explore Australia")}
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/incomeCalculator.png")}
+            source={require("../../assets/australiaIcon.png")}
             style={styles.toolsImage}
           />
-          <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
+          <Text style={styles.toolsName}>Explore{"\n"}Australia</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -62,19 +62,19 @@ const ToolsScreen = ({ navigation }) => {
       {/* Second Row */}
       {/* /////////////////////////////// */}
 
-      {/* <View style={styles.outerContainer}>
+      <View style={styles.outerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.push("PR Points Calculator")}
+          onPress={() => navigation.push("Income Calculator")}
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/prPointsCalculator.png")}
+            source={require("../../assets/incomeCalculator.png")}
             style={styles.toolsImage}
           />
-          <Text style={styles.toolsName}>PR Points{"\n"}Calculator</Text>
+          <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => navigation.push("Income Calculator")}
           style={styles.innerContainer}
         >
@@ -105,8 +105,8 @@ const ToolsScreen = ({ navigation }) => {
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
-        </TouchableOpacity>
-      </View> */}
+        </TouchableOpacity> */}
+      </View>
 
       {/* Third Row */}
       {/* /////////////////////////////// */}
