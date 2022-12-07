@@ -7,7 +7,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 //import async from '@react-native-async-storage/async-storage'
 
-import auth from "./../../Firebase";
+import auth from "../../Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginForm = ({ navigation }) => {
@@ -20,12 +20,12 @@ const LoginForm = ({ navigation }) => {
 
   const onLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
-      .then(userCredentials => {
+      .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
+        console.log("Logged in with:", user.email);
       })
-      .catch(error => alert(error.message))
-  }
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <ScrollView style={styles.wrapper}>

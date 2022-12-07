@@ -11,19 +11,18 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import { auth, db, storage } from "../Firebase";
+import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
 import * as ImagePicker from "expo-image-picker";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-const thumbnailPic = (
-  <Image
-    source={require("./../assets/profileIcon.png")}
-    style={{ height: 100, width: 100, margin: 10, tintColor: "grey" }}
-  />
-);
+const thumbnailMale =
+  "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon_male.png?alt=media&token=7863aedb-5d11-469b-8b2f-66125810af08";
+
+const thumbnailFemale =
+  "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon_female.jpeg?alt=media&token=fd35dfdf-acee-415d-bf7b-d62f264f18ba";
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
@@ -32,28 +31,12 @@ const RegisterScreen = ({ navigation }) => {
   const [city, setCity] = useState(null);
   const [info, setInfo] = useState(null);
   const [image, setImage] = useState(null);
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [percentage, setPercentage] = useState(0);
-
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.photo,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 0.75,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
+  const [checkedMale, setCheckedMale] = useState(false);
+  const [checkedFemale, setCheckedFemale] = useState(false);
 
   const handleRegister = async () => {
-    const imageUrl = await uploadImage();
-    console.log(imageUrl);
+    // const imageUrl = await uploadImage();
+    // console.log(imageUrl);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
@@ -68,7 +51,7 @@ const RegisterScreen = ({ navigation }) => {
             email: user.email,
             city: city,
             info: info,
-            profile_picture: imageUrl,
+            profile_picture: image,
           });
           console.log("User added to database");
           Alert.alert("User registered successfully", user.email);
@@ -80,48 +63,6 @@ const RegisterScreen = ({ navigation }) => {
     // Alert.alert(error.message);
   };
 
-  // useEffect(() => {
-  //   handleRegister();
-  // }, []);
-
-  const uploadImage = async () => {
-    if (image == null) {
-      return null;
-    }
-    try {
-      let filename =
-        email +
-        "/" +
-        "profileImages" +
-        "/" +
-        image.substring(image.lastIndexOf("/") + 1);
-      const extension = filename.split(".").pop();
-      const name = filename.split(".").slice(0, -1).join(".");
-      const imageFilename = name + Date.now() + "." + extension;
-
-      const imageRef = ref(storage, imageFilename);
-      const img = await fetch(image);
-      const bytes = await img.blob();
-      const uploadTask = uploadBytesResumable(imageRef, bytes);
-
-      uploadTask.on("state_changed", (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        //console.log("Upload is " + progress + "% done");
-        setIsLoading(true);
-        setPercentage(progress);
-      });
-
-      await uploadTask;
-      const url = await getDownloadURL(imageRef);
-      return url;
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
-  };
-
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss}>
       <KeyboardAvoidingView
@@ -129,27 +70,83 @@ const RegisterScreen = ({ navigation }) => {
         style={styles.container}
       >
         <ScrollView>
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
-            {image != null ? (
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {checkedMale != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setImage(thumbnailMale),
+                  setCheckedMale(true),
+                  setCheckedFemale(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: thumbnailMale,
+                  }}
+                  style={[styles.avatar, { tintColor: "grey" }]}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+              // onPress={() => [setImage(null), setCheckedMale(false)]}
+              >
+                <Image
+                  source={{
+                    uri: thumbnailMale,
+                  }}
+                  style={[styles.avatar, { tintColor: "#1267E9" }]}
+                />
+              </TouchableOpacity>
+            )}
+
+            {checkedFemale != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setImage(thumbnailFemale),
+                  setCheckedFemale(true),
+                  setCheckedMale(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: thumbnailFemale,
+                  }}
+                  style={[styles.avatar, { tintColor: "grey" }]}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+              // onPress={() => [setImage(null), setCheckedFemale(false)]}
+              >
+                <Image
+                  source={{
+                    uri: thumbnailFemale,
+                  }}
+                  style={[styles.avatar, { tintColor: "#1267E9" }]}
+                />
+              </TouchableOpacity>
+            )}
+
+            {/* {image != null ? (
               <Image
                 source={{ uri: image }}
                 style={[styles.logoContainer, styles.selectedPhoto]}
               />
             ) : (
-              <View style={styles.logoContainer}>{thumbnailPic}</View>
-            )}
+              <View style={styles.logoContainer}>{image}</View>
+            )} */}
           </View>
 
           <View
             style={{ flexDirection: "row", justifyContent: "space-around" }}
           >
-            <TouchableOpacity style={styles.buttonPhoto} onPress={pickImage}>
-              <Image
-                style={styles.icons}
-                source={require("../assets/photoIcon.png")}
-              />
-              <Text style={styles.textStyle}>Upload photo</Text>
-            </TouchableOpacity>
+            <Text style={styles.textStyle}>Choose your avatar</Text>
           </View>
 
           <View>
@@ -228,10 +225,10 @@ const RegisterScreen = ({ navigation }) => {
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
-  logoContainer: {
-    alignItems: "center",
-    marginTop: 20,
-  },
+  // logoContainer: {
+  //   alignItems: "center",
+  //   marginTop: 20,
+  // },
 
   container: {
     flex: 1,
@@ -280,30 +277,21 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 16,
   },
-  buttonPhoto: {
-    flexDirection: "row",
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: "#1267E9",
-    marginBottom: 10,
-  },
   buttonPhotoUnselected: {
     backgroundColor: "darkgrey",
   },
-  selectedPhoto: {
+  avatar: {
     borderRadius: 50,
-    height: 100,
-    width: 100,
-    margin: 10,
+    height: 80,
+    width: 80,
+    marginTop: 50,
+    marginHorizontal: 10,
+    marginBottom: 10,
+    // tintColor: "grey",
   },
-  icons: {
-    width: 20,
-    height: 20,
-    //resizeMode: 'contain',
-    tintColor: "white",
-  },
+
   textStyle: {
-    color: "white",
+    color: "#1267E9",
     //fontWeight: "bold",
     //textAlign: "center",
     fontSize: 16,

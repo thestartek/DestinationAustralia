@@ -19,10 +19,10 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Divider } from "react-native-elements";
-import Post from "../components/post/Post";
-import SettingsModel from "../components/profile/SettingsModal";
+import Post from "../post/Post";
+import SettingsModel from "./SettingsModal";
 
-import { db, auth } from "../Firebase";
+import { db, auth } from "../../Firebase";
 //import {AuthContext} from '../navigation/AuthProvider';
 
 //import firestore from '@react-native-firebase/firestore';
@@ -110,7 +110,7 @@ const ProfileScreen = ({ navigation }) => {
         ) : (
           <Image
             style={[styles.userImg, { tintColor: "grey" }]}
-            source={require("../assets/profileIcon.png")}
+            source={require("../../assets/profileIcon.png")}
           />
         )}
 

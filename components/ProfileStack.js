@@ -1,6 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen from "./profile/ProfileScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import ResetPassScreen from "../screens/ResetPassScreen";
 import DeleteAccountScreen from "../screens/DeleteAccountScreen";
