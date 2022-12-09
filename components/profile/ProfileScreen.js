@@ -56,6 +56,7 @@ const ProfileScreen = ({ navigation }) => {
           fullname: doc.data().fullname,
           profile_picture: doc.data().profile_picture,
           city: doc.data().city,
+          country: doc.data().country,
           info: doc.data().info,
         });
       }
@@ -117,7 +118,14 @@ const ProfileScreen = ({ navigation }) => {
         )}
 
         {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
-        <Text style={styles.userLocation}>{currentLoggedInUser.city}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.userLocation}>{currentLoggedInUser.city},</Text>
+          <Text style={styles.userLocation}>
+            {" "}
+            {currentLoggedInUser.country}
+          </Text>
+        </View>
+
         <Text style={styles.aboutUser}>{currentLoggedInUser.info}</Text>
 
         <View style={styles.userBtnWrapper}>

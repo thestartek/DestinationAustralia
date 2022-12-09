@@ -8,14 +8,14 @@ import HomeStack from "./HomeStack";
 
 const Drawer = createDrawerNavigator();
 
-const MenuButton = () => {
-  return (
-    <Image
-      style={{ height: 40, width: 30 }}
-      source={require("../assets/menuBar.png")}
-    />
-  );
-};
+// const MenuButton = () => {
+//   return (
+//     <Image
+//       style={{ height: 40, width: 30 }}
+//       source={require("../assets/menuBar.png")}
+//     />
+//   );
+// };
 
 const DrawerNavigatior = () => {
   return (

@@ -44,6 +44,7 @@ const EditProfileScreen = ({ navigation }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
   const [fullname, setFullname] = useState(null);
   const [city, setCity] = useState(null);
+  const [country, setCountry] = useState(null);
   const [info, setInfo] = useState(null);
   const [image, setImage] = useState(null);
   const [checkedAvatar1, setCheckedAvatar1] = useState(false);
@@ -61,6 +62,7 @@ const EditProfileScreen = ({ navigation }) => {
     setCurrentLoggedInUser({
       fullname: doc.data().fullname,
       profile_picture: doc.data().profile_picture,
+      country: doc.data().country,
       city: doc.data().city,
       info: doc.data().info,
     });
@@ -71,7 +73,8 @@ const EditProfileScreen = ({ navigation }) => {
       const unsub = setDoc(doc(db, "users", user.email), {
         fullname: fullname || currentLoggedInUser.fullname,
         city: city || currentLoggedInUser.city,
-        info: info || currentLoggedInUser.info,
+        country: country || currentLoggedInUser.country,
+        info: info,
         profile_picture: image || currentLoggedInUser.profile_picture,
       });
       console.log("Profile updated");
@@ -278,43 +281,70 @@ const EditProfileScreen = ({ navigation }) => {
         </View>
 
         <View>
-          <TextInput
-            placeholder={currentLoggedInUser.fullname}
-            // defaultValue={currentLoggedInUser.name}
-            //autoFocus={true}
-            //autoCapitalize="none"
-            onChangeText={(text) => {
-              {
-                text ? setFullname(text) : currentLoggedInUser.fullname;
-              }
-            }}
-            value={fullname}
-            style={styles.textInput}
-          />
-          <TextInput
-            placeholder={currentLoggedInUser.city}
-            // defaultValue={currentLoggedInUser.place}
-            onChangeText={(text) => {
-              {
-                text ? setCity(text) : currentLoggedInUser.city;
-              }
-            }}
-            value={city}
-            style={styles.textInput}
-          />
-          <TextInput
-            placeholder={currentLoggedInUser.info}
-            multiline={true}
-            autoCapitalize="none"
-            onChangeText={(text) => {
-              {
-                text ? setInfo(text) : currentLoggedInUser.info;
-              }
-            }}
-            value={info}
-            style={[styles.textInput, { height: 100 }]}
-            //onSubmitEditing={Keyboard.dismiss}
-          />
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={styles.textStyle}>Your Full name:{"   "}</Text>
+            <TextInput
+              placeholder="Full name"
+              defaultValue={currentLoggedInUser.fullname}
+              //autoFocus={true}
+              //autoCapitalize="none"
+              onChangeText={(text) => {
+                {
+                  text ? setFullname(text) : currentLoggedInUser.fullname;
+                }
+              }}
+              value={fullname}
+              style={styles.textInput}
+            />
+          </View>
+
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={styles.textStyle}>Current country:</Text>
+            <TextInput
+              placeholder="Country"
+              defaultValue={currentLoggedInUser.country}
+              onChangeText={(text) => {
+                {
+                  text ? setCountry(text) : currentLoggedInUser.country;
+                }
+              }}
+              value={country}
+              style={[styles.textInput]}
+            />
+          </View>
+
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={styles.textStyle}>Current city:{"        "}</Text>
+            <TextInput
+              placeholder="City"
+              defaultValue={currentLoggedInUser.city}
+              onChangeText={(text) => {
+                {
+                  text ? setCity(text) : currentLoggedInUser.city;
+                }
+              }}
+              value={city}
+              style={styles.textInput}
+            />
+          </View>
+
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={styles.textStyle}>Bio:{"    "}</Text>
+            <TextInput
+              placeholder="Write your bio"
+              defaultValue={currentLoggedInUser.info}
+              multiline={true}
+              autoCapitalize="none"
+              onChangeText={(text) => {
+                {
+                  text ? setInfo(text) : currentLoggedInUser.info;
+                }
+              }}
+              value={info}
+              style={[styles.textInput, { height: 100, width: 320 }]}
+              //onSubmitEditing={Keyboard.dismiss}
+            />
+          </View>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -368,8 +398,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1.5,
     borderColor: "lightgrey",
-    marginTop: 10,
-    width: 300,
+    marginVertical: 5,
+    width: 240,
   },
   buttonContainer: {
     width: 300,

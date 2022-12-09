@@ -1,14 +1,17 @@
 import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, arrayRemove, onSnapshot, query, collection, orderBy, limit } from "firebase/firestore";
 //import { color } from "react-native-reanimated";
 
+
 const Post = ({ post, navigation }) => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const user = auth.currentUser;
   // const thumbnailPic = (
   //   <Image source={require("../../assets/profileIcon.png")} />
