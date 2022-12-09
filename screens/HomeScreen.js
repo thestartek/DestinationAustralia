@@ -11,8 +11,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Button, Divider } from "react-native-elements";
-import SkeletonContent from "react-native-skeleton-content";
+import { Divider } from "react-native-paper";
 import Highlights from "../components/home/Highlights.js";
 import NewsPost from "../components/home/NewsPost.js";
 import CommunityScreen from "../components/learn/LearnScreen.js";

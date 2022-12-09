@@ -18,7 +18,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from "react-native";
-import { Divider } from "react-native-elements";
+import { Divider } from "react-native-paper";
 import Post from "../post/Post";
 import SettingsModel from "./SettingsModal";
 

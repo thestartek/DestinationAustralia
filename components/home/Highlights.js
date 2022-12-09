@@ -9,7 +9,6 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import { Divider } from "react-native-elements";
 import {
   TouchableOpacity,
   TouchableWithoutFeedback,

@@ -1,12 +1,11 @@
 import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
-import { Divider } from "react-native-elements/dist/divider/Divider";
+import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-import { Button } from "react-native-elements";
 //import { color } from "react-native-reanimated";
 
 import * as WebBrowser from 'expo-web-browser';

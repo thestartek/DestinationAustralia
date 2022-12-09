@@ -4,10 +4,8 @@ import Header from "../home/Header.js";
 import Post from "./Post.js";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db, auth } from "../../Firebase";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Button, Divider } from "react-native-elements";
-import SkeletonContent from "react-native-skeleton-content";
-import Highlights from "../home/Highlights.js";
+import { Button, Divider } from "react-native-paper";
+
 
 const PostScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);

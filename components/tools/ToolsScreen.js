@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
-import { Divider } from "react-native-elements";
+import { Divider } from "react-native-paper";
 
 const ToolsScreen = ({ navigation }) => {
   return (

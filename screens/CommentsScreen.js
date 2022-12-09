@@ -4,7 +4,6 @@ import Comments from "../components/post/Comments";
 import { auth, db } from "../Firebase";
 import { onSnapshot, doc, orderBy, collection } from "firebase/firestore";
 import AddComment from "../components/post/AddComment";
-import { Divider } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 
 const CommentsScreen = ({ navigation }) => {

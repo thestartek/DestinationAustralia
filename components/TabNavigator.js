@@ -1,14 +1,12 @@
+import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, Image, StyleSheet } from "react-native";
-import CommunityScreen from "./learn/LearnScreen";
 import NotificationScreen from "./notifications/NotificationScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "../components/DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../screens/NewPostScreen";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import CommunityStack from "./CommunityStack";
 import LearnScreen from "./learn/LearnScreen";
 
 const Tab = createBottomTabNavigator();

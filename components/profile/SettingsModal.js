@@ -101,11 +101,11 @@ const styles = StyleSheet.create({
     //flex: 0.5,
     justifyContent: "center",
     alignItems: "center",
-    //marginTop: 15,
+    // marginTop: 80,
     //marginRight: 25,
   },
   modalView: {
-    marginTop: 550,
+    marginTop: 620,
     width: "100%",
     backgroundColor: "white",
     borderRadius: 20,

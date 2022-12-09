@@ -15,7 +15,7 @@ import {
 
 import { db, auth } from "../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
-import { Divider } from "react-native-elements";
+import { Divider } from "react-native-paper";
 
 const NewPostScreen = ({ navigation }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);

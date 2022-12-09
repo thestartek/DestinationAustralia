@@ -1,6 +1,6 @@
 import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
-import { Divider } from "react-native-elements/dist/divider/Divider";
+import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../../Firebase";
 
