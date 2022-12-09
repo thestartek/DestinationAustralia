@@ -104,7 +104,7 @@ const ProfileScreen = ({ navigation }) => {
 
         {currentLoggedInUser.profile_picture ? (
           <Image
-            style={[styles.userImg, { tintColor: "#3a3b3c" }]}
+            style={styles.userImg}
             source={{ uri: currentLoggedInUser.profile_picture }}
           />
         ) : (

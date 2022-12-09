@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    tintColor: "#3a3b3c",
+    // tintColor: "#3a3b3c",
   },
   profileThumbnail: {
     width: 44,
