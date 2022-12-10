@@ -33,20 +33,19 @@ const Post = ({ post, navigation }) => {
 
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
-        <Divider width={1} orientation="vertical" />
+        <Divider />
         <CommentButton post={post} navigation={navigation} />
-        <Divider width={1} orientation="vertical" />
+        <Divider />
         <ShareButton post={post} />
       </View>
       {/* const CommentInput  */}
-      <Divider />
-      <Divider width={5} />
+      <Divider style={{height: 5}}/>
     </ScrollView>
   );
 };
 
 const PostHeader = ({ post }) => (
-  <View style={{ flexDirection: "row", margin: 10 }}>
+  <View style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 20 }}>
     <TouchableOpacity>
       {!post.profile_picture ? (
         <Image
@@ -81,7 +80,7 @@ const PostHeader = ({ post }) => (
 );
 
 const Caption = ({ post }) => (
-  <Text style={{ marginLeft: 10, marginRight: 10, marginBottom: 10 }}>
+  <Text style={{ marginHorizontal: 20, marginVertical: 10 }}>
     {post.caption}
   </Text>
 );
@@ -213,7 +212,7 @@ const styles = StyleSheet.create({
   postFooterContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 30,
+    marginHorizontal: 40,
     marginVertical: 10,
   },
 

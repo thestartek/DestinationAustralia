@@ -14,7 +14,7 @@ const Header = ({ navigation }) => {
       <View style={{ marginLeft: 10 }}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Image
-            style={{ height: 40, width: 30, tintColor: "#545050" }}
+            style={{ height: 40, width: 30, tintColor: "white" }}
             source={require("../../assets/menuBar.png")}
           />
         </TouchableOpacity>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#1267E9",
+    color: "white",
     marginLeft: 40,
   },
 
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 25,
     resizeMode: "contain",
+    tintColor: "white"
   },
   // unreadBadge: {
   //   backgroundColor: "red",

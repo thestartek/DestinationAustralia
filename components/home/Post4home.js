@@ -27,13 +27,13 @@ const Post4home = ({ post, navigation }) => {
     <View>
       <PostHeader post={post} />
       {post.caption != null ? <Caption post={post} /> : null}
-      <Divider width={1} marginHorizontal={10} />
+      <Divider bold={true} style={{marginHorizontal: 10}}/>
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
-        <Divider width={1} orientation="vertical" />
+        {/* <Divider /> */}
         <CommentButton post={post} navigation={navigation} />
       </View>
-      <Divider width={1} marginHorizontal={10} />
+      <Divider bold={true} style={{marginHorizontal: 10}}/>
     </View>
   );
 };

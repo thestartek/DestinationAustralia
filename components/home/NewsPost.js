@@ -34,8 +34,8 @@ const NewsPost = ({ newspost, navigation }) => {
     });
   };
   return (
-    <ScrollView style={{ marginHorizontal: 10 }}>
-      <View style={{ flexDirection: "row"}}>
+    <ScrollView >
+      <View style={{ flexDirection: "row", marginHorizontal: 10}}>
         {newspost.image != null ? <PostImage newspost={newspost} /> : null}
         <View>
           <PostHeader newspost={newspost} />
@@ -53,7 +53,7 @@ const NewsPost = ({ newspost, navigation }) => {
         <ShareButton newspost={newspost} handleShare={handleShare} />
       </View>
       {/* const CommentInput  */}
-      <Divider width={2} />
+      <Divider style={{height: 5}}/>
     </ScrollView>
   );
 };

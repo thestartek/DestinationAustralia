@@ -93,40 +93,48 @@ const HomeScreen = ({ isLoading, navigation }) => {
       {/* <Text style={styles.headingText}>Highlights</Text> */}
 
       <ScrollView style={styles.outerContainer}>
-        <Text style={styles.headingText}>Highlights</Text>
-        <ScrollView horizontal={true}>
-          {highlights.map((highlights, index) => (
-            <Highlights
-              highlights={highlights}
-              key={index}
-              navigation={navigation}
-            />
-          ))}
-        </ScrollView>
-        <Divider width={8} />
+        <View style={styles.highlightsContainer}>
+          <Text style={styles.headingText}>Highlights</Text>
+          <ScrollView horizontal={true}>
+            {highlights.map((highlights, index) => (
+              <Highlights
+                highlights={highlights}
+                key={index}
+                navigation={navigation}
+              />
+            ))}
+          </ScrollView>
+        </View>
 
-        <Text style={styles.headingText}>Latest posts</Text>
-        <ScrollView horizontal={true}>
-          {posts.map((post, index) => (
-            <Post4home post={post} key={index} navigation={navigation} />
-          ))}
-        </ScrollView>
-        <TouchableOpacity onPress={() => navigation.push("Posts")}>
-          <Text style={styles.seeMoreText}>More posts...</Text>
-        </TouchableOpacity>
+        {/* <Divider style={{ height: 5 }} /> */}
 
-        <Divider width={8} />
-        <Text style={styles.headingText}>Tools</Text>
-        {/* List tools here */}
-        <Tools4Home navigation={navigation} />
+        <View style={styles.postContainer}>
+          <Text style={styles.headingText}>Latest posts</Text>
+          <ScrollView horizontal={true}>
+            {posts.map((post, index) => (
+              <Post4home post={post} key={index} navigation={navigation} />
+            ))}
+          </ScrollView>
+          <TouchableOpacity onPress={() => navigation.push("Posts")}>
+            <Text style={styles.seeMoreText}>More posts...</Text>
+          </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity onPress={() => navigation.push("Tools")}>
-          <Text style={styles.seeMoreText}>More tools...</Text>
-        </TouchableOpacity>
+        {/* <Divider style={{ height: 5 }} /> */}
 
-        <Divider width={8} />
+        <View style={styles.toolsContainer}>
+          <Text style={styles.headingText}>Tools</Text>
+          {/* List tools here */}
+          <Tools4Home navigation={navigation} />
 
-        <View>
+          <TouchableOpacity onPress={() => navigation.push("Tools")}>
+            <Text style={styles.seeMoreText}>More tools...</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* <Divider style={{ height: 5 }} /> */}
+
+        <View style={styles.newsContainer}>
           <Text style={styles.headingText}>Latest News</Text>
           <View>
             {newsposts.map((newspost, index) => (
@@ -137,6 +145,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
               />
             ))}
           </View>
+          {/* <Divider style={{height: 5}}/> */}
         </View>
       </ScrollView>
     </View>
@@ -145,10 +154,34 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#1267E9",
     flex: 1,
   },
   outerContainer: {
+    backgroundColor: "lightgrey",
+  },
+  highlightsContainer: {
+    backgroundColor: "white",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    marginBottom: 5,
+  },
+  postContainer: {
+    borderRadius: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    backgroundColor: "white",
+  },
+  toolsContainer: {
+    borderRadius: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    backgroundColor: "white",
+  },
+  newsContainer: {
+    // borderRadius: 10,
+    // marginHorizontal: 10,
+    marginVertical: 5,
     backgroundColor: "white",
   },
   headingText: {
