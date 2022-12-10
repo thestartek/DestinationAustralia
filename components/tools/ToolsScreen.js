@@ -120,10 +120,12 @@ const styles = StyleSheet.create({
   outerContainer: {
     flexDirection: "row",
     marginTop: 20,
+    justifyContent: "space-between",
+    alignItems: "center",
     // justifyContent: "space-evenly",
   },
   innerContainer: {
-    marginHorizontal: 20,
+    marginHorizontal: 15,
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",

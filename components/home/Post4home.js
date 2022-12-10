@@ -72,8 +72,7 @@ const PostHeader = ({ post }) => (
 const Caption = ({ post }) => (
   <Text
     style={{
-      marginLeft: 10,
-      marginRight: 10,
+      marginLeft: 14,
       // marginBottom: -20,
       width: 120,
       height: 60,
@@ -98,9 +97,9 @@ const LikeButton = ({ post, handleLike, focused }) => {
         }}
       >
         {post.likes.includes(auth.currentUser.email) ? (
-          <AntDesign name="like1" size={25} color="#1267E9" />
+          <AntDesign name="like1" size={20} color="#1267E9" />
         ) : (
-          <AntDesign name="like2" size={25} color="#545050" />
+          <AntDesign name="like2" size={20} color="#545050" />
         )}
         {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
         {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
@@ -123,7 +122,7 @@ const CommentButton = ({ post, postId, navigation }) => {
         onPress={() => navigation.push("Comments")}
         style={{ flexDirection: "row" }}
       >
-        <FontAwesome name="commenting-o" size={25} color="#545050" />
+        <FontAwesome name="commenting-o" size={20} color="#545050" />
 
         {!!post.comments.length && (
           <Text style={styles.postFooterIconsText}>

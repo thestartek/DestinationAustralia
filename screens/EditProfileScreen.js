@@ -87,8 +87,8 @@ const EditProfileScreen = ({ navigation }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss}>
-      <KeyboardAvoidingView
+    <ScrollView>
+      <View
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
@@ -280,8 +280,8 @@ const EditProfileScreen = ({ navigation }) => {
           <Text style={styles.textStyle}>Choose your avatar</Text>
         </View>
 
-        <View>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{marginHorizontal: 10}}>
+          <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Your Full name:{"   "}</Text>
             <TextInput
               placeholder="Full name"
@@ -298,7 +298,7 @@ const EditProfileScreen = ({ navigation }) => {
             />
           </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Current country:</Text>
             <TextInput
               placeholder="Country"
@@ -313,7 +313,7 @@ const EditProfileScreen = ({ navigation }) => {
             />
           </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Current city:{"        "}</Text>
             <TextInput
               placeholder="City"
@@ -328,7 +328,7 @@ const EditProfileScreen = ({ navigation }) => {
             />
           </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Bio:{"    "}</Text>
             <TextInput
               placeholder="Write your bio"
@@ -341,7 +341,7 @@ const EditProfileScreen = ({ navigation }) => {
                 }
               }}
               value={info}
-              style={[styles.textInput, { height: 100, width: 320 }]}
+              style={[styles.textInput, { height: 100 }]}
               //onSubmitEditing={Keyboard.dismiss}
             />
           </View>
@@ -355,8 +355,8 @@ const EditProfileScreen = ({ navigation }) => {
             <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
-    </TouchableWithoutFeedback>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -376,8 +376,8 @@ const styles = StyleSheet.create({
   },
   avatar: {
     borderRadius: 50,
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     marginHorizontal: 10,
     marginBottom: 10,
     // tintColor: "grey",
@@ -386,8 +386,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 5,
     borderColor: "#1267E9",
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     marginHorizontal: 10,
     marginBottom: 10,
     // tintColor: "grey",
@@ -399,7 +399,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: "lightgrey",
     marginVertical: 5,
-    width: 240,
+    width: 300,
   },
   buttonContainer: {
     width: 300,

@@ -70,6 +70,7 @@ export default tools4Home;
 const styles = StyleSheet.create({
   outerContainer: {
     flexDirection: "row",
+    marginLeft: 5
     // justifyContent: "space-evenly",
   },
   innerContainer: {
@@ -79,14 +80,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   toolsImage: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     tintColor: "#1267E9",
     resizeMode: "contain",
   },
   toolsName: {
     marginTop: 10,
     textAlign: "center",
+    fontSize: 12
     // color: "#1267E9"
   },
 });

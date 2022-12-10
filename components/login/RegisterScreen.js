@@ -92,8 +92,8 @@ const RegisterScreen = ({ navigation }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss}>
-      <KeyboardAvoidingView
+    <ScrollView>
+      <View
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
@@ -382,8 +382,8 @@ const RegisterScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         )}
-      </KeyboardAvoidingView>
-    </TouchableWithoutFeedback>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -447,8 +447,8 @@ const styles = StyleSheet.create({
   },
   avatar: {
     borderRadius: 50,
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     // marginTop: 50,
     marginHorizontal: 10,
     marginBottom: 10,
@@ -458,8 +458,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 5,
     borderColor: "#1267E9",
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     marginHorizontal: 10,
     marginBottom: 10,
     // tintColor: "grey",

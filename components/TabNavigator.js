@@ -36,12 +36,12 @@ const TabNavigator = (navigation) => {
                   source={require("../assets/homeIcon_Active.png")}
                   resizeMode="contain"
                   style={{
-                    width: 30,
-                    height: 30,
+                    width: 25,
+                    height: 25,
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
                   Home
                 </Text>
               </View>
@@ -64,12 +64,12 @@ const TabNavigator = (navigation) => {
                   source={require("../assets/learnIcon.png")}
                   resizeMode="contain"
                   style={{
-                    width: 30,
-                    height: 30,
+                    width: 25,
+                    height: 25,
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
                   Learn
                 </Text>
               </View>
@@ -93,12 +93,12 @@ const TabNavigator = (navigation) => {
                   source={require("../assets/plusIcon.png")}
                   resizeMode="contain"
                   style={{
-                    width: 30,
-                    height: 30,
+                    width: 25,
+                    height: 25,
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
                   Post
                 </Text>
               </View>
@@ -122,12 +122,12 @@ const TabNavigator = (navigation) => {
                   source={require("../assets/notificationIcon_Active.png")}
                   resizeMode="contain"
                   style={{
-                    width: 30,
-                    height: 30,
+                    width: 25,
+                    height: 25,
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
                   Notifications
                 </Text>
               </View>
@@ -153,12 +153,12 @@ const TabNavigator = (navigation) => {
                   }}
                   resizeMode="contain"
                   style={{
-                    width: 30,
-                    height: 30,
+                    width: 25,
+                    height: 25,
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey" }}>
+                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
                   Profile
                 </Text>
               </View>
