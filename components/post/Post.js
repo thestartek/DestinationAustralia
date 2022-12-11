@@ -16,17 +16,20 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
+import Comments from "./Comments";
 //import { color } from "react-native-reanimated";
 
 const Post = ({ post, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const user = auth.currentUser;
   // const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
   // const thumbnailPic = (
   //   <Image source={require("../../assets/profileIcon.png")} />
   // );
 
-  const handleLike = ({ post, user }) => {
+  const handleLike = (post) => {
     const currentLikeStatus = !post.likes.includes(user.email);
     updateDoc(doc(db, "posts", post.id), {
       likes: currentLikeStatus
@@ -49,7 +52,7 @@ const Post = ({ post, navigation }) => {
         <Divider />
         <ShareButton post={post} />
       </View>
-      {/* const CommentInput  */}
+      <Comments post={post}/>
       <Divider bold={true} />
     </ScrollView>
   );
@@ -225,9 +228,9 @@ export default Post;
 
 const styles = StyleSheet.create({
   profile: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     // tintColor: "#3a3b3c",
   },
   profileThumbnail: {

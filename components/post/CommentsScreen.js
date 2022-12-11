@@ -11,37 +11,36 @@ const CommentsScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const user = auth.currentUser;
 
-  useEffect(() => {
-    const unsub = onSnapshot(
-      collection(db, "posts"),
-      orderBy("creatd"),
-      (snapshot) => {
-        setPosts(
-          snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
-        );
-        if (loading) {
-          setLoading(false);
-        }
-      }
-    );
-    return unsub;
-  }, []);
+  // useEffect(() => {
+  //   const unsub = onSnapshot(
+  //     collection(db, "posts"),
+  //     orderBy("creatd"),
+  //     (snapshot) => {
+  //       setPosts(
+  //         snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
+  //       );
+  //       if (loading) {
+  //         setLoading(false);
+  //       }
+  //     }
+  //   );
+  //   return unsub;
+  // }, []);
 
   return (
     <View>
       <Text style={{ margin: 10, fontWeight: "bold" }}>
-        Comments are on the way.
+        Comments are on the way..
       </Text>
       {/* {posts.map((post, index) => (
         <AddComment post={post} key={index} />
-      ))}
-      <ScrollView>
+      ))} */}
+      {/* <ScrollView>
         {posts.map((post, index) => (
           <Comments post={post} key={index} navigation={navigation} />
         ))}
-      </ScrollView>
+      </ScrollView> */}
 
-      <Divider /> */}
     </View>
   );
 };

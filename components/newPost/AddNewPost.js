@@ -93,7 +93,7 @@ const AddNewPost = ({ post, navigation }) => {
         likes: [],
         shares: [],
         caption: caption,
-        comments: [],
+        comments: [{}],
         fullname: currentLoggedInUser.fullname,
         profile_picture: currentLoggedInUser.profile_picture || null,
         // category: category,

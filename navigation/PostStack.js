@@ -1,26 +1,27 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CommunityScreen from "../components/learn/LearnScreen";
 import CommentsScreen from "../components/post/CommentsScreen";
 import NewPostScreen from "../components/newPost/NewPostScreen";
+import PostScreen from "../components/post/PostsScreen";
+import Comments from "../components/post/Comments";
 
 const Stack = createNativeStackNavigator();
 
-const CommunityStack = () => {
+const PostStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="CommunityScreen"
+      initialRouteName="Posts"
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
-        name="CommunityScreen"
-        component={CommunityScreen}
+        name="Posts"
+        component={PostScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Comments" component={CommentsScreen} />
+      <Stack.Screen name="Comments" component={Comments} />
       <Stack.Screen name="New post" component={NewPostScreen} />
     </Stack.Navigator>
   );
 };
 
-export default CommunityStack;
+export default PostStack;

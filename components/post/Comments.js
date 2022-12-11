@@ -48,24 +48,19 @@ const Comments = ({ post, comment }) => {
                 )}
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <Text
-                  style={{
-                    marginHorizontal: 10,
-                    fontWeight: "bold",
-                    color: "#1267E9",
-                  }}
-                >
-                  {comment.user}
-                </Text>
-              </TouchableOpacity>
+              <View style={{ marginHorizontal: 10 }}>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      // marginHorizontal: 10,
+                      fontWeight: "bold",
+                      color: "#1267E9",
+                    }}
+                  >
+                    {comment.fullname}
+                  </Text>
+                </TouchableOpacity>
 
-              <View style={{ marginRight: 10 }}>
-                {/* <ScrollView>
-                {posts.map((post, index) => (
-                  <Post post={post} key={index} navigation={navigation} />
-                ))}
-              </ScrollView> */}
                 <Text style={{ fontWeight: "normal", color: "black" }}>
                   {comment.comment}
                 </Text>
@@ -88,8 +83,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   profile: {
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     borderRadius: 40,
     marginLeft: 10,
   },
