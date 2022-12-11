@@ -1,10 +1,10 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import RegisterScreen from "./login/RegisterScreen";
-import LoginScreen from "./login/LoginScreen";
+import RegisterScreen from "../components/login/RegisterScreen";
+import LoginScreen from "../components/login/LoginScreen";
 import { NavigationContainer } from "@react-navigation/native";
-import ResetPasswordScreen from "../screens/ResetPasswordScreen";
+import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 
 const Stack = createNativeStackNavigator();
 

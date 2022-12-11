@@ -8,11 +8,10 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { auth } from "../Firebase";
+import { auth } from "../../Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 
 const VerifyAccountScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -34,14 +33,14 @@ const VerifyAccountScreen = ({ navigation }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        Alert.alert("You have been verified !", "You can now safely delete your account");
-        navigation.goBack()
+        Alert.alert(
+          "You have been verified !",
+          "You can now safely delete your account"
+        );
+        navigation.goBack();
       })
       .catch(
-        (error) =>
-          Alert.alert(
-            "Invalid login details"
-          )
+        (error) => Alert.alert("Invalid login details")
         //
       );
   };
@@ -55,7 +54,7 @@ const VerifyAccountScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={require("./../assets/logoSquare.png")}
+            source={require("../../assets/logoSquare.png")}
             style={{ height: 65, width: 65, margin: 30 }}
           />
         </View>
@@ -110,8 +109,6 @@ const VerifyAccountScreen = ({ navigation }) => {
             <Text style={styles.buttonGoogleText}>Login with Google</Text>
           </TouchableOpacity>
         </View> */}
-
-        
       </ScrollView>
     </SafeAreaView>
   );

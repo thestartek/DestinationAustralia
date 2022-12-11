@@ -15,7 +15,7 @@ const Header = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Image
             style={{ height: 40, width: 30, tintColor: "white" }}
-            source={require("../../assets/menuBar.png")}
+            source={require("../assets/menuBar.png")}
           />
         </TouchableOpacity>
       </View>
@@ -31,7 +31,7 @@ const Header = ({ navigation }) => {
         <TouchableOpacity>
           <Image
             style={styles.icons}
-            source={require("../../assets/searchIcon.png")}
+            source={require("../assets/searchIcon.png")}
           />
         </TouchableOpacity>
 

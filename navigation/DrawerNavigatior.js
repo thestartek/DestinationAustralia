@@ -2,8 +2,8 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
-import DonateScreen from "./drawer/DonateScreen";
-import AboutusScreen from "./drawer/AboutusScreen";
+import DonateScreen from "../components/drawer/DonateScreen";
+import AboutusScreen from "../components/drawer/AboutusScreen";
 import HomeStack from "./HomeStack";
 
 const Drawer = createDrawerNavigator();

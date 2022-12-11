@@ -1,11 +1,10 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
-import Header from "../home/Header.js";
+import Header from "../../home/Header.js";
 import Post from "./Post.js";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db, auth } from "../../Firebase";
 import { Button, Divider } from "react-native-paper";
-
 
 const PostScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);

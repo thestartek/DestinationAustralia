@@ -1,7 +1,7 @@
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { ScrollView, StyleSheet, View, Text, SafeAreaView } from "react-native";
 import React, { useEffect, useState } from "react";
-import Header from "../components/home/Header.js";
-import Post4home from "../components/home/Post4home.js";
+import Header from "./Header.js";
+import Post4home from "./Post4home.js";
 import {
   collection,
   onSnapshot,
@@ -12,12 +12,9 @@ import {
 import { db, auth } from "../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Divider } from "react-native-paper";
-import Highlights from "../components/home/Highlights.js";
-import NewsPost from "../components/home/NewsPost.js";
-import CommunityScreen from "../components/learn/LearnScreen.js";
-import Post from "../components/post/Post.js";
-import CommunityStack from "../components/CommunityStack.js";
-import Tools4Home from "../components/home/Tools4Home.js";
+import Highlights from "./Highlights.js";
+import NewsPost from "./NewsPost.js";
+import Tools4Home from "./Tools4Home.js";
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -87,7 +84,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   }, []);
 
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
       <Divider width={8} />
       {/* <Text style={styles.headingText}>Highlights</Text> */}
@@ -148,7 +145,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           {/* <Divider style={{height: 5}}/> */}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -202,7 +199,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  
+
   newsContainer: {
     marginVertical: 5,
     backgroundColor: "white",

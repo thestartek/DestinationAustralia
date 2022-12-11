@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import { auth, db, storage } from "../Firebase";
+import { auth, db, storage } from "../../Firebase";
 import {
   doc,
   onSnapshot,
@@ -280,7 +280,7 @@ const EditProfileScreen = ({ navigation }) => {
           <Text style={styles.textStyle}>Choose your avatar</Text>
         </View>
 
-        <View style={{marginHorizontal: 10}}>
+        <View style={{ marginHorizontal: 10 }}>
           <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Your Full name:{"   "}</Text>
             <TextInput

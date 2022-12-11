@@ -2,7 +2,7 @@ import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
-import { auth, db } from "../../Firebase";
+import { auth, db } from "../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
@@ -27,13 +27,13 @@ const Post4home = ({ post, navigation }) => {
     <View>
       <PostHeader post={post} />
       {post.caption != null ? <Caption post={post} /> : null}
-      <Divider bold={true} style={{marginHorizontal: 10}}/>
+      <Divider bold={true} style={{ marginHorizontal: 10 }} />
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
         {/* <Divider /> */}
         <CommentButton post={post} navigation={navigation} />
       </View>
-      <Divider bold={true} style={{marginHorizontal: 10}}/>
+      <Divider bold={true} style={{ marginHorizontal: 10 }} />
     </View>
   );
 };

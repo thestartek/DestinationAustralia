@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { auth } from "./../Firebase";
+import { auth } from "../../Firebase";
 import { deleteUser } from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -47,7 +47,7 @@ const DeleteAccountScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={require("./../assets/logoSquare.png")}
+            source={require("../../assets/logoSquare.png")}
             style={{ height: 65, width: 65, margin: 30 }}
           />
         </View>

@@ -7,13 +7,13 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import AddNewPost from "../components/newPost/AddNewPost";
+import AddNewPost from "./AddNewPost";
 import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
 
-import { db, auth } from "../Firebase";
+import { db, auth } from "../../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
 import { Divider } from "react-native-paper";
 

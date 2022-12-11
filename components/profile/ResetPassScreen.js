@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { auth } from "./../Firebase";
+import { auth } from "../../Firebase";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -36,7 +36,7 @@ const ResetPassScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={require("./../assets/logoSquare.png")}
+            source={require("../../assets/logoSquare.png")}
             style={{ height: 65, width: 65, margin: 30 }}
           />
         </View>
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonDisabled: {
-    backgroundColor: 'darkgrey'
+    backgroundColor: "darkgrey",
   },
   buttonText: {
     color: "white",

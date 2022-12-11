@@ -2,13 +2,13 @@ import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
 import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
-import { auth, db } from "../../Firebase";
+import { auth, db } from "../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 //import { color } from "react-native-reanimated";
 
-import * as WebBrowser from 'expo-web-browser';
+import * as WebBrowser from "expo-web-browser";
 
 const NewsPost = ({ newspost, navigation }) => {
   const user = auth.currentUser;
@@ -34,8 +34,8 @@ const NewsPost = ({ newspost, navigation }) => {
     });
   };
   return (
-    <ScrollView >
-      <View style={{ flexDirection: "row", marginHorizontal: 10}}>
+    <ScrollView>
+      <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
         {newspost.image != null ? <PostImage newspost={newspost} /> : null}
         <View>
           <PostHeader newspost={newspost} />
@@ -53,7 +53,7 @@ const NewsPost = ({ newspost, navigation }) => {
         <ShareButton newspost={newspost} handleShare={handleShare} />
       </View>
       {/* const CommentInput  */}
-      <Divider style={{height: 5}}/>
+      <Divider style={{ height: 5 }} />
     </ScrollView>
   );
 };
@@ -81,7 +81,9 @@ const PostHeader = ({ newspost }) => (
 const Caption = ({ newspost }) => (
   <View>
     <Text style={{ marginHorizontal: 10 }}>{newspost.abstract}</Text>
-    <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(newspost.link)}>
+    <TouchableOpacity
+      onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
+    >
       <Text style={{ margin: 10, color: "#1267E9" }}>Read more...</Text>
     </TouchableOpacity>
   </View>
@@ -90,7 +92,7 @@ const Caption = ({ newspost }) => (
 const PostImage = ({ newspost }) => (
   <Image
     source={{ uri: newspost.image }}
-    style={{ minHeight: 100, width: 100, marginVertical: 10, borderRadius: 2}}
+    style={{ minHeight: 100, width: 100, marginVertical: 10, borderRadius: 2 }}
   />
 );
 

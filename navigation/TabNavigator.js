@@ -2,12 +2,12 @@ import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, Image, StyleSheet } from "react-native";
-import NotificationScreen from "./notifications/NotificationScreen";
+import NotificationScreen from "../components/notifications/NotificationScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import DrawerNavigator from "../components/DrawerNavigatior";
+import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
-import NewPostScreen from "../screens/NewPostScreen";
-import LearnScreen from "./learn/LearnScreen";
+import NewPostScreen from "../components/newPost/NewPostScreen";
+import LearnScreen from "../components/learn/LearnScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +41,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
                   Home
                 </Text>
               </View>
@@ -69,7 +71,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
                   Learn
                 </Text>
               </View>
@@ -98,7 +102,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
                   Post
                 </Text>
               </View>
@@ -127,7 +133,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
                   Notifications
                 </Text>
               </View>
@@ -158,7 +166,9 @@ const TabNavigator = (navigation) => {
                     tintColor: focused ? "#1267E9" : "grey",
                   }}
                 />
-                <Text style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}>
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
                   Profile
                 </Text>
               </View>

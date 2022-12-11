@@ -11,7 +11,7 @@ const tools4Home = ({ navigation }) => {
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/prPointsCalculator.png")}
+            source={require("../assets/prPointsCalculator.png")}
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>PR Points{"\n"}Calculator</Text>
@@ -22,7 +22,7 @@ const tools4Home = ({ navigation }) => {
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/australiaIcon.png")}
+            source={require("../assets/australiaIcon.png")}
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Explore{"\n"}Australia</Text>
@@ -33,7 +33,7 @@ const tools4Home = ({ navigation }) => {
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/universityFinder.png")}
+            source={require("../assets/universityFinder.png")}
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>University{"\n"}Finder</Text>
@@ -44,7 +44,7 @@ const tools4Home = ({ navigation }) => {
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/expenseEstimator.png")}
+            source={require("../assets/expenseEstimator.png")}
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
@@ -55,7 +55,7 @@ const tools4Home = ({ navigation }) => {
           style={styles.innerContainer}
         >
           <Image
-            source={require("../../assets/incomeCalculator.png")}
+            source={require("../assets/incomeCalculator.png")}
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>

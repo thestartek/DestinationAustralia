@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import React, { useState, useEffect } from "react";
-import Comments from "../components/post/Comments";
-import { auth, db } from "../Firebase";
+import Comments from "./Comments";
+import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, orderBy, collection } from "firebase/firestore";
-import AddComment from "../components/post/AddComment";
+import AddComment from "./AddComment";
 import { ScrollView } from "react-native-gesture-handler";
 
 const CommentsScreen = ({ navigation }) => {

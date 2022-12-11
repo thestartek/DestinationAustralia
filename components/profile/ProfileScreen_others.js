@@ -18,9 +18,9 @@ import {
   Modal,
 } from "react-native";
 import { Divider } from "react-native-elements";
-import Post from "../components/post/Post";
+import Post from "../post/Post";
 
-import { db, auth } from "../Firebase";
+import { db, auth } from "../../Firebase";
 //import {AuthContext} from '../navigation/AuthProvider';
 
 //import firestore from '@react-native-firebase/firestore';

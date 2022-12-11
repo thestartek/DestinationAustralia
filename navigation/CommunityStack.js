@@ -1,8 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CommunityScreen from "./learn/LearnScreen";
-import CommentsScreen from "../screens/CommentsScreen";
-import NewPostScreen from "../screens/NewPostScreen";
+import CommunityScreen from "../components/learn/LearnScreen";
+import CommentsScreen from "../components/post/CommentsScreen";
+import NewPostScreen from "../components/newPost/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
 
