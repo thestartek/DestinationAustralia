@@ -91,24 +91,6 @@ const VerifyAccountScreen = ({ navigation }) => {
             <Text style={styles.buttonText}>Verify</Text>
           </TouchableOpacity>
         </View>
-        {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
-        {/* <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            //onPress={() => navigation.push("Register")}
-            style={[styles.button, styles.buttonFacebook]}
-          >
-            <FontAwesome name="facebook" size={24} color="#1267E9" />
-            <Text style={styles.buttonFacebookText}>Login with Facebook</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() =>{}}
-            style={[styles.button, styles.buttonGoogle]}
-          >
-            <AntDesign name="google" size={24} color="red" />
-            <Text style={styles.buttonGoogleText}>Login with Google</Text>
-          </TouchableOpacity>
-        </View> */}
       </ScrollView>
     </SafeAreaView>
   );

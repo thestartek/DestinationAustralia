@@ -22,13 +22,13 @@ import ChooseCategory from "./ChooseCategory";
 
 const AddNewPost = ({ post, navigation }) => {
   const [caption, setCaption] = useState(null);
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   //const [imageUrl, setImageUrl] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [city, setCity] = useState(null);
+  // const [category, setCategory] = useState(null);
+  // const [city, setCity] = useState(null);
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([null]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [percentage, setPercentage] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [percentage, setPercentage] = useState(null);
 
   const date = new Date().getDate();
   const month = new Date().getMonth();
@@ -102,6 +102,7 @@ const AddNewPost = ({ post, navigation }) => {
         postedDate: date + " " + months[month],
       });
       navigation.goBack();
+      // setCaption(null)
       console.log("posted successfully");
       Alert.alert("Posted successfully");
     } catch (e) {
@@ -155,7 +156,7 @@ const AddNewPost = ({ post, navigation }) => {
         placeholder="Share something..."
         placeholderTextColor="gray"
         multiline={true}
-        value={post}
+        // value={post}
         onChangeText={(text) => setCaption(text)}
         maxLength={2200}
         style={styles.postBox}

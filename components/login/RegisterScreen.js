@@ -283,7 +283,8 @@ const RegisterScreen = ({ navigation }) => {
           )}
         </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
+        <AstrikIcon />
           <Text style={styles.textStyle}>Choose your avatar</Text>
         </View>
 
@@ -471,6 +472,5 @@ const styles = StyleSheet.create({
     //fontWeight: "bold",
     //textAlign: "center",
     fontSize: 16,
-    marginHorizontal: 8,
   },
 });

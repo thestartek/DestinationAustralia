@@ -23,22 +23,22 @@ const DeleteAccountScreen = ({ navigation }) => {
         Alert.alert("Your account has been permanently deleted.");
       })
       .catch((error) => {
-        console.log("This account can't be deleted");
-        Alert.alert(
-          "Please verify your identity",
-          "It looks like you havn't logged in recently, please verify your account !",
-          [
-            {
-              text: "Verify",
-              onPress: () => navigation.push("Verify account"),
-            },
-            {
-              text: "cancel",
-              //onPress: () => console.log("Ok"),
-              style: "cancel",
-            },
-          ]
-        );
+        console.log("This account can't be deleted", {error});
+        // Alert.alert(
+        //   "Please verify your identity",
+        //   "It looks like you havn't logged in recently, please verify your account !",
+        //   [
+        //     {
+        //       text: "Verify",
+        //       onPress: () => navigation.push("Verify account"),
+        //     },
+        //     {
+        //       text: "cancel",
+        //       //onPress: () => console.log("Ok"),
+        //       style: "cancel",
+        //     },
+        //   ]
+        // );
       });
   };
 
@@ -55,15 +55,21 @@ const DeleteAccountScreen = ({ navigation }) => {
           <Text
             style={{
               color: "#1267E9",
-              marginBottom: 5,
-              //width: "80%",
+              marginHorizontal: 10,
+              // marginVertical: 5,
               alignItems: "stretch",
-              //textAlign: "justify",
             }}
           >
-            Are you sure, you want to delete your account: {"\n"}
-            Other details go here, {"\n"} jkslafjhka ajfk aajfkadj akjdfaj
-            ajhfdkaj {"\n"} ajhfkjahf jdfjs flkjsf kahjfhas ahfkh kafh ahjf afka
+            Are you sure, you want to delete your account ? {"\n"}
+          </Text>
+          <Text
+            style={{
+              marginHorizontal: 10,
+              // marginVertical: 5,
+              alignItems: "stretch",
+            }}
+          >
+            Once you delete your account, you will not be able to recover it again. {"\n"}
           </Text>
         </View>
 

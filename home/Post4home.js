@@ -1,11 +1,11 @@
 import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
 //import { color } from "react-native-reanimated";
 
 const Post4home = ({ post, navigation }) => {
@@ -38,43 +38,72 @@ const Post4home = ({ post, navigation }) => {
   );
 };
 
-const PostHeader = ({ post }) => (
-  <View style={{ flexDirection: "row", margin: 10 }}>
-    {!post.profile_picture ? (
-      <Image
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-        }}
-        style={styles.profileThumbnail}
-      />
-    ) : (
-      <Image source={{ uri: post.profile_picture }} style={styles.profile} />
-    )}
-    {/* where post.user == user.email*/}
+const PostHeader = ({ post }) => {
+  const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
+  const user = post.user;
 
-    <View style={{ flexDirection: "column" }}>
-      <Text
-        style={{
-          marginLeft: 10,
-          marginTop: 4,
-          fontWeight: "bold",
-          fontSize: 15,
-          color: "#1267E9",
-        }}
-      >
-        {post.fullname}
-      </Text>
-      <Text style={styles.timstampText}>{post.postedDate}</Text>
+  const getUserDetails = () => {
+    const unsubscribe = onSnapshot(doc(db, "users", user), (doc) => {
+      setCurrentLoggedInUser({
+        fullname: doc.data().fullname,
+        profile_picture: doc.data().profile_picture,
+      });
+    });
+    return unsubscribe;
+  };
+
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+  return (
+    <View
+      style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
+    >
+      <TouchableOpacity>
+        {!currentLoggedInUser.profile_picture ? (
+          <Image
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+            }}
+            style={styles.profileThumbnail}
+          />
+        ) : (
+          <Image
+            source={{ uri: currentLoggedInUser.profile_picture }}
+            style={styles.profile}
+          />
+        )}
+        {/* where post.user == user.email*/}
+      </TouchableOpacity>
+
+      <View style={{ flexDirection: "column", height: 50 }}>
+        <TouchableOpacity>
+          <Text
+            style={{
+              marginHorizontal: 10,
+              marginTop: 4,
+              fontWeight: "bold",
+              fontSize: 15,
+              color: "#1267E9",
+              maxWidth: 150,
+              // maxHeight: 50
+            }}
+          >
+            {currentLoggedInUser.fullname}
+          </Text>
+        </TouchableOpacity>
+        <Text style={styles.timstampText}>{post.postedDate}</Text>
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
 const Caption = ({ post }) => (
   <Text
     style={{
       marginLeft: 14,
       // marginBottom: -20,
-      width: 120,
+      maxWidth: 160,
       height: 60,
     }}
   >
