@@ -35,10 +35,10 @@ const NewsPost = ({ newspost, navigation }) => {
   };
   return (
     <ScrollView>
-      <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
-        {newspost.image != null ? <PostImage newspost={newspost} /> : null}
+      <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
+        {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
         <View>
-          <PostHeader newspost={newspost} />
+          <NewsHeader newspost={newspost} />
           {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
         </View>
       </View>
@@ -53,26 +53,32 @@ const NewsPost = ({ newspost, navigation }) => {
         <ShareButton newspost={newspost} handleShare={handleShare} />
       </View>
       {/* const CommentInput  */}
-      <Divider style={{ height: 5 }} />
+      <Divider bold={true} />
     </ScrollView>
   );
 };
 
-const PostHeader = ({ newspost }) => (
-  <View style={{ flexDirection: "row", margin: 10 }}>
-    <View style={{ flexDirection: "column" }}>
-      <Text
-        style={{
-          marginLeft: 5,
-          // marginTop: 4,
-          fontWeight: "bold",
-          fontSize: 15,
-          color: "#1267E9",
+const NewsHeader = ({ newspost }) => (
+  <View style={{ margin: 10 }}>
+    <Text
+      style={{
+        // marginLeft: 5,
+        // marginTop: 4,
+        fontWeight: "bold",
+        fontSize: 15,
+        color: "#1267E9",
+      }}
+    >
+      {newspost.headline}
+    </Text>
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <Text style={styles.timstampText}>{newspost.media}</Text>
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FdotIcon.png?alt=media&token=68370fe8-e55e-41ff-8a19-eda08ca7016d",
         }}
-      >
-        {newspost.headline}
-      </Text>
-
+        style={{ width: 20, height: 20, tintColor: "grey" }}
+      />
       <Text style={styles.timstampText}>{newspost.date}</Text>
     </View>
   </View>
@@ -89,10 +95,10 @@ const Caption = ({ newspost }) => (
   </View>
 );
 
-const PostImage = ({ newspost }) => (
+const NewsImage = ({ newspost }) => (
   <Image
     source={{ uri: newspost.image }}
-    style={{ minHeight: 100, width: 100, marginVertical: 10, borderRadius: 2 }}
+    style={{ height: 200, width: "100%", marginVertical: 10, borderRadius: 2 }}
   />
 );
 
@@ -121,29 +127,6 @@ const LikeButton = ({ newspost, handleLike, focused }) => {
         {!!newspost.likes.length && (
           <Text style={[styles.postFooterIconsText, { color: onLikedColor }]}>
             {newspost.likes.length}
-          </Text>
-        )}
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const CommentButton = ({ newspost, postId, navigation }) => {
-  //const [modalVisible, setModalVisible] = useState(false);
-  return (
-    <View>
-      <TouchableOpacity
-        onPress={() => navigation.push("Comments")}
-        style={{ flexDirection: "row" }}
-      >
-        <FontAwesome name="commenting-o" size={25} color="#545050" />
-
-        {!!newspost.comments.length && (
-          <Text style={styles.postFooterIconsText}>
-            {/* View
-            {post.comments.length > 1 ? " all " : " "} */}
-            {newspost.comments.length}
-            {/* {post.comments.length > 1 ? " comments" : " comment"} */}
           </Text>
         )}
       </TouchableOpacity>
@@ -202,7 +185,7 @@ const styles = StyleSheet.create({
     tintColor: "grey",
   },
   timstampText: {
-    marginLeft: 5,
+    // marginLeft: 5,
     marginTop: 2,
     fontSize: 12,
     color: "grey",
@@ -212,7 +195,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 50,
-    marginVertical: 10,
+    marginBottom: 20,
     // width: "80%"
   },
 

@@ -39,13 +39,13 @@ const Post = ({ post, navigation }) => {
         <ShareButton post={post} />
       </View>
       {/* const CommentInput  */}
-      <Divider style={{height: 5}}/>
+      <Divider bold={true}/>
     </ScrollView>
   );
 };
 
 const PostHeader = ({ post }) => (
-  <View style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 20 }}>
+  <View style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}>
     <TouchableOpacity>
       {!post.profile_picture ? (
         <Image

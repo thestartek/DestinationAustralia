@@ -74,7 +74,7 @@ const EditProfileScreen = ({ navigation }) => {
         fullname: fullname || currentLoggedInUser.fullname,
         city: city || currentLoggedInUser.city,
         country: country || currentLoggedInUser.country,
-        info: info,
+        info: info || currentLoggedInUser.info,
         profile_picture: image || currentLoggedInUser.profile_picture,
       });
       console.log("Profile updated");
@@ -85,6 +85,8 @@ const EditProfileScreen = ({ navigation }) => {
     }
     // return unsub;
   };
+
+  // {currentLoggedInUser.profile_picture == avatar1 ? setCheckedAvatar1(true) : setCheckedAvatar1(false)}
 
   return (
     <ScrollView>
@@ -282,17 +284,13 @@ const EditProfileScreen = ({ navigation }) => {
 
         <View style={{ marginHorizontal: 10 }}>
           <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Your Full name:{"   "}</Text>
+            <Text style={styles.textStyle}>Your Full name:</Text>
             <TextInput
-              placeholder="Full name"
+              placeholder={currentLoggedInUser.fullname}
               defaultValue={currentLoggedInUser.fullname}
               //autoFocus={true}
               //autoCapitalize="none"
-              onChangeText={(text) => {
-                {
-                  text ? setFullname(text) : currentLoggedInUser.fullname;
-                }
-              }}
+              onChangeText={setFullname}
               value={fullname}
               style={styles.textInput}
             />
@@ -301,45 +299,33 @@ const EditProfileScreen = ({ navigation }) => {
           <View style={{ marginHorizontal: 30 }}>
             <Text style={styles.textStyle}>Current country:</Text>
             <TextInput
-              placeholder="Country"
+              placeholder={currentLoggedInUser.country}
               defaultValue={currentLoggedInUser.country}
-              onChangeText={(text) => {
-                {
-                  text ? setCountry(text) : currentLoggedInUser.country;
-                }
-              }}
+              onChangeText={setCountry}
               value={country}
-              style={[styles.textInput]}
+              style={styles.textInput}
             />
           </View>
 
           <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Current city:{"        "}</Text>
+            <Text style={styles.textStyle}>Current city:</Text>
             <TextInput
-              placeholder="City"
+              placeholder={currentLoggedInUser.city}
               defaultValue={currentLoggedInUser.city}
-              onChangeText={(text) => {
-                {
-                  text ? setCity(text) : currentLoggedInUser.city;
-                }
-              }}
+              onChangeText={setCity}
               value={city}
               style={styles.textInput}
             />
           </View>
 
           <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Bio:{"    "}</Text>
+            <Text style={styles.textStyle}>Bio:</Text>
             <TextInput
-              placeholder="Write your bio"
+              placeholder={currentLoggedInUser.info}
               defaultValue={currentLoggedInUser.info}
               multiline={true}
               autoCapitalize="none"
-              onChangeText={(text) => {
-                {
-                  text ? setInfo(text) : currentLoggedInUser.info;
-                }
-              }}
+              onChangeText={setInfo}
               value={info}
               style={[styles.textInput, { height: 100 }]}
               //onSubmitEditing={Keyboard.dismiss}

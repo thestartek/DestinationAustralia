@@ -38,8 +38,10 @@ const avatar8 =
 const AstrikIcon = () => {
   return (
     <Image
-      source={require("../../assets/astrikIcon.png")}
-      style={{ width: 10, height: 10, marginRight: 10 }}
+      source={{
+        uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FastrikIcon.png?alt=media&token=223f8f78-b137-460c-bbb7-87fe02da4249",
+      }}
+      style={{ width: 10, height: 10, marginRight: 10, tintColor: "red" }}
     />
   );
 };
@@ -343,7 +345,7 @@ const RegisterScreen = ({ navigation }) => {
           </View>
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={{marginRight: 20}}/>
+            <View style={{ marginRight: 20 }} />
             <TextInput
               placeholder="Write your bio (optional)"
               multiline={true}

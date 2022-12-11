@@ -87,9 +87,6 @@ const ProfileScreen = ({ navigation }) => {
     return unsub;
   }, []);
 
-  //   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
-  //     console.log("Current data: ", doc.data());
-  // });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -118,7 +115,7 @@ const ProfileScreen = ({ navigation }) => {
         )}
 
         {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: "row" }}>
           <Text style={styles.userLocation}>{currentLoggedInUser.city},</Text>
           <Text style={styles.userLocation}>
             {" "}
@@ -126,7 +123,7 @@ const ProfileScreen = ({ navigation }) => {
           </Text>
         </View>
 
-        <Text style={styles.aboutUser}>{currentLoggedInUser.info}</Text>
+        <Text style={styles.aboutUser}>Bio: {currentLoggedInUser.info}</Text>
 
         <View style={styles.userBtnWrapper}>
           <SettingsModel navigation={navigation} />

@@ -201,6 +201,8 @@ const styles = StyleSheet.create({
   },
 
   newsContainer: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     marginVertical: 5,
     backgroundColor: "white",
     shadowColor: "#000",
