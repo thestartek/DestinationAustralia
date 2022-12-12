@@ -22,14 +22,18 @@ const DeleteAccountScreen = ({ navigation }) => {
 
   const user = auth.currentUser;
 
+  const deleteDatabase = () => {
+    deleteDoc(doc(db, "users", user.email))
+  };
+
   async function handleDelete() {
     // await deleteDoc(doc(db, "users", user.email));
     await deleteUser(user)
       .then(() => {
-        Alert.alert("Your account has been permanently deleted.");
+        Alert.alert("Your account has been permanently deleted !");
       })
       .catch((error) => {
-        console.log("This account can't be deleted", { error });
+        // console.log("This account can't be deleted", { error });
         Alert.alert(
           "Please Login again",
           "Please verify yourself by logging in again !",
@@ -114,7 +118,10 @@ const DeleteAccountScreen = ({ navigation }) => {
               <Text style={styles.buttonText}>Delete now</Text>
             </View>
           ) : (
-            <TouchableOpacity onPress={handleDelete} style={styles.button}>
+            <TouchableOpacity
+              onPress={deleteDatabase && handleDelete}
+              style={styles.button}
+            >
               <Text style={styles.buttonText}>Delete now</Text>
             </TouchableOpacity>
           )}

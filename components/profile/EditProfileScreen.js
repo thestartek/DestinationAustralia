@@ -18,7 +18,7 @@ import {
   setDoc,
   query,
   where,
-  collection,
+  collection
 } from "firebase/firestore";
 import * as ImagePicker from "expo-image-picker";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -76,8 +76,8 @@ const EditProfileScreen = ({ navigation }) => {
         country: country || currentLoggedInUser.country,
         info: info || currentLoggedInUser.info,
         profile_picture: image || currentLoggedInUser.profile_picture,
-        email: user.email
-      });
+        // email: user.email
+      }, {merge: true});
       console.log("Profile updated");
       navigation.goBack();
       //Alert.alert("User registered successfully", user.email);

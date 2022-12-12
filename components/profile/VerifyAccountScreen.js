@@ -9,9 +9,14 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../Firebase";
-import { reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
+import {
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+  deleteUser,
+} from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { doc, db, deleteDoc } from "firebase/firestore";
 
 const VerifyAccountScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -25,50 +30,18 @@ const VerifyAccountScreen = ({ navigation }) => {
   const handleVerification = () => {
     reauthenticateWithCredential(user, credential)
       .then(() => {
-        // User re-authenticated.
+        // deleteDoc(doc(db, "users", 'user.email'))
+        deleteUser(user);
         Alert.alert(
-          "You have been verified !",
-          "You can now safely delete your account"
+          "Your account has been permanently deleted !"
         );
-        navigation.goBack();
       })
       .catch((error) => {
         // An error ocurred
-        Alert.alert("We are unable to verify you !", "Please try again later");
+        Alert.alert("We are unable to verify you !", "Please try again.");
         console.log(error);
       });
   };
-
-  //const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       navigation.push("Home");
-  //     }
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
-
-  // const handleLogin = () => {
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredentials) => {
-  //       const user = userCredentials.user;
-  //       Alert.alert(
-  //         "You have been verified !",
-  //         "You can now safely delete your account"
-  //       );
-  //       navigation.goBack();
-  //     })
-  //     .catch(
-  //       (error) => Alert.alert("Invalid login details")
-  //     );
-  // };
-
-  // const provider = () => {
-  //   GoogleAuthProvider();
-  // };
 
   return (
     <SafeAreaView style={styles.container}>
