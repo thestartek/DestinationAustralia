@@ -8,7 +8,12 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../Firebase";
-import { deleteUser } from "firebase/auth";
+import {
+  deleteUser,
+  signOut,
+  reauthenticateWithCredential,
+} from "firebase/auth";
+import { db, doc, deleteDoc } from "firebase/firestore";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -17,30 +22,31 @@ const DeleteAccountScreen = ({ navigation }) => {
 
   const user = auth.currentUser;
 
-  const handleDelete = () => {
-    deleteUser(user)
+  async function handleDelete() {
+    // await deleteDoc(doc(db, "users", user.email));
+    await deleteUser(user)
       .then(() => {
         Alert.alert("Your account has been permanently deleted.");
       })
       .catch((error) => {
-        console.log("This account can't be deleted", {error});
-        // Alert.alert(
-        //   "Please verify your identity",
-        //   "It looks like you havn't logged in recently, please verify your account !",
-        //   [
-        //     {
-        //       text: "Verify",
-        //       onPress: () => navigation.push("Verify account"),
-        //     },
-        //     {
-        //       text: "cancel",
-        //       //onPress: () => console.log("Ok"),
-        //       style: "cancel",
-        //     },
-        //   ]
-        // );
+        console.log("This account can't be deleted", { error });
+        Alert.alert(
+          "Please Login again",
+          "Please verify yourself by logging in again !",
+          [
+            {
+              text: "Proceed",
+              onPress: () => navigation.push("Verify account"),
+            },
+            {
+              text: "cancel",
+              //onPress: () => console.log("Ok"),
+              style: "cancel",
+            },
+          ]
+        );
       });
-  };
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -69,7 +75,8 @@ const DeleteAccountScreen = ({ navigation }) => {
               alignItems: "stretch",
             }}
           >
-            Once you delete your account, you will not be able to recover it again. {"\n"}
+            Once you delete your account, you will not be able to recover it
+            again. {"\n"}
           </Text>
         </View>
 

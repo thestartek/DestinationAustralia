@@ -72,7 +72,6 @@ const RegisterScreen = ({ navigation }) => {
         const user = userCredentials.user;
         console.log("Registered with:", user.email);
         //navigation.push("Profile");
-
         try {
           setDoc(doc(db, "users", user.email), {
             uid: user.uid,
@@ -283,8 +282,14 @@ const RegisterScreen = ({ navigation }) => {
           )}
         </View>
 
-        <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}>
-        <AstrikIcon />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 10,
+          }}
+        >
+          <AstrikIcon />
           <Text style={styles.textStyle}>Choose your avatar</Text>
         </View>
 

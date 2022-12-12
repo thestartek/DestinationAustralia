@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     marginTop: 350,
+    // marginBottom: 100,
     // flex: 1,
     // justifyContent: "center",
     width: "100%",
@@ -175,5 +176,6 @@ const styles = StyleSheet.create({
     color: "#1267E9",
     fontWeight: "900",
     textAlign: "center",
+    marginBottom: 300
   },
 });

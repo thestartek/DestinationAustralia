@@ -9,13 +9,35 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../Firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const VerifyAccountScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const user = auth.currentUser;
+
+  // TODO(you): prompt the user to re-provide their sign-in credentials
+  const credential = EmailAuthProvider.credential(email, password);
+
+  const handleVerification = () => {
+    reauthenticateWithCredential(user, credential)
+      .then(() => {
+        // User re-authenticated.
+        Alert.alert(
+          "You have been verified !",
+          "You can now safely delete your account"
+        );
+        navigation.goBack();
+      })
+      .catch((error) => {
+        // An error ocurred
+        Alert.alert("We are unable to verify you !", "Please try again later");
+        console.log(error);
+      });
+  };
 
   //const navigation = useNavigation();
 
@@ -29,21 +51,20 @@ const VerifyAccountScreen = ({ navigation }) => {
   //   return unsubscribe;
   // }, []);
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        Alert.alert(
-          "You have been verified !",
-          "You can now safely delete your account"
-        );
-        navigation.goBack();
-      })
-      .catch(
-        (error) => Alert.alert("Invalid login details")
-        //
-      );
-  };
+  // const handleLogin = () => {
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredentials) => {
+  //       const user = userCredentials.user;
+  //       Alert.alert(
+  //         "You have been verified !",
+  //         "You can now safely delete your account"
+  //       );
+  //       navigation.goBack();
+  //     })
+  //     .catch(
+  //       (error) => Alert.alert("Invalid login details")
+  //     );
+  // };
 
   // const provider = () => {
   //   GoogleAuthProvider();
@@ -87,7 +108,7 @@ const VerifyAccountScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
+          <TouchableOpacity onPress={handleVerification} style={styles.button}>
             <Text style={styles.buttonText}>Verify</Text>
           </TouchableOpacity>
         </View>

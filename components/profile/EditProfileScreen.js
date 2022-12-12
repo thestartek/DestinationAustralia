@@ -76,6 +76,7 @@ const EditProfileScreen = ({ navigation }) => {
         country: country || currentLoggedInUser.country,
         info: info || currentLoggedInUser.info,
         profile_picture: image || currentLoggedInUser.profile_picture,
+        email: user.email
       });
       console.log("Profile updated");
       navigation.goBack();
