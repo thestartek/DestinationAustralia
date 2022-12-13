@@ -10,7 +10,6 @@ import UniversityFinder from "../components/tools/UniversityFinder";
 import ExpenseEstimator from "../components/tools/ExpenseEstimator";
 import PostScreen from "../components/post/PostsScreen";
 import ExploreAustralia from "../components/tools/ExploreAustralia";
-import Comments from "../components/post/Comments";
 // import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
@@ -26,7 +25,7 @@ const HomeStack = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Comments" component={Comments} />
+      <Stack.Screen name="Comments" component={CommentsScreen} />
       <Stack.Screen name="Posts" component={PostScreen} />
       <Stack.Screen name="Tools" component={ToolsScreen} />
       <Stack.Screen

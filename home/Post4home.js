@@ -5,7 +5,14 @@ import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import { doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  onSnapshot,
+} from "firebase/firestore";
+import CommentModal from "../components/post/CommentModal";
 //import { color } from "react-native-reanimated";
 
 const Post4home = ({ post, navigation }) => {
@@ -126,9 +133,9 @@ const LikeButton = ({ post, handleLike, focused }) => {
         }}
       >
         {post.likes.includes(auth.currentUser.email) ? (
-          <AntDesign name="like1" size={20} color="#1267E9" />
+          <AntDesign name="like1" size={25} color="#1267E9" />
         ) : (
-          <AntDesign name="like2" size={20} color="#545050" />
+          <AntDesign name="like2" size={25} color="#545050" />
         )}
         {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
         {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
@@ -148,10 +155,11 @@ const CommentButton = ({ post, postId, navigation }) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.push("Comments")}
+        onPress={() => navigation.push("Posts")}
         style={{ flexDirection: "row" }}
       >
-        <FontAwesome name="commenting-o" size={20} color="#545050" />
+        <CommentModal post={post} />
+        {/* <FontAwesome name="commenting-o" size={20} color="#545050" /> */}
 
         {!!post.comments.length && (
           <Text style={styles.postFooterIconsText}>

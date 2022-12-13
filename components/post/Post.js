@@ -17,6 +17,8 @@ import {
   limit,
 } from "firebase/firestore";
 import Comments from "./Comments";
+import AddComment from "./AddComment";
+import CommentModal from "./CommentModal";
 //import { color } from "react-native-reanimated";
 
 const Post = ({ post, navigation }) => {
@@ -48,12 +50,16 @@ const Post = ({ post, navigation }) => {
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
         <Divider />
+        {/* <CommentModal post={post} /> */}
         <CommentButton post={post} navigation={navigation} />
         <Divider />
         <ShareButton post={post} />
       </View>
-      <Comments post={post}/>
-      <Divider bold={true} />
+      <Divider />
+
+      <Comments post={post} />
+      <AddComment post={post} />
+      <Divider style={{ height: 5 }} />
     </ScrollView>
   );
 };
@@ -117,9 +123,7 @@ const PostHeader = ({ post }) => {
 };
 
 const Caption = ({ post }) => (
-  <Text style={{ marginHorizontal: 20, marginBottom: 10 }}>
-    {post.caption}
-  </Text>
+  <Text style={{ marginHorizontal: 20, marginBottom: 10 }}>{post.caption}</Text>
 );
 
 // const PostImage = ({ post }) => (
@@ -172,10 +176,11 @@ const CommentButton = ({ post, postId, navigation }) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.push("Comments")}
+        // onPress={() => navigation.push("Comments")}
         style={{ flexDirection: "row" }}
       >
-        <FontAwesome name="commenting-o" size={25} color="#545050" />
+        <CommentModal post={post}/>
+        {/* <FontAwesome name="commenting-o" size={25} color="#545050" /> */}
 
         {!!post.comments.length && (
           <Text style={styles.postFooterIconsText}>
@@ -223,6 +228,22 @@ const ShareButton = ({ post }) => {
     </View>
   );
 };
+
+// const CommentModal = () => {
+//   const [modalVisible, setModalVisible] = useState(false);
+//   return (
+//     <View>
+//       <Modal
+//         animationType="slide"
+//         transparent={true}
+//         visible={modalVisible}
+//         onRequestClose={() => {
+//           setModalVisible(!modalVisible);
+//         }}
+//       ></Modal>
+//     </View>
+//   );
+// };
 
 export default Post;
 

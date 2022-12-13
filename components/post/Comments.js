@@ -4,38 +4,17 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
 
-const Comments = ({ post, comment }) => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
-
-  const getUserDetails = () => {
-    const unsubscribe = onSnapshot(
-      doc(db, "users", auth.currentUser.email),
-      (doc) => {
-        setCurrentLoggedInUser({
-          fullname: doc.data().fullname,
-          profile_picture: doc.data().profile_picture,
-        });
-      }
-    );
-    return unsubscribe;
-  };
-
-  useEffect(() => {
-    getUserDetails();
-  }, []);
-
+const Comments = ({ post }) => {
   return (
-    <View>
+    <View style={styles.commentSection}>
       <ScrollView>
         <View style={{ width: "80%" }}>
           {post.comments.map((comment, index) => (
             <View key={index} style={styles.commentContainer}>
               <TouchableOpacity style={{ flexDirection: "row" }}>
-                {comment.image != null ? (
+                {comment.profile_picture != null ? (
                   <Image
-                    source={{ uri: comment.image }}
+                    source={{ uri: comment.profile_picture }}
                     style={styles.profile}
                   />
                 ) : (
@@ -48,7 +27,7 @@ const Comments = ({ post, comment }) => {
                 )}
               </TouchableOpacity>
 
-              <View style={{ marginHorizontal: 10 }}>
+              <View style={styles.commentBox}>
                 <TouchableOpacity>
                   <Text
                     style={{
@@ -76,16 +55,25 @@ const Comments = ({ post, comment }) => {
 export default Comments;
 
 const styles = StyleSheet.create({
+  commentSection: {
+    maxHeight: 240
+  },
   commentContainer: {
     flexDirection: "row",
     marginTop: 10,
     marginRight: 10,
-    marginBottom: 10,
+  },
+  commentBox: {
+    marginHorizontal: 10,
+    maxWidth: "100%",
+    backgroundColor: '#ececec',
+    padding: 8,
+    borderRadius: 10
   },
   profile: {
     width: 40,
     height: 40,
-    borderRadius: 40,
-    marginLeft: 10,
+    borderRadius: 20,
+    marginLeft: 20,
   },
 });
