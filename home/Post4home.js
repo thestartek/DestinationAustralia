@@ -83,17 +83,15 @@ const PostHeader = ({ post }) => {
         {/* where post.user == user.email*/}
       </TouchableOpacity>
 
-      <View style={{ flexDirection: "column", height: 50 }}>
+      <View style={{ flexDirection: "column" }}>
         <TouchableOpacity>
           <Text
             style={{
-              marginHorizontal: 10,
+              marginLeft: 10,
               marginTop: 4,
               fontWeight: "bold",
               fontSize: 15,
               color: "#1267E9",
-              maxWidth: 150,
-              // maxHeight: 50
             }}
           >
             {currentLoggedInUser.fullname}
@@ -133,9 +131,9 @@ const LikeButton = ({ post, handleLike, focused }) => {
         }}
       >
         {post.likes.includes(auth.currentUser.email) ? (
-          <AntDesign name="like1" size={25} color="#1267E9" />
+          <AntDesign name="like1" size={20} color="#1267E9" />
         ) : (
-          <AntDesign name="like2" size={25} color="#545050" />
+          <AntDesign name="like2" size={20} color="#545050" />
         )}
         {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
         {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
@@ -158,8 +156,8 @@ const CommentButton = ({ post, postId, navigation }) => {
         onPress={() => navigation.push("Posts")}
         style={{ flexDirection: "row" }}
       >
-        <CommentModal post={post} />
-        {/* <FontAwesome name="commenting-o" size={20} color="#545050" /> */}
+        {/* <CommentModal post={post} /> */}
+        <FontAwesome name="commenting-o" size={20} color="#545050" />
 
         {!!post.comments.length && (
           <Text style={styles.postFooterIconsText}>

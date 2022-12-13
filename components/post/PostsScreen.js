@@ -9,6 +9,7 @@ import {
   orderBy,
   query,
   doc,
+  limit,
 } from "firebase/firestore";
 import { db, auth } from "../../Firebase";
 import { Button, Divider } from "react-native-paper";
@@ -50,7 +51,7 @@ const PostScreen = ({ isLoading, navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "darkgrey",
     flex: 1,
   },
   profile: {

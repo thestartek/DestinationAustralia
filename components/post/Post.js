@@ -41,7 +41,7 @@ const Post = ({ post, navigation }) => {
   };
 
   return (
-    <ScrollView>
+    <View style={styles.postContainer}>
       <PostHeader post={post} />
       {/* <Text style={styles.timstampText}>{post.postedDate}</Text> */}
       {post.caption != null ? <Caption post={post} /> : null}
@@ -55,12 +55,12 @@ const Post = ({ post, navigation }) => {
         <Divider />
         <ShareButton post={post} />
       </View>
-      <Divider />
+      <Divider bold={true} />
 
       <Comments post={post} />
       <AddComment post={post} />
-      <Divider style={{ height: 5 }} />
-    </ScrollView>
+      {/* <Divider style={{ height: 6 }} /> */}
+    </View>
   );
 };
 
@@ -179,7 +179,7 @@ const CommentButton = ({ post, postId, navigation }) => {
         // onPress={() => navigation.push("Comments")}
         style={{ flexDirection: "row" }}
       >
-        <CommentModal post={post}/>
+        <CommentModal post={post} />
         {/* <FontAwesome name="commenting-o" size={25} color="#545050" /> */}
 
         {!!post.comments.length && (
@@ -229,25 +229,14 @@ const ShareButton = ({ post }) => {
   );
 };
 
-// const CommentModal = () => {
-//   const [modalVisible, setModalVisible] = useState(false);
-//   return (
-//     <View>
-//       <Modal
-//         animationType="slide"
-//         transparent={true}
-//         visible={modalVisible}
-//         onRequestClose={() => {
-//           setModalVisible(!modalVisible);
-//         }}
-//       ></Modal>
-//     </View>
-//   );
-// };
-
 export default Post;
 
 const styles = StyleSheet.create({
+  postContainer: {
+    borderRadius: 8,
+    backgroundColor: "white",
+    marginVertical: 4,
+  },
   profile: {
     width: 50,
     height: 50,

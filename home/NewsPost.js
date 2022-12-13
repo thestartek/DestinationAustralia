@@ -6,7 +6,7 @@ import { auth, db } from "../Firebase";
 
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-//import { color } from "react-native-reanimated";
+// import Share from 'react-native-share';
 
 import * as WebBrowser from "expo-web-browser";
 
@@ -25,14 +25,6 @@ const NewsPost = ({ newspost, navigation }) => {
     });
   };
 
-  const handleShare = (newspost) => {
-    const currentShareStatus = !newspost.shares.includes(user.email);
-    updateDoc(doc(db, "newsposts", newspost.id), {
-      shares: currentShareStatus
-        ? arrayUnion(user.email)
-        : arrayRemove(user.email),
-    });
-  };
   return (
     <ScrollView>
       <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
@@ -50,7 +42,7 @@ const NewsPost = ({ newspost, navigation }) => {
         {/* <Divider width={1} orientation="vertical" />
         <CommentButton newspost={newspost} navigation={navigation} /> */}
         <Divider width={1} orientation="vertical" />
-        <ShareButton newspost={newspost} handleShare={handleShare} />
+        <ShareButton newspost={newspost}/>
       </View>
       {/* const CommentInput  */}
       <Divider bold={true} />
@@ -136,14 +128,19 @@ const LikeButton = ({ newspost, handleLike, focused }) => {
 
 const ShareButton = ({ newspost }) => {
   const onShare = async () => {
+    updateDoc(doc(db, "newsposts", newspost.id), {
+      shares: arrayUnion(auth.currentUser.email),
+    });
+
     try {
       const result = await Share.share({
         message:
           "Journey to Australia | An app you must have if you are thinking of Australia",
+          url: "https://starteknp.com"
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
-          Alert.alert("Sharing successful");
+          Alert.alert("Shared successfully");
         } else {
           // shared
         }

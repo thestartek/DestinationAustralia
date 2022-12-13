@@ -26,7 +26,7 @@ const CommentModal = ({ post }) => {
             style={{marginVertical: 10}}
             onPress={() => setModalVisible(!modalVisible)}
           >
-            <Text style={styles.doneButtonText}>Go back to posts</Text>
+            <Text style={styles.doneButtonText}>Back to posts</Text>
           </TouchableOpacity>
           <AddComment post={post} />
 
