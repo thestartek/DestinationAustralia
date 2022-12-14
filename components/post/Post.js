@@ -211,7 +211,7 @@ const ShareButton = ({ post }) => {
           updateDoc(doc(db, "posts", post.id), {
             shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
           });
-          Alert.alert("Sharing successful");
+          Alert.alert("Shared successful");
         } else {
           // shared
         }

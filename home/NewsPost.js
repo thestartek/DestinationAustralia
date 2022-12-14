@@ -147,7 +147,7 @@ const ShareButton = ({ newspost }) => {
     try {
       const result = await Share.share({
         message:
-          "Recent news form" +
+          "Recent news form " +
           newspost.media +
           " on Journey to Australia App: " +
           newspost.headline,
