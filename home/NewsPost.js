@@ -3,12 +3,18 @@ import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../Firebase";
-
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-// import Share from 'react-native-share';
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  serverTimestamp,
+  onSnapshot,
+} from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
+import { useEffect, useState } from "react";
 
 const NewsPost = ({ newspost, navigation }) => {
   const user = auth.currentUser;
@@ -28,7 +34,12 @@ const NewsPost = ({ newspost, navigation }) => {
   return (
     <ScrollView>
       <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
-        {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
+        <TouchableOpacity
+          onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
+        >
+          {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
+        </TouchableOpacity>
+
         <View>
           <NewsHeader newspost={newspost} />
           {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
@@ -42,7 +53,7 @@ const NewsPost = ({ newspost, navigation }) => {
         {/* <Divider width={1} orientation="vertical" />
         <CommentButton newspost={newspost} navigation={navigation} /> */}
         <Divider width={1} orientation="vertical" />
-        <ShareButton newspost={newspost}/>
+        <ShareButton newspost={newspost} />
       </View>
       {/* const CommentInput  */}
       <Divider bold={true} />
@@ -52,17 +63,22 @@ const NewsPost = ({ newspost, navigation }) => {
 
 const NewsHeader = ({ newspost }) => (
   <View style={{ margin: 10 }}>
-    <Text
-      style={{
-        // marginLeft: 5,
-        // marginTop: 4,
-        fontWeight: "bold",
-        fontSize: 15,
-        color: "#1267E9",
-      }}
+    <TouchableOpacity
+      onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
     >
-      {newspost.headline}
-    </Text>
+      <Text
+        style={{
+          // marginLeft: 5,
+          // marginTop: 4,
+          fontWeight: "bold",
+          fontSize: 15,
+          color: "#1267E9",
+        }}
+      >
+        {newspost.headline}
+      </Text>
+    </TouchableOpacity>
+
     <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Text style={styles.timstampText}>{newspost.media}</Text>
       <Image
@@ -128,18 +144,24 @@ const LikeButton = ({ newspost, handleLike, focused }) => {
 
 const ShareButton = ({ newspost }) => {
   const onShare = async () => {
-    updateDoc(doc(db, "newsposts", newspost.id), {
-      shares: arrayUnion(auth.currentUser.email),
-    });
-
     try {
       const result = await Share.share({
         message:
-          "Journey to Australia | An app you must have if you are thinking of Australia",
-          url: "https://starteknp.com"
+          "Recent news form" +
+          newspost.media +
+          " on Journey to Australia App: " +
+          newspost.headline,
+        url: newspost.link,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
+          updateDoc(
+            doc(db, "newsposts", newspost.id),
+            {
+              shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
+            },
+            { merge: true }
+          );
           Alert.alert("Shared successfully");
         } else {
           // shared

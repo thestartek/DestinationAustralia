@@ -200,10 +200,17 @@ const ShareButton = ({ post }) => {
     try {
       const result = await Share.share({
         message:
-          "Haami Nepali | A community app for connecting all Nepalese living in Australia",
+          " Recent post form" +
+          post.fullname +
+          " in Journey to Australia App: " +
+          post.caption,
+        url: "https://starteknp.com/journeytoaustralia",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
+          updateDoc(doc(db, "posts", post.id), {
+            shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
+          });
           Alert.alert("Sharing successful");
         } else {
           // shared
@@ -317,3 +324,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+
+// ABC posted in Journey to Australia App: First post from ABC
