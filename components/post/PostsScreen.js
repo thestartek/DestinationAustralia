@@ -1,4 +1,12 @@
-import { ScrollView, StyleSheet, View, Text, Image } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+  RefreshControl,
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import React, { useEffect, useState } from "react";
 import Header from "../../home/Header.js";
@@ -14,11 +22,21 @@ import {
 import { db, auth } from "../../Firebase";
 import { Button, Divider } from "react-native-paper";
 
+const wait = (timeout) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 const PostScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = React.useState(false);
   // const user = auth.currentUser;
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -40,7 +58,11 @@ const PostScreen = ({ isLoading, navigation }) => {
     <SafeAreaView style={styles.container}>
       <Divider />
       {/* <PostHeader /> */}
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
         {posts.map((post, index) => (
           <Post post={post} key={index} navigation={navigation} />
         ))}

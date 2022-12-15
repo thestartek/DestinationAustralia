@@ -46,28 +46,28 @@ const Post4home = ({ post, navigation }) => {
 };
 
 const PostHeader = ({ post }) => {
-  const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
-  const user = post.user;
+  // const [postOwner, setPostOwner] = useState([]);
+  // const userEmail = post.user;
 
-  const getUserDetails = () => {
-    const unsubscribe = onSnapshot(doc(db, "users", user), (doc) => {
-      setCurrentLoggedInUser({
-        fullname: doc.data().fullname,
-        profile_picture: doc.data().profile_picture,
-      });
-    });
-    return unsubscribe;
-  };
+  // const getUserDetails = () => {
+  //   const unsubscribe = onSnapshot(doc(db, "users", userEmail), (doc) => {
+  //     setPostOwner({
+  //       fullname: doc.data().fullname,
+  //       profile_picture: doc.data().profile_picture,
+  //     });
+  //   });
+  //   return unsubscribe;
+  // };
 
-  useEffect(() => {
-    getUserDetails();
-  }, []);
+  // useEffect(() => {
+  //   getUserDetails();
+  // }, []);
   return (
     <View
       style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
     >
       <TouchableOpacity>
-        {!currentLoggedInUser.profile_picture ? (
+        {!post.profile_picture ? (
           <Image
             source={{
               uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
@@ -76,7 +76,7 @@ const PostHeader = ({ post }) => {
           />
         ) : (
           <Image
-            source={{ uri: currentLoggedInUser.profile_picture }}
+            source={{ uri: post.profile_picture }}
             style={styles.profile}
           />
         )}
@@ -94,7 +94,7 @@ const PostHeader = ({ post }) => {
               color: "#1267E9",
             }}
           >
-            {currentLoggedInUser.fullname}
+            {post.fullname}
           </Text>
         </TouchableOpacity>
         <Text style={styles.timstampText}>{post.postedDate}</Text>

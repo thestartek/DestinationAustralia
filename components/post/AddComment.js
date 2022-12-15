@@ -44,7 +44,7 @@ const AddComment = ({ post }) => {
         profile_picture: currentLoggedInUser.profile_picture,
         fullname: currentLoggedInUser.fullname,
         comment: comment,
-        email: user.email,
+        email: currentLoggedInUser.email,
       }),
     });
     // commentNotification();

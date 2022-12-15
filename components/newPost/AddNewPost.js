@@ -96,8 +96,6 @@ const AddNewPost = ({ post, navigation }) => {
         comments: [],
         fullname: currentLoggedInUser.fullname,
         profile_picture: currentLoggedInUser.profile_picture || null,
-        // category: category,
-        // city: city,
         created: serverTimestamp(Date),
         postedDate: date + " " + months[month],
       });

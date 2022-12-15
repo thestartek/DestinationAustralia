@@ -1,4 +1,11 @@
-import { ScrollView, StyleSheet, View, Text, SafeAreaView } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  RefreshControl,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
 import Post4home from "./Post4home.js";
@@ -16,12 +23,22 @@ import Highlights from "./Highlights.js";
 import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
 
+const wait = (timeout) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newsposts, setNewsPosts] = useState([]);
   const [highlights, setHighlights] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
   const user = auth.currentUser;
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -43,7 +60,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("created", "desc"), limit(6)),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(4)),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
@@ -89,7 +106,12 @@ const HomeScreen = ({ isLoading, navigation }) => {
       <Divider width={8} />
       {/* <Text style={styles.headingText}>Highlights</Text> */}
 
-      <ScrollView style={styles.outerContainer}>
+      <ScrollView
+        style={styles.outerContainer}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
         <View style={styles.highlightsContainer}>
           <Text style={styles.headingText}>Highlights</Text>
           <ScrollView horizontal={true}>
