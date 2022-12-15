@@ -1,14 +1,24 @@
 import { View, Text, StyleSheet, Image, TextInput } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import * as Device from "expo-device";
+import * as Notifications from "expo-notifications";
+// import { registerNotifications } from "../notifications/Notification";
+
 const user = auth.currentUser;
+
 
 const AddComment = ({ post }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
   const [comment, setComment] = useState(null);
+
+  // const [expoPushToken, setExpoPushToken] = useState("");
+  // const [notification, setNotification] = useState(false);
+  // const notificationListener = useRef();
+  // const responseListener = useRef();
 
   const getUserDetails = () => {
     const unsubscribe = onSnapshot(
@@ -17,6 +27,7 @@ const AddComment = ({ post }) => {
         setCurrentLoggedInUser({
           fullname: doc.data().fullname,
           profile_picture: doc.data().profile_picture,
+          email: doc.data().email,
         });
       }
     );
@@ -33,32 +44,29 @@ const AddComment = ({ post }) => {
         profile_picture: currentLoggedInUser.profile_picture,
         fullname: currentLoggedInUser.fullname,
         comment: comment,
+        email: user.email,
       }),
     });
+    // commentNotification();
   };
+
+  async function commentNotification() {
+    {
+      currentLoggedInUser.email == post.user &&
+        (await Notifications.scheduleNotificationAsync({
+          content: {
+            title: currentLoggedInUser.fullname + " commented on your post",
+            body: post.caption,
+            // data: { data: "goes here" },
+          },
+          trigger: { seconds: 2 },
+        }));
+    }
+  }
 
   return (
     <View style={styles.container}>
       <View>
-        {/* {post.comments.map((comment, index) => (
-            <View key={index} style={styles.commentContainer}>
-              <TouchableOpacity style={{ flexDirection: "row" }}>
-                {comment.profile_picture != null ? (
-                  <Image
-                    source={{ uri: comment.profile_picture }}
-                    style={styles.profile}
-                  />
-                ) : (
-                  <Image
-                    source={{
-                      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-                    }}
-                    style={[styles.profile, { tintColor: "grey" }]}
-                  />
-                )}
-              </TouchableOpacity>
-            </View>
-          ))} */}
         {currentLoggedInUser.profile_picture != null ? (
           <Image
             style={styles.imageIcon}

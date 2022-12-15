@@ -15,6 +15,7 @@ import {
   collection,
   orderBy,
   limit,
+  increment,
 } from "firebase/firestore";
 import Comments from "./Comments";
 import AddComment from "./AddComment";
@@ -209,7 +210,8 @@ const ShareButton = ({ post }) => {
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
           updateDoc(doc(db, "posts", post.id), {
-            shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
+            shares: increment(1),
+            // shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
           });
           Alert.alert("Shared successful");
         } else {
@@ -227,10 +229,13 @@ const ShareButton = ({ post }) => {
     <View>
       <TouchableOpacity onPress={onShare} style={{ flexDirection: "row" }}>
         <Feather name="share" size={24} color="#545050" />
-
-        {!!post.shares.length && (
-          <Text style={styles.postFooterIconsText}>{post.shares.length}</Text>
+        {!!post.shares && (
+          <Text style={styles.postFooterIconsText}>{post.shares}</Text>
         )}
+
+        {/* {!!post.shares.length && (
+          <Text style={styles.postFooterIconsText}>{post.shares.length}</Text>
+        )} */}
       </TouchableOpacity>
     </View>
   );

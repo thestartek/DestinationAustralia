@@ -10,7 +10,7 @@ import {
   arrayUnion,
   arrayRemove,
   serverTimestamp,
-  onSnapshot,
+  onSnapshot, increment
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
@@ -158,7 +158,8 @@ const ShareButton = ({ newspost }) => {
           updateDoc(
             doc(db, "newsposts", newspost.id),
             {
-              shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
+              shares: increment(1),
+              // shares: arrayUnion(auth.currentUser.email + "; " + new Date()),
             },
             { merge: true }
           );
@@ -179,9 +180,9 @@ const ShareButton = ({ newspost }) => {
       <TouchableOpacity onPress={onShare} style={{ flexDirection: "row" }}>
         <Feather name="share" size={24} color="#545050" />
 
-        {!!newspost.shares.length && (
+        {!!newspost.shares && (
           <Text style={styles.postFooterIconsText}>
-            {newspost.shares.length}
+            {newspost.shares}
           </Text>
         )}
       </TouchableOpacity>

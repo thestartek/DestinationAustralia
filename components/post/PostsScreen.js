@@ -37,7 +37,7 @@ const PostScreen = ({ isLoading, navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Divider />
       {/* <PostHeader /> */}
       <ScrollView>
@@ -45,7 +45,7 @@ const PostScreen = ({ isLoading, navigation }) => {
           <Post post={post} key={index} navigation={navigation} />
         ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

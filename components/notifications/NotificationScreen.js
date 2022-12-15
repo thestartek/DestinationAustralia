@@ -29,14 +29,14 @@ const NotificationScreen = () => {
 
   return (
     <View>
-      {notifications.map((notify, index) => (
+      {/* {notifications.map((notify, index) => (
         <Notification
-          notify={notify}
+          notifiy={notify}
           key={index}
           navigation={navigation}
         />
-      ))}
-      {/* <Notification /> */}
+      ))} */}
+      <Notification />
     </View>
   );
 };

@@ -18,7 +18,7 @@ export default function Notification({notify}) {
   const responseListener = useRef();
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then((token) =>
+    registerNotifications().then((token) =>
       setExpoPushToken(token)
     );
 
@@ -45,14 +45,17 @@ export default function Notification({notify}) {
       <Text>Your expo push token: {expoPushToken}</Text>
       <View style={styles.notificationContainer}>
         <Image
-          source={require("../../assets/notificationIcon.png")}
+          // source={require("../../assets/notificationIcon.png")}
+          // source={{uri: notify.image}}
           style={styles.notificationImage}
         />
         <View style={styles.notificationContents}>
           <Text style={styles.titleText}>
+            {/* {notify.title} */}
             {notification && notification.request.content.title}
           </Text>
           <Text style={styles.bodyText}>
+            {/* {notify.body} */}
             {notification && notification.request.content.body}
           </Text>
           {/* <Text>
@@ -98,7 +101,7 @@ export default function Notification({notify}) {
 async function highlightsNotification() {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "Journey to Australia added a new highlight",
+      title: "New highlights",
       body: "Here is the highlights heading",
       // data: { data: "goes here" },
     },
@@ -109,7 +112,7 @@ async function highlightsNotification() {
 async function newsNotification() {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "Journey to Australia added a news post",
+      title: "Latest news post",
       body: "Here is the news heading",
       // data: { data: "goes here" },
     },
@@ -150,7 +153,7 @@ async function commentNotification() {
   });
 }
 
-async function registerForPushNotificationsAsync() {
+const registerNotifications = async function registerForPushNotificationsAsync() {
   let token;
 
   if (Platform.OS === "android") {
@@ -182,6 +185,8 @@ async function registerForPushNotificationsAsync() {
 
   return token;
 }
+
+export {registerNotifications};
 
 const styles = StyleSheet.create({
   outerContainer: {
