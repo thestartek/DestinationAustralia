@@ -10,7 +10,8 @@ import {
   arrayUnion,
   arrayRemove,
   serverTimestamp,
-  onSnapshot, increment
+  onSnapshot,
+  increment,
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
@@ -32,19 +33,16 @@ const NewsPost = ({ newspost, navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
-        <TouchableOpacity
-          onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
-        >
+    <View style={styles.newsContainer}>
+      <TouchableOpacity
+        onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
+      >
+        <View style={{ margin: 5 }}>
           {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
-        </TouchableOpacity>
-
-        <View>
-          <NewsHeader newspost={newspost} />
-          {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
         </View>
-      </View>
+      </TouchableOpacity>
+      <NewsHeader newspost={newspost} />
+      {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
 
       {/* {newspost.imageUrl != null ? <PostImage newspost={newspost} /> : <Divider />} */}
 
@@ -57,12 +55,12 @@ const NewsPost = ({ newspost, navigation }) => {
       </View>
       {/* const CommentInput  */}
       <Divider bold={true} />
-    </ScrollView>
+    </View>
   );
 };
 
 const NewsHeader = ({ newspost }) => (
-  <View style={{ margin: 10 }}>
+  <View style={{ marginHorizontal: 10 }}>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
     >
@@ -71,11 +69,11 @@ const NewsHeader = ({ newspost }) => (
           // marginLeft: 5,
           // marginTop: 4,
           fontWeight: "bold",
-          fontSize: 15,
+          fontSize: 18,
           color: "#1267E9",
         }}
       >
-        {newspost.headline}
+        {newspost.title}
       </Text>
     </TouchableOpacity>
 
@@ -94,11 +92,22 @@ const NewsHeader = ({ newspost }) => (
 
 const Caption = ({ newspost }) => (
   <View>
-    <Text style={{ marginHorizontal: 10 }}>{newspost.abstract}</Text>
+    <Text style={{ marginHorizontal: 10, marginVertical: 5, fontSize: 15 }}>
+      {newspost.abstract}
+    </Text>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
     >
-      <Text style={{ margin: 10, color: "#1267E9" }}>Read more...</Text>
+      <Text
+        style={{
+          textAlign: "center",
+          color: "#1267E9",
+          fontSize: 15,
+          fontWeight: "bold",
+        }}
+      >
+        Read more...
+      </Text>
     </TouchableOpacity>
   </View>
 );
@@ -106,7 +115,7 @@ const Caption = ({ newspost }) => (
 const NewsImage = ({ newspost }) => (
   <Image
     source={{ uri: newspost.image }}
-    style={{ height: 200, width: "100%", marginVertical: 10, borderRadius: 2 }}
+    style={{ height: 200, width: "100%", marginBottom: 10, borderRadius: 10 }}
   />
 );
 
@@ -181,9 +190,7 @@ const ShareButton = ({ newspost }) => {
         <Feather name="share" size={24} color="#545050" />
 
         {!!newspost.shares && (
-          <Text style={styles.postFooterIconsText}>
-            {newspost.shares}
-          </Text>
+          <Text style={styles.postFooterIconsText}>{newspost.shares}</Text>
         )}
       </TouchableOpacity>
     </View>
@@ -193,6 +200,13 @@ const ShareButton = ({ newspost }) => {
 export default NewsPost;
 
 const styles = StyleSheet.create({
+  newsContainer: {
+    // borderRadius: 10,
+    marginVertical: 4,
+    backgroundColor: "white",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+  },
   profile: {
     width: 44,
     height: 44,
@@ -207,7 +221,7 @@ const styles = StyleSheet.create({
   timstampText: {
     // marginLeft: 5,
     marginTop: 2,
-    fontSize: 12,
+    fontSize: 14,
     color: "#545050",
   },
 

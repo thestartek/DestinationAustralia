@@ -27,7 +27,7 @@ const DrawerNavigatior = () => {
         name="Home"
         component={HomeStack}
       />
-      <Drawer.Screen name="Donate" component={DonateScreen} />
+      <Drawer.Screen name="Support us" component={DonateScreen} />
       <Drawer.Screen name="About us" component={AboutusScreen} />
     </Drawer.Navigator>
   );

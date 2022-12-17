@@ -62,13 +62,13 @@ const VideoHeader = ({ video }) => (
         <Text style={styles.timstampText}>{video.channel}</Text>
       </TouchableOpacity>
 
-      <Image
+      {/* <Image
         source={{
           uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FdotIcon.png?alt=media&token=68370fe8-e55e-41ff-8a19-eda08ca7016d",
         }}
         style={{ width: 20, height: 20, tintColor: "grey" }}
       />
-      <Text style={styles.timstampText}>{video.date}</Text>
+      <Text style={styles.timstampText}>{video.date}</Text> */}
     </View>
   </View>
 );

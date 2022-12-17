@@ -17,6 +17,7 @@ import {
   limit,
   query,
 } from "firebase/firestore";
+import { Divider } from "react-native-paper";
 
 const LearnScreen = ({ navigation }) => {
   const [collapsePTE, setCollapsePTE] = useState(true);
@@ -27,28 +28,24 @@ const LearnScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsub = onSnapshot(
-      query(collection(db, "videos"), orderBy("date", "desc")),
-      (snapshot) => {
-        setVideos(
-          snapshot.docs.map((video) => ({
-            id: video.id,
-            ...video.data(),
-          }))
-        );
-        if (loading) {
-          setLoading(false);
-        }
+    const unsub = onSnapshot(query(collection(db, "videos")), (snapshot) => {
+      setVideos(
+        snapshot.docs.map((video) => ({
+          id: video.id,
+          ...video.data(),
+        }))
+      );
+      if (loading) {
+        setLoading(false);
       }
-    );
+    });
     return unsub;
   }, []);
 
   return (
     <ScrollView>
-      <Text style={styles.mainHeader}>
-        Learning material for you
-      </Text>
+      <Divider bold={true} />
+      <Text style={styles.mainHeader}>Learning material for you</Text>
       {/* ///////PTE Collapsible //////////*/}
       <TouchableOpacity onPress={() => setCollapsePTE(!collapsePTE)}>
         <View style={styles.header}>
@@ -72,9 +69,7 @@ const LearnScreen = ({ navigation }) => {
       {/* ///////// IELTS Collapsible //////////// */}
       <TouchableOpacity onPress={() => setCollapseIELTS(!collapseIELTS)}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            The International English Language Testing System (IELTS)
-          </Text>
+          <Text style={styles.headerText}>IELTS</Text>
           {collapseIELTS ? (
             <AntDesign name="downcircleo" size={20} color="white" />
           ) : (
@@ -95,9 +90,7 @@ const LearnScreen = ({ navigation }) => {
       {/* ///////// TOEFL Collapsible //////////// */}
       <TouchableOpacity onPress={() => setCollapseTOEFL(!collapseTOEFL)}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            Test of English as a Foreign Language (TOEFL)
-          </Text>
+          <Text style={styles.headerText}>TOEFL</Text>
           {collapseTOEFL ? (
             <AntDesign name="downcircleo" size={20} color="white" />
           ) : (
@@ -116,13 +109,14 @@ const LearnScreen = ({ navigation }) => {
       </Collapsible>
 
       {/* ///////// Videos /////// */}
+      <View style={{ margin: 18 }}></View>
+      <Divider style={{height: 8}} />
       <View>
-        <Text style={[styles.mainHeader, {marginBottom: 10}]}>Useful videos for you</Text>
+        <Text style={styles.mainHeader}>Useful videos for you</Text>
       </View>
       {videos.map((video, index) => (
         <Video video={video} key={index} navigation={navigation} />
       ))}
-      <View></View>
     </ScrollView>
   );
 };
@@ -130,6 +124,12 @@ const LearnScreen = ({ navigation }) => {
 export default LearnScreen;
 
 const styles = StyleSheet.create({
+  mainHeader: {
+    fontSize: 26,
+    marginHorizontal: 20,
+    marginTop: 20,
+    marginBottom: 10,
+  },
   header: {
     backgroundColor: "#1267E9",
     padding: 12,
@@ -139,14 +139,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  mainHeader: {
-    fontSize: 26,
-    marginHorizontal: 20,
-    marginTop: 20,
-    // marginBottom: 10,
-  },
   headerText: {
-    // textAlign: "center",
+    padding: 2,
     fontSize: 16,
     fontWeight: "bold",
     color: "white",

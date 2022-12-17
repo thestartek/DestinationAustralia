@@ -36,7 +36,7 @@ const NewPostScreen = ({ navigation }) => {
   }, []);
   return (
     <View>
-      <Divider width={5} />
+      {/* <Divider bold={true} /> */}
       {/* <NewPostHeader navigation={navigation} /> */}
       <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}

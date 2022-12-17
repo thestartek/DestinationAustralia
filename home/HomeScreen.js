@@ -42,7 +42,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "highlights"), orderBy("date", "desc")),
+      query(collection(db, "highlights")),
       (snapshot) => {
         setHighlights(
           snapshot.docs.map((highlights) => ({
@@ -73,18 +73,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
     return unsub;
   }, []);
 
-  // const q = query(collection(db, "newspost"), where("date", "==", "27 Nov"));
-  // const unsubscribe = onSnapshot(q, (querySnapshot) => {
-  //   const newsposts = [];
-  //   querySnapshot.forEach((doc) => {
-  //     newspost.push(doc.data().name);
-  //   });
-  //   console.log("Current cities in CA: ", cities.join(", "));
-  // });
-
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "newsposts"), orderBy("date", "desc")),
+      query(collection(db, "newsposts")),
       (snapshot) => {
         setNewsPosts(
           snapshot.docs.map((newspost) => ({
@@ -152,20 +143,16 @@ const HomeScreen = ({ isLoading, navigation }) => {
         </View>
 
         {/* <Divider style={{ height: 5 }} /> */}
-
-        <View style={styles.newsContainer}>
+        <View style={{backgroundColor: 'white', marginBottom: -5, marginTop: 5, padding: 5}}>
           <Text style={styles.headingText}>Latest News</Text>
-          <View>
-            {newsposts.map((newspost, index) => (
-              <NewsPost
-                newspost={newspost}
-                key={index}
-                navigation={navigation}
-              />
-            ))}
-          </View>
-          {/* <Divider style={{height: 5}}/> */}
         </View>
+
+        <View>
+          {newsposts.map((newspost, index) => (
+            <NewsPost newspost={newspost} key={index} navigation={navigation} />
+          ))}
+        </View>
+        {/* <Divider style={{height: 5}}/> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -195,7 +182,7 @@ const styles = StyleSheet.create({
   },
   postContainer: {
     borderRadius: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 6,
     marginVertical: 5,
     backgroundColor: "white",
     shadowColor: "#000",
@@ -209,22 +196,7 @@ const styles = StyleSheet.create({
   },
   toolsContainer: {
     borderRadius: 10,
-    marginHorizontal: 10,
-    marginVertical: 5,
-    backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-
-  newsContainer: {
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    marginHorizontal: 6,
     marginVertical: 5,
     backgroundColor: "white",
     shadowColor: "#000",

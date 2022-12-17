@@ -23,7 +23,7 @@ const Highlights = ({ highlights, navigation }) => {
     >
       <View style={styles.container}>
         <Image source={{ uri: highlights.image }} style={styles.image} />
-        <Text style={styles.text}>{highlights.caption} </Text>
+        <Text style={styles.text}>{highlights.title} </Text>
 
         {/* <ImageBackground
           source={{ uri: highlights.image }}
