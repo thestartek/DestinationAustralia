@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 2,
     fontSize: 12,
-    color: "grey",
+    color: "#545050",
   },
 
   postFooterContainer: {

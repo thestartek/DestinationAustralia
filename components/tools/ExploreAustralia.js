@@ -41,7 +41,7 @@ const ExploreAustralia = () => {
   return (
     <ScrollView style={{ marginTop: 10 }}>
       <Text style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 20 }}>
-        Explore in detail before you start your Journey to Australia
+        Explore Australia before you start your journey
       </Text>
 
       <View style={{ marginVertical: 20 }}>
