@@ -50,7 +50,7 @@ const tools4Home = ({ navigation }) => {
           <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => navigation.push("Income Calculator")}
           style={styles.innerContainer}
         >
@@ -59,7 +59,7 @@ const tools4Home = ({ navigation }) => {
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ScrollView>
   );

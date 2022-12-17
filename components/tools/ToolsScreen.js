@@ -63,7 +63,7 @@ const ToolsScreen = ({ navigation }) => {
       {/* /////////////////////////////// */}
 
       <View style={styles.outerContainer}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => navigation.push("Income Calculator")}
           style={styles.innerContainer}
         >
@@ -72,7 +72,7 @@ const ToolsScreen = ({ navigation }) => {
             style={styles.toolsImage}
           />
           <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* <TouchableOpacity
           onPress={() => navigation.push("Income Calculator")}

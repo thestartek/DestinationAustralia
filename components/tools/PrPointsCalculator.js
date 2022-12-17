@@ -5,8 +5,8 @@ import * as WebBrowser from "expo-web-browser";
 
 const PrPointsCalculator = ({ navigation }) => {
   return (
-    <View style={{alignItems: 'center', margin: 10}}>
-      <Text style={{fontSize: 16}}>Calculate your points for Permanent residency application: </Text>
+    <View style={{ marginHorizontal: 20, marginVertical: 10}}>
+      <Text style={{fontSize: 26, margin: 20}}>Calculate your points for Permanent residency application: </Text>
       <Button
         onPress={() =>
           WebBrowser.openBrowserAsync(
