@@ -58,7 +58,9 @@ const VideoHeader = ({ video }) => (
     </TouchableOpacity>
 
     <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}>
+      <TouchableOpacity
+        onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}
+      >
         <Text style={styles.timstampText}>{video.channel}</Text>
       </TouchableOpacity>
 
@@ -78,7 +80,7 @@ const ThumbnailImage = ({ video }) => (
     <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
     <Image
       source={{
-        uri: "https://www.freeiconspng.com/thumbs/play-button-icon-png/play-button-icon-png-25.png",
+        uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplayButtonIcon.png?alt=media&token=1d40a234-b110-436b-8c5d-db993c852b55",
       }}
       style={styles.playButton}
     />
@@ -189,7 +191,7 @@ const styles = StyleSheet.create({
     width: 50,
     marginTop: -80,
     marginLeft: 25,
-    opacity: 0.6,
+    opacity: 0.5,
     tintColor: "black",
   },
   titleText: {
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
   timstampText: {
     marginTop: 5,
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "#545050",
   },
 

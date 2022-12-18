@@ -326,7 +326,7 @@ const UniversityFinder = () => {
 
       {state && (
         <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-          <Text style={{color: "white", fontSize: 18, margin: 10}}>
+          <Text style={{ color: "white", fontSize: 18, margin: 10 }}>
             Select a state from the above map to see the list of Universities
           </Text>
         </View>
@@ -340,90 +340,130 @@ const UniversityFinder = () => {
           </Text>
 
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.acu.edu.au/study-at-acu"
                 )
               }
-              title="- Australian Catholic University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Australian Catholic University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://study.csu.edu.au/international"
                 )
               }
-              title="- Charles Sturt University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Charles Sturt University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.mq.edu.au/study/information-for/international"
                 )
               }
-              title="- Macquarie University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Macquarie University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.scu.edu.au/study-at-scu/"
                 )
               }
-              title="- Southern Cross University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Southern Cross University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.une.edu.au/study/international"
                 )
               }
-              title="- University of New England"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of New England
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.unsw.edu.au/study?studentType=international"
                 )
               }
-              title="- University of New South Wales"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of New South Wales
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.newcastle.edu.au/study/international/study-with-us"
                 )
               }
-              title="- University of Newcastle"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Newcastle
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.sydney.edu.au/study.html"
                 )
               }
-              title="- University of Sydney"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- University of Sydney</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.uts.edu.au/study")
               }
-              title="- University of Technology Sydney"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Technology Sydney
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.westernsydney.edu.au/international/studying/courses-for-your-success"
                 )
               }
-              title="- Western Sydney University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Western Sydney University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.uow.edu.au/study/")
               }
-              title="- University of Wollongong"
-            />
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Wollongong
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -435,72 +475,94 @@ const UniversityFinder = () => {
             Victoria: (Melbourne capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
               }
-              title="- Deakin University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Deakin University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://federation.edu.au/international"
                 )
               }
-              title="- Federation University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Federation University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.latrobe.edu.au/international"
                 )
               }
-              title="- La Trobe University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- La Trobe University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.monash.edu/study/courses"
                 )
               }
-              title="- Monash University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Monash University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.rmit.edu.au/study-with-us"
                 )
               }
-              title="- RMIT University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- RMIT University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.swinburne.edu.au/courses/"
                 )
               }
-              title="- Swinburne University of Technology"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Swinburne University of Technology
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://divinity.edu.au/courses")
               }
-              title="- University of Divinity"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- University of Divinity</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://study.unimelb.edu.au/")
               }
-              title="- University of Melbourne"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Melbourne
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.vu.edu.au/study-at-vu/international-students"
                 )
               }
-              title="- Victoria University"
-            />
+            >
+              <Text style={styles.uniButtonText}>- Victoria University</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -512,64 +574,90 @@ const UniversityFinder = () => {
             Queensland: (Brisbane capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://bond.edu.au/study/program-finder"
                 )
               }
-              title="- Bond University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Bond University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.cqu.edu.au/courses")
               }
-              title="- Central Queensland University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Central Queensland University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.griffith.edu.au/study?location=dom"
                 )
               }
-              title="- Griffith University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Griffith University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.jcu.edu.au/courses")
               }
-              title="- James Cook University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- James Cook University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.qut.edu.au/study/international"
                 )
               }
-              title="- Queensland University of Technology"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Queensland University of Technology
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://study.uq.edu.au/?studentType=international"
                 )
               }
-              title="- University of Queensland"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Queensland
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.unisq.edu.au/study")
               }
-              title="- University of Southern Queensland"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Southern Queensland
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.usc.edu.au/study/courses-and-programs"
                 )
               }
-              title="- University of the Sunshine Coast"
-            />
+            >
+              <Text style={styles.uniButtonText}>
+                - University of the Sunshine Coast
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -581,42 +669,58 @@ const UniversityFinder = () => {
             South Australia: (Adelaide capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.australia.cmu.edu/study"
                 )
               }
-              title="- Carnegie Mellon University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Carnegie Mellon University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.flinders.edu.au/study")
               }
-              title="- Flinders University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Flinders University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.torrens.edu.au/courses"
                 )
               }
-              title="- Torrens University Australia"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Torrens University Australia
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.adelaide.edu.au/study/"
                 )
               }
-              title="- University of Adelaide"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- University of Adelaide</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://study.unisa.edu.au/")
               }
-              title="- University of South Australia"
-            />
+            >
+              <Text style={styles.uniButtonText}>
+                - University of South Australia
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -628,44 +732,58 @@ const UniversityFinder = () => {
             Western Australia: (Perth capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.curtin.edu.au/study/")
               }
-              title="- Curtin University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Curtin University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.ecu.edu.au/future-students/overview"
                 )
               }
-              title="- Edith Cowan University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Edith Cowan University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.murdoch.edu.au/study/courses/"
                 )
               }
-              title="- Murdoch University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>- Murdoch University</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.notredame.edu.au/study/programs"
                 )
               }
-              title="- University of Notre Dame Australia"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Notre Dame Australia
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.uwa.edu.au/study/Courses-and-Careers"
                 )
               }
-              title="- University of Western Australia"
-            />
+            >
+              <Text style={styles.uniButtonText}>
+                - University of Western Australia
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -677,20 +795,26 @@ const UniversityFinder = () => {
             Australian Capital Territory: (Canberra)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.anu.edu.au/")
               }
-              title="- Australian National University"
-            />
-            <Button
+            >
+              <Text style={styles.uniButtonText}>
+                - Australian National University
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
                   "https://www.canberra.edu.au/future-students/study-at-uc/study-areas"
                 )
               }
-              title="- University of Canberra"
-            />
+            >
+              <Text style={styles.uniButtonText}>- University of Canberra</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -702,12 +826,14 @@ const UniversityFinder = () => {
             Tasmania: (Hobart Capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.utas.edu.au/")
               }
-              title="- University of Tasmania"
-            />
+            >
+              <Text style={styles.uniButtonText}>- University of Tasmania</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -719,12 +845,16 @@ const UniversityFinder = () => {
             Northern Territory: (Darwin Capital)
           </Text>
           <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <Button
+            <TouchableOpacity
+              style={styles.uniButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync("https://www.cdu.edu.au/study")
               }
-              title="- Charles Darwin University"
-            />
+            >
+              <Text style={styles.uniButtonText}>
+                - Charles Darwin University
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -793,5 +923,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 10,
     // color: "white",
+  },
+  uniButton: {
+    marginVertical: 6,
+    marginHorizontal: 10,
+  },
+  uniButtonText: {
+    fontSize: 18,
+    color: "#1267E9",
   },
 });

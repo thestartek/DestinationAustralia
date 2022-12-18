@@ -444,14 +444,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
-                  "https://www.acu.edu.au/study-at-acu"
+                  "https://costofliving.studyaustralia.gov.au/"
                 )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -471,14 +475,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
                 WebBrowser.openBrowserAsync(
-                  "https://www.acu.edu.au/study-at-acu"
+                  "https://costofliving.studyaustralia.gov.au/"
                 )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -498,12 +506,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -523,12 +537,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -548,12 +568,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -573,12 +599,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -600,12 +632,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -625,12 +663,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -650,12 +694,18 @@ const ExploreAustralia = () => {
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
             <Text style={styles.detailsText}>Major city: Sydney</Text>
-            <Button
+            <TouchableOpacity
+              style={styles.moreButton}
               onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
+                WebBrowser.openBrowserAsync(
+                  "https://costofliving.studyaustralia.gov.au/"
+                )
               }
-              title="Explore more"
-            />
+            >
+              <Text style={{ fontSize: 18, color: "#1267E9" }}>
+                Explore more
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -729,5 +779,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginHorizontal: 40,
     marginVertical: 5,
+  },
+  moreButton: {
+    // backgroundColor: "#1267E9",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 42,
+    borderRadius: 10,
+    marginVertical: 5,
+    marginHorizontal: 60,
   },
 });
