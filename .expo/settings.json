@@ -5,6 +5,5 @@
   "minify": false,
   "urlRandomness": "YHtzZd4",
   "https": false,
-  "scheme": "org.name.HaamiNepali",
-  "devClient": false
+  "devClient": true
 }

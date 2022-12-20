@@ -11,7 +11,7 @@ import {
   arrayRemove,
   serverTimestamp,
   onSnapshot,
-  increment,
+  increment, query, collection
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
@@ -34,13 +34,13 @@ const NewsPost = ({ newspost, navigation }) => {
 
   return (
     <View style={styles.newsContainer}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
-      >
+      > */}
         <View style={{ margin: 5 }}>
           {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
         </View>
-      </TouchableOpacity>
+      {/* </TouchableOpacity> */}
       <NewsHeader newspost={newspost} />
       {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
 
@@ -48,9 +48,6 @@ const NewsPost = ({ newspost, navigation }) => {
 
       <View style={styles.postFooterContainer}>
         <LikeButton newspost={newspost} handleLike={handleLike} />
-        {/* <Divider width={1} orientation="vertical" />
-        <CommentButton newspost={newspost} navigation={navigation} /> */}
-        <Divider width={1} orientation="vertical" />
         <ShareButton newspost={newspost} />
       </View>
       {/* const CommentInput  */}
@@ -115,7 +112,7 @@ const Caption = ({ newspost }) => (
 const NewsImage = ({ newspost }) => (
   <Image
     source={{ uri: newspost.image }}
-    style={{ height: 200, width: "100%", marginBottom: 10, borderRadius: 10 }}
+    style={{ height: 200, width: "100%", marginVertical: 10, borderRadius: 10 }}
   />
 );
 
@@ -202,10 +199,10 @@ export default NewsPost;
 const styles = StyleSheet.create({
   newsContainer: {
     // borderRadius: 10,
-    marginVertical: 4,
+    // marginVertical: 4,
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10,
   },
   profile: {
     width: 44,

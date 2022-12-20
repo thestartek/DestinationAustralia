@@ -245,9 +245,10 @@ export default Post;
 
 const styles = StyleSheet.create({
   postContainer: {
-    borderRadius: 8,
     backgroundColor: "white",
     marginVertical: 4,
+    // borderBottomLeftRadius: 8,
+    // borderBottomRightRadius: 8
   },
   profile: {
     width: 50,

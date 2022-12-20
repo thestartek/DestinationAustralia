@@ -18,27 +18,11 @@ import {
   query,
 } from "firebase/firestore";
 import { Divider } from "react-native-paper";
-import * as WebBrowser from "expo-web-browser";
-import YoutubePlayer from "react-native-youtube-iframe";
 import PTE from "./PTE";
+import IELTS from "./IELTS";
+import TOEFL from "./TOEFL";
 
 const LearnScreen = ({ navigation }) => {
-  const [collapsePTE, setCollapsePTE] = useState(true);
-  const [collapseP1, setCollapseP1] = useState(true);
-  const [collapseP11, setCollapseP11] = useState(true);
-  const [collapseP12, setCollapseP12] = useState(true);
-  const [collapseP13, setCollapseP13] = useState(true);
-  const [collapseP14, setCollapseP14] = useState(true);
-  const [collapseP15, setCollapseP15] = useState(true);
-  const [collapseP16, setCollapseP16] = useState(true);
-  const [collapseP17, setCollapseP17] = useState(true);
-
-  const [collapseP2, setCollapseP2] = useState(true);
-  const [collapseP3, setCollapseP3] = useState(true);
-
-  const [collapseIELTS, setCollapseIELTS] = useState(true);
-  const [collapseTOEFL, setCollapseTOEFL] = useState(true);
-
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,59 +47,8 @@ const LearnScreen = ({ navigation }) => {
       <Text style={styles.mainHeader}>Learning material for you</Text>
 
       <PTE />
-      {/* ///////// IELTS Collapsible //////////// */}
-      <TouchableOpacity
-        onPress={() => [
-          setCollapsePTE(true),
-          setCollapseIELTS(!collapseIELTS),
-          setCollapseTOEFL(true),
-        ]}
-      >
-        <View style={styles.header}>
-          <Text style={styles.headerText}>IELTS</Text>
-          {collapseIELTS ? (
-            <AntDesign name="downcircleo" size={20} color="white" />
-          ) : (
-            <AntDesign name="upcircleo" size={20} color="white" />
-          )}
-        </View>
-      </TouchableOpacity>
-
-      <Collapsible collapsed={collapseIELTS} align="center">
-        <View style={styles.content}>
-          <Text style={styles.contentText}>
-            This is a dummy text of Single Collapsible View jkdhr hskfha haf
-            ajhfa ahfkjah afhksfha fhshf asfh hfjkhaf skhz fiah fkahfji hzkh fz
-          </Text>
-        </View>
-      </Collapsible>
-
-      {/* ///////// TOEFL Collapsible //////////// */}
-      <TouchableOpacity
-        onPress={() => [
-          setCollapsePTE(true),
-          setCollapseIELTS(true),
-          setCollapseTOEFL(!collapseTOEFL),
-        ]}
-      >
-        <View style={styles.header}>
-          <Text style={styles.headerText}>TOEFL</Text>
-          {collapseTOEFL ? (
-            <AntDesign name="downcircleo" size={20} color="white" />
-          ) : (
-            <AntDesign name="upcircleo" size={20} color="white" />
-          )}
-        </View>
-      </TouchableOpacity>
-
-      <Collapsible collapsed={collapseTOEFL} align="center">
-        <View style={styles.content}>
-          <Text style={styles.contentText}>
-            This is a dummy text of Single Collapsible View jkdhr hskfha haf
-            ajhfa ahfkjah afhksfha fhshf asfh hfjkhaf skhz fiah fkahfji hzkh fz
-          </Text>
-        </View>
-      </Collapsible>
+      <IELTS />
+      <TOEFL />
 
       {/* ///////// Videos /////// */}
       <View style={{ margin: 18 }}></View>

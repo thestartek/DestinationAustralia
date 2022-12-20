@@ -22,6 +22,7 @@ import { Divider } from "react-native-paper";
 import Highlights from "./Highlights.js";
 import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
+import NewsPostScreen from "./NewsPostScreen.js";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -73,23 +74,6 @@ const HomeScreen = ({ isLoading, navigation }) => {
     return unsub;
   }, []);
 
-  useEffect(() => {
-    const unsub = onSnapshot(
-      query(collection(db, "newsposts")),
-      (snapshot) => {
-        setNewsPosts(
-          snapshot.docs.map((newspost) => ({
-            id: newspost.id,
-            ...newspost.data(),
-          }))
-        );
-        if (loading) {
-          setLoading(false);
-        }
-      }
-    );
-    return unsub;
-  }, []);
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -148,9 +132,10 @@ const HomeScreen = ({ isLoading, navigation }) => {
         </View>
 
         <View>
-          {newsposts.map((newspost, index) => (
+          <NewsPostScreen />
+          {/* {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />
-          ))}
+          ))} */}
         </View>
         {/* <Divider style={{height: 5}}/> */}
       </ScrollView>

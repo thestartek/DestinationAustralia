@@ -23,7 +23,7 @@ const DeleteAccountScreen = ({ navigation }) => {
   const user = auth.currentUser;
 
   const deleteDatabase = () => {
-    deleteDoc(doc(db, "users", user.email))
+    deleteDoc(doc(db, "users", user.email));
   };
 
   async function handleDelete() {
@@ -57,8 +57,10 @@ const DeleteAccountScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={require("../../assets/logoSquare.png")}
-            style={{ height: 65, width: 65, margin: 30 }}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
+            }}
+            style={{ height: 120, width: 120, margin: 30 }}
           />
         </View>
         <View>

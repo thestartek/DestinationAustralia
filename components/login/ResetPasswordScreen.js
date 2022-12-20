@@ -22,7 +22,7 @@ const ResetPasswordScreen = ({ navigation }) => {
         Alert.alert(
           "Password reset email sent! If you didn't receive the link in your Inbox, please check the Spam folder."
         );
-        navigation.push("Login");
+        navigation.goBack();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -36,8 +36,10 @@ const ResetPasswordScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={require("../../assets/logoSquare.png")}
-            style={{ height: 65, width: 65, margin: 30 }}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
+            }}
+            style={{ height: 130, width: 130, margin: 30 }}
           />
         </View>
 

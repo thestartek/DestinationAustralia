@@ -9,13 +9,10 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  serverTimestamp,
-  onSnapshot,
   increment,
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
-import { useEffect, useState } from "react";
 
 const Video = ({ video }) => {
   const user = auth.currentUser;
@@ -198,7 +195,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     color: "#1267E9",
-    maxWidth: "90%",
+    maxWidth: "85%",
   },
   timstampText: {
     marginTop: 5,

@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileScreen from "../components/profile/ProfileScreen";
 import EditProfileScreen from "../components/profile/EditProfileScreen";
-import ResetPassScreen from "../components/profile/ResetPassScreen";
+import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 import DeleteAccountScreen from "../components/profile/DeleteAccountScreen";
 import VerifyAccountScreen from "../components/profile/VerifyAccountScreen";
 import LoginStack from "./LoginStack";
@@ -25,7 +25,7 @@ function ProfileStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Edit profile" component={EditProfileScreen} />
-      <Stack.Screen name="Reset password" component={ResetPassScreen} />
+      <Stack.Screen name="Reset password" component={ResetPasswordScreen} />
       <Stack.Screen name="Delete account" component={DeleteAccountScreen} />
       <Stack.Screen name="Verify account" component={VerifyAccountScreen} />
       {/* <Stack.Screen name="Login" component={LoginStack} /> */}

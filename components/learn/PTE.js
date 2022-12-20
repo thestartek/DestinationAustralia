@@ -103,7 +103,7 @@ const PTE = () => {
         onPress={() => [setCollapsePTE(!collapsePTE), collapseAll()]}
       >
         <View style={styles.header}>
-          <Text style={styles.headerText}>Pearson test of English (PTE)</Text>
+          <Text style={styles.headerText}>PTE Academic</Text>
           {collapsePTE ? (
             <AntDesign name="downcircleo" size={20} color="white" />
           ) : (
