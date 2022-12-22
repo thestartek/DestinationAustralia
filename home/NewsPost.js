@@ -89,7 +89,7 @@ const NewsHeader = ({ newspost }) => (
 
 const Caption = ({ newspost }) => (
   <View>
-    <Text style={{ marginHorizontal: 10, marginVertical: 5, fontSize: 15 }}>
+    <Text style={{ marginHorizontal: 10, marginVertical: 5, fontSize: 15, lineHeight: 20 }}>
       {newspost.abstract}
     </Text>
     <TouchableOpacity

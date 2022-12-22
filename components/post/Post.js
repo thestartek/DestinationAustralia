@@ -124,7 +124,7 @@ const PostHeader = ({ post }) => {
 };
 
 const Caption = ({ post }) => (
-  <Text style={{ marginHorizontal: 20, marginBottom: 10 }}>{post.caption}</Text>
+  <Text style={{ marginHorizontal: 20, marginBottom: 10, lineHeight: 20 }}>{post.caption}</Text>
 );
 
 // const PostImage = ({ post }) => (

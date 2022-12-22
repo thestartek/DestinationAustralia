@@ -155,13 +155,13 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP10}>
                 <Text style={styles.contentText}>
-                  This question does not contribute to your score. It is an
+                  - This question does not contribute to your score. It is an
                   opportunity for you to get familiar with PTE test technology
                   and to help you prepare for your speaking and listening
                   questions.
                 </Text>
                 <Text style={styles.contentText}>
-                  You will have 25 seconds to read the prompt and prepare your
+                  - You will have 25 seconds to read the prompt and prepare your
                   response, and then 30 seconds to record your response. You are
                   only able to record your answer once.
                 </Text>
@@ -184,22 +184,31 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP11}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, text will appear on the screen and you
+                  need to read it aloud.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - You have 30-40 seconds to read the text and prepare.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
+                  - After a short tone start speaking immediately. Do not start
                   speaking before the microphone opens because your voice will
                   not be recorded.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
+                  - If you remain silent for longer than three seconds, the
                   recording will stop.
                 </Text>
                 <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                  - You are only able to record your response once.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading and Speaking
                 </Text>
                 <YoutubePlayer
                   height={300}
@@ -227,27 +236,34 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP12}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type you need to repeat the sentence after you
+                  listen a recording of the sentence.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to plays automatically. When the audio
+                  finishes, the microphone opens and the recording status box
+                  shows “Recording”.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - Speak into the microphone immediately (there is no short
+                  tone) and repeat exactly what you heard.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - You are not able to replay the audio. You are only able to
+                  record your response once.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Speaking
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"S9x0S9J6TEY"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -270,27 +286,37 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP13}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, an image appears on the screen and you
+                  need to describe the image in detail.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - You have 25 seconds to study the image and prepare your
+                  response.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
+                  - After a short tone start speaking immediately. Do not start
                   speaking before the microphone opens because your voice will
                   not be recorded.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
+                  - If you remain silent for longer than three seconds, the
                   recording will stop.
                 </Text>
                 <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                  - You are only able to record your response once.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Speaking
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"GUi5k3SaJgI"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -313,27 +339,38 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP14}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to re-tell the lecture in your
+                  own words after listening to or watching a lecture.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You may also see an
+                  image related to the audio. After the audio finishes, you have
+                  10 seconds to prepare.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
+                  - After a short tone start speaking immediately. Do not start
                   speaking before the microphone opens because your voice will
                   not be recorded.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - While the audio is playing, you can take notes on the
+                  erasable noteboard provided.
                 </Text>
                 <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                  - You are only able to record your response once.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Speaking
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"nxq4_zPlF8k"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -358,27 +395,37 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP15}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type you need to listening to a question and
+                  answer with a single word or a few words.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You may also see an
+                  image.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - Speak into the microphone immediately (there is no short
+                  tone) and answer the question with one or a few words.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
+                  - If you remain silent for longer than three seconds, the
                   recording will stop.
                 </Text>
                 <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                  - You are not able to replay the audio. You are only able to
+                  record your response once.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Speaking
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"_Q_UwtcFhDY"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -403,27 +450,37 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP16}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, write a one-sentence summary of the
+                  passage after reading the text.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - You have 10 minutes to write your summary.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - Make sure to include the main points of the reading passage
+                  in a full, single sentence of no more than 75 words.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - You will need to use complex or compound sentence to be able
+                  to summarize the main point of the passage and also briefly
+                  mention the supporting details.
                 </Text>
                 <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                  - There are also cut, copy and paste buttons which you may use
+                  while constructing your summary.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading and Writing
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"IQdI-uNTScU"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -446,43 +503,37 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP17}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type you need to write a 200-300 word essay on
+                  a given topic.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - You have 20 minutes to write your essay.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - Make sure to write a minimum of 200 words, but no more than
+                  300 words. The Word Count at the bottom of the screen counts
+                  the number of words you write.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - There are also cut, copy and paste buttons, which you may
+                  choose to use while constructing your response.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Writing
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"N17a1HmBH9o"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
             </View>
-
-            {/* <YoutubePlayer height={300} play={false} videoId={"S9x0S9J6TEY"} /> */}
-            {/* <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.pearsonpte.com/pte-academic/speaking-writing"
-                )
-              }
-            >
-              <Text style={{ fontSize: 18, color: "#1267E9" }}>Learn more</Text>
-            </TouchableOpacity> */}
           </Collapsible>
 
           <Divider bold={true} />
@@ -526,27 +577,26 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP21}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to select the most appropriate
+                  words from a drop-down list to restore the text.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - There is a passage with some missing words. Beside each gap,
+                  there is a button with a drop-down list. Select the option you
+                  think best fills the gap.
                 </Text>
-                <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
-                </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading and Writing
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"HeG2ktd8j_Q"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -568,27 +618,28 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP22}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to read the passage and answer
+                  the multiple-choice question.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - You need to select all the options that you think are
+                  correct from the list of possible options.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  The options you select are highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"z8bPPzNOsHo"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -610,27 +661,25 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP23}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to restore the original order
+                  of the text by selecting text boxes and dragging them across
+                  the screen.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - Tips: Find the topic sentence first
                 </Text>
-                <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
-                </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"m6KEzUzo644"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -650,27 +699,30 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP24}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to drag and drop words across
+                  the screen to correctly fill in the gaps in the text.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - There is a passage with some missing words. You have a list
+                  of words in the blue box that you can use to fill the gaps in
+                  the text.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - There are more words than gaps so you will not use all the
+                  words provided.
                 </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"ozQgFxJNfIA"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -692,27 +744,27 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP25}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to read the passage and answer
+                  the multiple-choice question.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - There are several possible options but only one is correct.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - The option you select is highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"-LBv0uLD2mI"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -762,16 +814,38 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP31}>
                 <Text style={styles.contentText}>
-                  This question does not contribute to your score. It is an
-                  opportunity for you to get familiar with PTE test technology
-                  and to help you prepare for your speaking and listening
-                  questions.
+                  - For this item type, you will hear an audio recording and
+                  will need to write a 50-70 word summary of what you heard.
                 </Text>
                 <Text style={styles.contentText}>
-                  You will have 25 seconds to read the prompt and prepare your
-                  response, and then 30 seconds to record your response. You are
-                  only able to record your answer once.
+                  - The Word Count at the bottom of the screen counts the number
+                  of words you write. Make sure to write a minimum of 50 words,
+                  but no more than 70 words.
                 </Text>
+                <Text style={styles.contentText}>
+                  - You have 10 minutes to listen and write your summary.
+                </Text>
+                <Text style={styles.contentText}>
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
+                </Text>
+                <Text style={styles.contentText}>
+                  - There are also cut, copy and paste buttons, which you may
+                  choose to use while constructing your summary.
+                </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and writing
+                </Text>
+                <YoutubePlayer
+                  height={300}
+                  play={false}
+                  videoId={"rnwnkj1y-CY"}
+                />
               </Collapsible>
               {/* ///////////////// 2. Multiple choice, multiple answers /////////////////// */}
               <TouchableOpacity
@@ -793,27 +867,35 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP32}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you will listen to the recording and
+                  answer the multiple-choice question.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - You need to select all of the response options that you
+                  think are correct from the list of possible options.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - The options you select are highlighted in yellow.
                 </Text>
                 <Text style={styles.contentText}>
                   You are only able to record your response once.
                 </Text>
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening
+                </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"zjHQJJ42kao"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -836,27 +918,34 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP33}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you are presented with a transcript of
+                  the audio recording; however, some words are missing. Restore
+                  the transcript by typing in the missing words.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio plays automatically. You are only able to listen
+                  to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - Click on each gap and type in the missing word. You can also
+                  use the Tab button on the keyboard to move between gaps.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - While the audio is playing, you can take notes on the
+                  erasable noteboard provided and then fill in the gaps.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Writing
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"FITSjRwfHWg"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -881,27 +970,31 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP34}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to select the summary that best
+                  matches the recording.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - There are several options but only one is correct.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - The option you select is highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"T5JX6V5qPrI"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -926,27 +1019,31 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP35}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you need to listen to the recording and
+                  answer the multiple-choice question.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - There are several options but only one is correct.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - The option you select is highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"CFcRw1Pg_1g"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -971,27 +1068,32 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP36}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, the last word or group of words in the
+                  recording has been replaced by a beep sound. Select the most
+                  appropriate option to complete the recording.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - There are several options but only one is correct.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - The option you select is highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"irHRxX-fyu8"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -1016,27 +1118,31 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP37}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you are presented with a transcript of
+                  the audio recording; however, the transcript contains some
+                  errors. While listening and reading, you need to select the
+                  words in the text that differ from those that the speaker
+                  says.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to plays automatically. You are only able
+                  to listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - The words you select are highlighted in yellow.
                 </Text>
-                <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
-                </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Reading
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"cYfaVAfKdhw"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -1061,27 +1167,32 @@ const PTE = () => {
               <Divider bold={true} />
               <Collapsible collapsed={collapseP38}>
                 <Text style={styles.contentText}>
-                  For this item type you need to read a written text aloud.
+                  - For this item type, you hear a short sentence. Type the
+                  sentence into the response box at the bottom of the screen.
                 </Text>
                 <Text style={styles.contentText}>
-                  You have 30-40 seconds to read the text and prepare.
+                  - The audio begins to play automatically. You are only able to
+                  listen to the audio recording once.
                 </Text>
                 <Text style={styles.contentText}>
-                  After a short tone start speaking immediately. Do not start
-                  speaking before the microphone opens because your voice will
-                  not be recorded.
+                  - While the audio is playing, you can take notes on the
+                  erasable noteboard provided.
                 </Text>
                 <Text style={styles.contentText}>
-                  If you remain silent for longer than three seconds, the
-                  recording will stop.
+                  - Don't forget to check your spelling.
                 </Text>
-                <Text style={styles.contentText}>
-                  You are only able to record your response once.
+                <Text
+                  style={[
+                    styles.contentText,
+                    { marginBottom: 20, fontWeight: "bold" },
+                  ]}
+                >
+                  Skils Assessed: Listening and Writing
                 </Text>
                 <YoutubePlayer
                   height={300}
                   play={false}
-                  videoId={"gHDr9n7xt3U"}
+                  videoId={"TDSH3GIja4k"}
                 />
                 <View style={{ marginVertical: -40 }}></View>
               </Collapsible>
@@ -1130,7 +1241,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 5,
   },
-  contentText: { margin: 5, color: "#545050" },
+  contentText: { margin: 5, color: "#545050", lineHeight: 20 },
   moreButton: {
     // backgroundColor: "#1267E9",
     alignItems: "center",

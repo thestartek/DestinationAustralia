@@ -107,9 +107,9 @@ const Caption = ({ post }) => (
   <Text
     style={{
       marginLeft: 14,
-      // marginBottom: -20,
       maxWidth: 160,
       height: 60,
+      lineHeight: 20
     }}
   >
     {post.caption}
