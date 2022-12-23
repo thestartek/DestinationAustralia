@@ -1,13 +1,13 @@
 {
   "name": "expo-dev-menu",
-  "version": "0.9.3",
+  "version": "2.0.2",
   "summary": "Expo/React Native module with the developer menu.",
   "description": "Expo/React Native module with the developer menu.",
   "license": "MIT",
   "authors": "650 Industries, Inc.",
   "homepage": "https://docs.expo.dev",
   "platforms": {
-    "ios": "11.0"
+    "ios": "13.0"
   },
   "swift_versions": "5.2",
   "source": {
@@ -18,14 +18,16 @@
   "header_dir": "EXDevMenu",
   "resource_bundles": {
     "EXDevMenu": [
+      "ios/assets",
       "assets/*.ios.js",
       "assets/dev-menu-packager-host",
-      "assets/*.ttf"
+      "assets/*.ttf",
+      "assets/*.otf"
     ]
   },
   "xcconfig": {
     "GCC_PREPROCESSOR_DEFINITIONS": "EX_DEV_MENU_ENABLED=1",
-    "OTHER_SWIFT_FLAGS": "-DEX_DEV_MENU_ENABLED=1"
+    "OTHER_SWIFT_FLAGS": "-DEX_DEV_MENU_ENABLED"
   },
   "pod_target_xcconfig": {
     "DEFINES_MODULE": "YES"
@@ -55,7 +57,7 @@
         ]
       },
       "platforms": {
-        "ios": "12.0"
+        "ios": "13.0"
       }
     },
     {
@@ -72,7 +74,7 @@
         ]
       },
       "platforms": {
-        "ios": "12.0"
+        "ios": "13.0"
       }
     }
   ],
@@ -85,7 +87,7 @@
     },
     {
       "name": "Reanimated",
-      "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DRNVERSION=64 -Wno-comma -Wno-shorten-64-to-32 -Wno-documentation -w -Xanalyzer -analyzer-disable-all-checks -x objective-c++",
+      "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DRNVERSION=70 -DRNPATCHVERSION=5\n -Wno-comma -Wno-shorten-64-to-32 -Wno-documentation -w -Xanalyzer -analyzer-disable-all-checks -x objective-c++",
       "private_header_files": "vendored/react-native-reanimated/**/*.h",
       "source_files": "vendored/react-native-reanimated/**/*.{h,m,mm,cpp}",
       "preserve_paths": "vendored/react-native-reanimated/Common/cpp/hidden_headers/**",
@@ -97,7 +99,7 @@
         "CLANG_CXX_LIBRARY": "libc++",
         "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
         "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/glog\" \"$(PODS_ROOT)/RCT-Folly\" \"${PODS_ROOT}/Headers/Public/React-hermes\" \"${PODS_ROOT}/Headers/Public/hermes-engine\"",
-        "OTHER_CFLAGS": "$(inherited) -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DRNVERSION=64"
+        "OTHER_CFLAGS": "$(inherited) -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DRNVERSION=70 -DRNPATCHVERSION=5\n"
       },
       "dependencies": {
         "FBLazyVector": [
@@ -207,6 +209,12 @@
       "name": "Main",
       "dependencies": {
         "React-Core": [
+
+        ],
+        "EXManifests": [
+
+        ],
+        "ExpoModulesCore": [
 
         ],
         "expo-dev-menu-interface": [

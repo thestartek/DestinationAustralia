@@ -1,18 +1,18 @@
 {
   "name": "expo-dev-launcher",
-  "version": "0.10.4",
+  "version": "2.0.2",
   "summary": "Pre-release version of the Expo development launcher package for testing.",
   "description": "Pre-release version of the Expo development launcher package for testing.",
   "license": "MIT",
   "authors": "650 Industries, Inc.",
   "homepage": "https://docs.expo.dev",
   "platforms": {
-    "ios": "11.0"
+    "ios": "13.0"
   },
   "swift_versions": "5.2",
   "source": {
     "git": "https://github.com/github_account/expo-development-client.git",
-    "tag": "0.10.4"
+    "tag": "2.0.2"
   },
   "static_framework": true,
   "source_files": "ios/**/*.{h,m,swift,cpp}",
@@ -31,11 +31,13 @@
     ]
   },
   "xcconfig": {
-    "GCC_PREPROCESSOR_DEFINITIONS": "EX_DEV_LAUNCHER_ENABLED=1 EX_DEV_LAUNCHER_VERSION=0.10.4",
-    "OTHER_SWIFT_FLAGS": "-DEX_DEV_LAUNCHER_ENABLED=1"
+    "GCC_PREPROCESSOR_DEFINITIONS": "EX_DEV_LAUNCHER_VERSION=2.0.2"
   },
   "pod_target_xcconfig": {
     "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_CONFIGURATION_BUILD_DIR}/expo-dev-launcher/Swift Compatibility Header\""
   },
   "dependencies": {
     "React-Core": [
@@ -52,6 +54,9 @@
     ],
     "expo-dev-menu": [
 
+    ],
+    "ExpoModulesCore": [
+
     ]
   },
   "default_subspecs": "Main",
@@ -59,9 +64,6 @@
     {
       "name": "Tests",
       "test_type": "unit",
-      "platforms": {
-        "ios": "12.0"
-      },
       "source_files": "ios/Tests/**/*.{h,m,swift}",
       "dependencies": {
         "Quick": [

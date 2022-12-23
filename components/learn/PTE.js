@@ -9,7 +9,6 @@ import React, { useState, useEffect } from "react";
 import Collapsible from "react-native-collapsible";
 import { AntDesign } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
-import * as WebBrowser from "expo-web-browser";
 import YoutubePlayer from "react-native-youtube-iframe";
 
 const PTE = () => {

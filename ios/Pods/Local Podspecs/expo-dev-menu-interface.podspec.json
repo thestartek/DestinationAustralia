@@ -1,13 +1,13 @@
 {
   "name": "expo-dev-menu-interface",
-  "version": "0.5.3",
+  "version": "1.0.0",
   "summary": "Interface for expo-dev-menu",
   "description": "Interface for expo-dev-menu",
   "license": "MIT",
   "authors": "650 Industries, Inc.",
   "homepage": "https://docs.expo.dev",
   "platforms": {
-    "ios": "11.0"
+    "ios": "13.0"
   },
   "swift_versions": "5.2",
   "source": {
@@ -27,7 +27,7 @@
       "name": "Tests",
       "test_type": "unit",
       "platforms": {
-        "ios": "12.0"
+        "ios": "13.0"
       },
       "source_files": "Tests/**/*.{h,m,swift}",
       "dependencies": {
