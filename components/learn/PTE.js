@@ -122,7 +122,7 @@ const PTE = () => {
               collapseSpeaking(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Speaking and Writing (54-67 minutes)
             </Text>
             <Divider bold={true} />
@@ -546,7 +546,7 @@ const PTE = () => {
               collapseReading(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Reading (29-30 minutes)
             </Text>
           </TouchableOpacity>
@@ -781,7 +781,7 @@ const PTE = () => {
               collapseListening(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Listening (30-43 minutes)
             </Text>
           </TouchableOpacity>
@@ -1234,13 +1234,19 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-  contentHeading: {
+  contentHeadingMain: {
     fontSize: 16,
-    // fontWeight: "bold",
+    fontWeight: "bold",
     marginTop: 10,
     marginBottom: 5,
   },
-  contentText: { margin: 5, color: "#545050", lineHeight: 20 },
+  contentHeading: {
+    fontSize: 16,
+    color: "#1267E9",
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  contentText: { margin: 5, lineHeight: 20 },
   moreButton: {
     // backgroundColor: "#1267E9",
     alignItems: "center",

@@ -49,6 +49,7 @@ const IELTS = () => {
     setcollapseI1(true),
       setcollapseI2(true),
       setcollapseI3(true),
+      setcollapseI4(true),
       setcollapseI11(true),
       setcollapseI12(true),
       setcollapseI13(true),
@@ -135,7 +136,7 @@ const IELTS = () => {
               collapseListening(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Listening (30 minutes)
             </Text>
             <Divider bold={true} />
@@ -388,7 +389,7 @@ const IELTS = () => {
               collapseReading(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Reading (60 minutes)
             </Text>
           </TouchableOpacity>
@@ -887,7 +888,7 @@ const IELTS = () => {
               collapseWriting(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Writing (60 minutes)
             </Text>
           </TouchableOpacity>
@@ -1083,17 +1084,17 @@ const IELTS = () => {
               setcollapseI1(true),
               setcollapseI2(true),
               setcollapseI3(true),
-              setcollapseI4(!collapseI3),
+              setcollapseI4(!collapseI4),
               collapseSpeaking(),
             ]}
           >
-            <Text style={[styles.contentHeading, { fontWeight: "bold" }]}>
+            <Text style={styles.contentHeadingMain}>
               Speaking (11-14 minutes)
             </Text>
           </TouchableOpacity>
           <Divider bold={true} />
 
-          <Collapsible collapsed={collapseI3}>
+          <Collapsible collapsed={collapseI4}>
             <Text style={styles.contentText}>
               The Speaking test consists of an oral interview between the test
               takers' and an examiner. All Speaking tests are recorded.
@@ -1222,14 +1223,20 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-  contentHeading: {
+  contentHeadingMain: {
     fontSize: 16,
-    // fontWeight: "bold",
+    fontWeight: "bold",
     marginTop: 10,
     marginBottom: 5,
   },
-  contentText: { margin: 5, color: "#545050" },
-  boldText: { color: "#545050", fontWeight: "bold" },
+  contentHeading: {
+    fontSize: 16,
+    marginTop: 10,
+    marginBottom: 5,
+    color: "#1267E9"
+  },
+  contentText: { margin: 5, lineHeight: 20 },
+  boldText: {fontWeight: "bold" },
   moreButton: {
     // backgroundColor: "#1267E9",
     alignItems: "center",
