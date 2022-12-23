@@ -13,15 +13,6 @@ import ReportScreen from "../components/drawer/ReportScreen";
 
 const Drawer = createDrawerNavigator();
 
-// const MenuButton = () => {
-//   return (
-//     <Image
-//       style={{ height: 40, width: 30 }}
-//       source={require("../assets/menuBar.png")}
-//     />
-//   );
-// };
-
 const DrawerNavigatior = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
