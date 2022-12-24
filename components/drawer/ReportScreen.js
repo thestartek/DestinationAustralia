@@ -6,12 +6,10 @@ import {
   Image,
   TouchableOpacity,
   Alert,
-  Linking,
   ScrollView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as MailComposer from "expo-mail-composer";
-import { rejects } from "assert";
 
 const AstrikIcon = () => {
   return (
@@ -36,14 +34,14 @@ const ReportScreen = () => {
       recipients: "journeytoaustralia@starteknp.com",
     })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         Alert.alert("Your message has been sent !");
         setFullname(null);
         setSubject(null);
         setInfo(null);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         Alert.alert(
           "Your message can not be sent now !",
           "Please try again later"

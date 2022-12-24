@@ -1,10 +1,16 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from "react-native";
 import React from "react";
-import * as WebBrowser from "expo-web-browser";
 
 const DonateScreen = () => {
   return (
-    <View>
+    <ScrollView>
       <Text style={styles.headerText}>Show your support</Text>
       <Text style={styles.contentText}>
         This app is a hard work of a team of International students studying in
@@ -26,7 +32,7 @@ const DonateScreen = () => {
         />
         <Text style={styles.payID}>thestartek@gmail.com</Text>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
