@@ -9,7 +9,9 @@ import PostScreen from "../components/post/PostsScreen";
 import NewsPost from "../home/NewsPost";
 import NewsPostScreen from "../home/NewsPostScreen";
 import ToolsScreen from "../components/tools/ToolsScreen";
+import ContactScreen from "../components/drawer/ContactScreen";
 import ReportScreen from "../components/drawer/ReportScreen";
+import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +30,8 @@ const DrawerNavigatior = () => {
       <Drawer.Screen name="Tools" component={ToolsScreen} />
       <Drawer.Screen name="Support us" component={DonateScreen} />
       <Drawer.Screen name="Report an issue" component={ReportScreen} />
-      <Drawer.Screen name="About us" component={AboutusScreen} />
+      <Drawer.Screen name="About us" component={AboutusScreen}/>
+      <Drawer.Screen name="Privacy policy" component={PrivacyPolicy} />
     </Drawer.Navigator>
   );
 };

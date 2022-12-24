@@ -5,10 +5,21 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Linking,
 } from "react-native";
 import React from "react";
+import * as WebBrowser from "expo-web-browser";
 
 const DonateScreen = () => {
+  const payLink = () => {
+    Linking.openURL("https://PayPal.Me/thestartek")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <ScrollView>
       <Text style={styles.headerText}>Show your support</Text>
@@ -30,7 +41,9 @@ const DonateScreen = () => {
           }}
           style={{ height: 200, width: 200, marginTop: 20 }}
         />
-        <Text style={styles.payID}>thestartek@gmail.com</Text>
+        <TouchableOpacity onPress={payLink}>
+          <Text style={styles.payID}>PayPal.Me/thestartek</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

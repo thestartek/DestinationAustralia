@@ -22,7 +22,7 @@ const AstrikIcon = () => {
   );
 };
 
-const ReportScreen = () => {
+const ContactScreen = () => {
   const [fullname, setFullname] = useState(null);
   const [subject, setSubject] = useState(null);
   const [info, setInfo] = useState(null);
@@ -116,7 +116,7 @@ const ReportScreen = () => {
   );
 };
 
-export default ReportScreen;
+export default ContactScreen;
 
 const styles = StyleSheet.create({
   container: {
