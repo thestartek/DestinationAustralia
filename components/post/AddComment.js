@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput } from "react-native";
+import { View, Text, StyleSheet, Image, TextInput, Dimensions } from "react-native";
 import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
@@ -10,6 +10,7 @@ import * as Notifications from "expo-notifications";
 
 const user = auth.currentUser;
 
+const { width } = Dimensions.get("window");
 
 const AddComment = ({ post }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     borderColor: "lightgrey",
     marginVertical: 5,
     marginHorizontal: 10,
-    width: 250,
+    width: '80%',
     maxHeight: 100,
   },
   sendButton: {

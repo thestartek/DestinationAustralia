@@ -11,7 +11,14 @@ import ExpenseEstimator from "../components/tools/ExpenseEstimator";
 import PostScreen from "../components/post/PostsScreen";
 import ExploreAustralia from "../components/tools/ExploreAustralia";
 import DonateScreen from "../components/drawer/DonateScreen";
-// import NewPostScreen from "../screens/NewPostScreen";
+import VideoScreen from "../components/learn/VideoScreen";
+import NewsPostScreen from "../home/NewsPostScreen";
+import ReportScreen from "../components/drawer/ReportScreen";
+import AboutusScreen from "../components/drawer/AboutusScreen";
+import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
+import LearnScreen from "../components/learn/LearnScreen";
+import ProfileStack from "./ProfileStack";
+import NotificationScreen from "../components/notifications/NotificationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +44,16 @@ const HomeStack = () => {
       <Stack.Screen name="University Finder" component={UniversityFinder} />
       <Stack.Screen name="Expense Estimator" component={ExpenseEstimator} />
       <Stack.Screen name="Explore Australia" component={ExploreAustralia} />
-      <Stack.Screen name= "Support us" component={DonateScreen}/>
+      <Stack.Screen name="Support us" component={DonateScreen} />
+      <Stack.Screen name="Videos" component={VideoScreen} />
+      <Stack.Screen name="News" component={NewsPostScreen} />
+      <Stack.Screen name="Report an issue" component={ReportScreen} />
+      <Stack.Screen name="About us" component={AboutusScreen} />
+      <Stack.Screen name="Privacy policy" component={PrivacyPolicy} />
+      <Stack.Screen name="Learn" component={LearnScreen} />
+      <Stack.Screen name="New post" component={NewsPostScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen name="Profile" component={ProfileStack} />
     </Stack.Navigator>
   );
 };

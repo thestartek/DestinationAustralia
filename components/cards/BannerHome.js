@@ -42,7 +42,7 @@ const BannerHome = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <View style={{ justifyContent: "center", marginHorizontal: 5 }}>
-            <TouchableOpacity onPress={() => setBannerShown(false)}>
+            <TouchableOpacity onPress={() => navigation.push(bannerLink)}>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FarrowIcon.png?alt=media&token=f86a3fb7-866b-49db-9b68-cc417c2722b8",

@@ -100,7 +100,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <BannerHome navigation={navigation}/>
+      <BannerHome navigation={navigation} />
 
       <ScrollView
         style={styles.outerContainer}
@@ -136,11 +136,12 @@ const HomeScreen = ({ isLoading, navigation }) => {
         </View>
 
         {/* video section */}
+        {/* <Text style={styles.headingText}>Videos</Text> */}
         <ScrollView
           horizontal={true}
           pagingEnabled={true}
           // ref={ScrollView}
-          snapToInterval={width}
+          // snapToInterval={width}
           // snapToAlignment={"center"}
         >
           {videos.map((video, index) => (
