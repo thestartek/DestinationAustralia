@@ -9,7 +9,7 @@ import React, { useState, useEffect } from "react";
 import Collapsible from "react-native-collapsible";
 import { AntDesign } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
-import YoutubePlayer from "react-native-youtube-iframe";
+// import YoutubePlayer from "react-native-youtube-iframe";
 
 const IELTS = () => {
   const [collapseIELTS, setcollapseIELTS] = useState(true);
@@ -682,7 +682,7 @@ const IELTS = () => {
                 </Text>
               </TouchableOpacity>
               <Divider bold={true} />
-              <Collapsible collapsed={collapseI26}>
+              <Collapsible collapsed={collapseI27}>
                 <Text style={styles.contentText}>
                   - Test takers are given the first half of a sentence based on
                   the text and asked to choose the best way to complete it from
