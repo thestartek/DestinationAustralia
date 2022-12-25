@@ -5,6 +5,7 @@ import {
   Text,
   SafeAreaView,
   RefreshControl,
+  Dimensions,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
@@ -23,10 +24,12 @@ import Highlights from "./Highlights.js";
 import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
+import Video4home from "./Video4home.js";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
+const { width } = Dimensions.get("window");
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -34,6 +37,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   const [newsposts, setNewsPosts] = useState([]);
   const [highlights, setHighlights] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [videos, setVideos] = useState([]);
   const user = auth.currentUser;
 
   const onRefresh = React.useCallback(() => {
@@ -74,6 +78,23 @@ const HomeScreen = ({ isLoading, navigation }) => {
     return unsub;
   }, []);
 
+  useEffect(() => {
+    const unsub = onSnapshot(
+      query(collection(db, "videos"), limit(2)),
+      (snapshot) => {
+        setVideos(
+          snapshot.docs.map((video) => ({
+            id: video.id,
+            ...video.data(),
+          }))
+        );
+        if (loading) {
+          setLoading(false);
+        }
+      }
+    );
+    return unsub;
+  }, []);
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -87,6 +108,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
+        {/* Highlights section */}
         <View style={styles.highlightsContainer}>
           <Text style={styles.headingText}>Highlights</Text>
           <ScrollView horizontal={true}>
@@ -100,8 +122,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           </ScrollView>
         </View>
 
-        {/* <Divider style={{ height: 5 }} /> */}
-
+        {/* Post section */}
         <View style={styles.postContainer}>
           <Text style={styles.headingText}>Latest posts</Text>
           <ScrollView horizontal={true}>
@@ -114,8 +135,20 @@ const HomeScreen = ({ isLoading, navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* <Divider style={{ height: 5 }} /> */}
+        {/* video section */}
+        <ScrollView
+          horizontal={true}
+          pagingEnabled={true}
+          // ref={ScrollView}
+          snapToInterval={width}
+          // snapToAlignment={"center"}
+        >
+          {videos.map((video, index) => (
+            <Video4home video={video} key={index} navigation={navigation} />
+          ))}
+        </ScrollView>
 
+        {/* Tools section */}
         <View style={styles.toolsContainer}>
           <Text style={styles.headingText}>Tools</Text>
           {/* List tools here */}
@@ -126,16 +159,23 @@ const HomeScreen = ({ isLoading, navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* <Divider style={{ height: 5 }} /> */}
-        <View style={{backgroundColor: 'white', marginBottom: -5, marginTop: 5, padding: 5}}>
+        {/* News section */}
+        <View
+          style={{
+            backgroundColor: "white",
+            marginBottom: -5,
+            marginTop: 5,
+            padding: 5,
+          }}
+        >
           <Text style={styles.headingText}>Latest News</Text>
         </View>
 
         <View>
           <NewsPostScreen />
-          {/* {newsposts.map((newspost, index) => (
+          {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />
-          ))} */}
+          ))}
         </View>
         {/* <Divider style={{height: 5}}/> */}
       </ScrollView>

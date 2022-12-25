@@ -10,41 +10,44 @@ import Collapsible from "react-native-collapsible";
 import { AntDesign } from "@expo/vector-icons";
 import Video from "./Video";
 import { db, auth } from "../../Firebase";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  limit,
-  query,
-} from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import { Divider } from "react-native-paper";
-import PTE from "./PTE";
-import IELTS from "./IELTS";
-import TOEFL from "./TOEFL";
-import VideoScreen from "./VideoScreen";
 
-const LearnScreen = ({ navigation }) => {
+const VideoScreen = ({ navigation }) => {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsub = onSnapshot(query(collection(db, "videos")), (snapshot) => {
+      setVideos(
+        snapshot.docs.map((video) => ({
+          id: video.id,
+          ...video.data(),
+        }))
+      );
+      if (loading) {
+        setLoading(false);
+      }
+    });
+    return unsub;
+  }, []);
+
   return (
     <ScrollView>
-      <Divider bold={true} />
-      <Text style={styles.mainHeader}>Learning material for you</Text>
-
-      <PTE />
-      <IELTS />
-      <TOEFL />
+      {/* <Divider bold={true} /> */}
 
       {/* ///////// Videos /////// */}
-      <View style={{ margin: 18 }}></View>
-      <Divider style={{ height: 8 }} />
+      <View style={{ margin: 5 }}></View>
       <View>
-        <Text style={styles.mainHeader}>Useful videos for you</Text>
       </View>
-      <VideoScreen />
+      {videos.map((video, index) => (
+        <Video video={video} key={index} navigation={navigation} />
+      ))}
     </ScrollView>
   );
 };
 
-export default LearnScreen;
+export default VideoScreen;
 
 const styles = StyleSheet.create({
   mainHeader: {

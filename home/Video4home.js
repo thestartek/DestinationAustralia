@@ -1,0 +1,112 @@
+import { ScrollView, View, Text, Image, StyleSheet, Alert, Dimensions } from "react-native";
+import React from "react";
+import { Divider } from "react-native-paper";
+import { TouchableOpacity, Share } from "react-native";
+import { auth, db } from "../Firebase";
+import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  increment,
+} from "firebase/firestore";
+
+import * as WebBrowser from "expo-web-browser";
+
+const { width } = Dimensions.get("window");
+
+const Video4home = ({ video }) => {
+  const user = auth.currentUser;
+
+  return (
+    <View style={styles.mainContainer}>
+      <View style={styles.videoContainer}>
+        <TouchableOpacity
+          onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
+        >
+          {video.thumbnail != null ? <ThumbnailImage video={video} /> : null}
+        </TouchableOpacity>
+
+        <VideoHeader video={video} />
+      </View>
+    </View>
+  );
+};
+
+const VideoHeader = ({ video }) => (
+  <View style={{ margin: 10, maxHeight: 100 }}>
+    <TouchableOpacity
+      onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
+    >
+      <Text style={styles.titleText}>{video.title}</Text>
+    </TouchableOpacity>
+
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <TouchableOpacity
+        onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}
+      >
+        <Text style={styles.timstampText}>{video.channel}</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
+
+const ThumbnailImage = ({ video }) => (
+  <View>
+    <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
+    <Image
+      source={{
+        uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplayButtonIcon.png?alt=media&token=1d40a234-b110-436b-8c5d-db993c852b55",
+      }}
+      style={styles.playButton}
+    />
+  </View>
+);
+
+export default Video4home;
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: "white",
+    marginHorizontal: 5,
+    marginVertical: 5,
+    borderRadius: 10,
+    width: width -40,
+    height: 120
+  },
+  videoContainer: {
+    flexDirection: "row",
+    marginHorizontal: 10,
+    marginVertical: 5,
+    // alignItems: 'center'
+    // backgroundColor: "lightgrey",
+  },
+  thumbnailImage: {
+    height: 100,
+    width: 100,
+    marginVertical: 5,
+    borderRadius: 10,
+    opacity: 0.9,
+  },
+  playButton: {
+    height: 50,
+    width: 50,
+    marginTop: -80,
+    marginLeft: 25,
+    opacity: 0.5,
+    tintColor: "black",
+  },
+  titleText: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#1267E9",
+    maxWidth: width -170,
+  },
+  timstampText: {
+    marginTop: 5,
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#545050",
+  },
+});

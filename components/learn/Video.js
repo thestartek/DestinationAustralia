@@ -1,4 +1,12 @@
-import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  Dimensions,
+} from "react-native";
 import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
@@ -13,6 +21,8 @@ import {
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
+
+const { width } = Dimensions.get("window");
 
 const Video = ({ video }) => {
   const user = auth.currentUser;
@@ -195,7 +205,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     color: "#1267E9",
-    maxWidth: "85%",
+    maxWidth: width - 150,
   },
   timstampText: {
     marginTop: 5,
