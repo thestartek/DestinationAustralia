@@ -25,6 +25,7 @@ import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
+import BannerHome from "../components/cards/BannerHome.js";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -99,8 +100,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <Divider width={8} />
-      {/* <Text style={styles.headingText}>Highlights</Text> */}
+      <BannerHome navigation={navigation}/>
 
       <ScrollView
         style={styles.outerContainer}
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
   postContainer: {
     borderRadius: 10,
     marginHorizontal: 6,
-    marginVertical: 5,
+    marginVertical: 10,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   toolsContainer: {
     borderRadius: 10,
     marginHorizontal: 6,
-    marginVertical: 5,
+    marginVertical: 10,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
