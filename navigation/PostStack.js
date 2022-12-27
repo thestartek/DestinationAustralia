@@ -1,6 +1,5 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CommentsScreen from "../components/post/CommentsScreen";
 import NewPostScreen from "../components/newPost/NewPostScreen";
 import PostScreen from "../components/post/PostsScreen";
 import Comments from "../components/post/Comments";

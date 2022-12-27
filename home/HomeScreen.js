@@ -67,7 +67,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("created", "desc"), limit(4)),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(6)),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))

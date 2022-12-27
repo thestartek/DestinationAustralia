@@ -3,7 +3,6 @@ import { React, useEffect, useState } from "react";
 import { TextInput } from "react-native";
 
 import * as ImagePicker from "expo-image-picker";
-import ChooseCity from "./ChooseCity";
 
 import { auth, db, storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -18,14 +17,10 @@ import {
   serverTimestamp,
   onSnapshot,
 } from "firebase/firestore";
-import ChooseCategory from "./ChooseCategory";
 
 const AddNewPost = ({ post, navigation }) => {
   const [caption, setCaption] = useState(null);
   // const [image, setImage] = useState(null);
-  //const [imageUrl, setImageUrl] = useState(null);
-  // const [category, setCategory] = useState(null);
-  // const [city, setCity] = useState(null);
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([null]);
   // const [isLoading, setIsLoading] = useState(false);
   // const [percentage, setPercentage] = useState(null);
@@ -65,22 +60,6 @@ const AddNewPost = ({ post, navigation }) => {
     getUserDetails();
   }, []);
 
-  // const pickImage = async () => {
-  //   // No permissions request is necessary for launching the image library
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.photo,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //     quality: 0.75,
-  //   });
-
-  //   console.log(result);
-
-  //   if (!result.cancelled) {
-  //     setImage(result.uri);
-  //   }
-  // };
-
   const uploadPost = async () => {
     // const imageUrl = await uploadImage();
     // console.log(imageUrl);
@@ -99,54 +78,16 @@ const AddNewPost = ({ post, navigation }) => {
         created: serverTimestamp(Date),
         postedDate: date + " " + months[month],
       });
+      setCaption(null);
       navigation.goBack();
-      // setCaption(null)
+
       console.log("posted successfully");
       Alert.alert("Posted successfully");
     } catch (e) {
       console.log("Error adding post", e);
     }
+    // setCaption(null);
   };
-
-  // uploading photo to firebase storage
-  // const uploadImage = async () => {
-  //   if (image == null) {
-  //     return null;
-  //   }
-  //   try {
-  //     let filename =
-  //       user.email +
-  //       "/" +
-  //       "postImages" +
-  //       "/" +
-  //       image.substring(image.lastIndexOf("/") + 1);
-  //     const extension = filename.split(".").pop();
-  //     const name = filename.split(".").slice(0, -1).join(".");
-  //     const imageFilename = name + Date.now() + "." + extension;
-
-  //     const imageRef = ref(storage, imageFilename);
-  //     const img = await fetch(image);
-  //     const bytes = await img.blob();
-  //     const uploadTask = uploadBytesResumable(imageRef, bytes);
-
-  //     uploadTask.on("state_changed", (snapshot) => {
-  //       //FirebaseStorage.maxUplodRetryTime(60000);
-  //       const progress = Math.round(
-  //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //       );
-  //       //console.log("Upload is " + progress + "% done");
-  //       setIsLoading(true);
-  //       setPercentage(progress);
-  //     });
-
-  //     await uploadTask;
-  //     const url = await getDownloadURL(imageRef);
-  //     return url;
-  //   } catch (error) {
-  //     console.log(error);
-  //     return null;
-  //   }
-  // };
 
   return (
     <View>
@@ -154,45 +95,13 @@ const AddNewPost = ({ post, navigation }) => {
         placeholder="Share something..."
         placeholderTextColor="gray"
         multiline={true}
-        // value={post}
+        value={post}
         onChangeText={(text) => setCaption(text)}
         maxLength={2200}
         style={styles.postBox}
       />
 
-      {/* <View style={styles.optionsBar}>
-        <View>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            {image != null ? (
-              <Image source={{ uri: image }} style={styles.selectedPhoto} />
-            ) : (
-              <Image
-                style={styles.placeholderImage}
-                source={require("../../assets/placeholderIcon.png")}
-              />
-            )}
-          </TouchableWithoutFeedback>
-
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-around" }}
-          >
-            <TouchableOpacity style={styles.button} onPress={pickImage}>
-              <Image
-                style={styles.icons}
-                source={require("../../assets/photoIcon.png")}
-              />
-              <Text style={styles.textStyle}>Photo</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View>
-          <ChooseCategory options={(category) => setCategory(category)} />
-
-          <ChooseCity cityOptions={(city) => setCity(city)} />
-        </View>
-      </View> */}
-
-      {caption == null ? (
+      {!caption ? (
         <TouchableWithoutFeedback style={styles.postButtonDisabled}>
           <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
             Post

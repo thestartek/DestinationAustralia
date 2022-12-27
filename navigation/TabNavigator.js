@@ -154,7 +154,7 @@ const TabNavigator = (navigation) => {
           name="Profile"
           component={ProfileStack}
           options={{
-            headerShown: false,
+            // headerShown: false,
             tabBarIcon: ({ focused }) => (
               <View
                 style={{

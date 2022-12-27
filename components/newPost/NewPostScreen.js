@@ -35,7 +35,7 @@ const NewPostScreen = ({ navigation }) => {
     getUserDetails();
   }, []);
   return (
-    <View>
+    <ScrollView>
       {/* <Divider bold={true} /> */}
       {/* <NewPostHeader navigation={navigation} /> */}
       <TouchableWithoutFeedback
@@ -86,7 +86,7 @@ const NewPostScreen = ({ navigation }) => {
       </TouchableWithoutFeedback>
 
       <AddNewPost navigation={navigation} />
-    </View>
+    </ScrollView>
   );
 };
 

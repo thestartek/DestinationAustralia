@@ -32,7 +32,8 @@ const DrawerNavigatior = () => {
       <Drawer.Screen name="Tools" component={ToolsScreen} />
       <Drawer.Screen name="Support us" component={DonateScreen} />
       <Drawer.Screen name="Report an issue" component={ReportScreen} />
-      <Drawer.Screen name="About us" component={AboutusScreen}/>
+      <Drawer.Screen name="Get in touch" component={ContactScreen} />
+      <Drawer.Screen name="Our website" component={AboutusScreen}/>
       <Drawer.Screen name="Privacy policy" component={PrivacyPolicy} />
     </Drawer.Navigator>
   );

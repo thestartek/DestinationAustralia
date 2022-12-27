@@ -1,11 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../home/HomeScreen";
-import CommentsScreen from "../components/post/CommentsScreen";
-import CommunityStack from "./PostStack";
 import ToolsScreen from "../components/tools/ToolsScreen";
 import PrPointsCalculator from "../components/tools/PrPointsCalculator";
-import IncomeCalculator from "../components/tools/IncomeCalculator";
 import UniversityFinder from "../components/tools/UniversityFinder";
 import ExpenseEstimator from "../components/tools/ExpenseEstimator";
 // import NewPostScreen from "../screens/NewPostScreen";

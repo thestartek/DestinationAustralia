@@ -87,9 +87,8 @@ const ProfileScreen = ({ navigation }) => {
     return unsub;
   }, []);
 
-
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "lightgrey" }}>
       <View
         style={styles.container}
         contentContainerStyle={{
@@ -140,16 +139,18 @@ const ProfileScreen = ({ navigation }) => {
 
       <Divider width={2} />
 
-      <Text
-        style={{
-          backgroundColor: "white",
-          fontWeight: "bold",
-          fontSize: 20,
-          margin: 10,
-        }}
-      >
-        Your posts
-      </Text>
+      <View style={{backgroundColor: "white", marginBottom: -5}}>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 20,
+            margin: 10,
+          }}
+        >
+          Your posts
+        </Text>
+      </View>
+
       <ScrollView>
         {/* <View style={styles.postIcon}>
           <Text style={styles.postText}>Posts</Text>
@@ -158,7 +159,7 @@ const ProfileScreen = ({ navigation }) => {
           <Post post={post} key={index} navigation={navigation} />
         ))}
       </ScrollView>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -181,7 +182,6 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 25,
     fontWeight: "bold",
-    marginTop: 10,
     marginBottom: 5,
     color: "#1267E9",
   },

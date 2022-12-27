@@ -48,22 +48,8 @@ const AddComment = ({ post }) => {
         email: currentLoggedInUser.email,
       }),
     });
-    // commentNotification();
+    setComment(null)
   };
-
-  async function commentNotification() {
-    {
-      currentLoggedInUser.email == post.user &&
-        (await Notifications.scheduleNotificationAsync({
-          content: {
-            title: currentLoggedInUser.fullname + " commented on your post",
-            body: post.caption,
-            // data: { data: "goes here" },
-          },
-          trigger: { seconds: 2 },
-        }));
-    }
-  }
 
   return (
     <View style={styles.container}>

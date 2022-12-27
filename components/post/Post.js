@@ -66,22 +66,6 @@ const Post = ({ post, navigation }) => {
 };
 
 const PostHeader = ({ post }) => {
-  // const [postOwner, setPostOwner] = useState([]);
-  // const userEmail = post.user;
-
-  // const getUserDetails = () => {
-  //   const unsubscribe = onSnapshot(doc(db, "users", userEmail), (doc) => {
-  //     setPostOwner({
-  //       fullname: doc.data().fullname,
-  //       profile_picture: doc.data().profile_picture,
-  //     });
-  //   });
-  //   return unsubscribe;
-  // };
-
-  // useEffect(() => {
-  //   getUserDetails();
-  // }, []);
   return (
     <View
       style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
