@@ -7,13 +7,13 @@ import { doc, getDoc, onSnapshot } from "firebase/firestore";
 
 const { width } = Dimensions.get("window");
 
-const BannerHome = ({ navigation }) => {
+const BannerHome_linkedtoApp = ({ navigation }) => {
   const [bannerShown, setBannerShown] = useState(true);
   const [bannerContent, setBannercontent] = useState(null);
   const [bannerLink, setBannerLink] = useState(null);
 
   useEffect(() => {
-    const docSnap = getDoc(doc(db, "cards", "bannerHome")).then((doc) => {
+    const docSnap = getDoc(doc(db, "cards", "bannerHome_linkedtoApp")).then((doc) => {
       setBannercontent(doc.data().content);
       setBannerLink(doc.data().link);
       //   console.log(doc.data());
@@ -22,7 +22,7 @@ const BannerHome = ({ navigation }) => {
     // return docSnap;
   }, []);
 
-  if (bannerShown) {
+  if (bannerShown && bannerContent && bannerLink) {
     return (
       <View style={styles.outerContainer}>
         <View style={styles.innerContainer}>
@@ -59,7 +59,7 @@ const BannerHome = ({ navigation }) => {
   }
 };
 
-export default BannerHome;
+export default BannerHome_linkedtoApp;
 
 const styles = StyleSheet.create({
   outerContainer: {

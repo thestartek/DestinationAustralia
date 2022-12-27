@@ -25,7 +25,8 @@ import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
-import BannerHome from "../components/cards/BannerHome.js";
+import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
+import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -100,7 +101,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <BannerHome navigation={navigation} />
+      {/* Banners */}
+      <BannerHome_linkedtoApp navigation={navigation}/>
+      <BannerHome_linkedtoWeb navigation={navigation}/>
 
       <ScrollView
         style={styles.outerContainer}

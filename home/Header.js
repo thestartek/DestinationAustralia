@@ -10,15 +10,21 @@ import React from "react";
 
 const Header = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={{ marginLeft: 10 }}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Image
             style={{ height: 40, width: 30, tintColor: "white" }}
-            source={require("../assets/menuBar.png")}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FmenuBar.png?alt=media&token=6082ddeb-9ab1-4cc1-9e7c-180072c65b33",
+            }}
           />
         </TouchableOpacity>
       </View>
+      {/* <Image
+        source={require("../assets/Picture1.png")}
+        style={{ height: 50, width: 200, transform: [{rotate: '5deg'}] }}
+      /> */}
 
       <Text style={styles.headerText}>Journey to Australia</Text>
 
@@ -31,7 +37,9 @@ const Header = ({ navigation }) => {
         <TouchableOpacity>
           <Image
             style={styles.icons}
-            source={require("../assets/searchIcon.png")}
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FsearchIcon.png?alt=media&token=90ee23a4-4d27-4c04-ae60-6fb163e26afa",
+            }}
           />
         </TouchableOpacity>
 
@@ -47,7 +55,7 @@ const Header = ({ navigation }) => {
           />
         </TouchableOpacity> */}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -81,7 +89,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 25,
     resizeMode: "contain",
-    tintColor: "white"
+    tintColor: "white",
   },
   // unreadBadge: {
   //   backgroundColor: "red",

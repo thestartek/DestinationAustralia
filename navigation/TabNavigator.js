@@ -33,7 +33,9 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/homeIcon_Active.png")}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FhomeIcon_Active.png?alt=media&token=1a44acea-55f5-4676-9eda-d31f4051cd62",
+                  }}
                   resizeMode="contain"
                   style={{
                     width: 25,
@@ -63,7 +65,9 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/learnIcon.png")}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
+                  }}
                   resizeMode="contain"
                   style={{
                     width: 25,
@@ -94,7 +98,9 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/plusIcon.png")}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
+                  }}
                   resizeMode="contain"
                   style={{
                     width: 25,
@@ -125,7 +131,9 @@ const TabNavigator = (navigation) => {
                 }}
               >
                 <Image
-                  source={require("../assets/notificationIcon_Active.png")}
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FnotificationIcon_Active.png?alt=media&token=98374cc5-0a7d-461b-a826-a3cacc0a2b6c",
+                  }}
                   resizeMode="contain"
                   style={{
                     width: 25,
