@@ -11,11 +11,14 @@ import {
   arrayRemove,
   serverTimestamp,
   onSnapshot,
-  increment, query, collection
+  increment,
+  query,
+  collection,
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
 import { useEffect, useState } from "react";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const NewsPost = ({ newspost, navigation }) => {
   const user = auth.currentUser;
@@ -37,9 +40,9 @@ const NewsPost = ({ newspost, navigation }) => {
       {/* <TouchableOpacity
         onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
       > */}
-        <View style={{ margin: 5 }}>
-          {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
-        </View>
+      <View style={{ margin: 5 }}>
+        {newspost.image != null ? <NewsImage newspost={newspost} /> : null}
+      </View>
       {/* </TouchableOpacity> */}
       <NewsHeader newspost={newspost} />
       {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
@@ -89,31 +92,33 @@ const NewsHeader = ({ newspost }) => (
 
 const Caption = ({ newspost }) => (
   <View>
-    <Text style={{ marginHorizontal: 10, marginVertical: 5, fontSize: 15, lineHeight: 20 }}>
+    <Text
+      style={{
+        marginHorizontal: 10,
+        marginVertical: 10,
+        fontSize: 15,
+        lineHeight: 20,
+      }}
+    >
       {newspost.abstract}
     </Text>
-    <TouchableOpacity
-      onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
-    >
-      <Text
-        style={{
-          textAlign: "center",
-          color: "#1267E9",
-          fontSize: 15,
-          fontWeight: "bold",
-        }}
-      >
-        Read more...
-      </Text>
-    </TouchableOpacity>
   </View>
 );
 
 const NewsImage = ({ newspost }) => (
-  <Image
-    source={{ uri: newspost.image }}
-    style={{ height: 200, width: "100%", marginVertical: 10, borderRadius: 10 }}
-  />
+  <TouchableWithoutFeedback
+    onPress={() => WebBrowser.openBrowserAsync(newspost.link)}
+  >
+    <Image
+      source={{ uri: newspost.image }}
+      style={{
+        height: 200,
+        width: "100%",
+        marginVertical: 10,
+        borderRadius: 10,
+      }}
+    />
+  </TouchableWithoutFeedback>
 );
 
 const LikeButton = ({ newspost, handleLike, focused }) => {
@@ -153,11 +158,13 @@ const ShareButton = ({ newspost }) => {
     try {
       const result = await Share.share({
         message:
+          "Journey to Australia:" +
+          "\n" +
           "Recent news form " +
           newspost.media +
-          " on Journey to Australia App: " +
-          newspost.headline,
-        url: newspost.link,
+          ": " +
+          newspost.title,
+        // url: newspost.link,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {

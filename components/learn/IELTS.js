@@ -389,9 +389,7 @@ const IELTS = () => {
               collapseReading(),
             ]}
           >
-            <Text style={styles.contentHeadingMain}>
-              Reading (60 minutes)
-            </Text>
+            <Text style={styles.contentHeadingMain}>Reading (60 minutes)</Text>
           </TouchableOpacity>
           <Divider bold={true} />
 
@@ -888,9 +886,7 @@ const IELTS = () => {
               collapseWriting(),
             ]}
           >
-            <Text style={styles.contentHeadingMain}>
-              Writing (60 minutes)
-            </Text>
+            <Text style={styles.contentHeadingMain}>Writing (60 minutes)</Text>
           </TouchableOpacity>
           <Divider bold={true} />
 
@@ -1233,10 +1229,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 10,
     marginBottom: 5,
-    color: "#1267E9"
+    color: "#1267E9",
   },
   contentText: { margin: 5, lineHeight: 20 },
-  boldText: {fontWeight: "bold" },
+  boldText: { fontWeight: "bold" },
   moreButton: {
     // backgroundColor: "#1267E9",
     alignItems: "center",

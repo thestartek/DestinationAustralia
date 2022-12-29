@@ -12,9 +12,11 @@ import { auth } from "../../Firebase";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { ActivityIndicator } from "react-native-paper";
 
 const ResetPasswordScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const resetPassword = () => {
     sendPasswordResetEmail(auth, email)
@@ -23,12 +25,15 @@ const ResetPasswordScreen = ({ navigation }) => {
           "Password reset email sent! If you didn't receive the link in your Inbox, please check the Spam folder."
         );
         navigation.goBack();
+        setLoading(false);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         Alert.alert(errorCode);
+        setLoading(false);
       });
+    setLoading(true);
   };
 
   return (
@@ -68,7 +73,11 @@ const ResetPasswordScreen = ({ navigation }) => {
             </View>
           ) : (
             <TouchableOpacity onPress={resetPassword} style={styles.button}>
-              <Text style={styles.buttonText}>Reset password</Text>
+              {loading ? (
+                <ActivityIndicator />
+              ) : (
+                <Text style={styles.buttonText}>Reset password</Text>
+              )}
             </TouchableOpacity>
           )}
         </View>

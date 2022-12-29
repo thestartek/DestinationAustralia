@@ -32,9 +32,12 @@ const Post4home = ({ post, navigation }) => {
 
   return (
     <View>
-      <PostHeader post={post} />
-      {post.caption != null ? <Caption post={post} /> : null}
-      <Divider bold={true} style={{ marginHorizontal: 10 }} />
+      <TouchableOpacity onPress={() => navigation.push("Posts")}>
+        <PostHeader post={post} />
+        {post.caption != null ? <Caption post={post} /> : null}
+      </TouchableOpacity>
+
+      <Divider bold={true} style={{ marginHorizontal: 10, marginTop: 5 }} />
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
         {/* <Divider /> */}
@@ -66,7 +69,7 @@ const PostHeader = ({ post }) => {
     <View
       style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
     >
-      <TouchableOpacity>
+      {/* <TouchableOpacity> */}
         {!post.profile_picture ? (
           <Image
             source={{
@@ -81,7 +84,7 @@ const PostHeader = ({ post }) => {
           />
         )}
         {/* where post.user == user.email*/}
-      </TouchableOpacity>
+      {/* </TouchableOpacity> */}
 
       <View style={{ flexDirection: "column" }}>
         <TouchableOpacity>
@@ -106,10 +109,10 @@ const PostHeader = ({ post }) => {
 const Caption = ({ post }) => (
   <Text
     style={{
-      marginLeft: 14,
-      maxWidth: 160,
+      marginHorizontal: 14,
+      maxWidth: 150,
       height: 60,
-      lineHeight: 20
+      lineHeight: 20,
     }}
   >
     {post.caption}

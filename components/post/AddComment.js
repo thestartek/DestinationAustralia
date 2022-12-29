@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TextInput, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  Dimensions,
+} from "react-native";
 import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
@@ -48,7 +55,7 @@ const AddComment = ({ post }) => {
         email: currentLoggedInUser.email,
       }),
     });
-    setComment(null)
+    setComment(null);
   };
 
   return (
@@ -120,8 +127,8 @@ const styles = StyleSheet.create({
     borderColor: "lightgrey",
     marginVertical: 5,
     marginHorizontal: 10,
-    width: '80%',
-    maxHeight: 100,
+    width: "80%",
+    maxHeight: 120,
   },
   sendButton: {
     tintColor: "#1267E9",

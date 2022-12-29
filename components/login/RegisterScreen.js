@@ -17,6 +17,7 @@ import { Alert } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
 import * as ImagePicker from "expo-image-picker";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { ActivityIndicator } from "react-native-paper";
 
 const avatar1 =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/avatars%2Favatar1.png?alt=media&token=1ec3e916-6bea-434f-8a1f-8ce046e1d29e";
@@ -63,6 +64,8 @@ const RegisterScreen = ({ navigation }) => {
   const [checkedAvatar7, setCheckedAvatar7] = useState(false);
   const [checkedAvatar8, setCheckedAvatar8] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const handleRegister = async () => {
     // const imageUrl = await uploadImage();
     // console.log(imageUrl);
@@ -84,12 +87,14 @@ const RegisterScreen = ({ navigation }) => {
           });
           console.log("User added to database");
           Alert.alert("User registered successfully", user.email);
+          setLoading(false);
         } catch (e) {
           console.error("Error adding user", e);
         }
       })
       .catch((error) => Alert.alert(error.message));
     // Alert.alert(error.message);
+    setLoading(true);
   };
 
   return (
@@ -386,7 +391,12 @@ const RegisterScreen = ({ navigation }) => {
               onPress={handleRegister}
               style={[styles.button, { marginBottom: 200 }]}
             >
-              <Text style={styles.buttonText}>Register</Text>
+              {loading ? (
+                <ActivityIndicator />
+              ) : (
+                <Text style={styles.buttonText}>Register</Text>
+              )}
+              {/* <Text style={styles.buttonText}>Register</Text> */}
             </TouchableOpacity>
           </View>
         )}

@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
 import { auth } from "../../Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -16,18 +17,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  //const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       navigation.push("Home");
-  //     }
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -43,22 +33,19 @@ const LoginScreen = ({ navigation }) => {
             [
               {
                 text: "Ok",
-                //onPress: () => console.log("Ok"),
+                onPress: () => setLoading(false),
                 style: "cancel",
               },
               {
                 text: "Register",
-                onPress: () => navigation.push("Register"),
+                onPress: () => {navigation.push("Register"), setLoading(false)},
               },
             ]
           )
         //
       );
+    setLoading(true)
   };
-
-  // const provider = () => {
-  //   GoogleAuthProvider();
-  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -101,27 +88,14 @@ const LoginScreen = ({ navigation }) => {
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={handleLogin} style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
+            {loading ? (
+              <ActivityIndicator />
+            ) : (
+              <Text style={styles.buttonText}>Login</Text>
+            )}
+            {/* <Text style={styles.buttonText}>Login</Text> */}
           </TouchableOpacity>
         </View>
-        {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
-        {/* <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            //onPress={() => navigation.push("Register")}
-            style={[styles.button, styles.buttonFacebook]}
-          >
-            <FontAwesome name="facebook" size={24} color="#1267E9" />
-            <Text style={styles.buttonFacebookText}>Login with Facebook</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() =>{}}
-            style={[styles.button, styles.buttonGoogle]}
-          >
-            <AntDesign name="google" size={24} color="red" />
-            <Text style={styles.buttonGoogleText}>Login with Google</Text>
-          </TouchableOpacity>
-        </View> */}
 
         <View
           style={{

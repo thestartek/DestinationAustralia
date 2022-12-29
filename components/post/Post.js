@@ -108,7 +108,9 @@ const PostHeader = ({ post }) => {
 };
 
 const Caption = ({ post }) => (
-  <Text style={{ marginHorizontal: 20, marginBottom: 10, lineHeight: 20 }}>{post.caption}</Text>
+  <Text style={{ marginHorizontal: 20, marginBottom: 10, lineHeight: 20 }}>
+    {post.caption}
+  </Text>
 );
 
 // const PostImage = ({ post }) => (
@@ -185,11 +187,13 @@ const ShareButton = ({ post }) => {
     try {
       const result = await Share.share({
         message:
-          " Recent post form" +
+          "Journey to Australia: " +
+          "\n" +
           post.fullname +
-          " in Journey to Australia App: " +
+          "'s" +
+          " Post: " +
           post.caption,
-        url: "https://starteknp.com/journeytoaustralia",
+        // url: "https://starteknp.com/journeytoaustralia",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {

@@ -177,9 +177,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
         <View>
           <NewsPostScreen />
-          {newsposts.map((newspost, index) => (
+          {/* {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />
-          ))}
+          ))} */}
         </View>
         {/* <Divider style={{height: 5}}/> */}
       </ScrollView>

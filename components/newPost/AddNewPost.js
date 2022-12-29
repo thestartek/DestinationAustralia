@@ -17,12 +17,13 @@ import {
   serverTimestamp,
   onSnapshot,
 } from "firebase/firestore";
+import { ActivityIndicator } from "react-native-paper";
 
 const AddNewPost = ({ post, navigation }) => {
   const [caption, setCaption] = useState(null);
   // const [image, setImage] = useState(null);
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([null]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const [percentage, setPercentage] = useState(null);
 
   const date = new Date().getDate();
@@ -63,6 +64,7 @@ const AddNewPost = ({ post, navigation }) => {
   const uploadPost = async () => {
     // const imageUrl = await uploadImage();
     // console.log(imageUrl);
+    setLoading(true);
     try {
       const postRef = doc(collection(db, "posts"));
       const postTask = setDoc(postRef, {
@@ -78,6 +80,7 @@ const AddNewPost = ({ post, navigation }) => {
         created: serverTimestamp(Date),
         postedDate: date + " " + months[month],
       });
+      setLoading(false);
       setCaption(null);
       navigation.goBack();
 
@@ -85,8 +88,9 @@ const AddNewPost = ({ post, navigation }) => {
       Alert.alert("Posted successfully");
     } catch (e) {
       console.log("Error adding post", e);
+      setLoading(false);
     }
-    // setCaption(null);
+    // setLoading(true);
   };
 
   return (
@@ -95,10 +99,11 @@ const AddNewPost = ({ post, navigation }) => {
         placeholder="Share something..."
         placeholderTextColor="gray"
         multiline={true}
-        value={post}
+        value={caption}
         onChangeText={(text) => setCaption(text)}
         maxLength={2200}
         style={styles.postBox}
+        // contentStyle = {{justifyContent:'center', alignItems: 'center', color: 'red'}}
       />
 
       {!caption ? (
@@ -109,12 +114,18 @@ const AddNewPost = ({ post, navigation }) => {
         </TouchableWithoutFeedback>
       ) : (
         <TouchableOpacity style={styles.postButton} onPress={uploadPost}>
-          <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
-            Post
-          </Text>
+          {loading ? (
+            <ActivityIndicator />
+          ) : (
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
+              Post
+            </Text>
+          )}
+          {/* <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
+          Post
+        </Text> */}
         </TouchableOpacity>
       )}
-      {/* <Text>Uploading {percentage} % done</Text> */}
     </View>
   );
 };

@@ -27,8 +27,8 @@ import { db, auth } from "../../Firebase";
 
 //import firestore from '@react-native-firebase/firestore';
 
-const handleLogout = ({ navigation }) => {
-  signOut(auth)
+const handleLogout = async () => {
+  await signOut(auth)
     .then(() => {
       console.log("User Logged out!");
       //navigation.push("Login");

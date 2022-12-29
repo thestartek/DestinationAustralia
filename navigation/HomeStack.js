@@ -10,6 +10,7 @@ import ExploreAustralia from "../components/tools/ExploreAustralia";
 import DonateScreen from "../components/drawer/DonateScreen";
 import VideoScreen from "../components/learn/VideoScreen";
 import NewsPostScreen from "../home/NewsPostScreen";
+import NewPostScreen from "../components/newPost/NewPostScreen";
 import ReportScreen from "../components/drawer/ReportScreen";
 import AboutusScreen from "../components/drawer/AboutusScreen";
 import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
@@ -46,7 +47,7 @@ const HomeStack = () => {
       <Stack.Screen name="About us" component={AboutusScreen} />
       <Stack.Screen name="Privacy policy" component={PrivacyPolicy} />
       <Stack.Screen name="Learn" component={LearnScreen} />
-      <Stack.Screen name="New post" component={NewsPostScreen} />
+      <Stack.Screen name="New post" component={NewPostScreen} />
       <Stack.Screen name="Notifications" component={NotificationScreen} />
       <Stack.Screen name="Profile" component={ProfileStack} />
     </Stack.Navigator>
