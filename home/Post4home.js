@@ -12,7 +12,6 @@ import {
   arrayRemove,
   onSnapshot,
 } from "firebase/firestore";
-import CommentModal from "../components/post/CommentModal";
 //import { color } from "react-native-reanimated";
 
 const Post4home = ({ post, navigation }) => {

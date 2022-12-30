@@ -7,9 +7,7 @@ import {
   SafeAreaView,
   RefreshControl,
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import React, { useEffect, useState } from "react";
-import Header from "../../home/Header.js";
 import Post from "./Post.js";
 import {
   collection,
@@ -19,7 +17,7 @@ import {
   doc,
   limit,
 } from "firebase/firestore";
-import { db, auth } from "../../Firebase";
+import { db } from "../../Firebase";
 import { Button, Divider } from "react-native-paper";
 
 const wait = (timeout) => {

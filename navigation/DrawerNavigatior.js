@@ -1,4 +1,3 @@
-import { View, Text, Image } from "react-native";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
@@ -6,7 +5,6 @@ import DonateScreen from "../components/drawer/DonateScreen";
 import AboutusScreen from "../components/drawer/AboutusScreen";
 import HomeStack from "./HomeStack";
 import PostScreen from "../components/post/PostsScreen";
-import NewsPost from "../home/NewsPost";
 import NewsPostScreen from "../home/NewsPostScreen";
 import ToolsScreen from "../components/tools/ToolsScreen";
 import ContactScreen from "../components/drawer/ContactScreen";
@@ -33,7 +31,7 @@ const DrawerNavigatior = () => {
       <Drawer.Screen name="Support us" component={DonateScreen} />
       <Drawer.Screen name="Report an issue" component={ReportScreen} />
       <Drawer.Screen name="Get in touch" component={ContactScreen} />
-      <Drawer.Screen name="Our website" component={AboutusScreen}/>
+      <Drawer.Screen name="Our website" component={AboutusScreen} />
       <Drawer.Screen name="Privacy policy" component={PrivacyPolicy} />
     </Drawer.Navigator>
   );

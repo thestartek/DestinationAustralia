@@ -6,17 +6,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import Collapsible from "react-native-collapsible";
-import { AntDesign } from "@expo/vector-icons";
-import Video from "./Video";
-import { db, auth } from "../../Firebase";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  limit,
-  query,
-} from "firebase/firestore";
 import { Divider } from "react-native-paper";
 import PTE from "./PTE";
 import IELTS from "./IELTS";

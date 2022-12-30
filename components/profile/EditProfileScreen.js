@@ -7,21 +7,9 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
-import { auth, db, storage } from "../../Firebase";
-import {
-  doc,
-  onSnapshot,
-  setDoc,
-  query,
-  where,
-  collection
-} from "firebase/firestore";
-import * as ImagePicker from "expo-image-picker";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { auth, db } from "../../Firebase";
+import { doc, onSnapshot, setDoc } from "firebase/firestore";
 
 const avatar1 =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/avatars%2Favatar1.png?alt=media&token=1ec3e916-6bea-434f-8a1f-8ce046e1d29e";
@@ -70,14 +58,18 @@ const EditProfileScreen = ({ navigation }) => {
 
   const handleChange = async () => {
     try {
-      const unsub = setDoc(doc(db, "users", user.email), {
-        fullname: fullname || currentLoggedInUser.fullname,
-        city: city || currentLoggedInUser.city,
-        country: country || currentLoggedInUser.country,
-        info: info || currentLoggedInUser.info,
-        profile_picture: image || currentLoggedInUser.profile_picture,
-        // email: user.email
-      }, {merge: true});
+      const unsub = setDoc(
+        doc(db, "users", user.email),
+        {
+          fullname: fullname || currentLoggedInUser.fullname,
+          city: city || currentLoggedInUser.city,
+          country: country || currentLoggedInUser.country,
+          info: info || currentLoggedInUser.info,
+          profile_picture: image || currentLoggedInUser.profile_picture,
+          // email: user.email
+        },
+        { merge: true }
+      );
       console.log("Profile updated");
       navigation.goBack();
       //Alert.alert("User registered successfully", user.email);

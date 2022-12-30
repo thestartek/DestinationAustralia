@@ -2,10 +2,7 @@ import { View, StyleSheet, Alert, Keyboard, Image, Text } from "react-native";
 import { React, useEffect, useState } from "react";
 import { TextInput } from "react-native";
 
-import * as ImagePicker from "expo-image-picker";
-
-import { auth, db, storage } from "../../Firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { auth, db } from "../../Firebase";
 import {
   TouchableOpacity,
   TouchableWithoutFeedback,

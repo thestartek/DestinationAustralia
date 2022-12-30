@@ -19,9 +19,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Divider } from "react-native-paper";
 import Highlights from "./Highlights.js";
-import NewsPost from "./NewsPost.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
@@ -190,7 +188,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#1267E9",
-    flex: 1,
+    flex: 1
   },
   outerContainer: {
     backgroundColor: "lightgrey",

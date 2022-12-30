@@ -16,7 +16,6 @@ import {
 } from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { doc, db, deleteDoc } from "firebase/firestore";
 
 const VerifyAccountScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");

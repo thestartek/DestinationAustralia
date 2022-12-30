@@ -5,7 +5,6 @@ import EditProfileScreen from "../components/profile/EditProfileScreen";
 import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 import DeleteAccountScreen from "../components/profile/DeleteAccountScreen";
 import VerifyAccountScreen from "../components/profile/VerifyAccountScreen";
-import LoginStack from "./LoginStack";
 
 const Stack = createNativeStackNavigator();
 

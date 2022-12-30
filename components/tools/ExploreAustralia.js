@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import * as WebBrowser from "expo-web-browser";
-import { Divider } from "react-native-paper";
 
 const imageWA =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fmaps%2FWA.png?alt=media&token=5c62ff0a-7b78-498c-8912-79f551428c28";

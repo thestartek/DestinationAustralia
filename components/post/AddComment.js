@@ -10,9 +10,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
-import * as Device from "expo-device";
-import * as Notifications from "expo-notifications";
 // import { registerNotifications } from "../notifications/Notification";
 
 const user = auth.currentUser;
@@ -22,11 +19,6 @@ const { width } = Dimensions.get("window");
 const AddComment = ({ post }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
   const [comment, setComment] = useState(null);
-
-  // const [expoPushToken, setExpoPushToken] = useState("");
-  // const [notification, setNotification] = useState(false);
-  // const notificationListener = useRef();
-  // const responseListener = useRef();
 
   const getUserDetails = () => {
     const unsubscribe = onSnapshot(

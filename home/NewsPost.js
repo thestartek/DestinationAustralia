@@ -9,15 +9,10 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  serverTimestamp,
-  onSnapshot,
-  increment,
-  query,
-  collection,
+  increment
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
-import { useEffect, useState } from "react";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const NewsPost = ({ newspost, navigation }) => {

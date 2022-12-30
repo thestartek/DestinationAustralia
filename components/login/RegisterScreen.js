@@ -7,16 +7,11 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
-import * as ImagePicker from "expo-image-picker";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { ActivityIndicator } from "react-native-paper";
 
 const avatar1 =

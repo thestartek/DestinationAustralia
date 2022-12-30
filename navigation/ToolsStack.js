@@ -4,7 +4,6 @@ import ToolsScreen from "../components/tools/ToolsScreen";
 import PrPointsCalculator from "../components/tools/PrPointsCalculator";
 import UniversityFinder from "../components/tools/UniversityFinder";
 import ExpenseEstimator from "../components/tools/ExpenseEstimator";
-// import NewPostScreen from "../screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
 

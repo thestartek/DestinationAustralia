@@ -1,8 +1,6 @@
 import { View, ScrollView, Image, StyleSheet, Text, Modal } from "react-native";
 import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { auth, db } from "../../Firebase";
-import { onSnapshot, doc } from "firebase/firestore";
 import AddComment from "./AddComment";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 
