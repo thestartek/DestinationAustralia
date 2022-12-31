@@ -36,7 +36,7 @@ const Post4home = ({ post, navigation }) => {
         {post.caption != null ? <Caption post={post} /> : null}
       </TouchableOpacity>
 
-      <Divider bold={true} style={{ marginHorizontal: 10, marginTop: 5 }} />
+      <Divider bold={true} style={{ marginHorizontal: 10, marginTop: 8 }} />
       <View style={styles.postFooterContainer}>
         <LikeButton post={post} handleLike={handleLike} />
         {/* <Divider /> */}
@@ -48,41 +48,22 @@ const Post4home = ({ post, navigation }) => {
 };
 
 const PostHeader = ({ post }) => {
-  // const [postOwner, setPostOwner] = useState([]);
-  // const userEmail = post.user;
-
-  // const getUserDetails = () => {
-  //   const unsubscribe = onSnapshot(doc(db, "users", userEmail), (doc) => {
-  //     setPostOwner({
-  //       fullname: doc.data().fullname,
-  //       profile_picture: doc.data().profile_picture,
-  //     });
-  //   });
-  //   return unsubscribe;
-  // };
-
-  // useEffect(() => {
-  //   getUserDetails();
-  // }, []);
   return (
     <View
       style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
     >
       {/* <TouchableOpacity> */}
-        {!post.profile_picture ? (
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-            }}
-            style={styles.profileThumbnail}
-          />
-        ) : (
-          <Image
-            source={{ uri: post.profile_picture }}
-            style={styles.profile}
-          />
-        )}
-        {/* where post.user == user.email*/}
+      {!post.profile_picture ? (
+        <Image
+          source={{
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+          }}
+          style={styles.profileThumbnail}
+        />
+      ) : (
+        <Image source={{ uri: post.profile_picture }} style={styles.profile} />
+      )}
+      {/* where post.user == user.email*/}
       {/* </TouchableOpacity> */}
 
       <View style={{ flexDirection: "column" }}>

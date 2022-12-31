@@ -73,11 +73,33 @@ const NewsHeader = ({ newspost }) => (
     </TouchableOpacity>
 
     <View style={{ flexDirection: "row", alignItems: "center" }}>
+      {newspost.mediaLogo ? (
+        <Image
+          source={{ uri: newspost.mediaLogo }}
+          style={styles.timestampIcon}
+        />
+      ) : (
+        <Image
+          source={{
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FglobeIcon.png?alt=media&token=d7329f11-7fc8-4498-af3a-c053215ad88e",
+          }}
+          style={styles.timestampIcon}
+        />
+      )}
+
       {newspost.media ? (
-        <Text style={styles.timstampText}>{newspost.media}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={styles.timestampText}>{newspost.media}</Text>
+          <Image
+            source={{
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FdotIcon.png?alt=media&token=68370fe8-e55e-41ff-8a19-eda08ca7016d",
+            }}
+            style={styles.timestampDot}
+          />
+        </View>
       ) : null}
 
-      <Text style={styles.timstampText}>{newspost.date}</Text>
+      <Text style={styles.timestampText}>{newspost.date}</Text>
     </View>
   </View>
 );
@@ -156,9 +178,7 @@ const ShareButton = ({ newspost }) => {
         message:
           "Journey to Australia Mobile App:" +
           "\n" +
-          "Recent news form " +
-          newspost.media +
-          ": " +
+          "Recent news: " +
           newspost.title,
         // url: newspost.link,
       });
@@ -218,11 +238,25 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     tintColor: "grey",
   },
-  timstampText: {
+  timestampIcon: {
+    height: 15,
+    width: 15,
+    marginTop: 2,
+    marginHorizontal: 5,
+    resizeMode: "contain",
+    // tintColor: "#545050",
+  },
+  timestampText: {
     // marginLeft: 5,
     marginTop: 5,
     fontSize: 14,
     color: "#545050",
+  },
+  timestampDot: {
+    height: 20,
+    width: 20,
+    marginTop: 4,
+    tintColor: "#545050",
   },
 
   postFooterContainer: {
@@ -230,7 +264,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 50,
     marginBottom: 20,
-    marginTop: 10
+    marginTop: 8,
     // width: "80%"
   },
 

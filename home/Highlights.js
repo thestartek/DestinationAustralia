@@ -26,7 +26,7 @@ const Highlights = ({ highlights, navigation }) => {
 
         <View
           style={{
-            width: 125,
+            width: 120,
             height: 166,
             backgroundColor: "rgba(0, 0, 0, .3)",
             borderRadius: 10,
@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     alignItems: "flex-start",
     backgroundColor: "white",
-    marginHorizontal: 8,
+    marginHorizontal: 5,
     marginTop: 10,
     marginBottom: 20,
     width: 120,
   },
   image: {
-    width: 125,
+    width: 120,
     height: 166,
     borderWidth: 1,
     borderRadius: 8,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   text: {
     marginVertical: 5,
     height: 166,
-    width: 120,
+    width: 116,
     marginTop: -166,
     marginHorizontal: 3,
     fontWeight: "800",

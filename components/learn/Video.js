@@ -139,8 +139,8 @@ const ShareButton = ({ video }) => {
     try {
       const result = await Share.share({
         message:
-          "Recent video form " +
-          video.channel +
+          "You must watch a video form " +
+          video.channelName +
           " on Journey to Australia Mobile App: " +
           video.title,
         url: video.link,
