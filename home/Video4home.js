@@ -16,7 +16,7 @@ const Video4home = ({ video }) => {
         <TouchableOpacity
           onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
         >
-          {video.thumbnail != null ? <ThumbnailImage video={video} /> : null}
+        <ThumbnailImage video={video} />
         </TouchableOpacity>
 
         <VideoHeader video={video} />
@@ -26,7 +26,7 @@ const Video4home = ({ video }) => {
 };
 
 const VideoHeader = ({ video }) => (
-  <View style={{ margin: 10, maxHeight: 100 }}>
+  <View style={{ margin: 10, maxHeight: 80 }}>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
     >
@@ -37,7 +37,7 @@ const VideoHeader = ({ video }) => (
       <TouchableOpacity
         onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}
       >
-        <Text style={styles.timstampText}>{video.channel}</Text>
+        <Text style={styles.timstampText}>{video.channelName}</Text>
       </TouchableOpacity>
     </View>
   </View>
@@ -45,7 +45,17 @@ const VideoHeader = ({ video }) => (
 
 const ThumbnailImage = ({ video }) => (
   <View>
-    <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
+    {video.thumbnail ? (
+      <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
+    ) : (
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
+        }}
+        style={styles.thumbnailImage}
+      />
+    )}
+    {/* <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} /> */}
     <Image
       source={{
         uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplayButtonIcon.png?alt=media&token=1d40a234-b110-436b-8c5d-db993c852b55",
@@ -64,7 +74,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 10,
     width: width -40,
-    height: 120
+    height: 110
   },
   videoContainer: {
     flexDirection: "row",
@@ -74,7 +84,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "lightgrey",
   },
   thumbnailImage: {
-    height: 100,
+    height: 90,
     width: 100,
     marginVertical: 5,
     borderRadius: 10,

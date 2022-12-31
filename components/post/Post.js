@@ -187,7 +187,7 @@ const ShareButton = ({ post }) => {
     try {
       const result = await Share.share({
         message:
-          "Journey to Australia: " +
+          "Journey to Australia Mobile App: " +
           "\n" +
           post.fullname +
           "'s" +

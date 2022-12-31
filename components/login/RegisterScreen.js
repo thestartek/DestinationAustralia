@@ -64,6 +64,7 @@ const RegisterScreen = ({ navigation }) => {
   const handleRegister = async () => {
     // const imageUrl = await uploadImage();
     // console.log(imageUrl);
+    setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
@@ -85,11 +86,12 @@ const RegisterScreen = ({ navigation }) => {
           setLoading(false);
         } catch (e) {
           console.error("Error adding user", e);
+          setLoading(false);
         }
       })
-      .catch((error) => Alert.alert(error.message));
+      .catch((error) => [Alert.alert(error.message), setLoading(false)]);
     // Alert.alert(error.message);
-    setLoading(true);
+    // setLoading(true);
   };
 
   return (

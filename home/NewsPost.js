@@ -9,7 +9,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  increment
+  increment,
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
@@ -40,7 +40,7 @@ const NewsPost = ({ newspost, navigation }) => {
       </View>
       {/* </TouchableOpacity> */}
       <NewsHeader newspost={newspost} />
-      {newspost.abstract != null ? <Caption newspost={newspost} /> : null}
+      <Caption newspost={newspost} />
 
       {/* {newspost.imageUrl != null ? <PostImage newspost={newspost} /> : <Divider />} */}
 
@@ -73,13 +73,10 @@ const NewsHeader = ({ newspost }) => (
     </TouchableOpacity>
 
     <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Text style={styles.timstampText}>{newspost.media}</Text>
-      <Image
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FdotIcon.png?alt=media&token=68370fe8-e55e-41ff-8a19-eda08ca7016d",
-        }}
-        style={{ width: 20, height: 20, tintColor: "grey" }}
-      />
+      {newspost.media ? (
+        <Text style={styles.timstampText}>{newspost.media}</Text>
+      ) : null}
+
       <Text style={styles.timstampText}>{newspost.date}</Text>
     </View>
   </View>
@@ -87,16 +84,20 @@ const NewsHeader = ({ newspost }) => (
 
 const Caption = ({ newspost }) => (
   <View>
-    <Text
-      style={{
-        marginHorizontal: 10,
-        marginVertical: 10,
-        fontSize: 15,
-        lineHeight: 20,
-      }}
-    >
-      {newspost.abstract}
-    </Text>
+    {newspost.abstract ? (
+      <Text
+        style={{
+          marginHorizontal: 10,
+          marginVertical: 10,
+          fontSize: 15,
+          lineHeight: 20,
+        }}
+      >
+        {newspost.abstract}
+      </Text>
+    ) : (
+      <View style={{ margin: 5 }}></View>
+    )}
   </View>
 );
 
@@ -153,7 +154,7 @@ const ShareButton = ({ newspost }) => {
     try {
       const result = await Share.share({
         message:
-          "Journey to Australia:" +
+          "Journey to Australia Mobile App:" +
           "\n" +
           "Recent news form " +
           newspost.media +
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
   },
   timstampText: {
     // marginLeft: 5,
-    marginTop: 2,
+    marginTop: 5,
     fontSize: 14,
     color: "#545050",
   },
@@ -229,6 +230,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 50,
     marginBottom: 20,
+    marginTop: 10
     // width: "80%"
   },
 

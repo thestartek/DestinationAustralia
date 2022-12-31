@@ -42,7 +42,7 @@ const Video = ({ video }) => {
         <TouchableOpacity
           onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
         >
-          {video.thumbnail != null ? <ThumbnailImage video={video} /> : null}
+          <ThumbnailImage video={video} />
         </TouchableOpacity>
 
         <VideoHeader video={video} />
@@ -57,7 +57,7 @@ const Video = ({ video }) => {
 };
 
 const VideoHeader = ({ video }) => (
-  <View style={{ margin: 10 }}>
+  <View style={{ margin: 10, minHeight: 85 }}>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
     >
@@ -68,7 +68,7 @@ const VideoHeader = ({ video }) => (
       <TouchableOpacity
         onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}
       >
-        <Text style={styles.timstampText}>{video.channel}</Text>
+        <Text style={styles.timstampText}>{video.channelName}</Text>
       </TouchableOpacity>
 
       {/* <Image
@@ -84,7 +84,17 @@ const VideoHeader = ({ video }) => (
 
 const ThumbnailImage = ({ video }) => (
   <View>
-    <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
+    {video.thumbnail ? (
+      <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
+    ) : (
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
+        }}
+        style={styles.thumbnailImage}
+      />
+    )}
+    {/* <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} /> */}
     <Image
       source={{
         uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplayButtonIcon.png?alt=media&token=1d40a234-b110-436b-8c5d-db993c852b55",
@@ -131,7 +141,7 @@ const ShareButton = ({ video }) => {
         message:
           "Recent video form " +
           video.channel +
-          " on Journey to Australia App: " +
+          " on Journey to Australia Mobile App: " +
           video.title,
         url: video.link,
       });
@@ -182,12 +192,12 @@ const styles = StyleSheet.create({
   videoContainer: {
     flexDirection: "row",
     marginHorizontal: 10,
-    marginVertical: 5,
+    // marginVertical: 5,
     // alignItems: 'center'
     // backgroundColor: "lightgrey",
   },
   thumbnailImage: {
-    height: 100,
+    height: 90,
     width: 100,
     marginVertical: 5,
     borderRadius: 10,
@@ -218,7 +228,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 50,
-    marginVertical: 15,
+    marginBottom: 10,
+    // marginVertical: 10,
     // width: "80%"
   },
 
