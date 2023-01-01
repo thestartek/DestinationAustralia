@@ -6,19 +6,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      [
-      "expo-notifications",
-      {
-        "icon": "./local/assets/notification-icon.png",
-        "color": "#ffffff",
-        "sounds": [
-          "./local/assets/notification-sound.wav",
-          "./local/assets/notification-sound-other.wav"
-        ]
-      }
-    ]
-  ],
     "ios": {
       "bundleIdentifier": "org.name.journeytoaustralia",
       "infoPlist": {
@@ -35,6 +22,11 @@
         "android.permission.RECORD_AUDIO"
       ],
       "package": "org.name.journeytoaustralia"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "81d0ac90-8d0c-484c-8831-94c83c28aea3"
+      }
     }
   },
   "name": "journeytoaustralia"
