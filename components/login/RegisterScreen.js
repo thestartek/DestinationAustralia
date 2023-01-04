@@ -402,7 +402,7 @@ const RegisterScreen = ({ navigation }) => {
                   style={[styles.checkBoxInner, styles.checkedBoxInner]}
                 ></View>
               </TouchableOpacity>
-              <Text style={{ marginHorizontal: 10, marginVertical: 10 }}>
+              <Text style={{ marginHorizontal: 10, marginVertical: 10, color: '#1267E9' }}>
                 I agree to Journey to Australia's {"\n"}{" "}
                 <TouchableOpacity
                   onPress={() => navigation.push("Privacy policy")}
