@@ -5,6 +5,7 @@ import RegisterScreen from "../components/login/RegisterScreen";
 import LoginScreen from "../components/login/LoginScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
+import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ function LoginStack() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Reset password" component={ResetPasswordScreen} />
+        <Stack.Screen name="Privacy policy" component={PrivacyPolicy} />
         {/* <Stack.Screen
           name="Profile"
           component={ProfileScreen}
