@@ -20,7 +20,7 @@ const Highlights = ({ highlights, navigation }) => {
             source={{
               uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fmaps%2FJourneytoAustralia_colored_noName.png?alt=media&token=1c06614f-a6cd-466b-9d9e-6f1392a7ae64",
             }}
-            style={[styles.image, {resizeMode:'contain'}]}
+            style={[styles.image, { resizeMode: "contain" }]}
           />
         )}
 
@@ -28,7 +28,7 @@ const Highlights = ({ highlights, navigation }) => {
           style={{
             width: 120,
             height: 166,
-            backgroundColor: "rgba(0, 0, 0, .3)",
+            backgroundColor: "rgba(0, 0, 0, .5)",
             borderRadius: 10,
             marginTop: -166,
           }}

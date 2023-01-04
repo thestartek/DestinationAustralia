@@ -58,6 +58,7 @@ const RegisterScreen = ({ navigation }) => {
   const [checkedAvatar6, setCheckedAvatar6] = useState(false);
   const [checkedAvatar7, setCheckedAvatar7] = useState(false);
   const [checkedAvatar8, setCheckedAvatar8] = useState(false);
+  const [checkBox, setCheckBox] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -364,13 +365,70 @@ const RegisterScreen = ({ navigation }) => {
               //onSubmitEditing={Keyboard.dismiss}
             />
           </View>
+
+          {checkBox != true ? (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <TouchableOpacity
+                onPress={() => setCheckBox(true)}
+                style={styles.checkBoxOuter}
+              >
+                <View style={styles.checkBoxInner}></View>
+              </TouchableOpacity>
+              <Text style={{ marginHorizontal: 10, marginVertical: 10 }}>
+                I agree to Journey to Australia's {"\n"}{" "}
+                <TouchableOpacity
+                  onPress={() => navigation.push("Privacy policy")}
+                >
+                  <Text
+                    style={{
+                      marginHorizontal: 10,
+                      marginTop: 4,
+                      color: "#1267E9",
+                      textDecorationLine: "underline",
+                    }}
+                  >
+                    Terms and Privacy Policy
+                  </Text>
+                </TouchableOpacity>
+              </Text>
+            </View>
+          ) : (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <TouchableOpacity
+                onPress={() => setCheckBox(false)}
+                style={[styles.checkBoxOuter, styles.checkedBoxOuter]}
+              >
+                <View
+                  style={[styles.checkBoxInner, styles.checkedBoxInner]}
+                ></View>
+              </TouchableOpacity>
+              <Text style={{ marginHorizontal: 10, marginVertical: 10 }}>
+                I agree to Journey to Australia's {"\n"}{" "}
+                <TouchableOpacity
+                  onPress={() => navigation.push("Privacy policy")}
+                >
+                  <Text
+                    style={{
+                      marginHorizontal: 10,
+                      marginTop: 4,
+                      color: "#1267E9",
+                      textDecorationLine: "underline",
+                    }}
+                  >
+                    Terms and Privacy Policy
+                  </Text>
+                </TouchableOpacity>
+              </Text>
+            </View>
+          )}
         </View>
 
         {fullname == null ||
         email == null ||
         password == null ||
         image == null ||
-        city == null ? (
+        city == null ||
+        !checkBox ? (
           <View style={styles.buttonContainer}>
             <View
               style={[
@@ -484,5 +542,27 @@ const styles = StyleSheet.create({
     //fontWeight: "bold",
     //textAlign: "center",
     fontSize: 16,
+  },
+  checkBoxOuter: {
+    height: 24,
+    width: 24,
+    borderWidth: 2,
+    borderColor: "darkgrey",
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
+  },
+  checkBoxInner: {
+    height: 15,
+    width: 15,
+    borderRadius: 12,
+    backgroundColor: "darkgrey",
+  },
+  checkedBoxOuter: {
+    borderColor: "#1267E9",
+  },
+  checkedBoxInner: {
+    backgroundColor: "#1267E9",
   },
 });
