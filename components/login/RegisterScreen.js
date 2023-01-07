@@ -324,7 +324,7 @@ const RegisterScreen = ({ navigation }) => {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <AstrikIcon />
             <TextInput
-              placeholder="Pssword"
+              placeholder="Password"
               value={password}
               autoCapitalize="none"
               onChangeText={(text) => setPassword(text)}
