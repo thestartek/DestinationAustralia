@@ -28,7 +28,7 @@ const Highlights = ({ highlights, navigation }) => {
           style={{
             width: 120,
             height: 166,
-            backgroundColor: "rgba(0, 0, 0, .5)",
+            backgroundColor: "rgba(0, 0, 0, .4)",
             borderRadius: 10,
             marginTop: -166,
           }}

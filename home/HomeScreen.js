@@ -80,7 +80,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "videos"), limit(2)),
+      query(collection(db, "videos"), limit(4)),
       (snapshot) => {
         setVideos(
           snapshot.docs.map((video) => ({
@@ -99,6 +99,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
+      <View style={{ backgroundColor: 'lightgrey'}}>
       {/* Banners */}
       <BannerHome_linkedtoApp navigation={navigation}/>
       <BannerHome_linkedtoWeb navigation={navigation}/>
@@ -181,6 +182,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
         </View>
         {/* <Divider style={{height: 5}}/> */}
       </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

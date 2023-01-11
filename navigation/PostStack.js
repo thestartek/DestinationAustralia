@@ -13,7 +13,7 @@ const PostStack = () => {
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
-        name="Posts"
+        name="Post"
         component={PostScreen}
         options={{ headerShown: false }}
       />

@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#1267E9",
     maxWidth: width -170,
+    maxHeight: 60
   },
   timstampText: {
     marginTop: 5,

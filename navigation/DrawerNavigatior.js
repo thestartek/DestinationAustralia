@@ -24,7 +24,7 @@ const DrawerNavigatior = () => {
         name="Home"
         component={HomeStack}
       />
-      <Drawer.Screen name="Posts" component={PostScreen} />
+      {/* <Drawer.Screen name="Posts" component={PostScreen} /> */}
       <Drawer.Screen name="News" component={NewsPostScreen} />
       <Drawer.Screen name="Videos" component={VideoScreen} />
       <Drawer.Screen name="Tools" component={ToolsStack} />

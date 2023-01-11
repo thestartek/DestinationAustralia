@@ -13,11 +13,13 @@ const BannerHome_linkedtoApp = ({ navigation }) => {
   const [bannerLink, setBannerLink] = useState(null);
 
   useEffect(() => {
-    const docSnap = getDoc(doc(db, "cards", "bannerHome_linkedtoApp")).then((doc) => {
-      setBannercontent(doc.data().content);
-      setBannerLink(doc.data().link);
-      //   console.log(doc.data());
-    });
+    const docSnap = getDoc(doc(db, "cards", "bannerHome_linkedtoApp")).then(
+      (doc) => {
+        setBannercontent(doc.data().content);
+        setBannerLink(doc.data().link);
+        //   console.log(doc.data());
+      }
+    );
 
     // return docSnap;
   }, []);
@@ -64,11 +66,14 @@ export default BannerHome_linkedtoApp;
 const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "red",
+    margin: 5,
+    borderRadius: 10,
   },
   innerContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 5,
+    justifyContent: "space-evenly",
+    marginHorizontal: 10,
+    marginVertical: 5,
   },
   contentText: {
     color: "white",
@@ -76,5 +81,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginHorizontal: 10,
     width: width - 75,
+    fontWeight: "bold",
   },
 });

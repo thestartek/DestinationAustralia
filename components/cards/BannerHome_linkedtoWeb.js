@@ -40,7 +40,9 @@ const BannerHome_linkedtoWeb = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(bannerLink)}>
+            <TouchableOpacity
+              onPress={() => WebBrowser.openBrowserAsync(bannerLink)}
+            >
               <Text style={styles.contentText}>{bannerContent}</Text>
             </TouchableOpacity>
           </View>
@@ -69,11 +71,14 @@ export default BannerHome_linkedtoWeb;
 const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "red",
+    margin: 5,
+    borderRadius: 10
   },
   innerContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 5,
+    justifyContent: "space-evenly",
+    marginHorizontal: 10,
+    marginVertical: 5
   },
   contentText: {
     color: "white",
@@ -81,5 +86,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginHorizontal: 10,
     width: width - 75,
+    fontWeight: "bold",
   },
 });
