@@ -1,4 +1,12 @@
-import { ScrollView, View, Text, Image, StyleSheet, Alert, Dimensions } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  Dimensions,
+} from "react-native";
 import React from "react";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../Firebase";
@@ -16,7 +24,7 @@ const Video4home = ({ video }) => {
         <TouchableOpacity
           onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
         >
-        <ThumbnailImage video={video} />
+          <ThumbnailImage video={video} />
         </TouchableOpacity>
 
         <VideoHeader video={video} />
@@ -73,8 +81,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginVertical: 5,
     borderRadius: 10,
-    width: width -40,
-    height: 110
+    width: width - 40,
+    height: 110,
   },
   videoContainer: {
     flexDirection: "row",
@@ -102,8 +110,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     color: "#1267E9",
-    maxWidth: width -170,
-    maxHeight: 60
+    maxWidth: width - 170,
+    maxHeight: 60,
   },
   timstampText: {
     marginTop: 5,

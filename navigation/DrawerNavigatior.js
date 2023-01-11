@@ -11,12 +11,13 @@ import ReportScreen from "../components/drawer/ReportScreen";
 import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 import VideoScreen from "../components/learn/VideoScreen";
 import ToolsStack from "./ToolsStack";
+import CustomDrawer from "../components/drawer/CustomDrawer";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigatior = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawer {...props} />}>
       <Drawer.Screen
         options={{
           headerShown: false,

@@ -143,7 +143,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           horizontal={true}
           pagingEnabled={true}
           // ref={ScrollView}
-          // snapToInterval={width}
+          snapToInterval={width - 40}
           // snapToAlignment={"center"}
         >
           {videos.map((video, index) => (
