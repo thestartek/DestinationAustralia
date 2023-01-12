@@ -1,5 +1,5 @@
 {
-  "name": "Journey to Australia",
+  "name": "JourneytoAustralia",
   "version": "1.0.2",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "@expo/config-plugins": "^5.0.2",
     "@expo/webpack-config": "^0.16.19",
     "@react-native-async-storage/async-storage": "~1.17.3",
-    "@react-native-firebase/admob": "^11.5.0",
     "@react-native-masked-view/masked-view": "0.2.8",
     "@react-navigation/bottom-tabs": "^6.5.0",
     "@react-navigation/drawer": "^6.5.4",
