@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "journeytoaustralia",
+    "name": "Journey to Australia",
     "slug": "journeytoaustralia",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -34,5 +34,8 @@
       }
     }
   },
-  "name": "journeytoaustralia"
+  "react-native-google-mobile-ads": {
+    "andriod-app-id": "ca-app-pub-8686062104433125~2575371498"
+  },
+  "name": "Journey to Australia"
 }
