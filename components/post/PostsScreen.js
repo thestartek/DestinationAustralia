@@ -1,9 +1,6 @@
 import {
   ScrollView,
   StyleSheet,
-  View,
-  Text,
-  Image,
   SafeAreaView,
   RefreshControl,
 } from "react-native";
@@ -14,11 +11,9 @@ import {
   onSnapshot,
   orderBy,
   query,
-  doc,
-  limit,
 } from "firebase/firestore";
 import { db } from "../../Firebase";
-import { Button, Divider } from "react-native-paper";
+import { Divider } from "react-native-paper";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));

@@ -1,8 +1,12 @@
-import { View, ScrollView, Image, StyleSheet, Text } from "react-native";
-import React, { useState, useEffect } from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { auth, db } from "../../Firebase";
-import { onSnapshot, doc } from "firebase/firestore";
+import React from "react";
+import {
+  View,
+  ScrollView,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 const Comments = ({ post }) => {
   return (
@@ -56,7 +60,7 @@ export default Comments;
 
 const styles = StyleSheet.create({
   commentSection: {
-    maxHeight: 240
+    maxHeight: 240,
   },
   commentContainer: {
     flexDirection: "row",
@@ -66,9 +70,9 @@ const styles = StyleSheet.create({
   commentBox: {
     marginHorizontal: 10,
     maxWidth: "100%",
-    backgroundColor: '#ececec',
+    backgroundColor: "#ececec",
     padding: 8,
-    borderRadius: 10
+    borderRadius: 10,
   },
   profile: {
     width: 40,

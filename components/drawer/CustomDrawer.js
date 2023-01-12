@@ -80,7 +80,7 @@ const CustomDrawer = (props) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={{ flexDirection: "row", marginTop: 20, marginBottom: 4 }}>
+        <View style={{ flexDirection: "row", marginTop: 40, marginBottom: 4 }}>
           <Text>Powered by: </Text>
           <TouchableOpacity
             style={{ flexDirection: "row" }}
@@ -96,7 +96,7 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text>Version 1.0.2</Text>
+        <Text style={{ marginBottom: 50 }}>Version 1.0.2</Text>
       </View>
 
       {/* <DrawerItem
@@ -129,8 +129,9 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     backgroundColor: "#f3f3f3",
+    justifyContent: "center",
     alignItems: "center",
-    height: 500,
+    height: 250,
   },
   socialIcons: {
     flexDirection: "row",

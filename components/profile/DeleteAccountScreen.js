@@ -10,8 +10,6 @@ import {
 import { auth } from "../../Firebase";
 import {
   deleteUser,
-  signOut,
-  reauthenticateWithCredential,
 } from "firebase/auth";
 import { db, doc, deleteDoc } from "firebase/firestore";
 import { Alert } from "react-native";

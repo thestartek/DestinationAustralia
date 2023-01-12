@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   RefreshControl,
   Dimensions,
+  TouchableOpacity
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
@@ -18,7 +19,6 @@ import {
   query,
 } from "firebase/firestore";
 import { db, auth } from "../Firebase";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import Highlights from "./Highlights.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   },
   postContainer: {
     borderRadius: 10,
-    marginHorizontal: 6,
+    // marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
     shadowColor: "#000",

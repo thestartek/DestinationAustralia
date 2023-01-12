@@ -17,7 +17,10 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigatior = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawer {...props} />}>
+    <Drawer.Navigator
+      initialRouteName="Home"
+      drawerContent={(props) => <CustomDrawer {...props} />}
+    >
       <Drawer.Screen
         options={{
           headerShown: false,
@@ -31,7 +34,7 @@ const DrawerNavigatior = () => {
       <Drawer.Screen name="Tools" component={ToolsStack} />
       <Drawer.Screen name="Support us" component={DonateScreen} />
       <Drawer.Screen name="Report an issue" component={ReportScreen} />
-      <Drawer.Screen name="Get in touch" component={ContactScreen} />
+      {/* <Drawer.Screen name="Get in touch" component={ContactScreen} /> */}
       <Drawer.Screen name="Our website" component={AboutusScreen} />
       <Drawer.Screen name="Privacy policy" component={PrivacyPolicy} />
     </Drawer.Navigator>

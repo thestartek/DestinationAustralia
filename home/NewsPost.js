@@ -1,4 +1,4 @@
-import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, Alert, TouchableWithoutFeedback } from "react-native";
 import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
@@ -13,7 +13,6 @@ import {
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const NewsPost = ({ newspost, navigation }) => {
   const user = auth.currentUser;

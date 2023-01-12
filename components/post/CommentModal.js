@@ -1,6 +1,5 @@
-import { View, ScrollView, Image, StyleSheet, Text, Modal } from "react-native";
+import { View, ScrollView, Image, StyleSheet, Text, Modal, TouchableOpacity } from "react-native";
 import React, { useState, useEffect } from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import AddComment from "./AddComment";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
 

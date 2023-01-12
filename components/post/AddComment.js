@@ -4,12 +4,12 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  Dimensions,
+  Dimensions, TouchableOpacity
 } from "react-native";
 import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { TouchableOpacity } from "react-native-gesture-handler";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 // import { registerNotifications } from "../notifications/Notification";
 
 const user = auth.currentUser;

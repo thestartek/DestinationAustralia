@@ -1,8 +1,7 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Image, StyleSheet } from "react-native";
-import NotificationScreen from "../components/notifications/NotificationScreen";
+import { View, Text, Image} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
