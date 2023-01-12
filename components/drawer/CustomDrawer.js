@@ -97,6 +97,7 @@ const CustomDrawer = (props) => {
         </View>
 
         <Text style={{ marginBottom: 50 }}>Version 1.0.2</Text>
+        <View style={{ height: 100 }}></View>
       </View>
 
       {/* <DrawerItem
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3",
     justifyContent: "center",
     alignItems: "center",
-    height: 250,
+    // height: 250,
   },
   socialIcons: {
     flexDirection: "row",

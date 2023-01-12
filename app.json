@@ -6,6 +6,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./assets/appIcon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#1267E9"
+    },
     "ios": {
       "bundleIdentifier": "org.name.journeytoaustralia",
       "infoPlist": {
