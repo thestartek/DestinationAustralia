@@ -9,8 +9,7 @@ import {
 import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "../../Firebase";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
-// import { TouchableOpacity } from "react-native-gesture-handler";
-// import { registerNotifications } from "../notifications/Notification";
+import { Ionicons } from '@expo/vector-icons';
 
 const user = auth.currentUser;
 
@@ -77,18 +76,19 @@ const AddComment = ({ post }) => {
         style={styles.textInput}
       />
       {!comment ? (
-        <Image
-          source={require("../../assets/sendIcon_Empty.png")}
-          style={styles.sendButtonDisabled}
-        />
+        // <Image
+        //   source={require("../../assets/sendIcon_Empty.png")}
+        //   style={styles.sendButtonDisabled}
+        // />
+        <Ionicons name="send" size={24} color="darkgrey" />
       ) : (
         // <Text style={styles.sendButtonDisabled}>Send</Text>
         <TouchableOpacity onPress={handleComment}>
-          <Image
+          {/* <Image
             source={require("../../assets/sendIcon.png")}
             style={styles.sendButton}
-          />
-          {/* <Text style={styles.sendButton}>Send</Text> */}
+          /> */}
+          <Ionicons name="send" size={24} color="#1267E9" />
         </TouchableOpacity>
       )}
     </View>

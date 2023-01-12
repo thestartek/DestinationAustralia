@@ -52,8 +52,10 @@ const Post = ({ post, navigation }) => {
         <ShareButton post={post} />
       </View>
       <Divider bold={true} />
-
-      <Comments post={post} />
+    <ScrollView nestedScrollEnabled = {true} style={{maxHeight: 250}}>
+    <Comments post={post} />
+    </ScrollView>
+      
       <AddComment post={post} />
       {/* <Divider style={{ height: 6 }} /> */}
     </View>

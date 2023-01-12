@@ -10,49 +10,47 @@ import {
 
 const Comments = ({ post }) => {
   return (
-    <View style={styles.commentSection}>
-      <ScrollView>
-        <View style={{ width: "80%" }}>
-          {post.comments.map((comment, index) => (
-            <View key={index} style={styles.commentContainer}>
-              <TouchableOpacity style={{ flexDirection: "row" }}>
-                {comment.profile_picture != null ? (
-                  <Image
-                    source={{ uri: comment.profile_picture }}
-                    style={styles.profile}
-                  />
-                ) : (
-                  <Image
-                    source={{
-                      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-                    }}
-                    style={[styles.profile, { tintColor: "grey" }]}
-                  />
-                )}
+    <ScrollView style={styles.commentSection}>
+      <View style={{ width: "80%" }}>
+        {post.comments.map((comment, index) => (
+          <View key={index} style={styles.commentContainer}>
+            <TouchableOpacity style={{ flexDirection: "row" }}>
+              {comment.profile_picture != null ? (
+                <Image
+                  source={{ uri: comment.profile_picture }}
+                  style={styles.profile}
+                />
+              ) : (
+                <Image
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+                  }}
+                  style={[styles.profile, { tintColor: "grey" }]}
+                />
+              )}
+            </TouchableOpacity>
+
+            <View style={styles.commentBox}>
+              <TouchableOpacity>
+                <Text
+                  style={{
+                    // marginHorizontal: 10,
+                    fontWeight: "bold",
+                    color: "#1267E9",
+                  }}
+                >
+                  {comment.fullname}
+                </Text>
               </TouchableOpacity>
 
-              <View style={styles.commentBox}>
-                <TouchableOpacity>
-                  <Text
-                    style={{
-                      // marginHorizontal: 10,
-                      fontWeight: "bold",
-                      color: "#1267E9",
-                    }}
-                  >
-                    {comment.fullname}
-                  </Text>
-                </TouchableOpacity>
-
-                <Text style={{ fontWeight: "normal", color: "black" }}>
-                  {comment.comment}
-                </Text>
-              </View>
+              <Text style={{ fontWeight: "normal", color: "black" }}>
+                {comment.comment}
+              </Text>
             </View>
-          ))}
-        </View>
-      </ScrollView>
-    </View>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
   );
 };
 
@@ -60,7 +58,7 @@ export default Comments;
 
 const styles = StyleSheet.create({
   commentSection: {
-    maxHeight: 240,
+    // maxHeight: 250,
   },
   commentContainer: {
     flexDirection: "row",

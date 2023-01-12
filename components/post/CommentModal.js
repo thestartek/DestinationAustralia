@@ -1,7 +1,11 @@
-import { View, ScrollView, Image, StyleSheet, Text, Modal, TouchableOpacity } from "react-native";
+import { View, ScrollView, Image, StyleSheet, Text, Modal, TouchableOpacity, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 import AddComment from "./AddComment";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
+import Comments from "./Comments";
+import { Divider } from "react-native-paper";
+
+const windowHeight = Dimensions.get('window').height;
 
 const CommentModal = ({ post }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,59 +29,11 @@ const CommentModal = ({ post }) => {
           >
             <Text style={styles.doneButtonText}>Back to posts</Text>
           </TouchableOpacity>
+          
+
+          <Comments post={post}/>
           <AddComment post={post} />
-
-          <ScrollView>
-            <View style={{ width: "80%" }}>
-              {post.comments.map((comment, index) => (
-                <View key={index} style={styles.commentContainer}>
-                  <TouchableOpacity style={{ flexDirection: "row" }}>
-                    {comment.profile_picture != null ? (
-                      <Image
-                        source={{ uri: comment.profile_picture }}
-                        style={styles.profile}
-                      />
-                    ) : (
-                      <Image
-                        source={{
-                          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-                        }}
-                        style={[styles.profile, { tintColor: "grey" }]}
-                      />
-                    )}
-                  </TouchableOpacity>
-
-                  <View style={styles.commentBox}>
-                    <TouchableOpacity>
-                      <Text
-                        style={{
-                          // marginHorizontal: 10,
-                          fontWeight: "bold",
-                          color: "#1267E9",
-                        }}
-                      >
-                        {comment.fullname}
-                      </Text>
-                    </TouchableOpacity>
-
-                    <Text style={{ fontWeight: "normal", color: "black" }}>
-                      {comment.comment}
-                    </Text>
-                  </View>
-                </View>
-              ))}
-            </View>
-            <View style={[styles.button]}>
-              <Text
-                style={{
-                  color: "grey",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  marginBottom: 500,
-                }}
-              ></Text>
-            </View>
-          </ScrollView>
+          <View style={{height: 40}}></View>
         </View>
       </Modal>
 
@@ -93,33 +49,18 @@ const CommentModal = ({ post }) => {
 export default CommentModal;
 
 const styles = StyleSheet.create({
-  commentContainer: {
-    flexDirection: "row",
-    marginTop: 10,
-    marginRight: 10,
-  },
-  commentBox: {
-    marginHorizontal: 10,
-    maxWidth: "100%",
-    backgroundColor: "#ececec",
-    padding: 8,
-    borderRadius: 10,
-  },
-  profile: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginLeft: 20,
-  },
-
   modalView: {
-    marginTop: 250,
+    flex: 1,
+    marginTop: 85,
     // marginBottom: 100,
     // flex: 1,
     // justifyContent: "center",
+    height: windowHeight - 85,
     width: "100%",
     backgroundColor: "white",
-    borderRadius: 20,
+    // borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     // borderBottomLeftRadius: 0,
     // borderBottomRightRadius: 0,
     // padding: 25,
@@ -173,11 +114,6 @@ const styles = StyleSheet.create({
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center",
-  },
-  deleteButtonText: {
-    color: "red",
-    fontWeight: "900",
     textAlign: "center",
   },
   doneButtonText: {

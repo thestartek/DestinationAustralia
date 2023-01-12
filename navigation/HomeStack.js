@@ -17,6 +17,7 @@ import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 import LearnScreen from "../components/learn/LearnScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
+import PostStack from "./PostStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,7 @@ const HomeStack = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Posts" component={PostScreen} />
+      <Stack.Screen name="Posts" component={PostStack} />
       <Stack.Screen name="Tools" component={ToolsScreen} />
       <Stack.Screen
         name="PR Points Calculator"
