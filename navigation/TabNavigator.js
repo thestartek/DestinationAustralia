@@ -1,13 +1,13 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Image, StyleSheet } from "react-native";
-import NotificationScreen from "../components/notifications/NotificationScreen";
+import { View, Text, Image} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../components/newPost/NewPostScreen";
 import LearnScreen from "../components/learn/LearnScreen";
+import PostStack from "./PostStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -52,9 +52,10 @@ const TabNavigator = (navigation) => {
             ),
           }}
         />
+
         <Tab.Screen
-          name="Learn"
-          component={LearnScreen}
+          name="Posts"
+          component={PostStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View
@@ -66,7 +67,7 @@ const TabNavigator = (navigation) => {
               >
                 <Image
                   source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FcommentIcon_Active.png?alt=media&token=f560024d-a9ed-4917-8473-4bc1bbe5ade7",
                   }}
                   resizeMode="contain"
                   style={{
@@ -78,7 +79,7 @@ const TabNavigator = (navigation) => {
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
                 >
-                  Learn
+                  Community
                 </Text>
               </View>
             ),
@@ -118,7 +119,40 @@ const TabNavigator = (navigation) => {
           }}
         />
 
-        <Tab.Screen
+<Tab.Screen
+          name="Learn"
+          component={LearnScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: 10,
+                }}
+              >
+                <Image
+                  source={{
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
+                  }}
+                  resizeMode="contain"
+                  style={{
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? "#1267E9" : "grey",
+                  }}
+                />
+                <Text
+                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
+                >
+                  Learn
+                </Text>
+              </View>
+            ),
+          }}
+        />
+
+        {/* <Tab.Screen
           name="Notifications"
           component={NotificationScreen}
           options={{
@@ -149,7 +183,7 @@ const TabNavigator = (navigation) => {
               </View>
             ),
           }}
-        />
+        /> */}
         <Tab.Screen
           name="Profile"
           component={ProfileStack}

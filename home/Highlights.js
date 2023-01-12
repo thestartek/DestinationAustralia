@@ -1,10 +1,5 @@
-import { View, ScrollView, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
-import {
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native-gesture-handler";
-
 import * as WebBrowser from "expo-web-browser";
 
 const Highlights = ({ highlights, navigation }) => {
@@ -28,7 +23,7 @@ const Highlights = ({ highlights, navigation }) => {
           style={{
             width: 120,
             height: 166,
-            backgroundColor: "rgba(0, 0, 0, .5)",
+            backgroundColor: "rgba(0, 0, 0, .4)",
             borderRadius: 10,
             marginTop: -166,
           }}

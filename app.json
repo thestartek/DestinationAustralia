@@ -1,11 +1,16 @@
 {
   "expo": {
-    "name": "journeytoaustralia",
+    "name": "Journey to Australia",
     "slug": "journeytoaustralia",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./assets/appIcon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#1267E9"
+    },
     "ios": {
       "bundleIdentifier": "org.name.journeytoaustralia",
       "infoPlist": {
@@ -29,5 +34,8 @@
       }
     }
   },
-  "name": "journeytoaustralia"
+  "react-native-google-mobile-ads": {
+    "andriod-app-id": "ca-app-pub-8686062104433125~2575371498"
+  },
+  "name": "Journey to Australia"
 }

@@ -34,11 +34,11 @@ const Header = ({ navigation }) => {
         /> */}
 
       <View style={styles.iconContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.push("Notifications")}>
           <Image
             style={styles.icons}
             source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FsearchIcon.png?alt=media&token=90ee23a4-4d27-4c04-ae60-6fb163e26afa",
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FnotificationIcon_Active.png?alt=media&token=98374cc5-0a7d-461b-a826-a3cacc0a2b6c",
             }}
           />
         </TouchableOpacity>

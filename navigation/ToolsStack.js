@@ -4,6 +4,7 @@ import ToolsScreen from "../components/tools/ToolsScreen";
 import PrPointsCalculator from "../components/tools/PrPointsCalculator";
 import UniversityFinder from "../components/tools/UniversityFinder";
 import ExpenseEstimator from "../components/tools/ExpenseEstimator";
+import ExploreAustralia from "../components/tools/ExploreAustralia";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ const ToolsStack = () => {
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
-        name="Tools"
+        name="All tools"
         component={ToolsScreen}
         options={{ headerShown: false }}
       />
@@ -22,7 +23,7 @@ const ToolsStack = () => {
         name="PR Points Calculator"
         component={PrPointsCalculator}
       />
-      <Stack.Screen name="Income Calculator" component={IncomeCalculator} />
+      <Stack.Screen name="Explore Australia" component={ExploreAustralia} />
       <Stack.Screen name="University Finder" component={UniversityFinder} />
       <Stack.Screen name="Expense Estimator" component={ExpenseEstimator} />
     </Stack.Navigator>

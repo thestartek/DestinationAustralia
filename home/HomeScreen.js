@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   RefreshControl,
   Dimensions,
+  TouchableOpacity
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
@@ -18,13 +19,13 @@ import {
   query,
 } from "firebase/firestore";
 import { db, auth } from "../Firebase";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import Highlights from "./Highlights.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
+
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -80,7 +81,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "videos"), limit(2)),
+      query(collection(db, "videos"), limit(4)),
       (snapshot) => {
         setVideos(
           snapshot.docs.map((video) => ({
@@ -99,6 +100,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
+      <View style={{ backgroundColor: 'lightgrey'}}>
       {/* Banners */}
       <BannerHome_linkedtoApp navigation={navigation}/>
       <BannerHome_linkedtoWeb navigation={navigation}/>
@@ -142,7 +144,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           horizontal={true}
           pagingEnabled={true}
           // ref={ScrollView}
-          // snapToInterval={width}
+          snapToInterval={width - 40}
           // snapToAlignment={"center"}
         >
           {videos.map((video, index) => (
@@ -181,6 +183,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
         </View>
         {/* <Divider style={{height: 5}}/> */}
       </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -209,7 +212,7 @@ const styles = StyleSheet.create({
   },
   postContainer: {
     borderRadius: 10,
-    marginHorizontal: 6,
+    // marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
     shadowColor: "#000",

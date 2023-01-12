@@ -8,10 +8,6 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import AddNewPost from "./AddNewPost";
-import {
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native-gesture-handler";
 
 import { db, auth } from "../../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
@@ -36,55 +32,48 @@ const NewPostScreen = ({ navigation }) => {
   }, []);
   return (
     <ScrollView>
-      {/* <Divider bold={true} /> */}
-      {/* <NewPostHeader navigation={navigation} /> */}
-      <TouchableWithoutFeedback
-        onPress={Keyboard.dismiss}
+      <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-between",
-          marginHorizontal: 5,
-          marginTop: 10,
           alignItems: "center",
+          marginLeft: 5,
+          marginTop: 10,
         }}
       >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View>
-            {!currentLoggedInUser.profile_picture ? (
-              <Image
-                source={{
-                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-                }}
-                style={[styles.profileThumbnail, { tintColor: "grey" }]}
-              />
-            ) : (
-              <Image
-                source={{ uri: currentLoggedInUser.profile_picture }}
-                style={styles.profileThumbnail}
-              />
-            )}
-          </View>
-
-          <View>
-            {!currentLoggedInUser.fullname ? (
-              <Text></Text>
-            ) : (
-              <Text
-                style={{
-                  marginLeft: 10,
-                  marginBottom: 5,
-                  fontWeight: "bold",
-                  fontSize: 16,
-                  color: "#1267E9",
-                }}
-              >
-                {currentLoggedInUser.fullname}
-              </Text>
-            )}
-          </View>
+        <View>
+          {!currentLoggedInUser.profile_picture ? (
+            <Image
+              source={{
+                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+              }}
+              style={[styles.profileThumbnail, { tintColor: "grey" }]}
+            />
+          ) : (
+            <Image
+              source={{ uri: currentLoggedInUser.profile_picture }}
+              style={styles.profileThumbnail}
+            />
+          )}
         </View>
-      </TouchableWithoutFeedback>
 
+        <View>
+          {!currentLoggedInUser.fullname ? (
+            <Text></Text>
+          ) : (
+            <Text
+              style={{
+                marginLeft: 10,
+                marginBottom: 5,
+                fontWeight: "bold",
+                fontSize: 16,
+                color: "#1267E9",
+              }}
+            >
+              {currentLoggedInUser.fullname}
+            </Text>
+          )}
+        </View>
+      </View>
       <AddNewPost navigation={navigation} />
     </ScrollView>
   );

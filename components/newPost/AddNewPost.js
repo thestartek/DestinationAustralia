@@ -1,12 +1,8 @@
-import { View, StyleSheet, Alert, Keyboard, Image, Text } from "react-native";
+import { View, StyleSheet, Alert, Keyboard, Image, Text, TouchableOpacity } from "react-native";
 import { React, useEffect, useState } from "react";
 import { TextInput } from "react-native";
 
 import { auth, db } from "../../Firebase";
-import {
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native-gesture-handler";
 import {
   collection,
   doc,
@@ -104,11 +100,11 @@ const AddNewPost = ({ post, navigation }) => {
       />
 
       {!caption ? (
-        <TouchableWithoutFeedback style={styles.postButtonDisabled}>
+        <View style={styles.postButtonDisabled}>
           <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
             Post
           </Text>
-        </TouchableWithoutFeedback>
+        </View>
       ) : (
         <TouchableOpacity style={styles.postButton} onPress={uploadPost}>
           {loading ? (

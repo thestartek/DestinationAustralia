@@ -4,17 +4,12 @@ import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
 import { auth, db } from "../../Firebase";
 
-import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import {
   doc,
   updateDoc,
   arrayUnion,
   arrayRemove,
-  onSnapshot,
-  query,
-  collection,
-  orderBy,
-  limit,
   increment,
 } from "firebase/firestore";
 import Comments from "./Comments";
@@ -57,8 +52,10 @@ const Post = ({ post, navigation }) => {
         <ShareButton post={post} />
       </View>
       <Divider bold={true} />
-
-      <Comments post={post} />
+    <ScrollView nestedScrollEnabled = {true} style={{maxHeight: 250}}>
+    <Comments post={post} />
+    </ScrollView>
+      
       <AddComment post={post} />
       {/* <Divider style={{ height: 6 }} /> */}
     </View>
