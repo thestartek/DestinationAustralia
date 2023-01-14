@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "Journey to Australia",
-    "slug": "journey-to-australia",
+    "slug": "journeytoaustralia",
     "version": "1.0.3",
     "plugins": [
       [
         "expo-notifications",
         {
-          "icon": "./assets/appIcon.png",
+          "icon": "./assets/appIcon_transparent.png",
           "color": "#ffffff",
           "sounds": []
         }
@@ -16,7 +16,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "icon": "./assets/appIcon.png",
+    "icon": "./assets/appIcon_transparent.png",
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#1267E9"
@@ -37,7 +37,7 @@
         "android.permission.RECORD_AUDIO"
       ],
       "adaptive-icon": {
-        "foregroundImage": "./assets/appIcon.png",
+        "foregroundImage": "./assets/appIcon_transparent.png",
         "backgroundColor": "white"
       },
       "googleServicesFile": "./google-services.json",
@@ -45,10 +45,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": "9efab9bf-b8c5-43ec-819d-1a007205ee2e"
+        "projectId": "81d0ac90-8d0c-484c-8831-94c83c28aea3"
       }
     },
-    "owner": "startek"
+    "owner": "trawasthi"
   },
   "name": "Journey to Australia"
 }
