@@ -26,6 +26,10 @@
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.RECORD_AUDIO"
       ],
+      "adaptive-icon": {
+        "foregroundImage": "./assets/appIcon.png",
+        "backgroundColor": "white"
+      },
       "package": "org.name.journeytoaustralia"
     },
     "extra": {
