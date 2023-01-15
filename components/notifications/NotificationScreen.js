@@ -1,140 +1,75 @@
-import * as Device from "expo-device";
-import * as Notifications from "expo-notifications";
-import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Button, Platform, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  Linking,
+} from "react-native";
+import React from "react";
+import * as WebBrowser from "expo-web-browser";
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-});
-
-export default function NorificationScreen() {
-  // const [expoPushToken, setExpoPushToken] = useState("");
-  const [notification, setNotification] = useState(false);
-  const notificationListener = useRef();
-  const responseListener = useRef();
-
-  // useEffect(() => {
-  //   registerForPushNotificationsAsync().then((token) =>
-  //     setExpoPushToken(token)
-  //   );
-
-  notificationListener.current = Notifications.addNotificationReceivedListener(
-    (notification) => {
-      setNotification(notification);
-    }
-  );
-
-  responseListener.current =
-    Notifications.addNotificationResponseReceivedListener((response) => {
-      console.log(response);
-    });
-
-  //   return () => {
-  //     Notifications.removeNotificationSubscription(
-  //       notificationListener.current
-  //     );
-  //     Notifications.removeNotificationSubscription(responseListener.current);
-  //   };
-  // }, []);
-
-
-
-  return (
-    <View style={styles.outerContainer}>
-      {/* <Text>Your expo push token: {expoPushToken}</Text>22 */}
-      <View style={styles.notificationContainer}>
-        <Image
-          source={require("../../assets/icon.png")}
-          style={styles.notificationImage}
-        />
-        <View style={styles.notificationContents}>
-          <Text style={styles.titleText}>
-            {notification && notification.request.content.title}
-          </Text>
-          <Text style={styles.bodyText}>
-            {notification && notification.request.content.body}
-          </Text>
-          {/* <Text>
-            Data:{" "}
-            {notification && JSON.stringify(notification.request.content.data)}
-          </Text> */}
-        </View>
-      </View>
-      <Button
-        title="Press to Send Notification"
-        onPress={async () => {
-          await sendPushNotification(expoPushToken);
-        }}
-      />
-    </View>
-  );
-}
-
-async function sendPushNotification(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: 'Original Title',
-    body: 'And here is the body!',
-    data: { someData: 'goes here' },
+const NotificationScreen = () => {
+  const payLink = () => {
+    Linking.openURL("https://PayPal.Me/thestartek")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+  return (
+    <ScrollView>
+      <Text style={styles.headerText}>
+        Notifications are not available right now.
+      </Text>
+      <Text style={styles.contentText}>
+        We are working hard to make this feature available to our users. Please
+        come back later to see notifications.
+      </Text>
+      <Text style={styles.contentText}>
+        For now, you can support us to make this application the bast app for
+        Australia related contents by offering your support amount to the
+        following PayPal ID.
+      </Text>
 
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
-  });
-}
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Image
+          source={{
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/confidential%2FPayPal_qrCode.png?alt=media&token=fec45c06-f199-4608-a189-4e38af3b44ee",
+          }}
+          style={{ height: 200, width: 200, marginTop: 20 }}
+        />
+        <TouchableOpacity onPress={payLink}>
+          <Text style={styles.payID}>PayPal.Me/thestartek</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
 
-async function schedulePushNotification() {
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: "You've got mail! 📬",
-      body: "Here is the notification body",
-      data: { data: "goes here" },
-    },
-    trigger: { seconds: 2 },
-  });
-}
+export default NotificationScreen;
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    // flex: 1,
-    // // alignItems: "center",
-    // justifyContent: "space-around",
-    // backgroundColor: "lightgrey",
+  headerText: {
+    fontSize: 28,
+    marginHorizontal: 20,
+    marginTop: 30,
+    marginBottom: 15,
   },
-  notificationContainer: {
-    flexDirection: "row",
-    justifyContent: "centre",
-    alignItems: "flex-start",
-    backgroundColor: "white",
-    borderRadius: 10,
-    marginHorizontal: 10,
+  contentText: {
+    fontSize: 16,
     marginVertical: 5,
+    marginHorizontal: 20,
+    lineHeight: 26,
   },
-  notificationImage: {
-    width: 50,
-    height: 50,
-    margin: 10,
-  },
-  notificationContents: {
-    marginHorizontal: 5,
-    marginVertical: 10,
-    maxWidth: "80%",
-  },
-  titleText: {
-    fontWeight: "bold",
+  payID: {
+    marginVertical: 20,
+    textAlign: "center",
     color: "#1267E9",
-    marginBottom: 4,
+    fontWeight: "bold",
+    fontSize: 16,
   },
-  bodyText: {},
 });
