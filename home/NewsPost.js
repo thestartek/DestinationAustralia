@@ -1,4 +1,12 @@
-import { ScrollView, View, Text, Image, StyleSheet, Alert, TouchableWithoutFeedback } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  TouchableWithoutFeedback,
+} from "react-native";
 import React from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
@@ -60,8 +68,7 @@ const NewsHeader = ({ newspost }) => (
     >
       <Text
         style={{
-          // marginLeft: 5,
-          // marginTop: 4,
+          lineHeight: 24,
           fontWeight: "bold",
           fontSize: 18,
           color: "#1267E9",

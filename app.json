@@ -2,11 +2,21 @@
   "expo": {
     "name": "JourneytoAustralia",
     "slug": "journeytoaustralia",
-    "version": "1.0.2",
+    "version": "1.0.3",
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/appIcon_transparent.png",
+          "color": "#ffffff",
+          "sounds": []
+        }
+      ]
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
-    "icon": "./assets/appIcon.png",
+    "icon": "./assets/appIcon_transparent.png",
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#1267E9"
@@ -26,16 +36,19 @@
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.RECORD_AUDIO"
       ],
+      "adaptive-icon": {
+        "foregroundImage": "./assets/appIcon_transparent.png",
+        "backgroundColor": "white"
+      },
+      "googleServicesFile": "./google-services.json",
       "package": "org.name.journeytoaustralia"
     },
     "extra": {
       "eas": {
         "projectId": "81d0ac90-8d0c-484c-8831-94c83c28aea3"
       }
-    }
-  },
-  "react-native-google-mobile-ads": {
-    "andriod-app-id": "ca-app-pub-8686062104433125~2575371498"
+    },
+    "owner": "trawasthi"
   },
   "name": "JourneytoAustralia"
 }
