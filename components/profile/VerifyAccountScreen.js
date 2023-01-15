@@ -46,9 +46,9 @@ const VerifyAccountScreen = ({ navigation }) => {
         <View style={styles.logoContainer}>
           <Image
             source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/appIcon_transparent.png?alt=media&token=b6a92da5-ff9d-4d51-9e32-3bf1b7e44801",
             }}
-            style={{ height: 120, width: 120, margin: 30 }}
+            style={{ height: 100, width: 100, margin: 30 }}
           />
         </View>
         <View>

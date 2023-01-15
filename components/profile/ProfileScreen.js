@@ -17,6 +17,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import { Divider } from "react-native-paper";
 import Post from "../post/Post";
@@ -47,6 +48,24 @@ const ProfileScreen = ({ navigation }) => {
   // const [userData, setUserData] = useState(null);
 
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
+
+  const logoutAlert = () => {
+    Alert.alert(
+      "Do you want to Log out ?",
+      "This action will log you out from Journey to Australia !",
+      [
+        {
+          text: "Log out",
+          onPress: handleLogout,
+        },
+        {
+          text: "Cancel",
+          //onPress: () => console.log("Ok"),
+          style: "cancel",
+        },
+      ]
+    );
+  };
 
   const getUserDetails = () => {
     const unsubscribe = onSnapshot(
@@ -127,7 +146,7 @@ const ProfileScreen = ({ navigation }) => {
         <View style={styles.userBtnWrapper}>
           <SettingsModel navigation={navigation} />
 
-          <TouchableOpacity style={styles.userBtn} onPress={handleLogout}>
+          <TouchableOpacity style={styles.userBtn} onPress={logoutAlert}>
             <Text style={styles.userBtnTxt}>Log out</Text>
           </TouchableOpacity>
         </View>
@@ -139,7 +158,7 @@ const ProfileScreen = ({ navigation }) => {
 
       <Divider width={2} />
 
-      <View style={{backgroundColor: "white", marginBottom: -5}}>
+      <View style={{ backgroundColor: "white", marginBottom: -5 }}>
         <Text
           style={{
             fontWeight: "bold",
