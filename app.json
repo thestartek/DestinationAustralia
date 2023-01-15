@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Journey to Australia",
+    "name": "JourneytoAustralia",
     "slug": "journeytoaustralia",
     "version": "1.0.3",
     "plugins": [
@@ -50,5 +50,5 @@
     },
     "owner": "trawasthi"
   },
-  "name": "Journey to Australia"
+  "name": "JourneytoAustralia"
 }
