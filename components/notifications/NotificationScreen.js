@@ -11,87 +11,74 @@ Notifications.setNotificationHandler({
   }),
 });
 
-export default function NorificationScreen() {
-  // const [expoPushToken, setExpoPushToken] = useState("");
+export default function NotificationScreen() {
+  const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(false);
   const notificationListener = useRef();
   const responseListener = useRef();
 
-  // useEffect(() => {
-  //   registerForPushNotificationsAsync().then((token) =>
-  //     setExpoPushToken(token)
-  //   );
+  useEffect(() => {
+    registerForPushNotificationsAsync().then((token) =>
+      setExpoPushToken(token)
+    );
 
-  notificationListener.current = Notifications.addNotificationReceivedListener(
-    (notification) => {
-      setNotification(notification);
-    }
-  );
+    notificationListener.current =
+      Notifications.addNotificationReceivedListener((notification) => {
+        setNotification(notification);
+      });
 
-  responseListener.current =
-    Notifications.addNotificationResponseReceivedListener((response) => {
-      console.log(response);
-    });
+    responseListener.current =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        console.log(response);
+      });
 
-  //   return () => {
-  //     Notifications.removeNotificationSubscription(
-  //       notificationListener.current
-  //     );
-  //     Notifications.removeNotificationSubscription(responseListener.current);
-  //   };
-  // }, []);
-
-
+    return () => {
+      Notifications.removeNotificationSubscription(
+        notificationListener.current
+      );
+      Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
 
   return (
-    <View style={styles.outerContainer}>
-      {/* <Text>Your expo push token: {expoPushToken}</Text>22 */}
-      <View style={styles.notificationContainer}>
-        <Image
-          source={require("../../assets/icon.png")}
-          style={styles.notificationImage}
-        />
-        <View style={styles.notificationContents}>
-          <Text style={styles.titleText}>
-            {notification && notification.request.content.title}
-          </Text>
-          <Text style={styles.bodyText}>
-            {notification && notification.request.content.body}
-          </Text>
-          {/* <Text>
+    <View
+      style={{
+        flex: 1,
+        // alignItems: "center",
+        // justifyContent: "space-around",
+      }}
+    >
+      {/* <Text>Your expo push token: {expoPushToken}</Text> */}
+      {notification ? (
+        <View style={styles.notificationContainer}>
+          <Image
+            source={require("../../assets/icon.png")}
+            style={styles.notificationImage}
+          />
+          <View style={styles.notificationContents}>
+            <Text style={styles.titleText}>
+              {notification && notification.request.content.title}
+            </Text>
+            <Text style={styles.bodyText}>
+              {notification && notification.request.content.body}
+            </Text>
+            {/* <Text>
             Data:{" "}
             {notification && JSON.stringify(notification.request.content.data)}
           </Text> */}
+          </View>
         </View>
-      </View>
+      ) : null}
+
       <Button
-        title="Press to Send Notification"
+        title="Press to schedule a notification"
         onPress={async () => {
-          await sendPushNotification(expoPushToken);
+          await schedulePushNotification();
+          console.log(notification);
         }}
       />
     </View>
   );
-}
-
-async function sendPushNotification(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: 'Original Title',
-    body: 'And here is the body!',
-    data: { someData: 'goes here' },
-  };
-
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
-  });
 }
 
 async function schedulePushNotification() {
@@ -103,6 +90,39 @@ async function schedulePushNotification() {
     },
     trigger: { seconds: 2 },
   });
+}
+
+async function registerForPushNotificationsAsync() {
+  let token;
+
+  if (Platform.OS === "android") {
+    await Notifications.setNotificationChannelAsync("default", {
+      name: "default",
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: "#FF231F7C",
+    });
+  }
+
+  if (Device.isDevice) {
+    const { status: existingStatus } =
+      await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== "granted") {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== "granted") {
+      alert("Failed to get push token for push notification!");
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    console.log(token);
+  } else {
+    alert("Must use physical device for Push Notifications");
+  }
+
+  return token;
 }
 
 const styles = StyleSheet.create({
