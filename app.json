@@ -3,6 +3,9 @@
     "name": "JourneytoAustralia",
     "slug": "journeytoaustralia",
     "version": "1.0.4",
+    "notification": {
+      "icon": "./assets/icon.png"
+    },
     "plugins": [
       [
         "expo-notifications",
