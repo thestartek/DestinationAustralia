@@ -96,7 +96,7 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginBottom: 50 }}>Version 1.0.4</Text>
+        <Text style={{ marginBottom: 50 }}>Version 1.1.0</Text>
         <View style={{ height: 100 }}></View>
       </View>
 
