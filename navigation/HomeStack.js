@@ -17,6 +17,7 @@ import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 import LearnScreen from "../components/learn/LearnScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
+import SendNotifications from "../components/notifications/SendNotifications";
 import PostStack from "./PostStack";
 
 const Stack = createNativeStackNavigator();
@@ -50,6 +51,7 @@ const HomeStack = () => {
       <Stack.Screen name="Learn" component={LearnScreen} />
       <Stack.Screen name="New post" component={NewPostScreen} />
       <Stack.Screen name="Notifications" component={NotificationScreen} />
+      {/* <Stack.Screen name="Notifications" component={SendNotifications} /> */}
       <Stack.Screen name="Profile" component={ProfileStack} />
     </Stack.Navigator>
   );
