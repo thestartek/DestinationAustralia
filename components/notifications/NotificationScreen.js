@@ -118,9 +118,11 @@ const NotificationScreen = () => {
         console.log(error);
       });
   };
-  const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
-    setToken(doc.data().expoPushToken);
-  });
+  useEffect(() => {
+    const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
+      setToken(doc.data().expoPushToken);
+    });
+  }, []);
 
   return (
     <ScrollView>
