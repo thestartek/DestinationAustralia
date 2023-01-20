@@ -11,9 +11,9 @@ import { Divider } from "react-native-paper";
 
 const ToolsScreen = ({ navigation }) => {
   return (
-    <ScrollView style={{}}>
+    <ScrollView style={styles.outerContainer}>
       <Divider width={5} />
-      <View style={styles.outerContainer}>
+      <View style={styles.mainContainer}>
         <PrPointsCalculator navigation={navigation} />
         <ExploreAustralia navigation={navigation} />
         <UniversityFinder navigation={navigation} />
@@ -103,16 +103,18 @@ export default ToolsScreen;
 
 const styles = StyleSheet.create({
   outerContainer: {
+    backgroundColor: "white",
+  },
+  mainContainer: {
     flexDirection: "row",
     // marginTop: 20,
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "white",
-    // marginHorizontal: 10
-    // justifyContent: "space-evenly",
+    // backgroundColor: "white",
+    marginHorizontal: 20,
   },
   innerContainer: {
-    marginHorizontal: 15,
+    // marginHorizontal: 10,
     marginVertical: 20,
     justifyContent: "center",
     alignItems: "center",

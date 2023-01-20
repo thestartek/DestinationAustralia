@@ -113,7 +113,6 @@ const HomeScreen = ({ isLoading, navigation }) => {
         <BannerHome_linkedtoWeb navigation={navigation} />
 
         <ScrollView
-          style={styles.outerContainer}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
@@ -216,9 +215,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#1267E9",
     flex: 1,
   },
-  outerContainer: {
-    backgroundColor: "lightgrey",
-  },
+  // outerContainer: {
+  //   backgroundColor: "#ececec",
+  // },
   highlightsContainer: {
     backgroundColor: "white",
     // borderBottomLeftRadius: 10,

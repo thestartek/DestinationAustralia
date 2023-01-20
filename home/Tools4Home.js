@@ -17,14 +17,26 @@ import {
 const tools4Home = ({ navigation }) => {
   return (
     <ScrollView horizontal={true}>
-      <PrPointsCalculator navigation={navigation} />
-      <ExploreAustralia navigation={navigation} />
-      <UniversityFinder navigation={navigation} />
-      <ExpenseEstimator navigation={navigation} />
+      <View style={styles.container}>
+        <PrPointsCalculator navigation={navigation} />
+      </View>
+      <View style={styles.container}>
+        <ExploreAustralia navigation={navigation} />
+      </View>
+      <View style={styles.container}>
+        <UniversityFinder navigation={navigation} />
+      </View>
+      <View style={styles.container}>
+        <ExpenseEstimator navigation={navigation} />
+      </View>
     </ScrollView>
   );
 };
 
 export default tools4Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 15,
+  },
+});

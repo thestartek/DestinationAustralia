@@ -14,15 +14,17 @@ const shuffle = [FindJob, RentHouse, GetTFN, BeforeVisa];
 
 const ForYouScreen = ({ navigation }) => {
   return (
-    <ScrollView style={styles.mainContainer}>
-      <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
-        <FindJob navigation={navigation} />
-        <RentHouse navigation={navigation} />
-        <GetTFN navigation={navigation} />
-      </View>
+    <ScrollView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
+        <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
+          <FindJob navigation={navigation} />
+          <RentHouse navigation={navigation} />
+        </View>
 
-      <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
-        <BeforeVisa navigation={navigation} />
+        <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
+          <GetTFN navigation={navigation} />
+          <BeforeVisa navigation={navigation} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -106,17 +108,25 @@ export const BeforeVisa = ({ navigation }) => {
 export default ForYouScreen;
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  outerContainer: {
+    backgroundColor: "lightgrey",
+    // alignItems: "center",
+  },
+  innerContainer: {
     backgroundColor: "white",
+    alignItems: "center",
+    marginHorizontal: 10,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   container: {
     // justifyContent: "center",
     alignItems: "flex-start",
     backgroundColor: "white",
-    marginHorizontal: 5,
+    marginHorizontal: 12,
     marginTop: 10,
     marginBottom: 10,
-    width: windowWidth / 3.5,
+    width: windowWidth / 2.6,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: "lightgrey",
@@ -130,7 +140,7 @@ const styles = StyleSheet.create({
     borderColor: "lightgrey",
   },
   textBox: {
-    backgroundColor: "#C1D6F2",
+    backgroundColor: "#ececec",
     width: "100%",
     borderColor: "lightgrey",
     borderTopWidth: 1,
@@ -139,12 +149,12 @@ const styles = StyleSheet.create({
   },
   text: {
     marginVertical: 5,
-    height: 65,
+    height: 70,
     //   width: "100%",
     //   marginTop: -166,
     marginHorizontal: 3,
     fontWeight: "800",
-    fontSize: 15,
+    fontSize: 16,
     color: "#1267E9",
     // textShadowRadius: 1,
     // textShadowColor: "black",
