@@ -123,6 +123,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
               />
             ))}
           </ScrollView>
+          <TouchableOpacity onPress={() => navigation.push("Posts")}>
+            <Text style={styles.seeMoreText}>See all articles...</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Post section */}
