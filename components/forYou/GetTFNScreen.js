@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const RentHouse = () => {
+const GetTFNScreen = () => {
     return (
         <View>
-            <Text>Renting a house in Australia</Text>
+            <Text>Getting TFN and ABN</Text>
         </View>
     )
 }
 
-export default RentHouse
+export default GetTFNScreen

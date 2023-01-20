@@ -27,7 +27,7 @@ const imageTAS =
 const imageACT =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fmaps%2FACT_Circled.png?alt=media&token=886ceef0-e216-42eb-bd0c-c3935a14c2a2";
 
-const UniversityFinder = () => {
+const UniversityFinderScreen = () => {
   const [state, setState] = useState(true);
   const [checkedWA, setCheckedWA] = useState(false);
   const [checkedNT, setCheckedNT] = useState(false);
@@ -862,7 +862,7 @@ const UniversityFinder = () => {
   );
 };
 
-export default UniversityFinder;
+export default UniversityFinderScreen;
 
 const styles = StyleSheet.create({
   listContainer: {

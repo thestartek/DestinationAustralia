@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const BeforeVisa = () => {
+const BeforeVisaScreen = () => {
     return (
         <View>
             <Text>Before applying a Visa</Text>
@@ -9,4 +9,4 @@ const BeforeVisa = () => {
     )
 }
 
-export default BeforeVisa
+export default BeforeVisaScreen

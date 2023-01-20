@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 10,
     width: width - 40,
-    height: 110,
+    height: 120,
   },
   videoContainer: {
     flexDirection: "row",

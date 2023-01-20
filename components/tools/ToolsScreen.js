@@ -11,10 +11,29 @@ import { Divider } from "react-native-paper";
 
 const ToolsScreen = ({ navigation }) => {
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: 'white'}}>
       <Divider width={5} />
       <View style={styles.outerContainer}>
-        <TouchableOpacity
+        <PrPointsCalculator navigation={navigation}/>
+        <ExploreAustralia navigation={navigation} />
+        <UniversityFinder navigation={navigation} />
+        <ExpenseEstimator navigation={navigation} />
+      </View>
+
+      {/* Second Row */}
+      {/* /////////////////////////////// */}
+
+      <View style={styles.outerContainer}></View>
+
+      {/* Third Row */}
+      {/* /////////////////////////////// */}
+    </ScrollView>
+  );
+};
+
+export const PrPointsCalculator = ({navigation}) => {
+  return (
+  <TouchableOpacity
           onPress={() => navigation.push("PR Points Calculator")}
           style={styles.innerContainer}
         >
@@ -26,8 +45,12 @@ const ToolsScreen = ({ navigation }) => {
           />
           <Text style={styles.toolsName}>PR Points{"\n"}Calculator</Text>
         </TouchableOpacity>
+  )
+}
 
-        <TouchableOpacity
+export const ExploreAustralia = ({navigation})=> {
+  return(
+    <TouchableOpacity
           onPress={() => navigation.push("Explore Australia")}
           style={styles.innerContainer}
         >
@@ -39,8 +62,12 @@ const ToolsScreen = ({ navigation }) => {
           />
           <Text style={styles.toolsName}>Explore{"\n"}Australia</Text>
         </TouchableOpacity>
+  )
+}
 
-        <TouchableOpacity
+export const UniversityFinder = ({navigation})=> {
+  return (
+    <TouchableOpacity
           onPress={() => navigation.push("University Finder")}
           style={styles.innerContainer}
         >
@@ -52,8 +79,12 @@ const ToolsScreen = ({ navigation }) => {
           />
           <Text style={styles.toolsName}>University{"\n"}Finder</Text>
         </TouchableOpacity>
+  )
+}
 
-        <TouchableOpacity
+export const ExpenseEstimator = ({navigation})=> {
+  return (
+    <TouchableOpacity
           onPress={() => navigation.push("Expense Estimator")}
           style={styles.innerContainer}
         >
@@ -65,62 +96,8 @@ const ToolsScreen = ({ navigation }) => {
           />
           <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
         </TouchableOpacity>
-      </View>
-
-      {/* Second Row */}
-      {/* /////////////////////////////// */}
-
-      <View style={styles.outerContainer}>
-        {/* <TouchableOpacity
-          onPress={() => navigation.push("Income Calculator")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={require("../../assets/incomeCalculator.png")}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
-        </TouchableOpacity> */}
-
-        {/* <TouchableOpacity
-          onPress={() => navigation.push("Income Calculator")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={require("../../assets/incomeCalculator.png")}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>Income{"\n"}Calculator</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => navigation.push("University Finder")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={require("../../assets/universityFinder.png")}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>University{"\n"}Finder</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => navigation.push("Expense Estimator")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={require("../../assets/expenseEstimator.png")}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
-        </TouchableOpacity> */}
-      </View>
-
-      {/* Third Row */}
-      {/* /////////////////////////////// */}
-    </ScrollView>
-  );
-};
+  )
+}
 
 export default ToolsScreen;
 

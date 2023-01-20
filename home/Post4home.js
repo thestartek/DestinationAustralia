@@ -11,6 +11,7 @@ import {
   arrayRemove,
   onSnapshot,
 } from "firebase/firestore";
+import { CommentButton, LikeButton, PostHeader } from "../components/post/Post";
 //import { color } from "react-native-reanimated";
 
 const Post4home = ({ post, navigation }) => {
@@ -32,7 +33,7 @@ const Post4home = ({ post, navigation }) => {
     <View>
       <TouchableOpacity onPress={() => navigation.push("Posts")}>
         <PostHeader post={post} />
-        {post.caption != null ? <Caption post={post} /> : null}
+        <Caption post={post} /> 
       </TouchableOpacity>
 
       <Divider bold={true} style={{ marginHorizontal: 10, marginTop: 8 }} />
@@ -46,44 +47,6 @@ const Post4home = ({ post, navigation }) => {
   );
 };
 
-const PostHeader = ({ post }) => {
-  return (
-    <View
-      style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
-    >
-      {/* <TouchableOpacity> */}
-      {!post.profile_picture ? (
-        <Image
-          source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
-          }}
-          style={styles.profileThumbnail}
-        />
-      ) : (
-        <Image source={{ uri: post.profile_picture }} style={styles.profile} />
-      )}
-      {/* where post.user == user.email*/}
-      {/* </TouchableOpacity> */}
-
-      <View style={{ flexDirection: "column" }}>
-        <TouchableOpacity>
-          <Text
-            style={{
-              marginLeft: 10,
-              marginTop: 4,
-              fontWeight: "bold",
-              fontSize: 15,
-              color: "#1267E9",
-            }}
-          >
-            {post.fullname}
-          </Text>
-        </TouchableOpacity>
-        <Text style={styles.timstampText}>{post.postedDate}</Text>
-      </View>
-    </View>
-  );
-};
 
 const Caption = ({ post }) => (
   <Text
@@ -98,84 +61,9 @@ const Caption = ({ post }) => (
   </Text>
 );
 
-const LikeButton = ({ post, handleLike, focused }) => {
-  // onLiked = post.liked ? "like1" : "like2";
-  const onLikedColor = post.likes.includes(auth.currentUser.email)
-    ? "#1267E9"
-    : "#545050";
-
-  return (
-    <View>
-      <TouchableOpacity
-        style={{ flexDirection: "row" }}
-        onPress={() => {
-          handleLike(post);
-        }}
-      >
-        {post.likes.includes(auth.currentUser.email) ? (
-          <AntDesign name="like1" size={20} color="#1267E9" />
-        ) : (
-          <AntDesign name="like2" size={20} color="#545050" />
-        )}
-        {/* <AntDesign name={onLiked} size={25} color={onLikedColor} /> */}
-        {/* <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> */}
-
-        {!!post.likes.length && (
-          <Text style={[styles.postFooterIconsText, { color: onLikedColor }]}>
-            {post.likes.length}
-          </Text>
-        )}
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const CommentButton = ({ post, postId, navigation }) => {
-  //const [modalVisible, setModalVisible] = useState(false);
-  return (
-    <View>
-      <TouchableOpacity
-        onPress={() => navigation.push("Posts")}
-        style={{ flexDirection: "row" }}
-      >
-        {/* <CommentModal post={post} /> */}
-        <FontAwesome name="commenting-o" size={20} color="#545050" />
-
-        {!!post.comments.length && (
-          <Text style={styles.postFooterIconsText}>
-            {/* View
-            {post.comments.length > 1 ? " all " : " "} */}
-            {post.comments.length}
-            {/* {post.comments.length > 1 ? " comments" : " comment"} */}
-          </Text>
-        )}
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 export default Post4home;
 
 const styles = StyleSheet.create({
-  profile: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    // tintColor: "#3a3b3c"
-  },
-  profileThumbnail: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    tintColor: "grey",
-  },
-  timstampText: {
-    marginLeft: 10,
-    marginTop: 2,
-    fontSize: 12,
-    color: "grey",
-  },
-
   postFooterContainer: {
     // alignItems: "center",
     flexDirection: "row",
@@ -184,11 +72,4 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
 
-  postFooterIconsText: {
-    fontSize: 12,
-    fontWeight: "bold",
-    marginTop: 6,
-    marginLeft: 5,
-    color: "#545050",
-  },
 });

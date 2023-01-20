@@ -1,30 +1,26 @@
 import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import * as WebBrowser from "expo-web-browser";
+// import { Button } from "react-native-paper";
 
-const ExpenseEstimator = () => {
+const PrPointsCalculatorScreen = ({ navigation }) => {
   return (
-    <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
+    <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
       <Text style={{ fontSize: 26, margin: 20 }}>
-        Calculate the average cost of living in Australia:{" "}
+        Calculate your points for Permanent residency application:{" "}
       </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() =>
-          WebBrowser.openBrowserAsync(
-            "https://costofliving.studyaustralia.gov.au/"
-          )
-        }
-      >
+      <TouchableOpacity style={styles.button} onPress={()=> WebBrowser.openBrowserAsync(
+            "https://immi.homeaffairs.gov.au/help-support/tools/points-calculator"
+          )}>
         <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>
-          Calculate now
+          Start here
         </Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default ExpenseEstimator;
+export default PrPointsCalculatorScreen;
 
 const styles = StyleSheet.create({
   button: {

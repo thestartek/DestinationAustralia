@@ -25,12 +25,15 @@ import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
+import { BeforeVisa, FindJob, GetTFN, RentHouse } from "../components/forYou/ForYouScreen.js";
 
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 const { width } = Dimensions.get("window");
+
+const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeVisa]
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -113,32 +116,36 @@ const HomeScreen = ({ isLoading, navigation }) => {
       >
         {/* Highlights section */}
         <View style={styles.highlightsContainer}>
-          <Text style={styles.headingText}>Highlights</Text>
-          <ScrollView horizontal={true}>
-            {highlights.map((highlights, index) => (
-              <Highlights
-                highlights={highlights}
-                key={index}
-                navigation={navigation}
-              />
-            ))}
-          </ScrollView>
-          <TouchableOpacity onPress={() => navigation.push("Posts")}>
-            <Text style={styles.seeMoreText}>See all articles...</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text style={styles.headingText}>For you</Text>
+            <TouchableOpacity onPress={() => navigation.push("For you")}>
+            <Text style={styles.seeMoreText}>See all</Text>
           </TouchableOpacity>
+          </View>
+          
+          <ScrollView horizontal={true}>
+            <FindJob navigation={navigation} />
+            <RentHouse navigation={navigation} />
+            <GetTFN navigation={navigation} />
+            <BeforeVisa navigation={navigation} />
+          </ScrollView>
+          <View style={{margin: 5}} ></View>
         </View>
 
         {/* Post section */}
         <View style={styles.postContainer}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={styles.headingText}>Latest posts</Text>
+          <TouchableOpacity onPress={() => navigation.push("Posts")}>
+            <Text style={styles.seeMoreText}>More posts</Text>
+          </TouchableOpacity>
+         </View>
           <ScrollView horizontal={true}>
             {posts.map((post, index) => (
               <Post4home post={post} key={index} navigation={navigation} />
             ))}
           </ScrollView>
-          <TouchableOpacity onPress={() => navigation.push("Posts")}>
-            <Text style={styles.seeMoreText}>More posts...</Text>
-          </TouchableOpacity>
+          <View style={{margin: 15}} ></View>
         </View>
 
         {/* video section */}
@@ -157,13 +164,16 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
         {/* Tools section */}
         <View style={styles.toolsContainer}>
-          <Text style={styles.headingText}>Tools</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text style={styles.headingText}>Tools</Text>
+            <TouchableOpacity onPress={() => navigation.push("Tools")}>
+            <Text style={styles.seeMoreText}>All tools</Text>
+          </TouchableOpacity>
+          </View>
+          
           {/* List tools here */}
           <Tools4Home navigation={navigation} />
-
-          <TouchableOpacity onPress={() => navigation.push("Tools")}>
-            <Text style={styles.seeMoreText}>More tools...</Text>
-          </TouchableOpacity>
+          <View style={{margin: 15}} ></View>
         </View>
 
         {/* News section */}
@@ -201,8 +211,8 @@ const styles = StyleSheet.create({
   },
   highlightsContainer: {
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10,
     marginBottom: 5,
     shadowColor: "#000",
     shadowOffset: {
@@ -242,17 +252,17 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   headingText: {
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 20,
     fontWeight: "bold",
-    fontSize: 20,
     fontWeight: "bold",
-    fontSize: 20,
-    margin: 10,
+    fontSize: 22,
   },
   seeMoreText: {
     textAlign: "center",
     color: "#1267E9",
     marginVertical: 20,
+    marginHorizontal: 10,
     fontSize: 15,
     fontWeight: "bold",
   },

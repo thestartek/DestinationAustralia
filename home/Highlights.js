@@ -29,13 +29,6 @@ const Highlights = ({ highlights, navigation }) => {
           }}
         ></View>
         <Text style={styles.text}>{highlights.title} </Text>
-
-        {/* <ImageBackground
-          source={{ uri: highlights.image }}
-          style={styles.image}
-        >
-          <Text style={styles.text}>{highlights.caption} </Text>
-        </ImageBackground> */}
       </View>
     </TouchableOpacity>
   );
