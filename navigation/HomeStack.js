@@ -18,6 +18,9 @@ import LearnScreen from "../components/learn/LearnScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
 import PostStack from "./PostStack";
+import FindingJob from "../components/forYouScreens/FindingJob";
+import ForYouScreen from "../components/forYouScreens/ForYouScreen";
+import RentingHouse from "../components/forYouScreens/RentingHouse";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +54,9 @@ const HomeStack = () => {
       <Stack.Screen name="New post" component={NewPostScreen} />
       <Stack.Screen name="Notifications" component={NotificationScreen} />
       <Stack.Screen name="Profile" component={ProfileStack} />
+      <Stack.Screen name="For you" component={ForYouScreen} />
+      <Stack.Screen name="Finding a job" component={FindingJob} />
+      <Stack.Screen name="Renting a house" component={RentingHouse} />
     </Stack.Navigator>
   );
 };
