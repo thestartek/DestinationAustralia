@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   RefreshControl,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
@@ -25,15 +25,19 @@ import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
-import { BeforeVisa, FindJob, GetTFN, RentHouse } from "../components/forYou/ForYouScreen.js";
-
+import {
+  BeforeVisa,
+  FindJob,
+  GetTFN,
+  RentHouse,
+} from "../components/forYou/ForYouScreen.js";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 const { width } = Dimensions.get("window");
 
-const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeVisa]
+const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeVisa];
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -103,99 +107,105 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <View style={{ backgroundColor: 'lightgrey'}}>
-      {/* Banners */}
-      <BannerHome_linkedtoApp navigation={navigation}/>
-      <BannerHome_linkedtoWeb navigation={navigation}/>
+      <View style={{ backgroundColor: "lightgrey" }}>
+        {/* Banners */}
+        <BannerHome_linkedtoApp navigation={navigation} />
+        <BannerHome_linkedtoWeb navigation={navigation} />
 
-      <ScrollView
-        style={styles.outerContainer}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        {/* Highlights section */}
-        <View style={styles.highlightsContainer}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={styles.headingText}>For you</Text>
-            <TouchableOpacity onPress={() => navigation.push("For you")}>
-            <Text style={styles.seeMoreText}>See all</Text>
-          </TouchableOpacity>
+        <ScrollView
+          style={styles.outerContainer}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {/* Highlights section */}
+          <View style={styles.highlightsContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>For you</Text>
+              <TouchableOpacity onPress={() => navigation.push("For you")}>
+                <Text style={styles.seeMoreText}>See all</Text>
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView horizontal={true}>
+              <FindJob navigation={navigation} />
+              <RentHouse navigation={navigation} />
+              <GetTFN navigation={navigation} />
+              <BeforeVisa navigation={navigation} />
+            </ScrollView>
+            <View style={{ margin: 5 }}></View>
           </View>
-          
-          <ScrollView horizontal={true}>
-            <FindJob navigation={navigation} />
-            <RentHouse navigation={navigation} />
-            <GetTFN navigation={navigation} />
-            <BeforeVisa navigation={navigation} />
-          </ScrollView>
-          <View style={{margin: 5}} ></View>
-        </View>
 
-        {/* Post section */}
-        <View style={styles.postContainer}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={styles.headingText}>Latest posts</Text>
-          <TouchableOpacity onPress={() => navigation.push("Posts")}>
-            <Text style={styles.seeMoreText}>More posts</Text>
-          </TouchableOpacity>
-         </View>
-          <ScrollView horizontal={true}>
-            {posts.map((post, index) => (
-              <Post4home post={post} key={index} navigation={navigation} />
+          {/* Post section */}
+          <View style={styles.postContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>Latest posts</Text>
+              <TouchableOpacity onPress={() => navigation.push("Posts")}>
+                <Text style={styles.seeMoreText}>More posts</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView horizontal={true}>
+              {posts.map((post, index) => (
+                <Post4home post={post} key={index} navigation={navigation} />
+              ))}
+            </ScrollView>
+            <View style={{ margin: 15 }}></View>
+          </View>
+
+          {/* video section */}
+          {/* <Text style={styles.headingText}>Videos</Text> */}
+          <ScrollView
+            horizontal={true}
+            pagingEnabled={true}
+            // ref={ScrollView}
+            snapToInterval={width - 40}
+            // snapToAlignment={"center"}
+          >
+            {videos.map((video, index) => (
+              <Video4home video={video} key={index} navigation={navigation} />
             ))}
           </ScrollView>
-          <View style={{margin: 15}} ></View>
-        </View>
 
-        {/* video section */}
-        {/* <Text style={styles.headingText}>Videos</Text> */}
-        <ScrollView
-          horizontal={true}
-          pagingEnabled={true}
-          // ref={ScrollView}
-          snapToInterval={width - 40}
-          // snapToAlignment={"center"}
-        >
-          {videos.map((video, index) => (
-            <Video4home video={video} key={index} navigation={navigation} />
-          ))}
-        </ScrollView>
+          {/* Tools section */}
+          <View style={styles.toolsContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>Tools</Text>
+              <TouchableOpacity onPress={() => navigation.push("Tools")}>
+                <Text style={styles.seeMoreText}>All tools</Text>
+              </TouchableOpacity>
+            </View>
 
-        {/* Tools section */}
-        <View style={styles.toolsContainer}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={styles.headingText}>Tools</Text>
-            <TouchableOpacity onPress={() => navigation.push("Tools")}>
-            <Text style={styles.seeMoreText}>All tools</Text>
-          </TouchableOpacity>
+            {/* List tools here */}
+            <Tools4Home navigation={navigation} />
+            <View style={{ margin: 15 }}></View>
           </View>
-          
-          {/* List tools here */}
-          <Tools4Home navigation={navigation} />
-          <View style={{margin: 15}} ></View>
-        </View>
 
-        {/* News section */}
-        <View
-          style={{
-            backgroundColor: "white",
-            marginBottom: -5,
-            marginTop: 5,
-            padding: 5,
-          }}
-        >
-          <Text style={styles.headingText}>Latest News</Text>
-        </View>
+          {/* News section */}
+          <View
+            style={{
+              backgroundColor: "white",
+              marginBottom: -5,
+              marginTop: 5,
+              padding: 5,
+            }}
+          >
+            <Text style={styles.headingText}>Latest News</Text>
+          </View>
 
-        <View>
-          <NewsPostScreen />
-          {/* {newsposts.map((newspost, index) => (
+          <View>
+            <NewsPostScreen />
+            {/* {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />
           ))} */}
-        </View>
-        {/* <Divider style={{height: 5}}/> */}
-      </ScrollView>
+          </View>
+          {/* <Divider style={{height: 5}}/> */}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -204,7 +214,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#1267E9",
-    flex: 1
+    flex: 1,
   },
   outerContainer: {
     backgroundColor: "lightgrey",

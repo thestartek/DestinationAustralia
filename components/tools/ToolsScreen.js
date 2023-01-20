@@ -11,10 +11,10 @@ import { Divider } from "react-native-paper";
 
 const ToolsScreen = ({ navigation }) => {
   return (
-    <ScrollView style={{backgroundColor: 'white'}}>
+    <ScrollView style={{}}>
       <Divider width={5} />
       <View style={styles.outerContainer}>
-        <PrPointsCalculator navigation={navigation}/>
+        <PrPointsCalculator navigation={navigation} />
         <ExploreAustralia navigation={navigation} />
         <UniversityFinder navigation={navigation} />
         <ExpenseEstimator navigation={navigation} />
@@ -31,89 +31,92 @@ const ToolsScreen = ({ navigation }) => {
   );
 };
 
-export const PrPointsCalculator = ({navigation}) => {
-  return (
-  <TouchableOpacity
-          onPress={() => navigation.push("PR Points Calculator")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprPointsCalculator.png?alt=media&token=7722bbef-ee9e-47e2-ac5f-e823cb871e5d",
-            }}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>PR Points{"\n"}Calculator</Text>
-        </TouchableOpacity>
-  )
-}
-
-export const ExploreAustralia = ({navigation})=> {
-  return(
-    <TouchableOpacity
-          onPress={() => navigation.push("Explore Australia")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FaustraliaIcon.png?alt=media&token=06c8314d-dfa1-43f3-8ea9-0d9f7e33e753",
-            }}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>Explore{"\n"}Australia</Text>
-        </TouchableOpacity>
-  )
-}
-
-export const UniversityFinder = ({navigation})=> {
+export const PrPointsCalculator = ({ navigation }) => {
   return (
     <TouchableOpacity
-          onPress={() => navigation.push("University Finder")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FuniversityFinder.png?alt=media&token=1b613e85-1e26-4d35-ad20-366fb6e00e56",
-            }}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>University{"\n"}Finder</Text>
-        </TouchableOpacity>
-  )
-}
+      onPress={() => navigation.push("PR Points Calculator")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprPointsCalculator.png?alt=media&token=7722bbef-ee9e-47e2-ac5f-e823cb871e5d",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>PR Points{"\n"}Calculator</Text>
+    </TouchableOpacity>
+  );
+};
 
-export const ExpenseEstimator = ({navigation})=> {
+export const ExploreAustralia = ({ navigation }) => {
   return (
     <TouchableOpacity
-          onPress={() => navigation.push("Expense Estimator")}
-          style={styles.innerContainer}
-        >
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FexpenseEstimator.png?alt=media&token=3893a795-952a-4f2e-a3ec-e625d4e2060f",
-            }}
-            style={styles.toolsImage}
-          />
-          <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
-        </TouchableOpacity>
-  )
-}
+      onPress={() => navigation.push("Explore Australia")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FaustraliaIcon.png?alt=media&token=06c8314d-dfa1-43f3-8ea9-0d9f7e33e753",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Explore{"\n"}Australia</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const UniversityFinder = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("University Finder")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FuniversityFinder.png?alt=media&token=1b613e85-1e26-4d35-ad20-366fb6e00e56",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>University{"\n"}Finder</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const ExpenseEstimator = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("Expense Estimator")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FexpenseEstimator.png?alt=media&token=3893a795-952a-4f2e-a3ec-e625d4e2060f",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
+    </TouchableOpacity>
+  );
+};
 
 export default ToolsScreen;
 
 const styles = StyleSheet.create({
   outerContainer: {
     flexDirection: "row",
-    marginTop: 20,
+    // marginTop: 20,
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: "white",
+    // marginHorizontal: 10
     // justifyContent: "space-evenly",
   },
   innerContainer: {
     marginHorizontal: 15,
-    marginVertical: 10,
+    marginVertical: 20,
     justifyContent: "center",
     alignItems: "center",
+    // width: "16%"
   },
   toolsImage: {
     width: 50,
