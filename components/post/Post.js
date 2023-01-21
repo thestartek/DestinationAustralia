@@ -244,9 +244,9 @@ const styles = StyleSheet.create({
     // tintColor: "#3a3b3c",
   },
   profileThumbnail: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     tintColor: "grey",
   },
   timstampText: {

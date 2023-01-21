@@ -16,12 +16,12 @@ const ForYouScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.outerContainer}>
       <View style={styles.innerContainer}>
-        <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
+        <View style={{ flexDirection: "row", justifyContent: 'space-around' }}>
           <FindJob navigation={navigation} />
           <RentHouse navigation={navigation} />
         </View>
 
-        <View style={{ flexDirection: "row", marginHorizontal: 10 }}>
+        <View style={{ flexDirection: "row", justifyContent: 'space-around' }}>
           <GetTFN navigation={navigation} />
           <BeforeVisa navigation={navigation} />
         </View>
@@ -109,24 +109,25 @@ export default ForYouScreen;
 
 const styles = StyleSheet.create({
   outerContainer: {
-    backgroundColor: "lightgrey",
+    backgroundColor: "white",
     // alignItems: "center",
   },
   innerContainer: {
-    backgroundColor: "white",
-    alignItems: "center",
+    // backgroundColor: "white",
+    // alignItems: "center",
     marginHorizontal: 10,
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
+    // justifyContent: "space-between"
   },
   container: {
-    // justifyContent: "center",
+    // justifyContent: "space-between",
     alignItems: "flex-start",
     backgroundColor: "white",
-    marginHorizontal: 12,
+    marginHorizontal: 10,
     marginTop: 10,
     marginBottom: 10,
-    width: windowWidth / 2.6,
+    width: 150,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: "lightgrey",

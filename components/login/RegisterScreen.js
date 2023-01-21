@@ -14,6 +14,7 @@ import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
 import { ActivityIndicator } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const ThumbnailImage = () => (
   <Image
@@ -47,24 +48,67 @@ const RegisterScreen = ({ navigation }) => {
 
   const [loading, setLoading] = useState(false);
 
+  const user = auth.currentUser;
+
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [1, 1],
       quality: 0.75,
     });
 
-    console.log(result);
+    console.log("Result:", result);
+    // const tempImage = result.assets[0].uri;
+    // const filename = tempImage.substring(tempImage.lastIndexOf("/") + 1);
+    // console.log(filename);
+    // const extension = filename.split(".").pop();
+    // console.log(extension);
+    // const name = filename.split(".").slice(0, -1).join(".");
+    // console.log(name);
+    // const imageFilename = name + Date.now() + "." + extension;
+    // console.log(imageFilename);
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
   };
 
+  // uploading photo to firebase storage
+  const uploadImage = async () => {
+    if (image == null) {
+      return null;
+    }
+    try {
+      const imageFilename =
+        "userImages" +
+        "/" +
+        "profileImages" +
+        "/" +
+        email +
+        "/" +
+        image.substring(image.lastIndexOf("/") + 1);
+      // const extension = filename.split(".").pop();
+      // const name = filename.split(".").slice(0, -1).join(".");
+      // const imageFilename = name + Date.now() + "." + extension;
+
+      const imageRef = ref(storage, imageFilename);
+      const img = await fetch(image);
+      const bytes = await img.blob();
+      const uploadTask = await uploadBytesResumable(imageRef, bytes);
+
+      const url = await getDownloadURL(imageRef);
+      console.log("getDownloadUrl: ", url);
+      return url;
+    } catch (error) {
+      console.log("error: ", error);
+      return null;
+    }
+  };
+
   const handleRegister = async () => {
-    // const imageUrl = await uploadImage();
-    // console.log(imageUrl);
+    const imageUrl = await uploadImage();
+    console.log("imageUrl: ", imageUrl);
     setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
@@ -80,7 +124,7 @@ const RegisterScreen = ({ navigation }) => {
             city: city,
             country: country,
             info: info,
-            profile_picture: image,
+            profile_picture: imageUrl,
           });
           console.log("User added to database");
           Alert.alert("User registered successfully", user.email);
@@ -94,6 +138,7 @@ const RegisterScreen = ({ navigation }) => {
     // Alert.alert(error.message);
     // setLoading(true);
   };
+
 
   return (
     <ScrollView>
@@ -297,7 +342,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
   },
   photoSection: {
     marginTop: 40,
@@ -318,7 +363,7 @@ const styles = StyleSheet.create({
     // marginRight: -60,
     backgroundColor: "white",
     borderRadius: 20,
-    borderWidth: 4,
+    borderWidth: 3,
     borderColor: "white",
   },
   textInput: {
