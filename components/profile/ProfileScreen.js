@@ -21,7 +21,6 @@ import {
 } from "react-native";
 import { Divider } from "react-native-paper";
 import Post from "../post/Post";
-import SettingsModel from "./SettingsModal";
 
 import { db, auth } from "../../Firebase";
 //import {AuthContext} from '../navigation/AuthProvider';
@@ -159,9 +158,13 @@ const ProfileScreen = ({ navigation }) => {
         ) : null}
 
         <View style={styles.userBtnWrapper}>
-          {/* <SettingsModel navigation={navigation} /> */}
-          <TouchableOpacity style={styles.userBtn} onPress={()=> navigation.push("Settings")}>
-            <Text style={styles.userBtnTxt}>Settings</Text>
+          <TouchableOpacity
+            style={[styles.userBtn, { backgroundColor: "#1267E9" }]}
+            onPress={() => navigation.push("Settings")}
+          >
+            <Text style={[styles.userBtnTxt, { color: "white" }]}>
+              Settings
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.userBtn} onPress={logoutAlert}>
@@ -254,46 +257,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginHorizontal: 5,
   },
-  userBtnIcon: {
-    height: 25,
-    width: 25,
-    tintColor: "#1267E9",
-  },
   userBtnTxt: {
     color: "#1267E9",
     fontWeight: "bold",
-  },
-  userInfoWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "100%",
-    marginVertical: 20,
-  },
-  userInfoItem: {
-    justifyContent: "center",
-  },
-  userInfoTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 5,
-    textAlign: "center",
-  },
-  userInfoSubTitle: {
-    fontSize: 12,
-    color: "#666",
-    textAlign: "center",
-  },
-  postIcon: {
-    marginLeft: 10,
-    marginVertical: 10,
-    backgroundColor: "darkgrey",
-    width: 70,
-    borderRadius: 12,
-  },
-  postText: {
-    padding: 5,
-    fontSize: 16,
-    marginLeft: 10,
-    color: "white",
   },
 });
