@@ -5,6 +5,7 @@ import EditProfileScreen from "../components/profile/EditProfileScreen";
 import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 import DeleteAccountScreen from "../components/profile/DeleteAccountScreen";
 import VerifyAccountScreen from "../components/profile/VerifyAccountScreen";
+import SettingsScreen from "../components/profile/SettingsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,7 @@ function ProfileStack() {
       <Stack.Screen name="Reset password" component={ResetPasswordScreen} />
       <Stack.Screen name="Delete account" component={DeleteAccountScreen} />
       <Stack.Screen name="Verify account" component={VerifyAccountScreen} />
-      {/* <Stack.Screen name="Login" component={LoginStack} /> */}
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 }

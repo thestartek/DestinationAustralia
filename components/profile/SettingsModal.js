@@ -8,7 +8,6 @@ import {
   Alert,
 } from "react-native";
 
-
 const SettingsModel = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     //marginRight: 25,
   },
   modalView: {
-    marginTop: 350,
+    marginTop: 200,
     // marginBottom: 100,
     // flex: 1,
     // justifyContent: "center",
@@ -127,8 +126,6 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 10,
-    padding: 10,
-    elevation: 2,
     width: 250,
     marginBottom: 15,
     padding: 15,
@@ -176,6 +173,6 @@ const styles = StyleSheet.create({
     color: "#1267E9",
     fontWeight: "900",
     textAlign: "center",
-    marginBottom: 300
+    // marginBottom: 300
   },
 });

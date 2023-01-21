@@ -116,7 +116,11 @@ const ProfileScreen = ({ navigation }) => {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.userName}> {currentLoggedInUser.fullname} </Text>
+        {currentLoggedInUser.fullname ? (
+          <Text style={styles.userName}> {currentLoggedInUser.fullname} </Text>
+        ) : (
+          <Text style={styles.userName}> Your name </Text>
+        )}
 
         {currentLoggedInUser.profile_picture ? (
           <Image
@@ -127,24 +131,38 @@ const ProfileScreen = ({ navigation }) => {
           <Image
             style={[styles.userImg, { tintColor: "grey" }]}
             source={{
-              Uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
             }}
           />
         )}
 
         {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
         <View style={{ flexDirection: "row" }}>
-          <Text style={styles.userLocation}>{currentLoggedInUser.city},</Text>
-          <Text style={styles.userLocation}>
-            {" "}
-            {currentLoggedInUser.country}
-          </Text>
+          {currentLoggedInUser.city ? (
+            <Text style={styles.userLocation}>{currentLoggedInUser.city},</Text>
+          ) : (
+            <Text style={styles.userLocation}>Your city,</Text>
+          )}
+
+          {currentLoggedInUser.country ? (
+            <Text style={styles.userLocation}>
+              {" "}
+              {currentLoggedInUser.country}
+            </Text>
+          ) : (
+            <Text style={styles.userLocation}> Your country</Text>
+          )}
         </View>
 
-        <Text style={styles.aboutUser}>Bio: {currentLoggedInUser.info}</Text>
+        {currentLoggedInUser.info ? (
+          <Text style={styles.aboutUser}>Bio: {currentLoggedInUser.info}</Text>
+        ) : null}
 
         <View style={styles.userBtnWrapper}>
-          <SettingsModel navigation={navigation} />
+          {/* <SettingsModel navigation={navigation} /> */}
+          <TouchableOpacity style={styles.userBtn} onPress={()=> navigation.push("Settings")}>
+            <Text style={styles.userBtnTxt}>Settings</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.userBtn} onPress={logoutAlert}>
             <Text style={styles.userBtnTxt}>Log out</Text>
@@ -209,7 +227,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#666",
     textAlign: "center",
-    marginHorizontal: 40,
+    // marginHorizontal: 40,
+    marginBottom: 10,
   },
   userLocation: {
     fontSize: 14,
