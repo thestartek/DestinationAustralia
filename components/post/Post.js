@@ -277,9 +277,9 @@ const styles = StyleSheet.create({
     color: "#545050",
   },
 
-  buttonStyle: (focused) => ({
-    tintColor: focused ? "red" : "grey",
-  }),
+  // buttonStyle: (focused) => ({
+  //   tintColor: focused ? "red" : "grey",
+  // }),
 
   modalView: {
     margin: 20,

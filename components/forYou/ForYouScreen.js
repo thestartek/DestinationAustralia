@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     borderColor: "lightgrey",
   },
   textBox: {
-    backgroundColor: "#ececec",
+    backgroundColor: "#e6ecf5",
     width: "100%",
     borderColor: "lightgrey",
     borderTopWidth: 1,

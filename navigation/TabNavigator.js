@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React, { useState, useEffect, useRef } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Image, Platform } from "react-native";
+import { View, Text, Image, Platform, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
@@ -94,23 +94,15 @@ const TabNavigator = (navigation) => {
           options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
+              <View style={styles.tabIconView}>
                 <Image
                   source={{
                     uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FhomeIcon_Active.png?alt=media&token=1a44acea-55f5-4676-9eda-d31f4051cd62",
                   }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: focused ? "#1267E9" : "grey" },
+                  ]}
                 />
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
@@ -127,23 +119,15 @@ const TabNavigator = (navigation) => {
           component={PostStack}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
+              <View style={styles.tabIconView}>
                 <Image
                   source={{
                     uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FcommentIcon_Active.png?alt=media&token=f560024d-a9ed-4917-8473-4bc1bbe5ade7",
                   }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: focused ? "#1267E9" : "grey" },
+                  ]}
                 />
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
@@ -160,23 +144,15 @@ const TabNavigator = (navigation) => {
           component={NewPostScreen}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
+              <View style={styles.tabIconView}>
                 <Image
                   source={{
                     uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
                   }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: focused ? "#1267E9" : "grey" },
+                  ]}
                 />
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
@@ -193,23 +169,15 @@ const TabNavigator = (navigation) => {
           component={LearnScreen}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
+              <View style={styles.tabIconView}>
                 <Image
                   source={{
                     uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
                   }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: focused ? "#1267E9" : "grey" },
+                  ]}
                 />
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
@@ -259,23 +227,15 @@ const TabNavigator = (navigation) => {
           options={{
             // headerShown: false,
             tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
+              <View style={styles.tabIconView}>
                 <Image
                   source={{
                     uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
                   }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
+                  style={[
+                    styles.tabIcon,
+                    { tintColor: focused ? "#1267E9" : "grey" },
+                  ]}
                 />
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
@@ -292,3 +252,16 @@ const TabNavigator = (navigation) => {
 };
 
 export default TabNavigator;
+
+const styles = StyleSheet.create({
+  tabIconView: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+  },
+  tabIcon: {
+    width: 25,
+    height: 25,
+    resizeMode: "contain",
+  },
+});
