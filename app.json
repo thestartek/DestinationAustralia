@@ -4,13 +4,13 @@
     "slug": "journeytoaustralia",
     "version": "1.1.0",
     "notification": {
-      "icon": "./assets/icon.png"
+      "icon": "./assets/appIcon_transparent.png"
     },
     "plugins": [
       [
         "expo-notifications",
         {
-          "icon": "./assets/icon.png",
+          "icon": "./assets/appIcon_transparent.png",
           "color": "#ffffff",
           "sounds": []
         }
@@ -45,9 +45,9 @@
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.RECORD_AUDIO"
       ],
-      "icon": "./assets/adaptive-icon.png",
+      "icon": "./assets/appIcon_transparent.png",
       "adaptive-icon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/appIcon_transparent.png.png",
         "backgroundColor": "#ffffff"
       },
       "googleServicesFile": "./google-services.json",

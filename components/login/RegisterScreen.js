@@ -14,7 +14,12 @@ import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
 import { ActivityIndicator } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+  uploadBytes,
+} from "firebase/storage";
 
 const ThumbnailImage = () => (
   <Image
@@ -55,7 +60,7 @@ const RegisterScreen = ({ navigation }) => {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [1, 1],
-      quality: 0.75,
+      quality: 0.5,
     });
 
     console.log("Result:", result);
@@ -76,33 +81,35 @@ const RegisterScreen = ({ navigation }) => {
 
   // uploading photo to firebase storage
   const uploadImage = async () => {
+    setLoading(true);
     if (image == null) {
       return null;
-    }
-    try {
-      const imageFilename =
-        "userImages" +
-        "/" +
-        "profileImages" +
-        "/" +
-        email +
-        "/" +
-        image.substring(image.lastIndexOf("/") + 1);
-      // const extension = filename.split(".").pop();
-      // const name = filename.split(".").slice(0, -1).join(".");
-      // const imageFilename = name + Date.now() + "." + extension;
+    } else {
+      try {
+        const imageFilename =
+          "userImages" +
+          "/" +
+          "profileImages" +
+          "/" +
+          email +
+          "/" +
+          image.substring(image.lastIndexOf("/") + 1);
+        // const extension = filename.split(".").pop();
+        // const name = filename.split(".").slice(0, -1).join(".");
+        // const imageFilename = name + Date.now() + "." + extension;
 
-      const imageRef = ref(storage, imageFilename);
-      const img = await fetch(image);
-      const bytes = await img.blob();
-      const uploadTask = await uploadBytesResumable(imageRef, bytes);
+        const imageRef = ref(storage, imageFilename);
+        const img = await fetch(image);
+        const bytes = await img.blob();
+        const uploadTask = await uploadBytes(imageRef, bytes);
 
-      const url = await getDownloadURL(imageRef);
-      console.log("getDownloadUrl: ", url);
-      return url;
-    } catch (error) {
-      console.log("error: ", error);
-      return null;
+        const url = await getDownloadURL(imageRef);
+        console.log("getDownloadUrl: ", url);
+        return url;
+      } catch (error) {
+        console.log("error: ", error);
+        return null;
+      }
     }
   };
 
@@ -138,7 +145,6 @@ const RegisterScreen = ({ navigation }) => {
     // Alert.alert(error.message);
     // setLoading(true);
   };
-
 
   return (
     <ScrollView>
@@ -341,7 +347,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    // backgroundColor: "white",
     // marginHorizontal: 10,
   },
   photoSection: {
@@ -391,22 +397,13 @@ const styles = StyleSheet.create({
   buttonUnselected: {
     backgroundColor: "darkgrey",
   },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "#0782F9",
-    borderWidth: 2,
-  },
+
   buttonText: {
     color: "white",
     fontWeight: "700",
     fontSize: 16,
   },
-  buttonOutlineText: {
-    color: "#1267E9",
-    fontWeight: "700",
-    fontSize: 16,
-  },
+
   textStyle: {
     color: "#1267E9",
     //fontWeight: "bold",
