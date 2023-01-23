@@ -7,12 +7,13 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  modal,
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
-import { ActivityIndicator } from "react-native-paper";
+import { ActivityIndicator, Modal } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
 import {
   getDownloadURL,
@@ -20,6 +21,11 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
+import CountryModal from "./CountryModal";
+import CountryPicker, {
+  getAllCountries,
+  getCallingCode,
+} from "react-native-country-picker-modal";
 
 const ThumbnailImage = () => (
   <Image
@@ -209,12 +215,25 @@ const RegisterScreen = ({ navigation }) => {
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <AstrikIcon />
-            <TextInput
+            {country ? (
+              <View style={styles.textInput}>
+                <Text>{country.name}</Text>
+              </View>
+            ) : (
+              <View style={styles.textInput}>
+                <CountryPicker
+                  withEmoji
+                  onSelect={(select) => setCountry(select)}
+                />
+              </View>
+            )}
+
+            {/* <TextInput
               placeholder="Current country"
               value={country}
               onChangeText={(text) => setCountry(text)}
               style={styles.textInput}
-            />
+            /> */}
           </View>
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
