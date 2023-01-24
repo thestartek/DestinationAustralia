@@ -13,7 +13,7 @@ import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
-import { ActivityIndicator, Modal } from "react-native-paper";
+import { ActivityIndicator, Divider, Modal } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
 import {
   getDownloadURL,
@@ -21,11 +21,11 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
-import CountryModal from "./CountryModal";
 import CountryPicker, {
   getAllCountries,
   getCallingCode,
 } from "react-native-country-picker-modal";
+import { AntDesign } from "@expo/vector-icons";
 
 const ThumbnailImage = () => (
   <Image
@@ -56,6 +56,7 @@ const RegisterScreen = ({ navigation }) => {
   const [info, setInfo] = useState(null);
   const [image, setImage] = useState(null);
   const [checkBox, setCheckBox] = useState(false);
+  const [countryPickerVisible, setCountryPickerVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -215,25 +216,36 @@ const RegisterScreen = ({ navigation }) => {
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <AstrikIcon />
-            {country ? (
-              <View style={styles.textInput}>
-                <Text>{country.name}</Text>
+            {/* {country ? (
+              <View
+                style={[
+                  styles.textInput,
+                  { flexDirection: "row", justifyContent: "space-between" },
+                ]}
+              >
+                <Text >{country.name}</Text>
+                <CountryPicker
+                  withEmoji
+                  withFilter
+                  onSelect={(select) => setCountry(select)}
+                />
               </View>
             ) : (
               <View style={styles.textInput}>
                 <CountryPicker
                   withEmoji
+                  withFilter
                   onSelect={(select) => setCountry(select)}
                 />
               </View>
-            )}
+            )} */}
 
-            {/* <TextInput
+            <TextInput
               placeholder="Current country"
               value={country}
               onChangeText={(text) => setCountry(text)}
               style={styles.textInput}
-            /> */}
+            />
           </View>
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -366,8 +378,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "white",
-    // marginHorizontal: 10,
+    backgroundColor: "white",
+    marginHorizontal: 10,
   },
   photoSection: {
     marginTop: 40,
@@ -396,7 +408,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     borderWidth: 1.5,
-    borderColor: "lightgrey",
+    borderColor: "darkgrey",
     marginVertical: 5,
     width: 280,
   },
