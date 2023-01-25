@@ -138,7 +138,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
           </View>
 
           {/* Highlights section */}
-          <View style={styles.highlightsContainer}>
+          {/* <View style={styles.highlightsContainer}>
             <Text style={styles.headingText}>Highlights</Text>
             <ScrollView horizontal={true}>
               {highlights.map((highlights, index) => (
@@ -149,7 +149,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
                 />
               ))}
             </ScrollView>
-          </View>
+          </View> */}
 
           {/* Post section */}
           <View style={styles.postContainer}>
