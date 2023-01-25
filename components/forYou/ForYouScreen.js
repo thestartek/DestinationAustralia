@@ -41,7 +41,7 @@ export const FindJob = ({ navigation }) => {
           style={styles.image}
         />
         <View style={styles.textBox}>
-          <Text style={styles.text}>Finding a job in Australia </Text>
+          <Text style={styles.text}>How to find a job in Australia as a Int'l student </Text>
         </View>
       </View>
     </TouchableOpacity>

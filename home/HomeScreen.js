@@ -107,7 +107,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <View style={{ backgroundColor: "lightgrey" }}>
+      <View style={styles.outerContainer}>
         {/* Banners */}
         <BannerHome_linkedtoApp navigation={navigation} />
         <BannerHome_linkedtoWeb navigation={navigation} />
@@ -117,12 +117,12 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          {/* Highlights section */}
+          {/* Useful articles section */}
           <View style={styles.highlightsContainer}>
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
-              <Text style={styles.headingText}>For you</Text>
+              <Text style={styles.headingText}>Useful articles</Text>
               <TouchableOpacity onPress={() => navigation.push("For you")}>
                 <Text style={styles.seeMoreText}>See all</Text>
               </TouchableOpacity>
@@ -134,7 +134,21 @@ const HomeScreen = ({ isLoading, navigation }) => {
               <GetTFN navigation={navigation} />
               <BeforeVisa navigation={navigation} />
             </ScrollView>
-            <View style={{ margin: 5 }}></View>
+            <View style={{ margin: 10 }}></View>
+          </View>
+
+          {/* Highlights section */}
+          <View style={styles.highlightsContainer}>
+            <Text style={styles.headingText}>Highlights</Text>
+            <ScrollView horizontal={true}>
+              {highlights.map((highlights, index) => (
+                <Highlights
+                  highlights={highlights}
+                  key={index}
+                  navigation={navigation}
+                />
+              ))}
+            </ScrollView>
           </View>
 
           {/* Post section */}
@@ -152,7 +166,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
                 <Post4home post={post} key={index} navigation={navigation} />
               ))}
             </ScrollView>
-            <View style={{ margin: 15 }}></View>
+            <View style={{ margin: 20 }}></View>
           </View>
 
           {/* video section */}
@@ -215,50 +229,50 @@ const styles = StyleSheet.create({
     backgroundColor: "#1267E9",
     flex: 1,
   },
-  // outerContainer: {
-  //   backgroundColor: "#ececec",
-  // },
+  outerContainer: {
+    backgroundColor: "lightgrey",
+  },
   highlightsContainer: {
     backgroundColor: "white",
     // borderBottomLeftRadius: 10,
     // borderBottomRightRadius: 10,
     marginBottom: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   postContainer: {
     borderRadius: 10,
     // marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   toolsContainer: {
     borderRadius: 10,
     marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   headingText: {
     marginHorizontal: 10,

@@ -22,9 +22,7 @@ const CustomDrawer = (props) => {
       <View style={styles.headerContainer}>
         <Image
           style={styles.headerImage}
-          source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_Logo.png?alt=media&token=8cf55980-84e6-4e01-9e6e-6aa6213426a5",
-          }}
+          source={require("../../assets/appIcon_transparent.png")}
         />
       </View>
       <View style={styles.bodyContainer}>

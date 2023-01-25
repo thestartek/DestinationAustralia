@@ -17,10 +17,13 @@ const LearnScreen = ({ navigation }) => {
     <ScrollView>
       <Divider bold={true} />
       <Text style={styles.mainHeader}>Learning material for you</Text>
-
-      <PTE />
-      <IELTS />
-      <TOEFL />
+      <View style={{ margin: 5 }}></View>
+      <View style={styles.learnContainer}>
+        <PTE />
+        <IELTS />
+        <TOEFL />
+        <View style={{ margin: 10 }}></View>
+      </View>
 
       {/* ///////// Videos /////// */}
       <View style={{ margin: 18 }}></View>
@@ -42,42 +45,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
-  header: {
-    backgroundColor: "#1267E9",
-    padding: 12,
-    marginTop: 20,
+  learnContainer: {
+    backgroundColor: "white",
     marginHorizontal: 10,
-    borderRadius: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  headerText: {
-    padding: 2,
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "white",
-  },
-  content: {
-    padding: 10,
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  contentHeading: { fontSize: 16, marginTop: 10, marginBottom: 5 },
-  contentText: { margin: 5, color: "#545050" },
-  moreButton: {
-    // backgroundColor: "#1267E9",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: 42,
-    borderRadius: 10,
-    // marginVertical: 5,
-  },
-  videoContent: {
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    marginVertical: 5,
-    borderRadius: 5,
+    borderRadius: 8,
   },
 });

@@ -106,8 +106,8 @@ import * as Notifications from "expo-notifications";
 // }
 
 const NotificationScreen = () => {
-//   const [token, setToken] = useState([]);
-//   // const [messageRef, setMessageRef] = useState("");
+  //   const [token, setToken] = useState([]);
+  //   // const [messageRef, setMessageRef] = useState("");
 
   const payLink = () => {
     Linking.openURL("https://PayPal.Me/thestartek")
@@ -118,13 +118,13 @@ const NotificationScreen = () => {
         console.log(error);
       });
   };
-//   const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
-//     setToken(doc.data().expoPushToken);
-//   });
+  //   const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
+  //     setToken(doc.data().expoPushToken);
+  //   });
 
   return (
     <ScrollView>
-      {/* {auth.currentUser.email == "journeytoaustralia@starteknp.com" ? (
+      {/* {auth.currentUser.email == "destinationau@starteknp.com" ? (
         <View style={{ alignItems: "center" }}>
           <TouchableOpacity
             onPress={async () => {
