@@ -13,6 +13,7 @@ import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import { getDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../Firebase";
+import LearnStack from "./LearnStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -166,7 +167,7 @@ const TabNavigator = (navigation) => {
 
         <Tab.Screen
           name="Learn"
-          component={LearnScreen}
+          component={LearnStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.tabIconView}>

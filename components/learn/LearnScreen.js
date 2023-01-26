@@ -11,17 +11,38 @@ import PTE from "./PTE";
 import IELTS from "./IELTS";
 import TOEFL from "./TOEFL";
 import VideoScreen from "./VideoScreen";
+import { AntDesign } from "@expo/vector-icons";
 
 const LearnScreen = ({ navigation }) => {
   return (
     <ScrollView>
       <Divider bold={true} />
-      <Text style={styles.mainHeader}>Learning material for you</Text>
+
       <View style={{ margin: 5 }}></View>
       <View style={styles.learnContainer}>
-        <PTE />
-        <IELTS />
-        <TOEFL />
+        <Text style={styles.mainHeader}>Learning material for you</Text>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => navigation.push("PTE Academic")}
+        >
+          <Text style={styles.titleText}>PTE Academic</Text>
+          <AntDesign name="rightcircleo" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => navigation.push("IELTS")}
+        >
+          <Text style={styles.titleText}>IELTS</Text>
+          <AntDesign name="rightcircleo" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => navigation.push("TOEFL iBT")}
+        >
+          <Text style={styles.titleText}>TOEFL iBT</Text>
+          <AntDesign name="rightcircleo" size={24} color="white" />
+        </TouchableOpacity>
+
         <View style={{ margin: 10 }}></View>
       </View>
 
@@ -49,5 +70,20 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginHorizontal: 10,
     borderRadius: 8,
+  },
+  titleContainer: {
+    backgroundColor: "#1267E9",
+    padding: 12,
+    marginTop: 20,
+    marginHorizontal: 20,
+    borderRadius: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  titleText: {
+    padding: 2,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
   },
 });

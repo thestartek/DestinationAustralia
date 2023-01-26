@@ -10,7 +10,6 @@ import {
 } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
-const shuffle = [FindJob, RentHouse, GetTFN, BeforeVisa];
 
 const ForYouScreen = ({ navigation }) => {
   return (
@@ -36,7 +35,7 @@ export const FindJob = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fimages%2Fjob-search-vector.jpeg?alt=media&token=7ddce350-b894-43e5-8352-830e36f0d320",
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fjob-search-vector.jpeg?alt=media&token=b6da3af5-4cdd-461f-b437-4a0a70c7d89f",
           }}
           style={styles.image}
         />
@@ -56,7 +55,7 @@ export const RentHouse = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fimages%2FRentalHome.jpg?alt=media&token=3f21e83c-20c9-4caf-8fbe-dcc68d4972ba",
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2FRentalHome.jpg?alt=media&token=9d165241-64a1-4077-90b9-b4d66d1ea6df",
           }}
           style={styles.image}
         />
@@ -76,7 +75,7 @@ export const GetTFN = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fimages%2Ftfn-abn-super.jpeg?alt=media&token=8657e760-a71f-4d7f-b71f-387af07cf6f5",
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Ftfn-abn-super.jpeg?alt=media&token=6a60b847-886f-4d6d-bc8b-00f6e2717db3",
           }}
           style={styles.image}
         />
@@ -95,7 +94,7 @@ export const BeforeVisa = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fimages%2Fvisa-application.jpeg?alt=media&token=4dba980e-a123-410e-a153-4f7bf16f38f9",
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fvisa-application.jpeg?alt=media&token=d4971a34-170b-4158-93a0-5dcbed7defda",
           }}
           style={styles.image}
         />
