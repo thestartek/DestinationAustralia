@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "DestinationAustralia",
-    "slug": "destinationaustralia",
+    "slug": "journeytoaustralia",
     "version": "2.0.0",
     "notification": {
       "icon": "./assets/appIcon_transparent.png"
