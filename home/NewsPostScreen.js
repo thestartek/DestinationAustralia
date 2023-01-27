@@ -3,8 +3,17 @@ import React, { useEffect, useState } from "react";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import NewsPost from "./NewsPost.js";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
 
-const NewsPostScreen = ({navigation}) => {
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
+const NewsPostScreen = ({ navigation }) => {
   const [newsposts, setNewsPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,6 +34,7 @@ const NewsPostScreen = ({navigation}) => {
 
   return (
     <ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       {newsposts.map((newspost, index) => (
         <NewsPost newspost={newspost} key={index} navigation={navigation} />
       ))}

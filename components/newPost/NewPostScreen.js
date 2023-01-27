@@ -12,6 +12,15 @@ import AddNewPost from "./AddNewPost";
 import { db, auth } from "../../Firebase";
 import { onSnapshot, doc } from "firebase/firestore";
 import { Divider } from "react-native-paper";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const NewPostScreen = ({ navigation }) => {
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
@@ -40,6 +49,7 @@ const NewPostScreen = ({ navigation }) => {
           marginTop: 10,
         }}
       >
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <View>
           {!currentLoggedInUser.profile_picture ? (
             <Image
@@ -58,7 +68,7 @@ const NewPostScreen = ({ navigation }) => {
 
         <View>
           {!currentLoggedInUser.fullname ? (
-            <Text></Text>
+            <Text>Your Name</Text>
           ) : (
             <Text
               style={{
@@ -75,6 +85,9 @@ const NewPostScreen = ({ navigation }) => {
         </View>
       </View>
       <AddNewPost navigation={navigation} />
+      <View style={{alignItems: 'center'}}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </ScrollView>
   );
 };

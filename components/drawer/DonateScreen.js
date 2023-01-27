@@ -9,6 +9,15 @@ import {
 } from "react-native";
 import React from "react";
 import * as WebBrowser from "expo-web-browser";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const DonateScreen = () => {
   const payLink = () => {
@@ -21,6 +30,8 @@ const DonateScreen = () => {
       });
   };
   return (
+    <View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
     <ScrollView>
       <Text style={styles.headerText}>Show your support</Text>
       <Text style={styles.contentText}>
@@ -46,6 +57,8 @@ const DonateScreen = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+    </View>
   );
 };
 

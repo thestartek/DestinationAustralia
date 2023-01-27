@@ -9,10 +9,20 @@ import {
 import React from "react";
 import { Divider } from "react-native-paper";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const ToolsScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.outerContainer}>
-      <Divider width={5} />
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       <View style={styles.mainContainer}>
         <PrPointsCalculator navigation={navigation} />
         <ExploreAustralia navigation={navigation} />
@@ -23,10 +33,13 @@ const ToolsScreen = ({ navigation }) => {
       {/* Second Row */}
       {/* /////////////////////////////// */}
 
-      <View style={styles.outerContainer}></View>
+      <View style={{ margin: 30 }}></View>
 
       {/* Third Row */}
       {/* /////////////////////////////// */}
+      <View style={{alignItems: 'center'}}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </ScrollView>
   );
 };
@@ -104,6 +117,7 @@ export default ToolsScreen;
 const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "white",
+    marginHorizontal: 10,
   },
   mainContainer: {
     flexDirection: "row",
@@ -111,7 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     // backgroundColor: "white",
-    marginHorizontal: 20,
+    marginHorizontal: 10,
   },
   innerContainer: {
     // marginHorizontal: 10,

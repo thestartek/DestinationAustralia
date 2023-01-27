@@ -10,6 +10,15 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as MailComposer from "expo-mail-composer";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const AstrikIcon = () => {
   return (
@@ -50,69 +59,73 @@ const ContactScreen = () => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.headerText}>
-          Let us know if you find any issues with the app or want to report any
-          matter
-        </Text>
+    <View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.headerText}>
+            Let us know if you find any issues with the app or want to report
+            any matter
+          </Text>
 
-        <View>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Full Name"
-              //autoFocus={true}
-              value={fullname}
-              //autoCapitalize="none"
-              onChangeText={(text) => setFullname(text)}
-              style={styles.textInput}
-              //returnKeyType = {'next'}
-            />
-          </View>
-
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Subject"
-              value={subject}
-              onChangeText={(text) => setSubject(text)}
-              style={styles.textInput}
-            />
-          </View>
-
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ marginTop: 20 }}>
+          <View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
               <AstrikIcon />
+              <TextInput
+                placeholder="Full Name"
+                //autoFocus={true}
+                value={fullname}
+                //autoCapitalize="none"
+                onChangeText={(text) => setFullname(text)}
+                style={styles.textInput}
+                //returnKeyType = {'next'}
+              />
             </View>
 
-            <TextInput
-              placeholder="Write your concern here"
-              multiline={true}
-              autoCapitalize="none"
-              value={info}
-              onChangeText={(text) => setInfo(text)}
-              style={[styles.textInput, { height: 100 }]}
-              //onSubmitEditing={Keyboard.dismiss}
-            />
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AstrikIcon />
+              <TextInput
+                placeholder="Subject"
+                value={subject}
+                onChangeText={(text) => setSubject(text)}
+                style={styles.textInput}
+              />
+            </View>
+
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ marginTop: 20 }}>
+                <AstrikIcon />
+              </View>
+
+              <TextInput
+                placeholder="Write your concern here"
+                multiline={true}
+                autoCapitalize="none"
+                value={info}
+                onChangeText={(text) => setInfo(text)}
+                style={[styles.textInput, { height: 100 }]}
+                //onSubmitEditing={Keyboard.dismiss}
+              />
+            </View>
           </View>
+
+          {fullname == null || subject == null || info == null ? (
+            <View style={styles.buttonContainer}>
+              <View style={[styles.button, styles.buttonUnselected]}>
+                <Text style={styles.buttonText}>Send now</Text>
+              </View>
+            </View>
+          ) : (
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={handleSend} style={styles.button}>
+                <Text style={styles.buttonText}>Send now</Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
-
-        {fullname == null || subject == null || info == null ? (
-          <View style={styles.buttonContainer}>
-            <View style={[styles.button, styles.buttonUnselected]}>
-              <Text style={styles.buttonText}>Send now</Text>
-            </View>
-          </View>
-        ) : (
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={handleSend} style={styles.button}>
-              <Text style={styles.buttonText}>Send now</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </View>
-    </ScrollView>
+      </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+    </View>
   );
 };
 

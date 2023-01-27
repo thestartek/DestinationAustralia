@@ -10,12 +10,24 @@ import { Divider } from "react-native-paper";
 
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const TOEFL = () => {
   return (
     <ScrollView>
       {/* /////////////// Reading ////////////////// */}
 
       <View style={styles.content}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+
         <Text style={styles.contentHeadingMain}>Reading (54-72 minutes)</Text>
         <Divider bold={true} />
 
@@ -107,6 +119,9 @@ const TOEFL = () => {
         <Divider bold={true} />
 
         {/* ////////////////// Listening /////////////////// */}
+        <View style={{ marginTop: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
         <Text style={styles.contentHeadingMain}>Listening (41-57 minutes)</Text>
 
         <Divider bold={true} />
@@ -228,6 +243,9 @@ const TOEFL = () => {
         <Divider bold={true} />
 
         {/* //////////////// Speaking //////////////// */}
+        <View style={{ marginTop: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
 
         <Text style={styles.contentHeadingMain}>Speaking (17 minutes)</Text>
 
@@ -293,6 +311,9 @@ const TOEFL = () => {
         </View>
 
         {/* //////////////// Writing //////////////// */}
+        <View style={{ marginTop: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
 
         <Text style={styles.contentHeadingMain}>Writing (50 minutes)</Text>
 
@@ -335,6 +356,8 @@ const TOEFL = () => {
           <Divider bold={true} />
         </View>
       </View>
+
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
     </ScrollView>
   );
 };

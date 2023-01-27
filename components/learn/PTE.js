@@ -11,6 +11,16 @@ import { AntDesign } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
 import YoutubePlayer from "react-native-youtube-iframe";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const PTE = () => {
   const [collapseP10, setCollapseP10] = useState(true);
   const [collapseP11, setCollapseP11] = useState(true);
@@ -41,6 +51,7 @@ const PTE = () => {
       {/* /////////////// Speaking and Writing ////////////////// */}
 
       <View style={styles.content}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.contentHeadingMain}>
           Speaking and Writing (54-67 minutes)
         </Text>
@@ -133,6 +144,7 @@ const PTE = () => {
               response, and then 30 seconds to record your response. You are
               only able to record your answer once.
             </Text>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* ///////////////// 1. Read Aloud /////////////////// */}
@@ -178,6 +190,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"gHDr9n7xt3U"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 2. Repeat Sentence /////////////// */}
@@ -221,6 +234,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"S9x0S9J6TEY"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 3. Describe Image /////////////// */}
@@ -267,6 +281,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"GUi5k3SaJgI"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 4. Re-tell Lecture /////////////// */}
@@ -314,6 +329,8 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"nxq4_zPlF8k"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+            {/* <View style={{ marginVertical: -40 }}></View> */}
           </Collapsible>
 
           {/* /////////////// 5. Answer Short Question /////////////// */}
@@ -362,6 +379,8 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"_Q_UwtcFhDY"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+            {/* <View style={{ marginVertical: -40 }}></View> */}
           </Collapsible>
 
           {/* /////////////// 6. Summarize written text /////////////// */}
@@ -410,6 +429,8 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"IQdI-uNTScU"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+            {/* <View style={{ marginVertical: -40 }}></View> */}
           </Collapsible>
 
           {/* /////////////// 7. Essay /////////////// */}
@@ -452,10 +473,13 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"N17a1HmBH9o"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+            {/* <View style={{ marginVertical: -40 }}></View> */}
           </Collapsible>
         </View>
 
         {/* ////////////////// Reading /////////////////// */}
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
 
         <Text style={styles.contentHeadingMain}>Reading (29-30 minutes)</Text>
 
@@ -549,6 +573,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"HeG2ktd8j_Q"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 2. Multiple Choice, Multiple answers /////////////// */}
@@ -588,6 +613,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"z8bPPzNOsHo"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 3. Reorder paragraphs /////////////// */}
@@ -624,6 +650,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"m6KEzUzo644"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 4. Fill in the blanks /////////////// */}
@@ -663,6 +690,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"ozQgFxJNfIA"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 5. Multiple choice, Single Answer /////////////// */}
@@ -701,10 +729,12 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"-LBv0uLD2mI"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
         </View>
 
         {/* //////////////// Listening //////////////// */}
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
 
         <Text style={styles.contentHeadingMain}>Listening (30-43 minutes)</Text>
 
@@ -817,6 +847,8 @@ const PTE = () => {
               Skils assessed: Listening and writing
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"rnwnkj1y-CY"} />
+            <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
           {/* ///////////////// 2. Multiple choice, multiple answers /////////////////// */}
           <TouchableOpacity
@@ -862,6 +894,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"zjHQJJ42kao"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 3. Fill in the Blanks /////////////// */}
@@ -905,6 +938,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"FITSjRwfHWg"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 4. Highlight Correct Summary /////////////// */}
@@ -947,6 +981,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"T5JX6V5qPrI"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 5. Multiple Choice, Single Answer /////////////// */}
@@ -989,6 +1024,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"CFcRw1Pg_1g"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 6. Select Missing Word /////////////// */}
@@ -1032,6 +1068,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"irHRxX-fyu8"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 7. Highlight Incorrect Words /////////////// */}
@@ -1073,6 +1110,7 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"cYfaVAfKdhw"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
 
           {/* /////////////// 8. Write from Dictation /////////////// */}
@@ -1116,9 +1154,11 @@ const PTE = () => {
             </Text>
             <YoutubePlayer height={300} play={false} videoId={"TDSH3GIja4k"} />
             <View style={{ marginVertical: -40 }}></View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </Collapsible>
         </View>
       </View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
     </ScrollView>
   );
 };

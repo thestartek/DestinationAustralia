@@ -10,6 +10,16 @@ import {
 import React, { useState } from "react";
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const imageWA =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fmaps%2FWA.png?alt=media&token=5c62ff0a-7b78-498c-8912-79f551428c28";
 const imageNT =
@@ -39,164 +49,26 @@ const UniversityFinderScreen = () => {
   const [checkedACT, setCheckedACT] = useState(false);
 
   return (
-    <ScrollView style={{ marginTop: 10 }}>
-      <Text style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 10 }}>
-        Find a University that best suits you
-      </Text>
-
-      <View style={{ marginVertical: 20 }}>
-        <View style={{ justifyContent: "center", flexDirection: "row" }}>
-          {/* WA */}
-          {checkedWA != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(true),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageWA,
-                }}
-                style={styles.uncheckedWA}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageWA,
-                }}
-                style={[styles.uncheckedWA, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-
-          {/* NT */}
-          {checkedNT != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(true),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageNT,
-                }}
-                style={styles.uncheckedNT}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageNT,
-                }}
-                style={[styles.uncheckedNT, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-
-          {/* QLD */}
-          {checkedQLD != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(true),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageQLD,
-                }}
-                style={styles.uncheckedQLD}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageQLD,
-                }}
-                style={[styles.uncheckedQLD, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-        </View>
-
-        <View
-          style={{
-            justifyContent: "center",
-            flexDirection: "row",
-            marginLeft: 102,
-            marginTop: -90,
-          }}
+    <View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <ScrollView>
+        <Text
+          style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 10 }}
         >
-          {/* SA */}
-          {checkedSA != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(true),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageSA,
-                }}
-                style={styles.uncheckedSA}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageSA,
-                }}
-                style={[styles.uncheckedSA, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
+          Find a University that best suits you
+        </Text>
 
-          <View>
-            {/* NSW */}
-            {checkedNSW != true ? (
+        <View style={{ marginVertical: 20 }}>
+          <View style={{ justifyContent: "center", flexDirection: "row" }}>
+            {/* WA */}
+            {checkedWA != true ? (
               <TouchableOpacity
                 onPress={() => [
-                  setCheckedWA(false),
+                  setCheckedWA(true),
                   setCheckedNT(false),
                   setCheckedQLD(false),
                   setCheckedSA(false),
-                  setCheckedNSW(true),
+                  setCheckedNSW(false),
                   setCheckedVIC(false),
                   setCheckedTAS(false),
                   setCheckedACT(false),
@@ -205,32 +77,32 @@ const UniversityFinderScreen = () => {
               >
                 <Image
                   source={{
-                    uri: imageNSW,
+                    uri: imageWA,
                   }}
-                  style={styles.uncheckedNSW}
+                  style={styles.uncheckedWA}
                 />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity>
                 <Image
                   source={{
-                    uri: imageNSW,
+                    uri: imageWA,
                   }}
-                  style={[styles.uncheckedNSW, styles.checkedState]}
+                  style={[styles.uncheckedWA, styles.checkedState]}
                 />
               </TouchableOpacity>
             )}
 
-            {/* VIC */}
-            {checkedVIC != true ? (
+            {/* NT */}
+            {checkedNT != true ? (
               <TouchableOpacity
                 onPress={() => [
                   setCheckedWA(false),
-                  setCheckedNT(false),
+                  setCheckedNT(true),
                   setCheckedQLD(false),
                   setCheckedSA(false),
                   setCheckedNSW(false),
-                  setCheckedVIC(true),
+                  setCheckedVIC(false),
                   setCheckedTAS(false),
                   setCheckedACT(false),
                   setState(false),
@@ -238,627 +110,840 @@ const UniversityFinderScreen = () => {
               >
                 <Image
                   source={{
-                    uri: imageVIC,
+                    uri: imageNT,
                   }}
-                  style={styles.uncheckedVIC}
+                  style={styles.uncheckedNT}
                 />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity>
                 <Image
                   source={{
-                    uri: imageVIC,
+                    uri: imageNT,
                   }}
-                  style={[styles.uncheckedVIC, styles.checkedState]}
+                  style={[styles.uncheckedNT, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+
+            {/* QLD */}
+            {checkedQLD != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(true),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageQLD,
+                  }}
+                  style={styles.uncheckedQLD}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity>
+                <Image
+                  source={{
+                    uri: imageQLD,
+                  }}
+                  style={[styles.uncheckedQLD, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+          </View>
+
+          <View
+            style={{
+              justifyContent: "center",
+              flexDirection: "row",
+              marginLeft: 102,
+              marginTop: -90,
+            }}
+          >
+            {/* SA */}
+            {checkedSA != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(true),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageSA,
+                  }}
+                  style={styles.uncheckedSA}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity>
+                <Image
+                  source={{
+                    uri: imageSA,
+                  }}
+                  style={[styles.uncheckedSA, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+
+            <View>
+              {/* NSW */}
+              {checkedNSW != true ? (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(true),
+                    setCheckedVIC(false),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(false),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageNSW,
+                    }}
+                    style={styles.uncheckedNSW}
+                  />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity>
+                  <Image
+                    source={{
+                      uri: imageNSW,
+                    }}
+                    style={[styles.uncheckedNSW, styles.checkedState]}
+                  />
+                </TouchableOpacity>
+              )}
+
+              {/* VIC */}
+              {checkedVIC != true ? (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(false),
+                    setCheckedVIC(true),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(false),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageVIC,
+                    }}
+                    style={styles.uncheckedVIC}
+                  />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity>
+                  <Image
+                    source={{
+                      uri: imageVIC,
+                    }}
+                    style={[styles.uncheckedVIC, styles.checkedState]}
+                  />
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
+
+          <View style={{ alignItems: "flex-end" }}>
+            {/* TAS */}
+            {checkedTAS != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(true),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageTAS,
+                  }}
+                  style={styles.uncheckedTAS}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity>
+                <Image
+                  source={{
+                    uri: imageTAS,
+                  }}
+                  style={[styles.uncheckedTAS, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+            {/*ACT */}
+            {checkedACT != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(true),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageACT,
+                  }}
+                  style={styles.uncheckedACT}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity>
+                <Image
+                  source={{
+                    uri: imageACT,
+                  }}
+                  style={[styles.uncheckedACT, styles.checkedState]}
                 />
               </TouchableOpacity>
             )}
           </View>
         </View>
 
-        <View style={{ alignItems: "flex-end" }}>
-          {/* TAS */}
-          {checkedTAS != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(true),
-                setCheckedACT(false),
-                setState(false),
-              ]}
+        {state && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Image
-                source={{
-                  uri: imageTAS,
-                }}
-                style={styles.uncheckedTAS}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageTAS,
-                }}
-                style={[styles.uncheckedTAS, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-          {/*ACT */}
-          {checkedACT != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(true),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageACT,
-                }}
-                style={styles.uncheckedACT}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: imageACT,
-                }}
-                style={[styles.uncheckedACT, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-        </View>
-      </View>
-
-      {state && (
-        <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-          <Text style={{ color: "white", fontSize: 18, margin: 10 }}>
-            Select a state from the above map to see the list of Universities
-          </Text>
-        </View>
-      )}
-
-      {/* ///////////////////// NSW //////////////////////////////// */}
-      {checkedNSW && (
-        <View style={[styles.listContainer]}>
-          <Text style={styles.stateHeading}>
-            New South Wales: (Sydney capital)
-          </Text>
-
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.acu.edu.au/study-at-acu"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Australian Catholic University
+              <Text style={{ color: "white", fontSize: 18, margin: 10 }}>
+                Select a state from the above map to see the list of
+                Universities
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://study.csu.edu.au/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Charles Sturt University
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.mq.edu.au/study/information-for/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Macquarie University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.scu.edu.au/study-at-scu/"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Southern Cross University
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.une.edu.au/study/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of New England
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.unsw.edu.au/study?studentType=international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of New South Wales
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.newcastle.edu.au/study/international/study-with-us"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Newcastle
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.sydney.edu.au/study.html"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- University of Sydney</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.uts.edu.au/study")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Technology Sydney
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.westernsydney.edu.au/international/studying/courses-for-your-success"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Western Sydney University
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.uow.edu.au/study/")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Wollongong
-              </Text>
-            </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// VIC //////////////////////// */}
-      {checkedVIC && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Victoria: (Melbourne capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.deakin.edu.au/study")
-              }
-            >
-              <Text style={styles.uniButtonText}>- Deakin University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://federation.edu.au/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Federation University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.latrobe.edu.au/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- La Trobe University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.monash.edu/study/courses"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Monash University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.rmit.edu.au/study-with-us"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- RMIT University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.swinburne.edu.au/courses/"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Swinburne University of Technology
+        {/* ///////////////////// NSW //////////////////////////////// */}
+        {checkedNSW && (
+          <View>
+            <View style={[styles.listContainer]}>
+              <Text style={styles.stateHeading}>
+                New South Wales: (Sydney capital)
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://divinity.edu.au/courses")
-              }
-            >
-              <Text style={styles.uniButtonText}>- University of Divinity</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://study.unimelb.edu.au/")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Melbourne
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.vu.edu.au/study-at-vu/international-students"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Victoria University</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
 
-      {/* ////////////////////// QLD //////////////////////// */}
-      {checkedQLD && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Queensland: (Brisbane capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://bond.edu.au/study/program-finder"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Bond University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.cqu.edu.au/courses")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Central Queensland University
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.griffith.edu.au/study?location=dom"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Griffith University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.jcu.edu.au/courses")
-              }
-            >
-              <Text style={styles.uniButtonText}>- James Cook University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.qut.edu.au/study/international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Queensland University of Technology
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://study.uq.edu.au/?studentType=international"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Queensland
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.unisq.edu.au/study")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Southern Queensland
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.usc.edu.au/study/courses-and-programs"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of the Sunshine Coast
-              </Text>
-            </TouchableOpacity>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.acu.edu.au/study-at-acu"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Australian Catholic University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://study.csu.edu.au/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Charles Sturt University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.mq.edu.au/study/information-for/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Macquarie University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.scu.edu.au/study-at-scu/"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Southern Cross University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.une.edu.au/study/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of New England
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.unsw.edu.au/study?studentType=international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of New South Wales
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.newcastle.edu.au/study/international/study-with-us"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Newcastle
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.sydney.edu.au/study.html"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Sydney
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://www.uts.edu.au/study")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Technology Sydney
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.westernsydney.edu.au/international/studying/courses-for-your-success"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Western Sydney University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://www.uow.edu.au/study/")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Wollongong
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// SA //////////////////////// */}
-      {checkedSA && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            South Australia: (Adelaide capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.australia.cmu.edu/study"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Carnegie Mellon University
+        {/* ////////////////////// VIC //////////////////////// */}
+        {checkedVIC && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Victoria: (Melbourne capital)
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.flinders.edu.au/study")
-              }
-            >
-              <Text style={styles.uniButtonText}>- Flinders University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.torrens.edu.au/courses"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Torrens University Australia
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.adelaide.edu.au/study/"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- University of Adelaide</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://study.unisa.edu.au/")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of South Australia
-              </Text>
-            </TouchableOpacity>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.deakin.edu.au/study"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- Deakin University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://federation.edu.au/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Federation University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.latrobe.edu.au/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - La Trobe University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.monash.edu/study/courses"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- Monash University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.rmit.edu.au/study-with-us"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- RMIT University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.swinburne.edu.au/courses/"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Swinburne University of Technology
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://divinity.edu.au/courses"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Divinity
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://study.unimelb.edu.au/")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Melbourne
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.vu.edu.au/study-at-vu/international-students"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Victoria University
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// WA //////////////////////// */}
-      {checkedWA && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Western Australia: (Perth capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.curtin.edu.au/study/")
-              }
-            >
-              <Text style={styles.uniButtonText}>- Curtin University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.ecu.edu.au/future-students/overview"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Edith Cowan University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.murdoch.edu.au/study/courses/"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- Murdoch University</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.notredame.edu.au/study/programs"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Notre Dame Australia
+        {/* ////////////////////// QLD //////////////////////// */}
+        {checkedQLD && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Queensland: (Brisbane capital)
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.uwa.edu.au/study/Courses-and-Careers"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - University of Western Australia
-              </Text>
-            </TouchableOpacity>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://bond.edu.au/study/program-finder"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- Bond University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.cqu.edu.au/courses"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Central Queensland University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.griffith.edu.au/study?location=dom"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Griffith University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.jcu.edu.au/courses"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - James Cook University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.qut.edu.au/study/international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Queensland University of Technology
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://study.uq.edu.au/?studentType=international"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Queensland
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.unisq.edu.au/study"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Southern Queensland
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.usc.edu.au/study/courses-and-programs"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of the Sunshine Coast
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// ACT //////////////////////// */}
-      {checkedACT && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Australian Capital Territory: (Canberra)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.anu.edu.au/")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Australian National University
+        {/* ////////////////////// SA //////////////////////// */}
+        {checkedSA && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                South Australia: (Adelaide capital)
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://www.canberra.edu.au/future-students/study-at-uc/study-areas"
-                )
-              }
-            >
-              <Text style={styles.uniButtonText}>- University of Canberra</Text>
-            </TouchableOpacity>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.australia.cmu.edu/study"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Carnegie Mellon University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.flinders.edu.au/study"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Flinders University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.torrens.edu.au/courses"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Torrens University Australia
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.adelaide.edu.au/study/"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Adelaide
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://study.unisa.edu.au/")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of South Australia
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// TAS //////////////////////// */}
-      {checkedTAS && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Tasmania: (Hobart Capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.utas.edu.au/")
-              }
-            >
-              <Text style={styles.uniButtonText}>- University of Tasmania</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
-
-      {/* ////////////////////// NT //////////////////////// */}
-      {checkedNT && (
-        <View style={styles.listContainer}>
-          <Text style={{ fontSize: 18, margin: 10 }}>
-            Northern Territory: (Darwin Capital)
-          </Text>
-          <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
-            <TouchableOpacity
-              style={styles.uniButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync("https://www.cdu.edu.au/study")
-              }
-            >
-              <Text style={styles.uniButtonText}>
-                - Charles Darwin University
+        {/* ////////////////////// WA //////////////////////// */}
+        {checkedWA && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Western Australia: (Perth capital)
               </Text>
-            </TouchableOpacity>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.curtin.edu.au/study/"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- Curtin University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.ecu.edu.au/future-students/overview"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Edith Cowan University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.murdoch.edu.au/study/courses/"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>- Murdoch University</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.notredame.edu.au/study/programs"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Notre Dame Australia
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.uwa.edu.au/study/Courses-and-Careers"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Western Australia
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
-    </ScrollView>
+        )}
+
+        {/* ////////////////////// ACT //////////////////////// */}
+        {checkedACT && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Australian Capital Territory: (Canberra)
+              </Text>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://www.anu.edu.au/")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Australian National University
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync(
+                      "https://www.canberra.edu.au/future-students/study-at-uc/study-areas"
+                    )
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Canberra
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+
+        {/* ////////////////////// TAS //////////////////////// */}
+        {checkedTAS && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Tasmania: (Hobart Capital)
+              </Text>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://www.utas.edu.au/")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - University of Tasmania
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+
+        {/* ////////////////////// NT //////////////////////// */}
+        {checkedNT && (
+          <View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 18, margin: 10 }}>
+                Northern Territory: (Darwin Capital)
+              </Text>
+              <View style={{ alignItems: "flex-start", marginHorizontal: 15 }}>
+                <TouchableOpacity
+                  style={styles.uniButton}
+                  onPress={() =>
+                    WebBrowser.openBrowserAsync("https://www.cdu.edu.au/study")
+                  }
+                >
+                  <Text style={styles.uniButtonText}>
+                    - Charles Darwin University
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+      </ScrollView>
+    </View>
   );
 };
 

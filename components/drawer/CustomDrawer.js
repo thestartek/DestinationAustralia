@@ -15,6 +15,15 @@ import {
 } from "@react-navigation/drawer";
 import { FontAwesome5, Entypo } from "@expo/vector-icons";
 import * as WebBrowser from "expo-web-browser";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const CustomDrawer = (props) => {
   return (
@@ -95,7 +104,7 @@ const CustomDrawer = (props) => {
         </View>
 
         <Text style={{ marginBottom: 50 }}>Version 2.0.0</Text>
-        <View style={{ height: 100 }}></View>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
 
       {/* <DrawerItem

@@ -21,11 +21,6 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
-import CountryPicker, {
-  getAllCountries,
-  getCallingCode,
-} from "react-native-country-picker-modal";
-import { AntDesign } from "@expo/vector-icons";
 
 const ThumbnailImage = () => (
   <Image

@@ -31,13 +31,22 @@ import {
   GetTFN,
   RentHouse,
 } from "../components/forYou/ForYouScreen.js";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 const { width } = Dimensions.get("window");
 
-const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeAus];
+// const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeAus];
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -107,7 +116,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
+
       <View style={styles.outerContainer}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         {/* Banners */}
         <BannerHome_linkedtoApp navigation={navigation} />
         <BannerHome_linkedtoWeb navigation={navigation} />
@@ -169,6 +180,8 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <View style={{ margin: 20 }}></View>
           </View>
 
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+
           {/* video section */}
           {/* <Text style={styles.headingText}>Videos</Text> */}
           <ScrollView
@@ -198,6 +211,8 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <Tools4Home navigation={navigation} />
             <View style={{ margin: 15 }}></View>
           </View>
+
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
 
           {/* News section */}
           <View

@@ -31,6 +31,7 @@
       "backgroundColor": "#1267E9"
     },
     "ios": {
+      "useFrameworks": "static",
       "bundleIdentifier": "org.name.journeytoaustralia",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends.",
@@ -59,6 +60,9 @@
       }
     },
     "owner": "startek"
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-8686062104433125~2575371498"
   },
   "name": "DestinationAustralia"
 }

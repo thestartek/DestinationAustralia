@@ -12,48 +12,60 @@ import IELTS from "./IELTS";
 import TOEFL from "./TOEFL";
 import VideoScreen from "./VideoScreen";
 import { AntDesign } from "@expo/vector-icons";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const LearnScreen = ({ navigation }) => {
   return (
-    <ScrollView>
+    <View>
       <Divider bold={true} />
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <ScrollView>
+        <View style={{ margin: 5 }}></View>
+        <View style={styles.learnContainer}>
+          <Text style={styles.mainHeader}>Learning material for you</Text>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("PTE Academic")}
+          >
+            <Text style={styles.titleText}>PTE Academic</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("IELTS")}
+          >
+            <Text style={styles.titleText}>IELTS</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("TOEFL iBT")}
+          >
+            <Text style={styles.titleText}>TOEFL iBT</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
 
-      <View style={{ margin: 5 }}></View>
-      <View style={styles.learnContainer}>
-        <Text style={styles.mainHeader}>Learning material for you</Text>
-        <TouchableOpacity
-          style={styles.titleContainer}
-          onPress={() => navigation.push("PTE Academic")}
-        >
-          <Text style={styles.titleText}>PTE Academic</Text>
-          <AntDesign name="rightcircleo" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.titleContainer}
-          onPress={() => navigation.push("IELTS")}
-        >
-          <Text style={styles.titleText}>IELTS</Text>
-          <AntDesign name="rightcircleo" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.titleContainer}
-          onPress={() => navigation.push("TOEFL iBT")}
-        >
-          <Text style={styles.titleText}>TOEFL iBT</Text>
-          <AntDesign name="rightcircleo" size={24} color="white" />
-        </TouchableOpacity>
+          <View style={{ margin: 10 }}></View>
+        </View>
 
-        <View style={{ margin: 10 }}></View>
-      </View>
-
-      {/* ///////// Videos /////// */}
-      <View style={{ margin: 18 }}></View>
-      <Divider style={{ height: 8 }} />
-      <View>
-        <Text style={styles.mainHeader}>Useful videos for you</Text>
-      </View>
-      <VideoScreen />
-    </ScrollView>
+        {/* ///////// Videos /////// */}
+        <View style={{ margin: 18 }}></View>
+        <Divider style={{ height: 8 }} />
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View>
+          <Text style={styles.mainHeader}>Useful videos for you</Text>
+        </View>
+        <VideoScreen />
+      </ScrollView>
+    </View>
   );
 };
 

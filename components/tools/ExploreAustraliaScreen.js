@@ -10,6 +10,16 @@ import {
 import React, { useState } from "react";
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const imageWA =
   "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fmaps%2FWA.png?alt=media&token=5c62ff0a-7b78-498c-8912-79f551428c28";
 const imageNT =
@@ -39,781 +49,840 @@ const ExploreAustraliaScreen = () => {
   const [checkedACT, setCheckedACT] = useState(false);
 
   return (
-    <ScrollView style={{ marginTop: 10 }}>
-      <Text style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 20 }}>
-        Explore Australia before you start your journey
-      </Text>
-
-      <View style={{ marginVertical: 20 }}>
-        <View style={{ justifyContent: "center", flexDirection: "row" }}>
-          {/* WA */}
-          {checkedWA != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(true),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageWA,
-                }}
-                style={styles.uncheckedWA}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageWA,
-                }}
-                style={[styles.uncheckedWA, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-
-          {/* NT */}
-          {checkedNT != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(true),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageNT,
-                }}
-                style={styles.uncheckedNT}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageNT,
-                }}
-                style={[styles.uncheckedNT, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-
-          {/* QLD */}
-          {checkedQLD != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(true),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageQLD,
-                }}
-                style={styles.uncheckedQLD}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageQLD,
-                }}
-                style={[styles.uncheckedQLD, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
-        </View>
-
-        <View
-          style={{
-            justifyContent: "center",
-            flexDirection: "row",
-            marginLeft: 102,
-            marginTop: -90,
-          }}
+    <View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <ScrollView>
+        <Text
+          style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 20 }}
         >
-          {/* SA */}
-          {checkedSA != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(true),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(false),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageSA,
-                }}
-                style={styles.uncheckedSA}
-              />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
-            >
-              <Image
-                source={{
-                  uri: imageSA,
-                }}
-                style={[styles.uncheckedSA, styles.checkedState]}
-              />
-            </TouchableOpacity>
-          )}
+          Explore Australia before you start your journey
+        </Text>
 
+        <View style={{ marginVertical: 20 }}>
+          <View style={{ justifyContent: "center", flexDirection: "row" }}>
+            {/* WA */}
+            {checkedWA != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(true),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageWA,
+                  }}
+                  style={styles.uncheckedWA}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageWA,
+                  }}
+                  style={[styles.uncheckedWA, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+
+            {/* NT */}
+            {checkedNT != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(true),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageNT,
+                  }}
+                  style={styles.uncheckedNT}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageNT,
+                  }}
+                  style={[styles.uncheckedNT, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+
+            {/* QLD */}
+            {checkedQLD != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(true),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageQLD,
+                  }}
+                  style={styles.uncheckedQLD}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageQLD,
+                  }}
+                  style={[styles.uncheckedQLD, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+          </View>
+
+          <View
+            style={{
+              justifyContent: "center",
+              flexDirection: "row",
+              marginLeft: 102,
+              marginTop: -90,
+            }}
+          >
+            {/* SA */}
+            {checkedSA != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(true),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageSA,
+                  }}
+                  style={styles.uncheckedSA}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageSA,
+                  }}
+                  style={[styles.uncheckedSA, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+
+            <View>
+              {/* NSW */}
+              {checkedNSW != true ? (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(true),
+                    setCheckedVIC(false),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(false),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageNSW,
+                    }}
+                    style={styles.uncheckedNSW}
+                  />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(false),
+                    setCheckedVIC(false),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(true),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageNSW,
+                    }}
+                    style={[styles.uncheckedNSW, styles.checkedState]}
+                  />
+                </TouchableOpacity>
+              )}
+
+              {/* VIC */}
+              {checkedVIC != true ? (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(false),
+                    setCheckedVIC(true),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(false),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageVIC,
+                    }}
+                    style={styles.uncheckedVIC}
+                  />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  onPress={() => [
+                    setCheckedWA(false),
+                    setCheckedNT(false),
+                    setCheckedQLD(false),
+                    setCheckedSA(false),
+                    setCheckedNSW(false),
+                    setCheckedVIC(false),
+                    setCheckedTAS(false),
+                    setCheckedACT(false),
+                    setState(true),
+                  ]}
+                >
+                  <Image
+                    source={{
+                      uri: imageVIC,
+                    }}
+                    style={[styles.uncheckedVIC, styles.checkedState]}
+                  />
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
+
+          <View style={{ alignItems: "flex-end" }}>
+            {/* TAS */}
+            {checkedTAS != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(true),
+                  setCheckedACT(false),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageTAS,
+                  }}
+                  style={styles.uncheckedTAS}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageTAS,
+                  }}
+                  style={[styles.uncheckedTAS, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+            {/*ACT */}
+            {checkedACT != true ? (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(true),
+                  setState(false),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageACT,
+                  }}
+                  style={styles.uncheckedACT}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => [
+                  setCheckedWA(false),
+                  setCheckedNT(false),
+                  setCheckedQLD(false),
+                  setCheckedSA(false),
+                  setCheckedNSW(false),
+                  setCheckedVIC(false),
+                  setCheckedTAS(false),
+                  setCheckedACT(false),
+                  setState(true),
+                ]}
+              >
+                <Image
+                  source={{
+                    uri: imageACT,
+                  }}
+                  style={[styles.uncheckedACT, styles.checkedState]}
+                />
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+
+        {state && (
           <View>
-            {/* NSW */}
-            {checkedNSW != true ? (
-              <TouchableOpacity
-                onPress={() => [
-                  setCheckedWA(false),
-                  setCheckedNT(false),
-                  setCheckedQLD(false),
-                  setCheckedSA(false),
-                  setCheckedNSW(true),
-                  setCheckedVIC(false),
-                  setCheckedTAS(false),
-                  setCheckedACT(false),
-                  setState(false),
-                ]}
-              >
-                <Image
-                  source={{
-                    uri: imageNSW,
-                  }}
-                  style={styles.uncheckedNSW}
-                />
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                onPress={() => [
-                  setCheckedWA(false),
-                  setCheckedNT(false),
-                  setCheckedQLD(false),
-                  setCheckedSA(false),
-                  setCheckedNSW(false),
-                  setCheckedVIC(false),
-                  setCheckedTAS(false),
-                  setCheckedACT(false),
-                  setState(true),
-                ]}
-              >
-                <Image
-                  source={{
-                    uri: imageNSW,
-                  }}
-                  style={[styles.uncheckedNSW, styles.checkedState]}
-                />
-              </TouchableOpacity>
-            )}
-
-            {/* VIC */}
-            {checkedVIC != true ? (
-              <TouchableOpacity
-                onPress={() => [
-                  setCheckedWA(false),
-                  setCheckedNT(false),
-                  setCheckedQLD(false),
-                  setCheckedSA(false),
-                  setCheckedNSW(false),
-                  setCheckedVIC(true),
-                  setCheckedTAS(false),
-                  setCheckedACT(false),
-                  setState(false),
-                ]}
-              >
-                <Image
-                  source={{
-                    uri: imageVIC,
-                  }}
-                  style={styles.uncheckedVIC}
-                />
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                onPress={() => [
-                  setCheckedWA(false),
-                  setCheckedNT(false),
-                  setCheckedQLD(false),
-                  setCheckedSA(false),
-                  setCheckedNSW(false),
-                  setCheckedVIC(false),
-                  setCheckedTAS(false),
-                  setCheckedACT(false),
-                  setState(true),
-                ]}
-              >
-                <Image
-                  source={{
-                    uri: imageVIC,
-                  }}
-                  style={[styles.uncheckedVIC, styles.checkedState]}
-                />
-              </TouchableOpacity>
-            )}
-          </View>
-        </View>
-
-        <View style={{ alignItems: "flex-end" }}>
-          {/* TAS */}
-          {checkedTAS != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(true),
-                setCheckedACT(false),
-                setState(false),
-              ]}
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
+              <Text
+                style={{
+                  fontSize: 18,
+                  marginHorizontal: 20,
+                  marginVertical: 10,
+                  color: "white",
+                }}
+              >
+                Select a state from the above map to start exploring
+              </Text>
+            </View>
+            <View style={styles.listContainer}>
+              <Text style={{ fontSize: 20, margin: 10 }}>Australia</Text>
+              <Text style={styles.detailsText}>Capital city: Canberra</Text>
+              <Text style={styles.detailsText}>Population: 25,688,079</Text>
+              <Text style={styles.detailsText}>Land area: 7,692 024 km2</Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 29.8%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 23%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+
               <Image
                 source={{
-                  uri: imageTAS,
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_AUS.png?alt=media&token=48fe2079-0353-40f9-8503-092d146a7242",
                 }}
-                style={styles.uncheckedTAS}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
               />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
+
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Australia"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+
+        {/* ///////////////////// NSW //////////////////////////////// */}
+        {checkedNSW && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
+              <Text style={styles.stateHeading}>New South Wales</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Sydney</Text> */}
+              <Text style={styles.detailsText}>Population: 8,172,500</Text>
+              <Text style={styles.detailsText}>Land area: 801,150 sq. km</Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 29.3%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 26.6%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
               <Image
                 source={{
-                  uri: imageTAS,
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NSW.png?alt=media&token=48bb9b76-3071-4b96-a857-8dc11cc5e760",
                 }}
-                style={[styles.uncheckedTAS, styles.checkedState]}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
               />
-            </TouchableOpacity>
-          )}
-          {/*ACT */}
-          {checkedACT != true ? (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(true),
-                setState(false),
-              ]}
+
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/New_South_Wales"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+
+        {/* ////////////////////// VIC //////////////////////// */}
+        {checkedVIC && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
+              <Text style={styles.stateHeading}>Victoria</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Melbourne</Text> */}
+              <Text style={styles.detailsText}>Population: 6,548,040</Text>
+              <Text style={styles.detailsText}>Land area: 227,444 sq. km</Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 29.9%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 27.6%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
               <Image
                 source={{
-                  uri: imageACT,
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_VIC.png?alt=media&token=e47b7971-dd50-4a8b-8078-5e2d9d42856c",
                 }}
-                style={styles.uncheckedACT}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
               />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => [
-                setCheckedWA(false),
-                setCheckedNT(false),
-                setCheckedQLD(false),
-                setCheckedSA(false),
-                setCheckedNSW(false),
-                setCheckedVIC(false),
-                setCheckedTAS(false),
-                setCheckedACT(false),
-                setState(true),
-              ]}
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Victoria_(Australia)"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+        )}
+
+        {/* ////////////////////// QLD //////////////////////// */}
+        {checkedQLD && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
+              <Text style={styles.stateHeading}>Queensland</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Brisbane</Text> */}
+              <Text style={styles.detailsText}>Population: 5,217,653</Text>
+              <Text style={styles.detailsText}>
+                Land area: 1,727,000 sq. km
+              </Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 22.7%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 13.2%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
               <Image
                 source={{
-                  uri: imageACT,
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_QLD.png?alt=media&token=362b755e-205b-456f-b5db-b572a48c3060",
                 }}
-                style={[styles.uncheckedACT, styles.checkedState]}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
               />
-            </TouchableOpacity>
-          )}
-        </View>
-      </View>
-
-      {state && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text
-              style={{
-                fontSize: 18,
-                marginHorizontal: 20,
-                marginVertical: 10,
-                color: "white",
-              }}
-            >
-              Select a state from the above map to start exploring
-            </Text>
-          </View>
-          <View style={styles.listContainer}>
-            <Text style={{ fontSize: 20, margin: 10 }}>Australia</Text>
-            <Text style={styles.detailsText}>Capital city: Canberra</Text>
-            <Text style={styles.detailsText}>Population: 25,688,079</Text>
-            <Text style={styles.detailsText}>Land area: 7,692 024 km2</Text>
-            <Text style={styles.detailsText}>People born overseas: 29.8%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 23%
-            </Text>
-
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_AUS.png?alt=media&token=48fe2079-0353-40f9-8503-092d146a7242",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Australia"
-                )
-              }
-            >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Queensland"
+                  )
+                }
               >
-                Explore more
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ///////////////////// NSW //////////////////////////////// */}
-      {checkedNSW && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>New South Wales</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Sydney</Text> */}
-            <Text style={styles.detailsText}>Population: 8,172,500</Text>
-            <Text style={styles.detailsText}>Land area: 801,150 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 29.3%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 26.6%
-            </Text>
-
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NSW.png?alt=media&token=48bb9b76-3071-4b96-a857-8dc11cc5e760",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/New_South_Wales"
-                )
-              }
+        {/* ////////////////////// SA //////////////////////// */}
+        {checkedSA && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.stateHeading}>South Australia</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Adelaide</Text> */}
+              <Text style={styles.detailsText}>Population: 1,803,192</Text>
+              <Text style={styles.detailsText}>Land area: 983,482 sq. km</Text>
+              <Text style={styles.detailsText}>People born overseas: 24%</Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 17.8%
               </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
 
-      {/* ////////////////////// VIC //////////////////////// */}
-      {checkedVIC && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>Victoria</Text>
+              <Image
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_SA.png?alt=media&token=0387eb51-1618-4214-ab81-ad4e5098838c",
+                }}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
+              />
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/South_Australia"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Melbourne</Text> */}
-            <Text style={styles.detailsText}>Population: 6,548,040</Text>
-            <Text style={styles.detailsText}>Land area: 227,444 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 29.9%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 27.6%
-            </Text>
+        )}
 
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_VIC.png?alt=media&token=e47b7971-dd50-4a8b-8078-5e2d9d42856c",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Victoria_(Australia)"
-                )
-              }
+        {/* ////////////////////// WA //////////////////////// */}
+        {checkedWA && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.stateHeading}>Western Australia</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Perth</Text> */}
+              <Text style={styles.detailsText}>Population: 2,749,864</Text>
+              <Text style={styles.detailsText}>
+                Land area: 2,527,013 sq. km
               </Text>
-            </TouchableOpacity>
+              <Text style={styles.detailsText}>
+                People born overseas: 32.2%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 18.4%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <Image
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_WA.png?alt=media&token=9739fafb-bb79-411f-ab95-e5ffceceb71d",
+                }}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
+              />
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Western_Australia"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// QLD //////////////////////// */}
-      {checkedQLD && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>Queensland</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Brisbane</Text> */}
-            <Text style={styles.detailsText}>Population: 5,217,653</Text>
-            <Text style={styles.detailsText}>Land area: 1,727,000 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 22.7%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 13.2%
-            </Text>
-
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_QLD.png?alt=media&token=362b755e-205b-456f-b5db-b572a48c3060",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Queensland"
-                )
-              }
+        {/* ////////////////////// ACT //////////////////////// */}
+        {checkedACT && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.stateHeading}>
+                Australian Capital Territory
               </Text>
-            </TouchableOpacity>
+            </View>
+            <View style={styles.listContainer}>
+              <Text style={styles.detailsText}>City: Canberra</Text>
+              <Text style={styles.detailsText}>Population: 453,558</Text>
+              <Text style={styles.detailsText}>Land area: 2,358 sq. km</Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 28.7%
+              </Text>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 24.6%
+              </Text>
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Canberra"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// SA //////////////////////// */}
-      {checkedSA && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>South Australia</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Adelaide</Text> */}
-            <Text style={styles.detailsText}>Population: 1,803,192</Text>
-            <Text style={styles.detailsText}>Land area: 983,482 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 24%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 17.8%
-            </Text>
-
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_SA.png?alt=media&token=0387eb51-1618-4214-ab81-ad4e5098838c",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/South_Australia"
-                )
-              }
+        {/* ////////////////////// TAS //////////////////////// */}
+        {checkedTAS && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.stateHeading}>Tasmania</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Hobart</Text> */}
+              <Text style={styles.detailsText}>Population: 567,909</Text>
+              <Text style={styles.detailsText}>Land area: 68,401 sq. km</Text>
+              <Text style={styles.detailsText}>
+                People born overseas: 15.3%
               </Text>
-            </TouchableOpacity>
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 8.7%
+              </Text>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <Image
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_TAS.png?alt=media&token=80e79515-9d82-4813-8990-ad528f414b3f",
+                }}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
+              />
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Tasmania"
+                  )
+                }
+              >
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
+        )}
 
-      {/* ////////////////////// WA //////////////////////// */}
-      {checkedWA && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>Western Australia</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Perth</Text> */}
-            <Text style={styles.detailsText}>Population: 2,749,864</Text>
-            <Text style={styles.detailsText}>Land area: 2,527,013 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 32.2%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 18.4%
-            </Text>
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_WA.png?alt=media&token=9739fafb-bb79-411f-ab95-e5ffceceb71d",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Western_Australia"
-                )
-              }
+        {/* ////////////////////// NT //////////////////////// */}
+        {checkedNT && (
+          <View>
+            <View
+              style={[styles.listContainer, { backgroundColor: "#1267E9" }]}
             >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.stateHeading}>Northern Territory</Text>
+            </View>
+            <View style={styles.listContainer}>
+              {/* <Text style={styles.detailsText}>Major city: Darwin</Text> */}
+              <Text style={styles.detailsText}>Population: 249,200</Text>
+              <Text style={styles.detailsText}>
+                Land area: 1,419,630 sq. km
               </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
-
-      {/* ////////////////////// ACT //////////////////////// */}
-      {checkedACT && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>
-              Australian Capital Territory
-            </Text>
-          </View>
-          <View style={styles.listContainer}>
-            <Text style={styles.detailsText}>City: Canberra</Text>
-            <Text style={styles.detailsText}>Population: 453,558</Text>
-            <Text style={styles.detailsText}>Land area: 2,358 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 28.7%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 24.6%
-            </Text>
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Canberra"
-                )
-              }
-            >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.detailsText}>
+                People born overseas: 21.8%
               </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
-
-      {/* ////////////////////// TAS //////////////////////// */}
-      {checkedTAS && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>Tasmania</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Hobart</Text> */}
-            <Text style={styles.detailsText}>Population: 567,909</Text>
-            <Text style={styles.detailsText}>Land area: 68,401 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 15.3%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 8.7%
-            </Text>
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_TAS.png?alt=media&token=80e79515-9d82-4813-8990-ad528f414b3f",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Tasmania"
-                )
-              }
-            >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
-              >
-                Explore more
+              <Text style={styles.detailsText}>
+                People speaking non-English language at home: 32.4%
               </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
-
-      {/* ////////////////////// NT //////////////////////// */}
-      {checkedNT && (
-        <View>
-          <View style={[styles.listContainer, { backgroundColor: "#1267E9" }]}>
-            <Text style={styles.stateHeading}>Northern Territory</Text>
-          </View>
-          <View style={styles.listContainer}>
-            {/* <Text style={styles.detailsText}>Major city: Darwin</Text> */}
-            <Text style={styles.detailsText}>Population: 249,200</Text>
-            <Text style={styles.detailsText}>Land area: 1,419,630 sq. km</Text>
-            <Text style={styles.detailsText}>People born overseas: 21.8%</Text>
-            <Text style={styles.detailsText}>
-              People speaking non-English language at home: 32.4%
-            </Text>
-            <Image
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NT.png?alt=media&token=88690b01-d174-4751-a0d2-6c39ee9d6298",
-              }}
-              style={{
-                height: 300,
-                width: "100%",
-                resizeMode: "contain",
-                marginVertical: 10,
-              }}
-            />
-            <TouchableOpacity
-              style={styles.moreButton}
-              onPress={() =>
-                WebBrowser.openBrowserAsync(
-                  "https://en.wikipedia.org/wiki/Northern_Territory"
-                )
-              }
-            >
-              <Text
-                style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <Image
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NT.png?alt=media&token=88690b01-d174-4751-a0d2-6c39ee9d6298",
+                }}
+                style={{
+                  height: 300,
+                  width: "100%",
+                  resizeMode: "contain",
+                  marginVertical: 10,
+                }}
+              />
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() =>
+                  WebBrowser.openBrowserAsync(
+                    "https://en.wikipedia.org/wiki/Northern_Territory"
+                  )
+                }
               >
-                Explore more
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{ fontSize: 18, color: "#1267E9", fontWeight: "bold" }}
+                >
+                  Explore more
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
-        </View>
-      )}
-    </ScrollView>
+        )}
+      </ScrollView>
+    </View>
   );
 };
 

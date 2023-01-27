@@ -58,7 +58,7 @@ export const RentHouse = ({ navigation }) => {
           style={styles.image}
         />
         <View style={styles.textBox}>
-          <Text style={styles.text}>Finding a rental palce in Australia </Text>
+          <Text style={styles.text}>Finding a rental place in Australia </Text>
         </View>
       </View>
     </TouchableOpacity>

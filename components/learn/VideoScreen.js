@@ -11,7 +11,15 @@ import { AntDesign } from "@expo/vector-icons";
 import Video from "./Video";
 import { db, auth } from "../../Firebase";
 import { collection, onSnapshot, query } from "firebase/firestore";
-import { Divider } from "react-native-paper";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const VideoScreen = ({ navigation }) => {
   const [videos, setVideos] = useState([]);
@@ -33,17 +41,17 @@ const VideoScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <ScrollView>
-      {/* <Divider bold={true} /> */}
+    <View>
+      <ScrollView>
+        {/* ///////// Videos /////// */}
+        <View style={{ margin: 5 }}></View>
 
-      {/* ///////// Videos /////// */}
-      <View style={{ margin: 5 }}></View>
-      <View>
-      </View>
-      {videos.map((video, index) => (
-        <Video video={video} key={index} navigation={navigation} />
-      ))}
-    </ScrollView>
+        {videos.map((video, index) => (
+          <Video video={video} key={index} navigation={navigation} />
+        ))}
+      </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+    </View>
   );
 };
 
