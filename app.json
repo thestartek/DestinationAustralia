@@ -47,8 +47,8 @@
       ],
       "icon": "./assets/appIcon_transparent.png",
       "adaptive-icon": {
-        "foregroundImage": "./assets/appIcon_transparent.png.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/appIcon_transparent.png",
+        "backgroundColor": "#1267E9"
       },
       "googleServicesFile": "./google-services.json",
       "package": "org.name.journeytoaustralia"

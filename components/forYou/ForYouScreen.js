@@ -22,7 +22,7 @@ const ForYouScreen = ({ navigation }) => {
 
         <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
           <GetTFN navigation={navigation} />
-          <BeforeVisa navigation={navigation} />
+          <BeforeAus navigation={navigation} />
         </View>
       </View>
     </ScrollView>
@@ -40,9 +40,7 @@ export const FindJob = ({ navigation }) => {
           style={styles.image}
         />
         <View style={styles.textBox}>
-          <Text style={styles.text}>
-            How to find a job in Australia as a Int'l student{" "}
-          </Text>
+          <Text style={styles.text}>Finding a job in Australia</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -51,7 +49,7 @@ export const FindJob = ({ navigation }) => {
 
 export const RentHouse = ({ navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.push("Renting a house")}>
+    <TouchableOpacity onPress={() => navigation.push("Finding a rental place")}>
       <View style={styles.container}>
         <Image
           source={{
@@ -60,7 +58,7 @@ export const RentHouse = ({ navigation }) => {
           style={styles.image}
         />
         <View style={styles.textBox}>
-          <Text style={styles.text}>Renting a house in Australia </Text>
+          <Text style={styles.text}>Finding a rental palce in Australia </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -88,18 +86,22 @@ export const GetTFN = ({ navigation }) => {
   );
 };
 
-export const BeforeVisa = ({ navigation }) => {
+export const BeforeAus = ({ navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.push("Before applying a Visa")}>
+    <TouchableOpacity
+      onPress={() => navigation.push("Before coming to Australia")}
+    >
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fvisa-application.jpeg?alt=media&token=d4971a34-170b-4158-93a0-5dcbed7defda",
+            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fman-at-airport-with-suitcase.webp?alt=media&token=11901552-09fd-41ca-a907-d9c49a0b5ec1",
           }}
           style={styles.image}
         />
         <View style={styles.textBox}>
-          <Text style={styles.text}>Before applying a visa </Text>
+          <Text style={styles.text}>
+            Thins to know before comming to Australia{" "}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

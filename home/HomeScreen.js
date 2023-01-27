@@ -26,7 +26,7 @@ import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
 import {
-  BeforeVisa,
+  BeforeAus,
   FindJob,
   GetTFN,
   RentHouse,
@@ -37,7 +37,7 @@ const wait = (timeout) => {
 };
 const { width } = Dimensions.get("window");
 
-const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeVisa];
+const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeAus];
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -132,7 +132,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
               <FindJob navigation={navigation} />
               <RentHouse navigation={navigation} />
               <GetTFN navigation={navigation} />
-              <BeforeVisa navigation={navigation} />
+              <BeforeAus navigation={navigation} />
             </ScrollView>
             <View style={{ margin: 10 }}></View>
           </View>
