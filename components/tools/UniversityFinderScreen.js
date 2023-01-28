@@ -50,7 +50,9 @@ const UniversityFinderScreen = () => {
 
   return (
     <View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <ScrollView>
         <Text
           style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 10 }}
@@ -348,7 +350,14 @@ const UniversityFinderScreen = () => {
                 Universities
               </Text>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View
+              style={{ alignItems: "center", marginBottom: 100, marginTop: 20 }}
+            >
+              <BannerAd
+                unitId={adUnitId}
+                size={BannerAdSize.MEDIUM_RECTANGLE}
+              />
+            </View>
           </View>
         )}
 
@@ -491,7 +500,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -605,7 +616,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -713,7 +726,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -785,7 +800,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -855,7 +872,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -891,7 +910,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -915,7 +936,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -939,7 +962,9 @@ const UniversityFinderScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
       </ScrollView>

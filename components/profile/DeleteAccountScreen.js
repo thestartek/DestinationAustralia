@@ -8,9 +8,7 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../Firebase";
-import {
-  deleteUser,
-} from "firebase/auth";
+import { deleteUser } from "firebase/auth";
 import { db, doc, deleteDoc } from "firebase/firestore";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -135,7 +133,9 @@ const DeleteAccountScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </SafeAreaView>
   );
 };

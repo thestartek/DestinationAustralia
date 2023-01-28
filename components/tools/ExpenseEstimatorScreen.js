@@ -15,7 +15,10 @@ const adUnitId = __DEV__
 const ExpenseEstimatorScreen = () => {
   return (
     <View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
+
       <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
         <Text style={{ fontSize: 26, margin: 20 }}>
           Calculate the average cost of living in Australia:{" "}
@@ -33,7 +36,9 @@ const ExpenseEstimatorScreen = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      <View style={{ alignItems: "center", marginTop: 20 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </View>
   );
 };

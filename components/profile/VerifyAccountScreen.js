@@ -92,7 +92,9 @@ const VerifyAccountScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </SafeAreaView>
   );
 };

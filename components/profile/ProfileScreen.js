@@ -116,7 +116,9 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <ScrollView style={{ flex: 1, backgroundColor: "lightgrey" }}>
         <View
           style={styles.container}
@@ -195,8 +197,9 @@ const ProfileScreen = ({ navigation }) => {
         ))} */}
         </View>
 
-        <Divider width={2} />
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
 
         <View style={{ backgroundColor: "white", marginBottom: -5 }}>
           <Text

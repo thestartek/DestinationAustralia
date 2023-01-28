@@ -120,7 +120,9 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </SafeAreaView>
   );
 };

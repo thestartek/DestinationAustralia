@@ -65,7 +65,9 @@ const SettingsScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
     </ScrollView>
   );
 };

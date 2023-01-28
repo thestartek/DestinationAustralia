@@ -115,10 +115,9 @@ const AddNewPost = ({ post, navigation }) => {
         style={styles.postBox}
         // contentStyle = {{justifyContent:'center', alignItems: 'center', color: 'red'}}
       />
-      <BannerAd
-        unitId={adUnitId}
-        size={BannerAdSize.BANNER}
-      />
+      <View style={{ alignItems: "center", marginTop: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
 
       {!caption ? (
         <View style={styles.postButtonDisabled}>

@@ -135,101 +135,103 @@ const EditProfileScreen = ({ navigation }) => {
 
   return (
     <View>
-    <ScrollView>
-      <View style={styles.innerContainer}>
-        <TouchableOpacity onPress={pickImage}>
-          <View style={styles.photoSection}>
-            {image ? (
-              <Image source={{ uri: image }} style={styles.profilePic} />
-            ) : (
-              <View>
-                {currentLoggedInUser.profile_picture ? (
-                  <Image
-                    source={{ uri: currentLoggedInUser.profile_picture }}
-                    style={styles.profilePic}
-                  />
-                ) : (
-                  <ThumbnailImage />
-                )}
-              </View>
-            )}
+      <ScrollView>
+        <View style={styles.innerContainer}>
+          <TouchableOpacity onPress={pickImage}>
+            <View style={styles.photoSection}>
+              {image ? (
+                <Image source={{ uri: image }} style={styles.profilePic} />
+              ) : (
+                <View>
+                  {currentLoggedInUser.profile_picture ? (
+                    <Image
+                      source={{ uri: currentLoggedInUser.profile_picture }}
+                      style={styles.profilePic}
+                    />
+                  ) : (
+                    <ThumbnailImage />
+                  )}
+                </View>
+              )}
 
-            <Image
-              style={styles.plusIcon}
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
-              }}
-            />
-          </View>
-        </TouchableOpacity>
-
-        {/* INPUTS */}
-        <View style={{ marginHorizontal: 10 }}>
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Your Full name:</Text>
-            <TextInput
-              placeholder={currentLoggedInUser.fullname}
-              defaultValue={currentLoggedInUser.fullname}
-              //autoFocus={true}
-              //autoCapitalize="none"
-              onChangeText={setFullname}
-              value={fullname}
-              style={styles.textInput}
-            />
-          </View>
-
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Current country:</Text>
-            <TextInput
-              placeholder={currentLoggedInUser.country}
-              defaultValue={currentLoggedInUser.country}
-              onChangeText={setCountry}
-              value={country}
-              style={styles.textInput}
-            />
-          </View>
-
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Current city:</Text>
-            <TextInput
-              placeholder={currentLoggedInUser.city}
-              defaultValue={currentLoggedInUser.city}
-              onChangeText={setCity}
-              value={city}
-              style={styles.textInput}
-            />
-          </View>
-
-          <View style={{ marginHorizontal: 30 }}>
-            <Text style={styles.textStyle}>Bio:</Text>
-            <TextInput
-              placeholder={currentLoggedInUser.info}
-              defaultValue={currentLoggedInUser.info}
-              multiline={true}
-              autoCapitalize="none"
-              onChangeText={setInfo}
-              value={info}
-              style={[styles.textInput, { height: 100 }]}
-              //onSubmitEditing={Keyboard.dismiss}
-            />
-          </View>
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={handleChange}
-            style={[styles.button, { marginBottom: 200 }]}
-          >
-            {loading ? (
-              <ActivityIndicator />
-            ) : (
-              <Text style={styles.buttonText}>Save</Text>
-            )}
+              <Image
+                style={styles.plusIcon}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
+                }}
+              />
+            </View>
           </TouchableOpacity>
+
+          {/* INPUTS */}
+          <View style={{ marginHorizontal: 10 }}>
+            <View style={{ marginHorizontal: 30 }}>
+              <Text style={styles.textStyle}>Your Full name:</Text>
+              <TextInput
+                placeholder={currentLoggedInUser.fullname}
+                defaultValue={currentLoggedInUser.fullname}
+                //autoFocus={true}
+                //autoCapitalize="none"
+                onChangeText={setFullname}
+                value={fullname}
+                style={styles.textInput}
+              />
+            </View>
+
+            <View style={{ marginHorizontal: 30 }}>
+              <Text style={styles.textStyle}>Current country:</Text>
+              <TextInput
+                placeholder={currentLoggedInUser.country}
+                defaultValue={currentLoggedInUser.country}
+                onChangeText={setCountry}
+                value={country}
+                style={styles.textInput}
+              />
+            </View>
+
+            <View style={{ marginHorizontal: 30 }}>
+              <Text style={styles.textStyle}>Current city:</Text>
+              <TextInput
+                placeholder={currentLoggedInUser.city}
+                defaultValue={currentLoggedInUser.city}
+                onChangeText={setCity}
+                value={city}
+                style={styles.textInput}
+              />
+            </View>
+
+            <View style={{ marginHorizontal: 30 }}>
+              <Text style={styles.textStyle}>Bio:</Text>
+              <TextInput
+                placeholder={currentLoggedInUser.info}
+                defaultValue={currentLoggedInUser.info}
+                multiline={true}
+                autoCapitalize="none"
+                onChangeText={setInfo}
+                value={info}
+                style={[styles.textInput, { height: 100 }]}
+                //onSubmitEditing={Keyboard.dismiss}
+              />
+            </View>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={handleChange}
+              style={[styles.button, { marginBottom: 200 }]}
+            >
+              {loading ? (
+                <ActivityIndicator />
+              ) : (
+                <Text style={styles.buttonText}>Save</Text>
+              )}
+            </TouchableOpacity>
+          </View>
         </View>
+      </ScrollView>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-    </ScrollView>
-    <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
     </View>
   );
 };

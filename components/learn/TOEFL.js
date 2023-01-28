@@ -23,11 +23,12 @@ const adUnitId = __DEV__
 const TOEFL = () => {
   return (
     <ScrollView>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       {/* /////////////// Reading ////////////////// */}
 
       <View style={styles.content}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-
         <Text style={styles.contentHeadingMain}>Reading (54-72 minutes)</Text>
         <Divider bold={true} />
 
@@ -119,7 +120,7 @@ const TOEFL = () => {
         <Divider bold={true} />
 
         {/* ////////////////// Listening /////////////////// */}
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
         <Text style={styles.contentHeadingMain}>Listening (41-57 minutes)</Text>
@@ -243,7 +244,7 @@ const TOEFL = () => {
         <Divider bold={true} />
 
         {/* //////////////// Speaking //////////////// */}
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
@@ -311,7 +312,7 @@ const TOEFL = () => {
         </View>
 
         {/* //////////////// Writing //////////////// */}
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
@@ -357,7 +358,9 @@ const TOEFL = () => {
         </View>
       </View>
 
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
     </ScrollView>
   );
 };

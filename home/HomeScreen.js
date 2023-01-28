@@ -128,7 +128,10 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          </View>
+
           {/* Useful articles section */}
           <View style={styles.highlightsContainer}>
             <View
@@ -180,8 +183,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
             </ScrollView>
             <View style={{ margin: 20 }}></View>
           </View>
-
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+          </View>
 
           {/* video section */}
           {/* <Text style={styles.headingText}>Videos</Text> */}
@@ -212,12 +216,13 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <Tools4Home navigation={navigation} />
             <View style={{ margin: 15 }}></View>
           </View>
-
-          {/* <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} /> */}
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
 
           {/* News section */}
 
-          <View>
+          <View style={{ marginBottom: 50 }}>
             <NewsPostScreen />
             {/* {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />

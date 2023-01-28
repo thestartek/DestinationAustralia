@@ -51,10 +51,11 @@ const IELTS = () => {
 
   return (
     <ScrollView>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       {/* /////////////// Listening ////////////////// */}
       <View style={styles.content}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-
         <Text style={styles.contentHeadingMain}>Listening (30 minutes)</Text>
         <Divider bold={true} />
 
@@ -169,7 +170,7 @@ const IELTS = () => {
               case, they should read the question carefully to check how many
               answers are required.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -195,7 +196,7 @@ const IELTS = () => {
             <Text style={styles.contentText}>
               - The set of options may be criteria of some kind.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -225,7 +226,7 @@ const IELTS = () => {
               - The answers are usually selected from a list on the question
               paper.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -269,7 +270,7 @@ const IELTS = () => {
               more than the stated number of words, and test takers should check
               this word limit carefully for each task.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -301,7 +302,7 @@ const IELTS = () => {
               more than the stated number of words, and test takers should check
               this word limit carefully for each task.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -335,7 +336,7 @@ const IELTS = () => {
               - Sometimes test takers are given a question which asks them to
               list two or three points.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -345,7 +346,7 @@ const IELTS = () => {
 
         {/* ////////////////// Reading /////////////////// */}
 
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
@@ -470,7 +471,7 @@ const IELTS = () => {
               complete it from the options, or could involve complete questions;
               with the test takers choosing the option which best answers them.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -504,7 +505,7 @@ const IELTS = () => {
               neither confirmed nor contradicted by the information in the
               passage.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -537,7 +538,7 @@ const IELTS = () => {
               explicitly disagree with the statement; 'not given' means that the
               view or claim is neither confirmed nor contradicted.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -575,7 +576,7 @@ const IELTS = () => {
               paragraph/section. When this is the case, they will be told that
               they can use any letter more than once.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -609,7 +610,7 @@ const IELTS = () => {
               the task. One or more paragraphs or sections may already be
               matched with a heading as an example for test takers.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -641,7 +642,7 @@ const IELTS = () => {
               than once. The instructions will inform test takers if options may
               be used more than once.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -673,7 +674,7 @@ const IELTS = () => {
               passage: that is, the answer to the first question in this group
               will be found before the answer to the second question, and so on.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -708,7 +709,7 @@ const IELTS = () => {
               passage: that is, the answer to the first question in this group
               will be found before the answer to the second question, and so on.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -754,7 +755,7 @@ const IELTS = () => {
               asked either to select words from the text or to select from a
               list of answers.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -789,7 +790,7 @@ const IELTS = () => {
               However, they will usually come from one section rather than the
               entire text.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -830,7 +831,7 @@ const IELTS = () => {
               are not tested. Hyphenated words count as single words. The
               questions are in the same order as the information in the text.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -839,7 +840,7 @@ const IELTS = () => {
         <Divider bold={true} />
 
         {/* //////////////// Writing //////////////// */}
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
@@ -944,7 +945,7 @@ const IELTS = () => {
               response, or note form, etc.). They will be severely penalised for
               plagiarism (i.e. copying from another source).
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -994,7 +995,7 @@ const IELTS = () => {
               response, or note form, etc.). They will be severely penalised for
               plagiarism (i.e. copying from another source).
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -1034,7 +1035,7 @@ const IELTS = () => {
               They will be severely penalised for plagiarism (i.e. copying from
               another source).
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -1078,14 +1079,14 @@ const IELTS = () => {
               response, or note form, etc.). They will be severely penalised for
               plagiarism (i.e. copying from another source).
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
         </View>
 
         {/* //////////////// Speaking //////////////// */}
-        <View style={{ marginTop: 10 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
@@ -1166,7 +1167,7 @@ const IELTS = () => {
             <Text style={styles.contentText}>
               - Part 1 lasts for 4-5 minutes.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -1202,7 +1203,7 @@ const IELTS = () => {
             <Text style={styles.contentText}>
               - Part 2 lasts 3-4 minutes, including the preparation time.
             </Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
@@ -1227,13 +1228,15 @@ const IELTS = () => {
               and, where appropriate, in greater depth.
             </Text>
             <Text style={styles.contentText}>- Part 3 lasts 4-5 minutes.</Text>
-            <View style={{ marginVertical: 5 }}>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
               <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
             </View>
           </Collapsible>
         </View>
       </View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
     </ScrollView>
   );
 };

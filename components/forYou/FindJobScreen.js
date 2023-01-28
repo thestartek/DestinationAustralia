@@ -27,7 +27,10 @@ const FindJobScreen = () => {
   return (
     <View>
       <ScrollView style={styles.container}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
+
         <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
           <Image
             style={styles.imageStyle}
@@ -52,7 +55,9 @@ const FindJobScreen = () => {
             qualifications required, and the average salary for different
             positions.
           </Text>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
           <Text style={styles.text}>
             <Text style={styles.boldText}>
               {"    "}2. Network {"\n"}
@@ -84,7 +89,9 @@ const FindJobScreen = () => {
             study, which can be a great way to gain work experience and make
             connections.
           </Text>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+          </View>
 
           <Text style={styles.text}>
             <Text style={styles.boldText}>
@@ -104,7 +111,9 @@ const FindJobScreen = () => {
             application online through the employer's website or through a job
             search website.
           </Text>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
           <Text style={styles.text}>
             Some of the top job seeking sites in Australia are:{" "}
             <Text>{textLink("Seek", "https://www.seek.com.au/")}</Text>,{" "}
@@ -133,7 +142,9 @@ const FindJobScreen = () => {
             job in Australia as an international student.
           </Text>
         </View>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
       </ScrollView>
     </View>
   );

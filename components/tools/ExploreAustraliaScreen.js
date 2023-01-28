@@ -50,7 +50,9 @@ const ExploreAustraliaScreen = () => {
 
   return (
     <View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <ScrollView>
         <Text
           style={{ fontSize: 26, marginHorizontal: 20, marginVertical: 20 }}
@@ -461,7 +463,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 23%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
 
               <Image
                 source={{
@@ -489,8 +493,10 @@ const ExploreAustraliaScreen = () => {
                   Explore more
                 </Text>
               </TouchableOpacity>
+              <View style={{ alignItems: "center", marginBottom: 50 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+              </View>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
           </View>
         )}
 
@@ -512,7 +518,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 26.6%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NSW.png?alt=media&token=48bb9b76-3071-4b96-a857-8dc11cc5e760",
@@ -540,7 +548,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -562,7 +572,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 27.6%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_VIC.png?alt=media&token=e47b7971-dd50-4a8b-8078-5e2d9d42856c",
@@ -589,7 +601,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -613,7 +627,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 13.2%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_QLD.png?alt=media&token=362b755e-205b-456f-b5db-b572a48c3060",
@@ -640,7 +656,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -660,7 +678,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 17.8%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
 
               <Image
                 source={{
@@ -688,7 +708,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -712,7 +734,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 18.4%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_WA.png?alt=media&token=9739fafb-bb79-411f-ab95-e5ffceceb71d",
@@ -739,7 +763,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -778,7 +804,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -800,7 +828,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 8.7%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_TAS.png?alt=media&token=80e79515-9d82-4813-8990-ad528f414b3f",
@@ -827,7 +857,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
 
@@ -851,7 +883,9 @@ const ExploreAustraliaScreen = () => {
               <Text style={styles.detailsText}>
                 People speaking non-English language at home: 32.4%
               </Text>
-              <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+              </View>
               <Image
                 source={{
                   uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/data%2FmajorCities_NT.png?alt=media&token=88690b01-d174-4751-a0d2-6c39ee9d6298",
@@ -878,7 +912,9 @@ const ExploreAustraliaScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <View style={{ alignItems: "center", marginBottom: 50 }}>
+              <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            </View>
           </View>
         )}
       </ScrollView>

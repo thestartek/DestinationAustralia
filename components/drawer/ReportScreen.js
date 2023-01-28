@@ -60,7 +60,9 @@ const ContactScreen = () => {
 
   return (
     <View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.headerText}>
@@ -123,8 +125,10 @@ const ContactScreen = () => {
             </View>
           )}
         </View>
+        <View style={{ alignItems: "center", marginBottom: 60, marginTop: 40 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </View>
   );
 };

@@ -2,7 +2,7 @@ import {
   ScrollView,
   StyleSheet,
   SafeAreaView,
-  RefreshControl,
+  RefreshControl, View
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Post from "./Post.js";
@@ -54,7 +54,9 @@ const PostScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Divider />
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       {/* <PostHeader /> */}
       <ScrollView
         refreshControl={

@@ -40,8 +40,10 @@ const ForYouScreen = ({ navigation }) => {
             <BeforeAus navigation={navigation} />
           </View>
         </View>
+        <View style={{ alignItems: "center", marginTop: 20 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </View>
   );
 };

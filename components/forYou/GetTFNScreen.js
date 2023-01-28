@@ -33,7 +33,9 @@ const textLink = (name, link) => {
 const GetTFNScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
         <Image
           style={styles.imageStyle}
@@ -50,7 +52,9 @@ const GetTFNScreen = () => {
           operate a business or work as a sole trader (some employers also
           prefer to pay in ABN). Here are the steps for obtaining each:
         </Text>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Tax File Number (TFN){"\n"}
@@ -72,7 +76,9 @@ const GetTFNScreen = () => {
             <Text style={styles.buttonText}>Get you TFN</Text>
           </TouchableOpacity>
         </View>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Australian Business Number (ABN){"\n"}
@@ -93,7 +99,9 @@ const GetTFNScreen = () => {
             <Text style={styles.buttonText}>Get you ABN</Text>
           </TouchableOpacity>
         </View>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Superannuation{"\n"}
@@ -125,7 +133,9 @@ const GetTFNScreen = () => {
           ensure that you are eligible and understand the requirements.
         </Text>
       </View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
     </ScrollView>
   );
 };

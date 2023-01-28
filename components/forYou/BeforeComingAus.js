@@ -40,7 +40,9 @@ const BeforeComingAus = ({ navigation }) => {
   };
   return (
     <ScrollView style={styles.container}>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
         <Image
           style={styles.imageStyle}
@@ -77,7 +79,9 @@ const BeforeComingAus = ({ navigation }) => {
             <Text style={styles.buttonText}>Calculate cost of living</Text>
           </TouchableOpacity>
         </View>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Climate{"\n"}
@@ -101,7 +105,9 @@ const BeforeComingAus = ({ navigation }) => {
           If you plan to work while in Australia, research the job market and
           understand the laws and regulations related to working in the country.
         </Text>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Transport{"\n"}
@@ -129,7 +135,9 @@ const BeforeComingAus = ({ navigation }) => {
           responsibilities of living in Australia.
         </Text>
       </View>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        </View>
     </ScrollView>
   );
 };

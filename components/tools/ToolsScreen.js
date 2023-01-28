@@ -22,7 +22,9 @@ const adUnitId = __DEV__
 const ToolsScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.outerContainer}>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center", marginBottom: 20 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <View style={styles.mainContainer}>
         <PrPointsCalculator navigation={navigation} />
         <ExploreAustralia navigation={navigation} />
@@ -37,7 +39,7 @@ const ToolsScreen = ({ navigation }) => {
 
       {/* Third Row */}
       {/* /////////////////////////////// */}
-      <View style={{alignItems: 'center'}}>
+      <View style={{ alignItems: "center" }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
       </View>
     </ScrollView>

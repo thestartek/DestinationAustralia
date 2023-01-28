@@ -34,7 +34,10 @@ const NewsPostScreen = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+
       <View
         style={{
           backgroundColor: "white",
@@ -48,6 +51,9 @@ const NewsPostScreen = ({ navigation }) => {
       {newsposts.map((newspost, index) => (
         <NewsPost newspost={newspost} key={index} navigation={navigation} />
       ))}
+      <View style={{ alignItems: "center", marginBottom: 100, marginTop: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </ScrollView>
   );
 };

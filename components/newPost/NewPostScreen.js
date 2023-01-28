@@ -41,6 +41,9 @@ const NewPostScreen = ({ navigation }) => {
   }, []);
   return (
     <ScrollView>
+      {/* <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View> */}
       <View
         style={{
           flexDirection: "row",
@@ -49,7 +52,6 @@ const NewPostScreen = ({ navigation }) => {
           marginTop: 10,
         }}
       >
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <View>
           {!currentLoggedInUser.profile_picture ? (
             <Image
@@ -68,16 +70,10 @@ const NewPostScreen = ({ navigation }) => {
 
         <View>
           {!currentLoggedInUser.fullname ? (
-            <Text>Your Name</Text>
+            <Text style={styles.headerText}>Your Name</Text>
           ) : (
             <Text
-              style={{
-                marginLeft: 10,
-                marginBottom: 5,
-                fontWeight: "bold",
-                fontSize: 16,
-                color: "#1267E9",
-              }}
+              style={styles.headerText}
             >
               {currentLoggedInUser.fullname}
             </Text>
@@ -85,7 +81,7 @@ const NewPostScreen = ({ navigation }) => {
         </View>
       </View>
       <AddNewPost navigation={navigation} />
-      <View style={{alignItems: 'center'}}>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
       </View>
     </ScrollView>
@@ -107,9 +103,11 @@ const styles = StyleSheet.create({
     color: "#1267E9",
   },
   headerText: {
-    fontSize: 18,
-    marginBottom: 10,
-    fontWeight: "500",
+    marginLeft: 10,
+    marginBottom: 5,
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#1267E9",
   },
   profileImage: {
     width: 40,

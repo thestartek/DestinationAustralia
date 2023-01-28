@@ -25,8 +25,9 @@ const adUnitId = __DEV__
 const LearnScreen = ({ navigation }) => {
   return (
     <View>
-      <Divider bold={true} />
-      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <ScrollView>
         <View style={{ margin: 5 }}></View>
         <View style={styles.learnContainer}>
