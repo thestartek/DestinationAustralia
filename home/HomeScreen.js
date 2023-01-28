@@ -118,7 +118,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
       <Header navigation={navigation} />
 
       <View style={styles.outerContainer}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        {/* <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} /> */}
         {/* Banners */}
         <BannerHome_linkedtoApp navigation={navigation} />
         <BannerHome_linkedtoWeb navigation={navigation} />
@@ -128,6 +128,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           {/* Useful articles section */}
           <View style={styles.highlightsContainer}>
             <View
@@ -212,19 +213,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <View style={{ margin: 15 }}></View>
           </View>
 
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          {/* <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} /> */}
 
           {/* News section */}
-          <View
-            style={{
-              backgroundColor: "white",
-              marginBottom: -5,
-              marginTop: 5,
-              padding: 5,
-            }}
-          >
-            <Text style={styles.headingText}>Latest News</Text>
-          </View>
 
           <View>
             <NewsPostScreen />

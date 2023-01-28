@@ -57,12 +57,9 @@ const LearnScreen = ({ navigation }) => {
         </View>
 
         {/* ///////// Videos /////// */}
-        <View style={{ margin: 18 }}></View>
+        {/* <View style={{ margin: 18 }}></View> */}
         <Divider style={{ height: 8 }} />
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        <View>
-          <Text style={styles.mainHeader}>Useful videos for you</Text>
-        </View>
+        
         <VideoScreen />
       </ScrollView>
     </View>

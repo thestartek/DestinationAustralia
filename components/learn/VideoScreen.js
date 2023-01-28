@@ -44,13 +44,16 @@ const VideoScreen = ({ navigation }) => {
     <View>
       <ScrollView>
         {/* ///////// Videos /////// */}
-        <View style={{ margin: 5 }}></View>
-
+        {/* <View style={{ margin: 5 }}></View> */}
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <View>
+          <Text style={styles.mainHeader}>Useful videos for you</Text>
+        </View>
         {videos.map((video, index) => (
           <Video video={video} key={index} navigation={navigation} />
         ))}
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </ScrollView>
-      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </View>
   );
 };

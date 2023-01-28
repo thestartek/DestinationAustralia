@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "DestinationAustralia",
+    "name": "Destination Australia",
     "slug": "journeytoaustralia",
     "version": "2.0.0",
     "notification": {
@@ -64,5 +64,5 @@
   "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-8686062104433125~2575371498"
   },
-  "name": "DestinationAustralia"
+  "name": "Destination Australia"
 }

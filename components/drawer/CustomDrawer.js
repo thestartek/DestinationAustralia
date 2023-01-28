@@ -29,10 +29,11 @@ const CustomDrawer = (props) => {
   return (
     <DrawerContentScrollView {...props} style={styles.outerContainer}>
       <View style={styles.headerContainer}>
-        <Image
+        {/* <Image
           style={styles.headerImage}
           source={require("../../assets/appIcon_transparent.png")}
-        />
+        /> */}
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       <View style={styles.bodyContainer}>
         <DrawerItemList {...props} />
@@ -103,7 +104,7 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginBottom: 50 }}>Version 2.0.0</Text>
+        <Text style={{ marginBottom: 20 }}>Version 2.0.0</Text>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
 
