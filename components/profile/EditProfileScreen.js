@@ -19,6 +19,16 @@ import {
 } from "firebase/storage";
 import { ActivityIndicator } from "react-native-paper";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const ThumbnailImage = () => (
   <Image
     style={[styles.profilePic, { tintColor: "grey" }]}
@@ -124,6 +134,7 @@ const EditProfileScreen = ({ navigation }) => {
   };
 
   return (
+    <View>
     <ScrollView>
       <View style={styles.innerContainer}>
         <TouchableOpacity onPress={pickImage}>
@@ -218,6 +229,8 @@ const EditProfileScreen = ({ navigation }) => {
         </View>
       </View>
     </ScrollView>
+    <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+    </View>
   );
 };
 

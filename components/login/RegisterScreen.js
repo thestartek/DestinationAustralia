@@ -22,6 +22,16 @@ import {
   uploadBytes,
 } from "firebase/storage";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const ThumbnailImage = () => (
   <Image
     style={[styles.profilePic, { tintColor: "grey" }]}
@@ -149,69 +159,70 @@ const RegisterScreen = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View
-        // behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.innerContainer}
-      >
-        <TouchableOpacity onPress={pickImage}>
-          <View style={styles.photoSection}>
-            {image ? (
-              <Image source={{ uri: image }} style={styles.profilePic} />
-            ) : (
-              <ThumbnailImage />
-            )}
+    <View>
+      <ScrollView>
+        <View
+          // behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.innerContainer}
+        >
+          <TouchableOpacity onPress={pickImage}>
+            <View style={styles.photoSection}>
+              {image ? (
+                <Image source={{ uri: image }} style={styles.profilePic} />
+              ) : (
+                <ThumbnailImage />
+              )}
 
-            <Image
-              style={styles.plusIcon}
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
-              }}
-            />
-          </View>
-        </TouchableOpacity>
+              <Image
+                style={styles.plusIcon}
+                source={{
+                  uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplusIcon.png?alt=media&token=0708de8d-6ae2-4ce9-adcf-4421c8351b47",
+                }}
+              />
+            </View>
+          </TouchableOpacity>
 
-        {/* INPUTS */}
-        <View>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Full Name"
-              //autoFocus={true}
-              value={fullname}
-              //autoCapitalize="none"
-              onChangeText={(text) => setFullname(text)}
-              style={styles.textInput}
-              //returnKeyType = {'next'}
-            />
-          </View>
+          {/* INPUTS */}
+          <View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AstrikIcon />
+              <TextInput
+                placeholder="Full Name"
+                //autoFocus={true}
+                value={fullname}
+                //autoCapitalize="none"
+                onChangeText={(text) => setFullname(text)}
+                style={styles.textInput}
+                //returnKeyType = {'next'}
+              />
+            </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Email address"
-              autoCapitalize="none"
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-              style={styles.textInput}
-            />
-          </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AstrikIcon />
+              <TextInput
+                placeholder="Email address"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+                style={styles.textInput}
+              />
+            </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Password"
-              value={password}
-              autoCapitalize="none"
-              onChangeText={(text) => setPassword(text)}
-              style={styles.textInput}
-              secureTextEntry
-            />
-          </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AstrikIcon />
+              <TextInput
+                placeholder="Password"
+                value={password}
+                autoCapitalize="none"
+                onChangeText={(text) => setPassword(text)}
+                style={styles.textInput}
+                secureTextEntry
+              />
+            </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            {/* {country ? (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AstrikIcon />
+              {/* {country ? (
               <View
                 style={[
                   styles.textInput,
@@ -235,133 +246,135 @@ const RegisterScreen = ({ navigation }) => {
               </View>
             )} */}
 
-            <TextInput
-              placeholder="Current country"
-              value={country}
-              onChangeText={(text) => setCountry(text)}
-              style={styles.textInput}
-            />
-          </View>
+              <TextInput
+                placeholder="Current country"
+                value={country}
+                onChangeText={(text) => setCountry(text)}
+                style={styles.textInput}
+              />
+            </View>
 
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <AstrikIcon />
-            <TextInput
-              placeholder="Current city"
-              value={city}
-              onChangeText={(text) => setCity(text)}
-              style={styles.textInput}
-            />
-          </View>
-
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={{ marginRight: 20 }} />
-            <TextInput
-              placeholder="Write your bio (optional)"
-              multiline={true}
-              autoCapitalize="none"
-              value={info}
-              onChangeText={(text) => setInfo(text)}
-              style={[styles.textInput, { height: 100 }]}
-              //onSubmitEditing={Keyboard.dismiss}
-            />
-          </View>
-
-          {checkBox != true ? (
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <TouchableOpacity
-                onPress={() => setCheckBox(true)}
-                style={styles.checkBoxOuter}
-              >
-                <View style={styles.checkBoxInner}></View>
-              </TouchableOpacity>
-              <Text style={{ marginHorizontal: 10, marginVertical: 10 }}>
-                I agree to Journey to Australia's {"\n"}{" "}
+              <AstrikIcon />
+              <TextInput
+                placeholder="Current city"
+                value={city}
+                onChangeText={(text) => setCity(text)}
+                style={styles.textInput}
+              />
+            </View>
+
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View style={{ marginRight: 20 }} />
+              <TextInput
+                placeholder="Write your bio (optional)"
+                multiline={true}
+                autoCapitalize="none"
+                value={info}
+                onChangeText={(text) => setInfo(text)}
+                style={[styles.textInput, { height: 100 }]}
+                //onSubmitEditing={Keyboard.dismiss}
+              />
+            </View>
+
+            {checkBox != true ? (
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <TouchableOpacity
-                  onPress={() => navigation.push("Privacy policy")}
+                  onPress={() => setCheckBox(true)}
+                  style={styles.checkBoxOuter}
                 >
-                  <Text
-                    style={{
-                      marginHorizontal: 10,
-                      marginTop: 4,
-                      color: "#1267E9",
-                      textDecorationLine: "underline",
-                    }}
-                  >
-                    Terms and Privacy Policy
-                  </Text>
+                  <View style={styles.checkBoxInner}></View>
                 </TouchableOpacity>
-              </Text>
+                <Text style={{ marginHorizontal: 10, marginVertical: 10 }}>
+                  I agree to Journey to Australia's {"\n"}{" "}
+                  <TouchableOpacity
+                    onPress={() => navigation.push("Privacy policy")}
+                  >
+                    <Text
+                      style={{
+                        marginHorizontal: 10,
+                        marginTop: 4,
+                        color: "#1267E9",
+                        textDecorationLine: "underline",
+                      }}
+                    >
+                      Terms and Privacy Policy
+                    </Text>
+                  </TouchableOpacity>
+                </Text>
+              </View>
+            ) : (
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <TouchableOpacity
+                  onPress={() => setCheckBox(false)}
+                  style={[styles.checkBoxOuter, styles.checkedBoxOuter]}
+                >
+                  <View
+                    style={[styles.checkBoxInner, styles.checkedBoxInner]}
+                  ></View>
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    marginHorizontal: 10,
+                    marginVertical: 10,
+                    color: "#1267E9",
+                  }}
+                >
+                  I agree to Journey to Australia's {"\n"}{" "}
+                  <TouchableOpacity
+                    onPress={() => navigation.push("Privacy policy")}
+                  >
+                    <Text
+                      style={{
+                        marginHorizontal: 10,
+                        marginTop: 4,
+                        color: "#1267E9",
+                        textDecorationLine: "underline",
+                      }}
+                    >
+                      Terms and Privacy Policy
+                    </Text>
+                  </TouchableOpacity>
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {fullname == null ||
+          email == null ||
+          password == null ||
+          city == null ||
+          !checkBox ? (
+            <View style={styles.buttonContainer}>
+              <View
+                style={[
+                  styles.button,
+                  styles.buttonUnselected,
+                  { marginBottom: 200 },
+                ]}
+              >
+                <Text style={styles.buttonText}>Register</Text>
+              </View>
             </View>
           ) : (
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={styles.buttonContainer}>
               <TouchableOpacity
-                onPress={() => setCheckBox(false)}
-                style={[styles.checkBoxOuter, styles.checkedBoxOuter]}
+                onPress={handleRegister}
+                style={[styles.button, { marginBottom: 200 }]}
               >
-                <View
-                  style={[styles.checkBoxInner, styles.checkedBoxInner]}
-                ></View>
+                {loading ? (
+                  <ActivityIndicator />
+                ) : (
+                  <Text style={styles.buttonText}>Register</Text>
+                )}
+                {/* <Text style={styles.buttonText}>Register</Text> */}
               </TouchableOpacity>
-              <Text
-                style={{
-                  marginHorizontal: 10,
-                  marginVertical: 10,
-                  color: "#1267E9",
-                }}
-              >
-                I agree to Journey to Australia's {"\n"}{" "}
-                <TouchableOpacity
-                  onPress={() => navigation.push("Privacy policy")}
-                >
-                  <Text
-                    style={{
-                      marginHorizontal: 10,
-                      marginTop: 4,
-                      color: "#1267E9",
-                      textDecorationLine: "underline",
-                    }}
-                  >
-                    Terms and Privacy Policy
-                  </Text>
-                </TouchableOpacity>
-              </Text>
             </View>
           )}
         </View>
-
-        {fullname == null ||
-        email == null ||
-        password == null ||
-        city == null ||
-        !checkBox ? (
-          <View style={styles.buttonContainer}>
-            <View
-              style={[
-                styles.button,
-                styles.buttonUnselected,
-                { marginBottom: 200 },
-              ]}
-            >
-              <Text style={styles.buttonText}>Register</Text>
-            </View>
-          </View>
-        ) : (
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              onPress={handleRegister}
-              style={[styles.button, { marginBottom: 200 }]}
-            >
-              {loading ? (
-                <ActivityIndicator />
-              ) : (
-                <Text style={styles.buttonText}>Register</Text>
-              )}
-              {/* <Text style={styles.buttonText}>Register</Text> */}
-            </TouchableOpacity>
-          </View>
-        )}
-      </View>
-    </ScrollView>
+      </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+    </View>
   );
 };
 

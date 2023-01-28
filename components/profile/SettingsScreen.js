@@ -4,6 +4,16 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const SettingsScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.outerContainer}>
@@ -55,6 +65,7 @@ const SettingsScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
     </ScrollView>
   );
 };

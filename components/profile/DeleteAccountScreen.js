@@ -15,6 +15,16 @@ import { db, doc, deleteDoc } from "firebase/firestore";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const DeleteAccountScreen = ({ navigation }) => {
   const [checked, setChecked] = useState(false);
 
@@ -125,6 +135,7 @@ const DeleteAccountScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </SafeAreaView>
   );
 };

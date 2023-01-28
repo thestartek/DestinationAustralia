@@ -9,6 +9,16 @@ import {
 } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const textLink = (name, link) => {
   return (
     <Text
@@ -23,6 +33,7 @@ const textLink = (name, link) => {
 const GetTFNScreen = () => {
   return (
     <ScrollView style={styles.container}>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
         <Image
           style={styles.imageStyle}
@@ -39,6 +50,7 @@ const GetTFNScreen = () => {
           operate a business or work as a sole trader (some employers also
           prefer to pay in ABN). Here are the steps for obtaining each:
         </Text>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Tax File Number (TFN){"\n"}
@@ -60,7 +72,7 @@ const GetTFNScreen = () => {
             <Text style={styles.buttonText}>Get you TFN</Text>
           </TouchableOpacity>
         </View>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Australian Business Number (ABN){"\n"}
@@ -81,7 +93,7 @@ const GetTFNScreen = () => {
             <Text style={styles.buttonText}>Get you ABN</Text>
           </TouchableOpacity>
         </View>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Superannuation{"\n"}
@@ -113,7 +125,7 @@ const GetTFNScreen = () => {
           ensure that you are eligible and understand the requirements.
         </Text>
       </View>
-      <View style={{ margin: 20 }}></View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </ScrollView>
   );
 };

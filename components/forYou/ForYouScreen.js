@@ -9,23 +9,40 @@ import {
   Dimensions,
 } from "react-native";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const windowWidth = Dimensions.get("window").width;
 
 const ForYouScreen = ({ navigation }) => {
   return (
-    <ScrollView style={styles.outerContainer}>
-      <View style={styles.innerContainer}>
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          <FindJob navigation={navigation} />
-          <RentHouse navigation={navigation} />
-        </View>
+    <View>
+      <ScrollView style={styles.outerContainer}>
+        <View style={styles.innerContainer}>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-around" }}
+          >
+            <FindJob navigation={navigation} />
+            <RentHouse navigation={navigation} />
+          </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          <GetTFN navigation={navigation} />
-          <BeforeAus navigation={navigation} />
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-around" }}
+          >
+            <GetTFN navigation={navigation} />
+            <BeforeAus navigation={navigation} />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+    </View>
   );
 };
 

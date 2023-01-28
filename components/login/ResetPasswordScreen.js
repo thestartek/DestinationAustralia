@@ -14,6 +14,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { ActivityIndicator } from "react-native-paper";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const ResetPasswordScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -80,6 +90,7 @@ const ResetPasswordScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
     </SafeAreaView>
   );
 };

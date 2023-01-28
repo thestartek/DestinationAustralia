@@ -2,6 +2,16 @@ import React from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const textLink = (name, link) => {
   return (
     <Text
@@ -16,6 +26,7 @@ const textLink = (name, link) => {
 const RentHouseScreen = () => {
   return (
     <ScrollView style={styles.container}>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
         <Image
           style={styles.imageStyle}
@@ -39,7 +50,7 @@ const RentHouseScreen = () => {
           respective universities' websites or you can directly contact student
           services on campus.
         </Text>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}2. Homestay{"\n"}
@@ -65,7 +76,7 @@ const RentHouseScreen = () => {
           can help you find a shared accommodation. Many Facebook pages and
           groups are also dedicated to help search for accommodation.
         </Text>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}4. Rental accommodation{"\n"}
@@ -98,7 +109,7 @@ const RentHouseScreen = () => {
           great places to look at.
         </Text>
       </View>
-      <View style={{margin: 20}}></View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
     </ScrollView>
   );
 };

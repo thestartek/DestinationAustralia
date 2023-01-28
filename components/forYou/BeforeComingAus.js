@@ -9,6 +9,16 @@ import {
 } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const textLink = (name, link) => {
   return (
     <Text
@@ -30,6 +40,7 @@ const BeforeComingAus = ({ navigation }) => {
   };
   return (
     <ScrollView style={styles.container}>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
         <Image
           style={styles.imageStyle}
@@ -66,7 +77,7 @@ const BeforeComingAus = ({ navigation }) => {
             <Text style={styles.buttonText}>Calculate cost of living</Text>
           </TouchableOpacity>
         </View>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Climate{"\n"}
@@ -90,7 +101,7 @@ const BeforeComingAus = ({ navigation }) => {
           If you plan to work while in Australia, research the job market and
           understand the laws and regulations related to working in the country.
         </Text>
-
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
             {"    "}Transport{"\n"}
@@ -118,7 +129,7 @@ const BeforeComingAus = ({ navigation }) => {
           responsibilities of living in Australia.
         </Text>
       </View>
-      <View style={{ margin: 20 }}></View>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </ScrollView>
   );
 };

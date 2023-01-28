@@ -14,6 +14,16 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -110,6 +120,7 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
     </SafeAreaView>
   );
 };
@@ -125,8 +136,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: 'white',
-    marginHorizontal: 10
+    backgroundColor: "white",
+    marginHorizontal: 10,
   },
 
   textInput: {
