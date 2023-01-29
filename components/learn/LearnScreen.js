@@ -58,8 +58,9 @@ const LearnScreen = ({ navigation }) => {
         </View>
 
         {/* ///////// Videos /////// */}
-        {/* <View style={{ margin: 18 }}></View> */}
+        
         <Divider style={{ height: 8 }} />
+        <View style={{ margin: 10 }}></View>
         
         <VideoScreen />
       </ScrollView>

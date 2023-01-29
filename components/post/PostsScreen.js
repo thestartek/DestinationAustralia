@@ -54,7 +54,7 @@ const PostScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Divider />
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", backgroundColor: 'white' }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
       {/* <PostHeader /> */}

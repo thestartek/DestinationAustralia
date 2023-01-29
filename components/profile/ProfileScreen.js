@@ -198,7 +198,7 @@ const ProfileScreen = ({ navigation }) => {
         </View>
 
         <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
         </View>
 
         <View style={{ backgroundColor: "white", marginBottom: -5 }}>

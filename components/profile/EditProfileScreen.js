@@ -228,10 +228,10 @@ const EditProfileScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-      </View>
     </View>
   );
 };
