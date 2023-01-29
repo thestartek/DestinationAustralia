@@ -14,6 +14,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { ActivityIndicator } from "react-native-paper";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
 const ResetPasswordScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -41,9 +51,7 @@ const ResetPasswordScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/appIcon_transparent.png?alt=media&token=b6a92da5-ff9d-4d51-9e32-3bf1b7e44801",
-            }}
+            source={require("../../assets/appIcon_transparent.png")}
             style={{ height: 100, width: 100, margin: 30 }}
           />
         </View>
@@ -82,6 +90,9 @@ const ResetPasswordScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -104,7 +115,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     borderWidth: 1.5,
-    borderColor: "lightgrey",
+    borderColor: "darkgrey",
     marginTop: 10,
     marginBottom: 5,
     width: 300,

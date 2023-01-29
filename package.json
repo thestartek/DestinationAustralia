@@ -1,6 +1,6 @@
 {
-  "name": "journeytoaustralia",
-  "version": "1.1.0",
+  "name": "destinationaustralia",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
@@ -16,6 +16,7 @@
     "@expo/config-plugins": "^5.0.2",
     "@expo/webpack-config": "^0.16.19",
     "@react-native-async-storage/async-storage": "~1.17.3",
+    "@react-native-firebase/app": "^16.5.2",
     "@react-native-masked-view/masked-view": "0.2.8",
     "@react-navigation/bottom-tabs": "^6.5.0",
     "@react-navigation/drawer": "^6.5.4",
@@ -28,12 +29,14 @@
     "@types/react-native": "~0.70.6",
     "expo": "~47.0.12",
     "expo-av": "~13.0.2",
-    "expo-dev-client": "^2.0.1",
+    "expo-dev-client": "~2.0.1",
     "expo-device": "~5.0.0",
     "expo-image-picker": "~14.0.2",
     "expo-mail-composer": "~12.0.0",
     "expo-notifications": "~0.17.0",
     "expo-server-sdk": "^3.7.0",
+    "expo-splash-screen": "~0.17.5",
+    "expo-status-bar": "~1.4.2",
     "expo-web-browser": "~12.0.0",
     "firebase": "^9.15.0",
     "package-lock-only": "^0.0.4",
@@ -44,6 +47,7 @@
     "react-native-collapsible": "^1.6.0",
     "react-native-email": "^2.1.0",
     "react-native-gesture-handler": "~2.8.0",
+    "react-native-google-mobile-ads": "^9.1.1",
     "react-native-pager-view": "6.0.1",
     "react-native-paper": "^5.0.1",
     "react-native-reanimated": "~2.12.0",
@@ -55,9 +59,7 @@
     "react-native-video": "^5.2.1",
     "react-native-web": "~0.18.9",
     "react-native-webview": "11.23.1",
-    "react-native-youtube-iframe": "^2.2.2",
-    "expo-splash-screen": "~0.17.5",
-    "expo-status-bar": "~1.4.2"
+    "react-native-youtube-iframe": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

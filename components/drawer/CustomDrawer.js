@@ -15,6 +15,15 @@ import {
 } from "@react-navigation/drawer";
 import { FontAwesome5, Entypo } from "@expo/vector-icons";
 import * as WebBrowser from "expo-web-browser";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const CustomDrawer = (props) => {
   return (
@@ -22,10 +31,9 @@ const CustomDrawer = (props) => {
       <View style={styles.headerContainer}>
         <Image
           style={styles.headerImage}
-          source={{
-            uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_Logo.png?alt=media&token=8cf55980-84e6-4e01-9e6e-6aa6213426a5",
-          }}
+          source={require("../../assets/appIcon_transparent.png")}
         />
+        {/* <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} /> */}
       </View>
       <View style={styles.bodyContainer}>
         <DrawerItemList {...props} />
@@ -96,8 +104,11 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginBottom: 50 }}>Version 1.1.0</Text>
-        <View style={{ height: 100 }}></View>
+        <Text style={{ marginBottom: 20 }}>Version 2.0.0</Text>
+        <View style={{alignItems: 'center'}}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
+        
       </View>
 
       {/* <DrawerItem

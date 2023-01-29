@@ -2,18 +2,22 @@ import {
   ScrollView,
   StyleSheet,
   SafeAreaView,
-  RefreshControl,
+  RefreshControl, View
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Post from "./Post.js";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../../Firebase";
 import { Divider } from "react-native-paper";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -50,6 +54,9 @@ const PostScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Divider />
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       {/* <PostHeader /> */}
       <ScrollView
         refreshControl={

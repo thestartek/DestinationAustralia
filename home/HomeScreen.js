@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   RefreshControl,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
@@ -25,12 +25,28 @@ import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
+import {
+  BeforeAus,
+  FindJob,
+  GetTFN,
+  RentHouse,
+} from "../components/forYou/ForYouScreen.js";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
 
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 const { width } = Dimensions.get("window");
+
+// const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeAus];
 
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -100,89 +116,120 @@ const HomeScreen = ({ isLoading, navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header navigation={navigation} />
-      <View style={{ backgroundColor: 'lightgrey'}}>
-      {/* Banners */}
-      <BannerHome_linkedtoApp navigation={navigation}/>
-      <BannerHome_linkedtoWeb navigation={navigation}/>
 
-      <ScrollView
-        style={styles.outerContainer}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        {/* Highlights section */}
-        <View style={styles.highlightsContainer}>
-          <Text style={styles.headingText}>Highlights</Text>
-          <ScrollView horizontal={true}>
-            {highlights.map((highlights, index) => (
-              <Highlights
-                highlights={highlights}
-                key={index}
-                navigation={navigation}
-              />
-            ))}
-          </ScrollView>
-        </View>
+      <View style={styles.outerContainer}>
+        {/* <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} /> */}
+        {/* Banners */}
+        <BannerHome_linkedtoApp navigation={navigation} />
+        <BannerHome_linkedtoWeb navigation={navigation} />
 
-        {/* Post section */}
-        <View style={styles.postContainer}>
-          <Text style={styles.headingText}>Latest posts</Text>
-          <ScrollView horizontal={true}>
-            {posts.map((post, index) => (
-              <Post4home post={post} key={index} navigation={navigation} />
-            ))}
-          </ScrollView>
-          <TouchableOpacity onPress={() => navigation.push("Posts")}>
-            <Text style={styles.seeMoreText}>More posts...</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* video section */}
-        {/* <Text style={styles.headingText}>Videos</Text> */}
         <ScrollView
-          horizontal={true}
-          pagingEnabled={true}
-          // ref={ScrollView}
-          snapToInterval={width - 40}
-          // snapToAlignment={"center"}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
         >
-          {videos.map((video, index) => (
-            <Video4home video={video} key={index} navigation={navigation} />
-          ))}
-        </ScrollView>
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          </View>
 
-        {/* Tools section */}
-        <View style={styles.toolsContainer}>
-          <Text style={styles.headingText}>Tools</Text>
-          {/* List tools here */}
-          <Tools4Home navigation={navigation} />
+          {/* Useful articles section */}
+          <View style={styles.highlightsContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>Useful articles</Text>
+              <TouchableOpacity onPress={() => navigation.push("For you")}>
+                <Text style={styles.seeMoreText}>See all</Text>
+              </TouchableOpacity>
+            </View>
 
-          <TouchableOpacity onPress={() => navigation.push("Tools")}>
-            <Text style={styles.seeMoreText}>More tools...</Text>
-          </TouchableOpacity>
-        </View>
+            <ScrollView horizontal={true}>
+              <FindJob navigation={navigation} />
+              <RentHouse navigation={navigation} />
+              <GetTFN navigation={navigation} />
+              <BeforeAus navigation={navigation} />
+            </ScrollView>
+            <View style={{ margin: 10 }}></View>
+          </View>
 
-        {/* News section */}
-        <View
-          style={{
-            backgroundColor: "white",
-            marginBottom: -5,
-            marginTop: 5,
-            padding: 5,
-          }}
-        >
-          <Text style={styles.headingText}>Latest News</Text>
-        </View>
+          {/* Highlights section */}
+          {/* <View style={styles.highlightsContainer}>
+            <Text style={styles.headingText}>Highlights</Text>
+            <ScrollView horizontal={true}>
+              {highlights.map((highlights, index) => (
+                <Highlights
+                  highlights={highlights}
+                  key={index}
+                  navigation={navigation}
+                />
+              ))}
+            </ScrollView>
+          </View> */}
 
-        <View>
-          <NewsPostScreen />
-          {/* {newsposts.map((newspost, index) => (
+          {/* Post section */}
+          <View style={styles.postContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>Latest posts</Text>
+              <TouchableOpacity onPress={() => navigation.push("Posts")}>
+                <Text style={styles.seeMoreText}>More posts</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView horizontal={true}>
+              {posts.map((post, index) => (
+                <Post4home post={post} key={index} navigation={navigation} />
+              ))}
+            </ScrollView>
+            <View style={{ margin: 20 }}></View>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+          </View>
+
+          {/* video section */}
+          {/* <Text style={styles.headingText}>Videos</Text> */}
+          <ScrollView
+            horizontal={true}
+            pagingEnabled={true}
+            // ref={ScrollView}
+            snapToInterval={width - 40}
+            // snapToAlignment={"center"}
+          >
+            {videos.map((video, index) => (
+              <Video4home video={video} key={index} navigation={navigation} />
+            ))}
+          </ScrollView>
+
+          {/* Tools section */}
+          <View style={styles.toolsContainer}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.headingText}>Tools</Text>
+              <TouchableOpacity onPress={() => navigation.push("Tools")}>
+                <Text style={styles.seeMoreText}>All tools</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* List tools here */}
+            <Tools4Home navigation={navigation} />
+            <View style={{ margin: 15 }}></View>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+
+          {/* News section */}
+
+          <View style={{ marginBottom: 50 }}>
+            <NewsPostScreen />
+            {/* {newsposts.map((newspost, index) => (
             <NewsPost newspost={newspost} key={index} navigation={navigation} />
           ))} */}
-        </View>
-        {/* <Divider style={{height: 5}}/> */}
-      </ScrollView>
+          </View>
+          {/* <Divider style={{height: 5}}/> */}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -191,65 +238,65 @@ const HomeScreen = ({ isLoading, navigation }) => {
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#1267E9",
-    flex: 1
+    flex: 1,
   },
   outerContainer: {
     backgroundColor: "lightgrey",
   },
   highlightsContainer: {
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10,
     marginBottom: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   postContainer: {
     borderRadius: 10,
     // marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   toolsContainer: {
     borderRadius: 10,
     marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   headingText: {
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 20,
     fontWeight: "bold",
-    fontSize: 20,
     fontWeight: "bold",
-    fontSize: 20,
-    margin: 10,
+    fontSize: 22,
   },
   seeMoreText: {
     textAlign: "center",
     color: "#1267E9",
     marginVertical: 20,
+    marginHorizontal: 10,
     fontSize: 15,
     fontWeight: "bold",
   },

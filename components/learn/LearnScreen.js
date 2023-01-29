@@ -11,25 +11,59 @@ import PTE from "./PTE";
 import IELTS from "./IELTS";
 import TOEFL from "./TOEFL";
 import VideoScreen from "./VideoScreen";
+import { AntDesign } from "@expo/vector-icons";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const LearnScreen = ({ navigation }) => {
   return (
-    <ScrollView>
-      <Divider bold={true} />
-      <Text style={styles.mainHeader}>Learning material for you</Text>
-
-      <PTE />
-      <IELTS />
-      <TOEFL />
-
-      {/* ///////// Videos /////// */}
-      <View style={{ margin: 18 }}></View>
-      <Divider style={{ height: 8 }} />
-      <View>
-        <Text style={styles.mainHeader}>Useful videos for you</Text>
+    <View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
-      <VideoScreen />
-    </ScrollView>
+      <ScrollView>
+        <View style={{ margin: 5 }}></View>
+        <View style={styles.learnContainer}>
+          <Text style={styles.mainHeader}>Learning material for you</Text>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("PTE Academic")}
+          >
+            <Text style={styles.titleText}>PTE Academic</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("IELTS")}
+          >
+            <Text style={styles.titleText}>IELTS</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.titleContainer}
+            onPress={() => navigation.push("TOEFL iBT")}
+          >
+            <Text style={styles.titleText}>TOEFL iBT</Text>
+            <AntDesign name="rightcircleo" size={24} color="white" />
+          </TouchableOpacity>
+
+          <View style={{ margin: 10 }}></View>
+        </View>
+
+        {/* ///////// Videos /////// */}
+        {/* <View style={{ margin: 18 }}></View> */}
+        <Divider style={{ height: 8 }} />
+        
+        <VideoScreen />
+      </ScrollView>
+    </View>
   );
 };
 
@@ -42,42 +76,24 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
-  header: {
+  learnContainer: {
+    backgroundColor: "white",
+    marginHorizontal: 10,
+    borderRadius: 8,
+  },
+  titleContainer: {
     backgroundColor: "#1267E9",
     padding: 12,
     marginTop: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     borderRadius: 5,
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  headerText: {
+  titleText: {
     padding: 2,
     fontSize: 16,
     fontWeight: "bold",
     color: "white",
-  },
-  content: {
-    padding: 10,
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  contentHeading: { fontSize: 16, marginTop: 10, marginBottom: 5 },
-  contentText: { margin: 5, color: "#545050" },
-  moreButton: {
-    // backgroundColor: "#1267E9",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: 42,
-    borderRadius: 10,
-    // marginVertical: 5,
-  },
-  videoContent: {
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    marginVertical: 5,
-    borderRadius: 5,
   },
 });

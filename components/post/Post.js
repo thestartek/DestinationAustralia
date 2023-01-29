@@ -1,4 +1,4 @@
-import { ScrollView, View, Text, Image, StyleSheet, Alert } from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, Alert, Dimensions } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Divider } from "react-native-paper";
 import { TouchableOpacity, Share } from "react-native";
@@ -16,6 +16,8 @@ import Comments from "./Comments";
 import AddComment from "./AddComment";
 import CommentModal from "./CommentModal";
 //import { color } from "react-native-reanimated";
+
+const windowWidth = Dimensions.get("window").width
 
 const Post = ({ post, navigation }) => {
   const [posts, setPosts] = useState([]);
@@ -62,7 +64,7 @@ const Post = ({ post, navigation }) => {
   );
 };
 
-const PostHeader = ({ post }) => {
+export const PostHeader = ({ post }) => {
   return (
     <View
       style={{ flexDirection: "row", marginVertical: 10, marginHorizontal: 10 }}
@@ -104,8 +106,8 @@ const PostHeader = ({ post }) => {
   );
 };
 
-const Caption = ({ post }) => (
-  <Text style={{ marginHorizontal: 20, marginBottom: 10, lineHeight: 20 }}>
+export const Caption = ({ post }) => (
+  <Text style={{ marginHorizontal: 20, marginBottom: 10, lineHeight: 20, maxWidth: windowWidth - 30 }}>
     {post.caption}
   </Text>
 );
@@ -123,7 +125,7 @@ const Caption = ({ post }) => (
 // <AntDesign name={onLiked} size={25} style={styles.buttonStyle} /> :
 // <AntDesign name={onLiked} size={25} style={styles.buttonStyle} />);
 
-const LikeButton = ({ post, handleLike, focused }) => {
+export const LikeButton = ({ post, handleLike, focused }) => {
   // onLiked = post.liked ? "like1" : "like2";
   const onLikedColor = post.likes.includes(auth.currentUser.email)
     ? "#1267E9"
@@ -155,7 +157,7 @@ const LikeButton = ({ post, handleLike, focused }) => {
   );
 };
 
-const CommentButton = ({ post, postId, navigation }) => {
+export const CommentButton = ({ post, postId, navigation }) => {
   //const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -179,7 +181,7 @@ const CommentButton = ({ post, postId, navigation }) => {
   );
 };
 
-const ShareButton = ({ post }) => {
+export const ShareButton = ({ post }) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -242,9 +244,9 @@ const styles = StyleSheet.create({
     // tintColor: "#3a3b3c",
   },
   profileThumbnail: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     tintColor: "grey",
   },
   timstampText: {
@@ -275,9 +277,9 @@ const styles = StyleSheet.create({
     color: "#545050",
   },
 
-  buttonStyle: (focused) => ({
-    tintColor: focused ? "red" : "grey",
-  }),
+  // buttonStyle: (focused) => ({
+  //   tintColor: focused ? "red" : "grey",
+  // }),
 
   modalView: {
     margin: 20,

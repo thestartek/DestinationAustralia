@@ -21,12 +21,20 @@ import {
 } from "react-native";
 import { Divider } from "react-native-paper";
 import Post from "../post/Post";
-import SettingsModel from "./SettingsModal";
 
 import { db, auth } from "../../Firebase";
 //import {AuthContext} from '../navigation/AuthProvider';
 
 //import firestore from '@react-native-firebase/firestore';
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const handleLogout = async () => {
   await signOut(auth)
@@ -107,78 +115,114 @@ const ProfileScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "lightgrey" }}>
-      <View
-        style={styles.container}
-        contentContainerStyle={{
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text style={styles.userName}> {currentLoggedInUser.fullname} </Text>
+    <View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <ScrollView style={{ flex: 1, backgroundColor: "lightgrey" }}>
+        <View
+          style={styles.container}
+          contentContainerStyle={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          showsVerticalScrollIndicator={false}
+        >
+          {currentLoggedInUser.fullname ? (
+            <Text style={styles.userName}>
+              {" "}
+              {currentLoggedInUser.fullname}{" "}
+            </Text>
+          ) : (
+            <Text style={styles.userName}> Your name </Text>
+          )}
 
-        {currentLoggedInUser.profile_picture ? (
-          <Image
-            style={styles.userImg}
-            source={{ uri: currentLoggedInUser.profile_picture }}
-          />
-        ) : (
-          <Image
-            style={[styles.userImg, { tintColor: "grey" }]}
-            source={{
-              Uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+          {currentLoggedInUser.profile_picture ? (
+            <Image
+              style={styles.userImg}
+              source={{ uri: currentLoggedInUser.profile_picture }}
+            />
+          ) : (
+            <Image
+              style={[styles.userImg, { tintColor: "grey" }]}
+              source={{
+                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprofileIcon.png?alt=media&token=e822d7b0-f1a7-4d58-ae70-83e1b3952026",
+              }}
+            />
+          )}
+
+          {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
+          <View style={{ flexDirection: "row" }}>
+            {currentLoggedInUser.city ? (
+              <Text style={styles.userLocation}>
+                {currentLoggedInUser.city},
+              </Text>
+            ) : (
+              <Text style={styles.userLocation}>Your city,</Text>
+            )}
+
+            {currentLoggedInUser.country ? (
+              <Text style={styles.userLocation}>
+                {" "}
+                {currentLoggedInUser.country}
+              </Text>
+            ) : (
+              <Text style={styles.userLocation}> Your country</Text>
+            )}
+          </View>
+
+          {currentLoggedInUser.info ? (
+            <Text style={styles.aboutUser}>
+              Bio: {currentLoggedInUser.info}
+            </Text>
+          ) : null}
+
+          <View style={styles.userBtnWrapper}>
+            <TouchableOpacity
+              style={[styles.userBtn, { backgroundColor: "#1267E9" }]}
+              onPress={() => navigation.push("Settings")}
+            >
+              <Text style={[styles.userBtnTxt, { color: "white" }]}>
+                Settings
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.userBtn} onPress={logoutAlert}>
+              <Text style={styles.userBtnTxt}>Log out</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* {posts.map((item) => (
+          <PostCard key={item.id} item={item} onDelete={handleDelete} />
+        ))} */}
+        </View>
+
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
+
+        <View style={{ backgroundColor: "white", marginBottom: -5 }}>
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize: 20,
+              margin: 10,
             }}
-          />
-        )}
-
-        {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
-        <View style={{ flexDirection: "row" }}>
-          <Text style={styles.userLocation}>{currentLoggedInUser.city},</Text>
-          <Text style={styles.userLocation}>
-            {" "}
-            {currentLoggedInUser.country}
+          >
+            Your posts
           </Text>
         </View>
 
-        <Text style={styles.aboutUser}>Bio: {currentLoggedInUser.info}</Text>
-
-        <View style={styles.userBtnWrapper}>
-          <SettingsModel navigation={navigation} />
-
-          <TouchableOpacity style={styles.userBtn} onPress={logoutAlert}>
-            <Text style={styles.userBtnTxt}>Log out</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* {posts.map((item) => (
-          <PostCard key={item.id} item={item} onDelete={handleDelete} />
-        ))} */}
-      </View>
-
-      <Divider width={2} />
-
-      <View style={{ backgroundColor: "white", marginBottom: -5 }}>
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 20,
-            margin: 10,
-          }}
-        >
-          Your posts
-        </Text>
-      </View>
-
-      <ScrollView>
-        {/* <View style={styles.postIcon}>
+        <ScrollView>
+          {/* <View style={styles.postIcon}>
           <Text style={styles.postText}>Posts</Text>
         </View> */}
-        {posts.map((post, index) => (
-          <Post post={post} key={index} navigation={navigation} />
-        ))}
+          {posts.map((post, index) => (
+            <Post post={post} key={index} navigation={navigation} />
+          ))}
+        </ScrollView>
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -209,7 +253,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#666",
     textAlign: "center",
-    marginHorizontal: 40,
+    // marginHorizontal: 40,
+    marginBottom: 10,
   },
   userLocation: {
     fontSize: 14,
@@ -235,46 +280,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginHorizontal: 5,
   },
-  userBtnIcon: {
-    height: 25,
-    width: 25,
-    tintColor: "#1267E9",
-  },
   userBtnTxt: {
     color: "#1267E9",
     fontWeight: "bold",
-  },
-  userInfoWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "100%",
-    marginVertical: 20,
-  },
-  userInfoItem: {
-    justifyContent: "center",
-  },
-  userInfoTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 5,
-    textAlign: "center",
-  },
-  userInfoSubTitle: {
-    fontSize: 12,
-    color: "#666",
-    textAlign: "center",
-  },
-  postIcon: {
-    marginLeft: 10,
-    marginVertical: 10,
-    backgroundColor: "darkgrey",
-    width: 70,
-    borderRadius: 12,
-  },
-  postText: {
-    padding: 5,
-    fontSize: 16,
-    marginLeft: 10,
-    color: "white",
   },
 });

@@ -1,4 +1,12 @@
-import { View, StyleSheet, Alert, Keyboard, Image, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Alert,
+  Keyboard,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { React, useEffect, useState } from "react";
 import { TextInput } from "react-native";
 
@@ -11,6 +19,15 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { ActivityIndicator } from "react-native-paper";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const AddNewPost = ({ post, navigation }) => {
   const [caption, setCaption] = useState(null);
@@ -98,6 +115,9 @@ const AddNewPost = ({ post, navigation }) => {
         style={styles.postBox}
         // contentStyle = {{justifyContent:'center', alignItems: 'center', color: 'red'}}
       />
+      <View style={{ alignItems: "center", marginTop: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
 
       {!caption ? (
         <View style={styles.postButtonDisabled}>
@@ -140,8 +160,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 16,
     backgroundColor: "white",
-    // borderWidth: 0.25,
-    // borderColor: 'gray',
+    borderWidth: 0.25,
+    borderColor: "darkgray",
     borderRadius: 8,
     padding: 5,
   },

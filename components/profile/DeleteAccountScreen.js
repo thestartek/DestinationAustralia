@@ -8,12 +8,20 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../Firebase";
-import {
-  deleteUser,
-} from "firebase/auth";
+import { deleteUser } from "firebase/auth";
 import { db, doc, deleteDoc } from "firebase/firestore";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
 
 const DeleteAccountScreen = ({ navigation }) => {
   const [checked, setChecked] = useState(false);
@@ -55,9 +63,7 @@ const DeleteAccountScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/appIcon_transparent.png?alt=media&token=b6a92da5-ff9d-4d51-9e32-3bf1b7e44801",
-            }}
+            source={require("../../assets/appIcon_transparent.png")}
             style={{ height: 100, width: 100, margin: 30 }}
           />
         </View>
@@ -127,6 +133,9 @@ const DeleteAccountScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -149,7 +158,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     borderWidth: 1.5,
-    borderColor: "lightgrey",
+    borderColor: "darkgrey",
     marginVertical: 5,
     width: 300,
   },

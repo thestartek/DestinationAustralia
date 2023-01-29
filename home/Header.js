@@ -26,7 +26,7 @@ const Header = ({ navigation }) => {
         style={{ height: 50, width: 200, transform: [{rotate: '5deg'}] }}
       /> */}
 
-      <Text style={styles.headerText}>Journey to Australia</Text>
+      <Text style={styles.headerText}>Destination Australia</Text>
 
       {/* <Image
           source={require("../../assets/logoRectangle.png")}

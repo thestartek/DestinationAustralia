@@ -56,7 +56,7 @@ const Video = ({ video }) => {
   );
 };
 
-const VideoHeader = ({ video }) => (
+export const VideoHeader = ({ video }) => (
   <View style={{ margin: 10, minHeight: 85 }}>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
@@ -82,7 +82,7 @@ const VideoHeader = ({ video }) => (
   </View>
 );
 
-const ThumbnailImage = ({ video }) => (
+export const ThumbnailImage = ({ video }) => (
   <View>
     {video.thumbnail ? (
       <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
@@ -104,7 +104,7 @@ const ThumbnailImage = ({ video }) => (
   </View>
 );
 
-const LikeButton = ({ video, handleLike, focused }) => {
+export const LikeButton = ({ video, handleLike, focused }) => {
   // onLiked = post.liked ? "like1" : "like2";
   const onLikedColor = video.likes.includes(auth.currentUser.email)
     ? "#1267E9"
@@ -134,7 +134,7 @@ const LikeButton = ({ video, handleLike, focused }) => {
   );
 };
 
-const ShareButton = ({ video }) => {
+export const ShareButton = ({ video }) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 10,
     opacity: 0.9,
+    marginRight: 5
   },
   playButton: {
     height: 50,
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     color: "#1267E9",
-    maxWidth: width - 150,
+    maxWidth: width - 170,
   },
   timstampText: {
     marginTop: 5,

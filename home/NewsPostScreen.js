@@ -1,10 +1,19 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Text, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import NewsPost from "./NewsPost.js";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
 
-const NewsPostScreen = ({navigation}) => {
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-8686062104433125/8511852168";
+
+const NewsPostScreen = ({ navigation }) => {
   const [newsposts, setNewsPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,11 +34,38 @@ const NewsPostScreen = ({navigation}) => {
 
   return (
     <ScrollView>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+
+      <View
+        style={{
+          backgroundColor: "white",
+          marginBottom: -5,
+          marginTop: 5,
+          padding: 5,
+        }}
+      >
+        <Text style={styles.headingText}>Latest News</Text>
+      </View>
       {newsposts.map((newspost, index) => (
         <NewsPost newspost={newspost} key={index} navigation={navigation} />
       ))}
+      <View style={{ alignItems: "center", marginBottom: 100, marginTop: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </ScrollView>
   );
 };
 
 export default NewsPostScreen;
+
+const styles = StyleSheet.create({
+  headingText: {
+    marginHorizontal: 10,
+    marginVertical: 20,
+    fontWeight: "bold",
+    fontWeight: "bold",
+    fontSize: 22,
+  },
+});
