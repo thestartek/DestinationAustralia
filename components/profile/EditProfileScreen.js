@@ -218,7 +218,7 @@ const EditProfileScreen = ({ navigation }) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={handleChange}
-              style={[styles.button, { marginBottom: 200 }]}
+              style={styles.button}
             >
               {loading ? (
                 <ActivityIndicator />
@@ -227,9 +227,9 @@ const EditProfileScreen = ({ navigation }) => {
               )}
             </TouchableOpacity>
           </View>
-        </View>
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          <View style={{ alignItems: "center", marginVertical: 20 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
         </View>
       </ScrollView>
     </View>

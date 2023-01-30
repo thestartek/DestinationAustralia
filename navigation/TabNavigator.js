@@ -6,7 +6,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../components/newPost/NewPostScreen";
-import LearnScreen from "../components/learn/LearnScreen";
 import PostStack from "./PostStack";
 
 import * as Device from "expo-device";
