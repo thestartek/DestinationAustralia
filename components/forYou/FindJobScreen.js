@@ -26,11 +26,10 @@ const textLink = (name, link) => {
 const FindJobScreen = () => {
   return (
     <View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <ScrollView style={styles.container}>
-        <View style={{ alignItems: "center" }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-        </View>
-
         <View style={{ marginHorizontal: 5, marginVertical: 10 }}>
           <Image
             style={styles.imageStyle}
@@ -156,8 +155,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     marginHorizontal: 10,
-    // borderBottomLeftRadius: 10,
-    // borderBottomRightRadius: 10
+    borderRadius: 8,
   },
   headingText: {
     fontSize: 20,

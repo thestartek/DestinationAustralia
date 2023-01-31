@@ -1,4 +1,11 @@
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import * as WebBrowser from "expo-web-browser";
 
@@ -19,7 +26,7 @@ const ExpenseEstimatorScreen = () => {
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
 
-      <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
+      <ScrollView style={{ marginHorizontal: 10, backgroundColor: "white" }}>
         <Text style={{ fontSize: 26, margin: 20 }}>
           Calculate the average cost of living in Australia:{" "}
         </Text>
@@ -35,10 +42,10 @@ const ExpenseEstimatorScreen = () => {
             Calculate now
           </Text>
         </TouchableOpacity>
-      </View>
-      <View style={{ alignItems: "center", marginTop: 20 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-      </View>
+        <View style={{ alignItems: "center", marginVertical: 20 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
+      </ScrollView>
     </View>
   );
 };

@@ -24,6 +24,9 @@ const windowWidth = Dimensions.get("window").width;
 const ForYouScreen = ({ navigation }) => {
   return (
     <View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <ScrollView style={styles.outerContainer}>
         <View style={styles.innerContainer}>
           <View
@@ -133,6 +136,7 @@ const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "white",
     marginHorizontal: 10,
+    borderRadius: 8,
     // alignItems: "center",
   },
   innerContainer: {

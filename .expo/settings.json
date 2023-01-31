@@ -5,6 +5,6 @@
   "minify": false,
   "urlRandomness": "eX53UfY",
   "https": false,
-  "scheme": "exp+journeytoaustralia",
+  "scheme": "org.name.journeytoaustralia",
   "devClient": false
 }

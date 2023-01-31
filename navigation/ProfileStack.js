@@ -1,11 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ProfileScreen from "../components/profile/ProfileScreen";
+// import ProfileScreen from "../components/profile/ProfileScreen";
 import EditProfileScreen from "../components/profile/EditProfileScreen";
 import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 import DeleteAccountScreen from "../components/profile/DeleteAccountScreen";
 import VerifyAccountScreen from "../components/profile/VerifyAccountScreen";
 import SettingsScreen from "../components/profile/SettingsScreen";
+import UserProfile from "../components/profile/UserProfile";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,12 +17,12 @@ const Stack = createNativeStackNavigator();
 function ProfileStack() {
   return (
     <Stack.Navigator
-      initialRouteName="ProfileScreen"
+      initialRouteName="Your profile"
       //screenOptions={{headerShown: false}}
     >
       <Stack.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
+        name="Your profile"
+        component={UserProfile}
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Edit profile" component={EditProfileScreen} />

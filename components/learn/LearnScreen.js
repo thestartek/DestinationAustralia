@@ -26,10 +26,9 @@ const LearnScreen = ({ navigation }) => {
   return (
     <View>
       <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       <ScrollView>
-        <View style={{ margin: 5 }}></View>
         <View style={styles.learnContainer}>
           <Text style={styles.mainHeader}>Learning material for you</Text>
           <TouchableOpacity
@@ -58,8 +57,9 @@ const LearnScreen = ({ navigation }) => {
         </View>
 
         {/* ///////// Videos /////// */}
-        {/* <View style={{ margin: 18 }}></View> */}
-        <Divider style={{ height: 8 }} />
+        
+        {/* <Divider style={{ height: 8 }} /> */}
+        <View style={{ margin: 10 }}></View>
         
         <VideoScreen />
       </ScrollView>

@@ -1,6 +1,12 @@
-import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
 
@@ -65,9 +71,12 @@ const SettingsScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-        </View>
+      <View style={{ alignItems: "center", marginVertical: 20 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
     </ScrollView>
   );
 };

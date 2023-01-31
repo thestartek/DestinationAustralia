@@ -341,15 +341,14 @@ const IELTS = () => {
             </View>
           </Collapsible>
         </View>
+      </View>
 
-        <Divider bold={true} />
+      {/* ////////////////// Reading /////////////////// */}
 
-        {/* ////////////////// Reading /////////////////// */}
-
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Reading (60 minutes)</Text>
 
         <Divider bold={true} />
@@ -836,14 +835,13 @@ const IELTS = () => {
             </View>
           </Collapsible>
         </View>
+      </View>
 
-        <Divider bold={true} />
-
-        {/* //////////////// Writing //////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* //////////////// Writing //////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Writing (60 minutes)</Text>
 
         <Divider bold={true} />
@@ -1084,12 +1082,13 @@ const IELTS = () => {
             </View>
           </Collapsible>
         </View>
+      </View>
 
-        {/* //////////////// Speaking //////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* //////////////// Speaking //////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Speaking (11-14 minutes)</Text>
 
         <Divider bold={true} />
@@ -1248,8 +1247,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 10,
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 8,
   },
   contentHeadingMain: {
     fontSize: 20,

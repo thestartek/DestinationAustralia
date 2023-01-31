@@ -26,7 +26,7 @@ async function sendPushNotification_Highlights(expoPushToken) {
   const message = {
     to: expoPushToken,
     sound: "default",
-    title: "Journey to Australia",
+    title: "Destination Australia",
     body: "New highlights added, check it now !",
     data: { someData: "goes here" },
   };
@@ -47,7 +47,7 @@ async function sendPushNotification_Posts(expoPushToken) {
   const message = {
     to: expoPushToken,
     sound: "default",
-    title: "Journey to Australia",
+    title: "Destination Australia",
     body: "New Posts added, check it now !",
     data: { someData: "goes here" },
   };
@@ -68,7 +68,7 @@ async function sendPushNotification_News(expoPushToken) {
   const message = {
     to: expoPushToken,
     sound: "default",
-    title: "Journey to Australia",
+    title: "Destination Australia",
     body: "Latest News added, check it now !",
     data: { someData: "goes here" },
   };
@@ -89,7 +89,7 @@ async function sendPushNotification_Videos(expoPushToken) {
   const message = {
     to: expoPushToken,
     sound: "default",
-    title: "Journey to Australia",
+    title: "Destination Australia",
     body: "New Video added, check it now !",
     data: { someData: "goes here" },
   };

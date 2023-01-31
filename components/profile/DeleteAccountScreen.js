@@ -60,14 +60,14 @@ const DeleteAccountScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{marginHorizontal: 10, backgroundColor: 'white'}}>
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/appIcon_transparent.png")}
             style={{ height: 100, width: 100, margin: 30 }}
           />
         </View>
-        <View>
+        <View style={{marginHorizontal: 10}}>
           <Text
             style={{
               color: "#1267E9",
@@ -98,7 +98,7 @@ const DeleteAccountScreen = ({ navigation }) => {
             >
               <View style={styles.checkButtonInner}></View>
             </TouchableOpacity>
-            <Text style={{ marginLeft: 10, color: "#1267E9" }}>I agree</Text>
+            <Text style={{ marginLeft: 20, color: "#1267E9" }}>I agree</Text>
           </View>
         ) : (
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -111,7 +111,7 @@ const DeleteAccountScreen = ({ navigation }) => {
               ></View>
             </TouchableOpacity>
             <Text
-              style={{ marginLeft: 10, color: "#1267E9", fontWeight: "bold" }}
+              style={{ marginLeft: 20, color: "#1267E9", fontWeight: "bold" }}
             >
               I agree
             </Text>
@@ -132,10 +132,10 @@ const DeleteAccountScreen = ({ navigation }) => {
             </TouchableOpacity>
           )}
         </View>
+        <View style={{ alignItems: "center", marginVertical: 20 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-      </View>
     </SafeAreaView>
   );
 };
@@ -150,17 +150,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    marginHorizontal: 25,
-  },
-
-  textInput: {
-    backgroundColor: "white",
-    padding: 12,
-    borderRadius: 10,
-    borderWidth: 1.5,
-    borderColor: "darkgrey",
-    marginVertical: 5,
-    width: 300,
   },
   checkButtonOuter: {
     height: 24,
@@ -170,7 +159,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 10,
+    marginLeft: 20,
   },
   checkButtonInner: {
     height: 15,

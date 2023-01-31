@@ -15,17 +15,14 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  ScrollView,
   SafeAreaView,
   Alert,
+  ScrollView,
 } from "react-native";
-import { Divider } from "react-native-paper";
 import Post from "../post/Post";
 
 import { db, auth } from "../../Firebase";
-//import {AuthContext} from '../navigation/AuthProvider';
 
-//import firestore from '@react-native-firebase/firestore';
 import {
   BannerAd,
   BannerAdSize,
@@ -47,7 +44,7 @@ const handleLogout = async () => {
     });
 };
 
-const ProfileScreen = ({ navigation }) => {
+const UserProfile = ({ navigation }) => {
   // const {user, logout} = useContext(AuthContext);
 
   const [posts, setPosts] = useState([]);
@@ -91,11 +88,12 @@ const ProfileScreen = ({ navigation }) => {
     return unsubscribe;
   };
 
-  useEffect(() => {
-    getUserDetails();
-  }, []);
+  // useEffect(() => {
+  //   getUserDetails();
+  // }, []);
 
   useEffect(() => {
+    getUserDetails();
     const unsub = onSnapshot(
       query(
         collection(db, "posts"),
@@ -116,18 +114,11 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <View>
-      <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-      </View>
-      <ScrollView style={{ flex: 1, backgroundColor: "lightgrey" }}>
-        <View
-          style={styles.container}
-          contentContainerStyle={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          showsVerticalScrollIndicator={false}
-        >
+      <ScrollView>
+        <View style={{ alignItems: "center" }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
+        <View style={styles.container}>
           {currentLoggedInUser.fullname ? (
             <Text style={styles.userName}>
               {" "}
@@ -191,14 +182,10 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={styles.userBtnTxt}>Log out</Text>
             </TouchableOpacity>
           </View>
-
-          {/* {posts.map((item) => (
-          <PostCard key={item.id} item={item} onDelete={handleDelete} />
-        ))} */}
         </View>
 
         <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
 
         <View style={{ backgroundColor: "white", marginBottom: -5 }}>
@@ -213,20 +200,17 @@ const ProfileScreen = ({ navigation }) => {
           </Text>
         </View>
 
-        <ScrollView>
-          {/* <View style={styles.postIcon}>
-          <Text style={styles.postText}>Posts</Text>
-        </View> */}
+        <View style={{ marginBottom: 50 }}>
           {posts.map((post, index) => (
             <Post post={post} key={index} navigation={navigation} />
           ))}
-        </ScrollView>
+        </View>
       </ScrollView>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default UserProfile;
 
 const styles = StyleSheet.create({
   container: {
@@ -234,6 +218,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 20,
     alignItems: "center",
+    justifyContent: "center",
   },
   userImg: {
     height: 100,

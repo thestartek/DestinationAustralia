@@ -24,7 +24,7 @@ const TOEFL = () => {
   return (
     <ScrollView>
       <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       {/* /////////////// Reading ////////////////// */}
 
@@ -116,13 +116,13 @@ const TOEFL = () => {
           </TouchableOpacity>
           <Divider bold={true} />
         </View>
+      </View>
 
-        <Divider bold={true} />
-
-        {/* ////////////////// Listening /////////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
+      {/* ////////////////// Listening /////////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Listening (41-57 minutes)</Text>
 
         <Divider bold={true} />
@@ -240,14 +240,13 @@ const TOEFL = () => {
           </TouchableOpacity>
           <Divider bold={true} />
         </View>
+      </View>
 
-        <Divider bold={true} />
-
-        {/* //////////////// Speaking //////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* //////////////// Speaking //////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Speaking (17 minutes)</Text>
 
         <Divider bold={true} />
@@ -308,14 +307,15 @@ const TOEFL = () => {
               Questions 3 and 4: Integrated Speaking
             </Text>
           </TouchableOpacity>
-          <Divider bold={true} />
+          {/* <Divider bold={true} /> */}
         </View>
+      </View>
 
-        {/* //////////////// Writing //////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* //////////////// Writing //////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Writing (50 minutes)</Text>
 
         <Divider bold={true} />
@@ -359,7 +359,7 @@ const TOEFL = () => {
       </View>
 
       <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
     </ScrollView>
   );
@@ -372,8 +372,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 10,
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 8,
   },
   contentHeadingMain: {
     fontSize: 20,

@@ -42,12 +42,13 @@ const VideoScreen = ({ navigation }) => {
 
   return (
     <View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <ScrollView>
         {/* ///////// Videos /////// */}
         {/* <View style={{ margin: 5 }}></View> */}
-        <View style={{ alignItems: "center" }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
+
         <View>
           <Text style={styles.mainHeader}>Useful videos for you</Text>
         </View>

@@ -11,6 +11,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
 import Post4home from "./Post4home.js";
+// import * as Analytics from "expo-firebase-analytics";
 import {
   collection,
   onSnapshot,
@@ -216,8 +217,8 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <Tools4Home navigation={navigation} />
             <View style={{ margin: 15 }}></View>
           </View>
-          <View style={{ alignItems: "center" }}>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          <View style={{ alignItems: "center", marginBottom: 10 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 
           {/* News section */}

@@ -51,7 +51,7 @@ const VerifyAccountScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{ marginHorizontal: 10, backgroundColor: "white" }}>
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/appIcon_transparent.png")}
@@ -91,10 +91,10 @@ const VerifyAccountScreen = ({ navigation }) => {
             <Text style={styles.buttonText}>Verify</Text>
           </TouchableOpacity>
         </View>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-      </View>
     </SafeAreaView>
   );
 };

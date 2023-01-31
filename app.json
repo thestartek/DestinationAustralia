@@ -2,7 +2,7 @@
   "expo": {
     "name": "Destination Australia",
     "slug": "journeytoaustralia",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "notification": {
       "icon": "./assets/appIcon_transparent.png"
     },
@@ -53,6 +53,14 @@
       },
       "googleServicesFile": "./google-services.json",
       "package": "org.name.journeytoaustralia"
+    },
+    "web": {
+      "config": {
+        "firebase": {
+          "apiKey": "AIzaSyCMaVLSMXRA154XwsnxKnrOWKxfHixcdP4",
+          "measurementId": "G-8W70ZET86M"
+        }
+      }
     },
     "extra": {
       "eas": {

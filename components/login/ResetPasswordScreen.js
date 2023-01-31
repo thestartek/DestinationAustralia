@@ -47,8 +47,8 @@ const ResetPasswordScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <View style={styles.container}>
+      <ScrollView >
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/appIcon_transparent.png")}
@@ -89,11 +89,11 @@ const ResetPasswordScreen = ({ navigation }) => {
             </TouchableOpacity>
           )}
         </View>
+        <View style={{ alignItems: "center", marginVertical: 40 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-      </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

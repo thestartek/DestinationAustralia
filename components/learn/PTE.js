@@ -50,7 +50,7 @@ const PTE = () => {
     <ScrollView>
       {/* /////////////// Speaking and Writing ////////////////// */}
       <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>
@@ -494,12 +494,13 @@ const PTE = () => {
             {/* <View style={{ marginVertical: -40 }}></View> */}
           </Collapsible>
         </View>
+      </View>
 
-        {/* ////////////////// Reading /////////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* ////////////////// Reading /////////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Reading (29-30 minutes)</Text>
 
         <Divider bold={true} />
@@ -761,12 +762,13 @@ const PTE = () => {
             </View>
           </Collapsible>
         </View>
+      </View>
 
-        {/* //////////////// Listening //////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-        </View>
-
+      {/* //////////////// Listening //////////////// */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <View style={styles.content}>
         <Text style={styles.contentHeadingMain}>Listening (30-43 minutes)</Text>
 
         <Divider bold={true} />
@@ -1219,8 +1221,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 10,
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 8,
   },
   contentHeadingMain: {
     fontSize: 20,
