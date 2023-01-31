@@ -21,28 +21,33 @@ const adUnitId = __DEV__
 
 const ToolsScreen = ({ navigation }) => {
   return (
-    <ScrollView style={styles.outerContainer}>
-      <View style={{ alignItems: "center", marginBottom: 20 }}>
+    <View>
+      <View style={{ alignItems: "center" }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-      <View style={styles.mainContainer}>
-        <PrPointsCalculator navigation={navigation} />
-        <ExploreAustralia navigation={navigation} />
-        <UniversityFinder navigation={navigation} />
-        <ExpenseEstimator navigation={navigation} />
+      <ScrollView style={styles.outerContainer}>
+        <View style={styles.mainContainer}>
+          <PrPointsCalculator navigation={navigation} />
+          <ExploreAustralia navigation={navigation} />
+          <UniversityFinder navigation={navigation} />
+          <ExpenseEstimator navigation={navigation} />
+        </View>
+
+        {/* Second Row */}
+        {/* /////////////////////////////// */}
+
+        {/* <View style={{ margin: 20 }}></View> */}
+
+        {/* Third Row */}
+        {/* /////////////////////////////// */}
+        <View style={{ alignItems: "center", marginVertical: 40 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
+      </ScrollView>
+      <View style={{ alignItems: "center", marginTop: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-
-      {/* Second Row */}
-      {/* /////////////////////////////// */}
-
-      <View style={{ margin: 30 }}></View>
-
-      {/* Third Row */}
-      {/* /////////////////////////////// */}
-      <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-      </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -120,6 +125,7 @@ const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "white",
     marginHorizontal: 10,
+    borderRadius: 8,
   },
   mainContainer: {
     flexDirection: "row",
@@ -128,6 +134,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // backgroundColor: "white",
     marginHorizontal: 10,
+    marginVertical: 10,
   },
   innerContainer: {
     // marginHorizontal: 10,

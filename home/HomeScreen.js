@@ -128,7 +128,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <View style={{ alignItems: "center", backgroundColor: "white" }}>
+          <View style={{ alignItems: "center" }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 
@@ -183,7 +183,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             </ScrollView>
             <View style={{ margin: 20 }}></View>
           </View>
-          <View style={{ alignItems: "center", backgroundColor: 'white', marginVertical: 10 }}>
+          <View style={{ alignItems: "center" }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
           </View>
 
@@ -216,7 +216,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <Tools4Home navigation={navigation} />
             <View style={{ margin: 15 }}></View>
           </View>
-          <View style={{ alignItems: "center", backgroundColor: 'white', marginBottom: 10 }}>
+          <View style={{ alignItems: "center", marginBottom: 10 }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 

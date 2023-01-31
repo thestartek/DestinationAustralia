@@ -74,6 +74,9 @@ const SettingsScreen = ({ navigation }) => {
       <View style={{ alignItems: "center", marginVertical: 20 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
       </View>
+      <View style={{ alignItems: "center" }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
     </ScrollView>
   );
 };

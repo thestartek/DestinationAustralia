@@ -51,7 +51,7 @@ const VerifyAccountScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{ marginHorizontal: 10, backgroundColor: "white" }}>
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/appIcon_transparent.png")}
