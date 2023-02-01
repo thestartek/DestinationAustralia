@@ -129,7 +129,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <View style={{ alignItems: "center" }}>
+          <View style={{ alignItems: "center", marginVertical: 5 }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 
