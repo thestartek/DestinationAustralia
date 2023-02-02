@@ -5,7 +5,11 @@ import { WebView } from "react-native-webview";
 const PrivacyPolicy = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <WebView source={{ uri: "https://starteknp.com/privacy-policy/" }} />
+      <WebView
+        source={{
+          uri: "https://starteknp.com/destinationau/privacy-policy-and-terms-of-use/",
+        }}
+      />
     </SafeAreaView>
   );
 };

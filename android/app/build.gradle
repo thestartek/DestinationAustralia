@@ -145,8 +145,8 @@ android {
         applicationId 'org.name.journeytoaustralia'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "2.0.0"
+        versionCode 9
+        versionName "2.0.2"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -282,6 +282,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-inappmessaging-display'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-installations:17.1.0'
     
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
