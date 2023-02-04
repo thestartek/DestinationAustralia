@@ -107,8 +107,10 @@ const EditProfileScreen = ({ navigation }) => {
   };
 
   const handleChange = async () => {
+    setLoading(true);
     const imageUrl = await uploadImage();
     console.log("imageUrl: ", imageUrl);
+
     try {
       const unsub = setDoc(
         doc(db, "users", user.email),
@@ -124,7 +126,7 @@ const EditProfileScreen = ({ navigation }) => {
       );
       console.log("Profile updated");
       navigation.goBack();
-      setLoading(false);
+      // setLoading(false);
       //Alert.alert("User registered successfully", user.email);
     } catch (error) {
       console.log(error);
@@ -209,7 +211,7 @@ const EditProfileScreen = ({ navigation }) => {
                 autoCapitalize="none"
                 onChangeText={setInfo}
                 value={info}
-                style={[styles.textInput, { height: 100 }]}
+                style={styles.textInput}
                 //onSubmitEditing={Keyboard.dismiss}
               />
             </View>
@@ -243,6 +245,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     marginHorizontal: 10,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   photoSection: {
     marginTop: 40,

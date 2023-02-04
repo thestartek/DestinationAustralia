@@ -1,54 +1,59 @@
-import React, { useEffect, useState } from "react";
+// import com.facebook.FacebookSdk;
+// import com.facebook.appevents.AppEventsLogger;
+
 import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
   View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
   ActivityIndicator,
+  Image,
+  ScrollView,
 } from "react-native";
-import { auth } from "../../Firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { Alert } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
+import { auth, db, storage } from "../../Firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
 
-const LoginScreen = ({ navigation }) => {
+const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
+  const handleSignup = async () => {
+    // const imageUrl = await uploadImage();
+    // console.log("imageUrl: ", imageUrl);
+    setLoading(true);
+
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log("Logged in with:", user.email);
+        console.log("Registered with:", user.email);
+        navigation.push("Register");
+        try {
+          setDoc(doc(db, "users", user.email), {
+            uid: user.uid,
+            // fullname: fullname,
+            email: user.email,
+            // city: city,
+            // country: country,
+            // info: info,
+            // profile_picture: imageUrl,
+          });
+          console.log("User added to database");
+          Alert.alert("User registered successfully", user.email);
+          setLoading(false);
+        } catch (e) {
+          console.error("Error adding user", e);
+          setLoading(false);
+        }
       })
-      .catch(
-        (error) =>
-          Alert.alert(
-            "Invalid login details",
-            "If you do not have an account yet, Please Register",
-            [
-              {
-                text: "Ok",
-                onPress: () => setLoading(false),
-                style: "cancel",
-              },
-              {
-                text: "Register",
-                onPress: () => {
-                  navigation.push("Register"), setLoading(false);
-                },
-              },
-            ]
-          )
-        //
-      );
-    setLoading(true);
+      .catch((error) => [Alert.alert(error.message), setLoading(false)]);
+    // Alert.alert(error.message);
+    // setLoading(true);
   };
 
   return (
@@ -60,7 +65,10 @@ const LoginScreen = ({ navigation }) => {
             style={{ height: 100, width: 100, margin: 20 }}
           />
         </View>
-        <Text style={[styles.text, { marginBottom: 10 }]}>Login with</Text>
+        <Text style={[styles.text, { color: "grey", marginBottom: 10 }]}>
+          Your friend for Australia related contents
+        </Text>
+        <Text style={[styles.text, { marginVertical: 10 }]}>Sign up with</Text>
 
         {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
         <View style={styles.buttonContainer}>
@@ -79,44 +87,13 @@ const LoginScreen = ({ navigation }) => {
             <Text style={styles.buttonText}>Facebook</Text>
           </TouchableOpacity>
         </View>
-        <Text style={[styles.text, { marginVertical: 10 }]}>
-          -------------------- OR --------------------
-        </Text>
-
-        <View>
-          <TextInput
-            placeholder="Email"
-            autoCapitalize="none"
-            //autoFocus={true}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            style={styles.textInput}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            style={styles.textInput}
-            secureTextEntry
-          />
-          <TouchableOpacity
-            onPress={() => navigation.push("Reset password")}
-            style={{ alignItems: "flex-end" }}
-          >
-            <Text
-              style={{ color: "#1267E9", fontSize: 16, marginVertical: 10 }}
-            >
-              Forgot password ?{" "}
-            </Text>
-          </TouchableOpacity>
-        </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
+          <TouchableOpacity onPress={()=> navigation.push("Register")} style={[styles.button, styles.buttonEmail]}>
             {loading ? (
               <ActivityIndicator />
             ) : (
-              <Text style={styles.buttonText}>Login</Text>
+              <Text style={[styles.buttonText, {color: '#1267E9'}]}>Email / password</Text>
             )}
             {/* <Text style={styles.buttonText}>Login</Text> */}
           </TouchableOpacity>
@@ -129,11 +106,9 @@ const LoginScreen = ({ navigation }) => {
             justifyContent: "center",
           }}
         >
-          <Text style={styles.text}> Don't have an account ? </Text>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={[styles.buttonText, { color: "#1267E9" }]}>
-              Sign up
-            </Text>
+          <Text style={styles.text}> Already have an account ? </Text>
+          <TouchableOpacity onPress={() => navigation.push("Login")}>
+            <Text style={[styles.buttonText, { color: "#1267E9" }]}>Login</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -141,7 +116,7 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -149,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   buttonContainer: {
-    flexDirection: "row",
+    // flexDirection: "row",
     marginHorizontal: 10,
     // width: 300,
     justifyContent: "center",
@@ -164,8 +139,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: "center",
     flexDirection: "row",
-    width: 140,
-    backgroundColor: "#1267E9",
+    width: 300,
+    // backgroundColor: "#1267E9",
     // marginTop: 10,
   },
   buttonFacebook: {
@@ -173,6 +148,11 @@ const styles = StyleSheet.create({
   },
   buttonGoogle: {
     backgroundColor: "red",
+  },
+  buttonEmail: {
+    backgroundColor: 'white',
+    borderWidth: 2,
+    borderColor: '#1267E9'
   },
   buttonText: {
     color: "white",
@@ -182,6 +162,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
+    lineHeight: 25,
   },
   textInput: {
     backgroundColor: "white",

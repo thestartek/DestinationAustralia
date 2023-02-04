@@ -6,6 +6,7 @@ import LoginScreen from "../components/login/LoginScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import ResetPasswordScreen from "../components/login/ResetPasswordScreen";
 import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
+import SignupScreen from "../components/login/SignupScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +18,10 @@ function LoginStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Sign up"
         //screenOptions={{headerShown: false}}
       >
+        <Stack.Screen name="Sign up" component={SignupScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Reset password" component={ResetPasswordScreen} />

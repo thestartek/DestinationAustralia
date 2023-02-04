@@ -22,16 +22,6 @@ import {
   uploadBytes,
 } from "firebase/storage";
 
-import {
-  BannerAd,
-  BannerAdSize,
-  TestIds,
-} from "react-native-google-mobile-ads";
-
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : "ca-app-pub-8686062104433125/8511852168";
-
 const ThumbnailImage = () => (
   <Image
     style={[styles.profilePic, { tintColor: "grey" }]}
@@ -220,61 +210,48 @@ const RegisterScreen = ({ navigation }) => {
               />
             </View>
 
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <AstrikIcon />
-              {/* {country ? (
-              <View
-                style={[
-                  styles.textInput,
-                  { flexDirection: "row", justifyContent: "space-between" },
-                ]}
-              >
-                <Text >{country.name}</Text>
-                <CountryPicker
-                  withEmoji
-                  withFilter
-                  onSelect={(select) => setCountry(select)}
-                />
-              </View>
-            ) : (
-              <View style={styles.textInput}>
-                <CountryPicker
-                  withEmoji
-                  withFilter
-                  onSelect={(select) => setCountry(select)}
-                />
-              </View>
-            )} */}
-
+            <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 20, justifyContent: 'space-between' }}>
+              
+            <TextInput
+                placeholder="Current country"
+                value={country}
+                onChangeText={(text) => setCountry(text)}
+                style={[styles.textInput, styles.textInputSmall]}
+              />
               <TextInput
+                placeholder="Current city"
+                value={city}
+                onChangeText={(text) => setCity(text)}
+                style={[styles.textInput, styles.textInputSmall]}
+              />
+            </View>
+
+            <View style={{ alignItems: "center", marginLeft: 20 }}>
+              {/* <TextInput
                 placeholder="Current country"
                 value={country}
                 onChangeText={(text) => setCountry(text)}
                 style={styles.textInput}
               />
-            </View>
-
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <AstrikIcon />
               <TextInput
                 placeholder="Current city"
                 value={city}
                 onChangeText={(text) => setCity(text)}
                 style={styles.textInput}
-              />
-            </View>
-
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <View style={{ marginRight: 20 }} />
+              /> */}
               <TextInput
                 placeholder="Write your bio (optional)"
                 multiline={true}
                 autoCapitalize="none"
                 value={info}
                 onChangeText={(text) => setInfo(text)}
-                style={[styles.textInput, { height: 100 }]}
+                style={styles.textInput}
                 //onSubmitEditing={Keyboard.dismiss}
               />
+            </View>
+
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View style={{ marginRight: 20 }} />
             </View>
 
             {checkBox != true ? (
@@ -343,7 +320,6 @@ const RegisterScreen = ({ navigation }) => {
           {fullname == null ||
           email == null ||
           password == null ||
-          city == null ||
           !checkBox ? (
             <View style={styles.buttonContainer}>
               <View
@@ -373,9 +349,6 @@ const RegisterScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-      </View>
     </View>
   );
 };
@@ -421,6 +394,9 @@ const styles = StyleSheet.create({
     borderColor: "darkgrey",
     marginVertical: 5,
     width: 280,
+  },
+  textInputSmall: {
+    width: 130
   },
   buttonContainer: {
     width: 300,
