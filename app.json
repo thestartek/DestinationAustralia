@@ -6,7 +6,7 @@
     "notification": {
       "icon": "./assets/appIcon_transparent.png"
     },
-    "plugins": [
+    "plugins": ["@react-native-google-signin/google-signin",
       [
         "expo-notifications",
         {

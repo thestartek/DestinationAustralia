@@ -18,10 +18,40 @@ import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
+import Expo from "expo";
+
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  // const[credentials, setCredentials] = useState([])
+
+  googleSignIn = async () => {
+    try {
+      const result = await Expo.Google.logInAsync({
+        androidClientId:
+          "126633133869-dhe2j8lb0qdeqnbrv7pemvvv6ifdpdbu.apps.googleusercontent.com",
+        //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
+        scopes: ["profile", "email"],
+      });
+      if (result.type === "success") {
+        setEmail(result.user.email);
+        setName(result.user.name);
+        setImage(result.user.photoUrl);
+        // setCredentials({
+        //   signedIn: true,
+        //   name: result.user.name,
+        //   photoUrl: result.user.photoUrl,
+        // });
+      } else {
+        console.log("cancelled");
+      }
+    } catch (e) {
+      console.log("error", e);
+    }
+  };
 
   const handleSignup = async () => {
     // const imageUrl = await uploadImage();
@@ -73,7 +103,7 @@ const SignupScreen = ({ navigation }) => {
         {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => googleSignIn()}
             style={[styles.button, styles.buttonGoogle]}
           >
             <AntDesign name="google" size={24} color="white" />
@@ -89,11 +119,16 @@ const SignupScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={()=> navigation.push("Register")} style={[styles.button, styles.buttonEmail]}>
+          <TouchableOpacity
+            onPress={() => navigation.push("Register")}
+            style={[styles.button, styles.buttonEmail]}
+          >
             {loading ? (
               <ActivityIndicator />
             ) : (
-              <Text style={[styles.buttonText, {color: '#1267E9'}]}>Email / password</Text>
+              <Text style={[styles.buttonText, { color: "#1267E9" }]}>
+                Email / password
+              </Text>
             )}
             {/* <Text style={styles.buttonText}>Login</Text> */}
           </TouchableOpacity>
@@ -150,9 +185,9 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
   buttonEmail: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderWidth: 2,
-    borderColor: '#1267E9'
+    borderColor: "#1267E9",
   },
   buttonText: {
     color: "white",
