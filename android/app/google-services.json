@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "126633133869",
+    "project_id": "journeytoaustralia-b21d4",
+    "storage_bucket": "journeytoaustralia-b21d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126633133869:android:4371850f20e2fbe7a935a4",
+        "android_client_info": {
+          "package_name": "org.name.journeytoaustralia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126633133869-4hm4b8g9hl1ja8art6gu01ahtrgsektr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5ZpvUEU5Kd98ZowuxH1OTDgqYo9sOCGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126633133869-4hm4b8g9hl1ja8art6gu01ahtrgsektr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8686062104433125~2575371498"
+    }
+  ],
+  "configuration_version": "1"
+}

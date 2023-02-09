@@ -11,47 +11,52 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
-import Expo from "expo";
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from "@react-native-google-signin/google-signin";
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  // const [name, setName] = useState("");
+  // const [image, setImage] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  // const[credentials, setCredentials] = useState([])
 
-  googleSignIn = async () => {
-    try {
-      const result = await Expo.Google.logInAsync({
-        androidClientId:
-          "126633133869-dhe2j8lb0qdeqnbrv7pemvvv6ifdpdbu.apps.googleusercontent.com",
-        //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
-        scopes: ["profile", "email"],
+  const GoogleSignIn = () => {
+    GoogleSignin.configure({
+      webClientId:
+        "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
+      androidClientId:
+        "126633133869-hq7rrnm2dk7677v71861p772ua34uoiu.apps.googleusercontent.com",
+    });
+
+    GoogleSignin.hasPlayServices()
+      .then((hasPlayService) => {
+        if (hasPlayService) {
+          GoogleSignin.signIn()
+            .then((userInfo) => {
+              console.log(JSON.stringify(userInfo));
+            })
+            .catch((e) => {
+              console.log("ERROR IS: " + JSON.stringify(e));
+            });
+        }
+      })
+      .catch((e) => {
+        console.log("ERROR IS: " + JSON.stringify(e));
       });
-      if (result.type === "success") {
-        setEmail(result.user.email);
-        setName(result.user.name);
-        setImage(result.user.photoUrl);
-        // setCredentials({
-        //   signedIn: true,
-        //   name: result.user.name,
-        //   photoUrl: result.user.photoUrl,
-        // });
-      } else {
-        console.log("cancelled");
-      }
-    } catch (e) {
-      console.log("error", e);
-    }
   };
+
+
 
   const handleSignup = async () => {
     // const imageUrl = await uploadImage();
@@ -103,7 +108,7 @@ const SignupScreen = ({ navigation }) => {
         {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            onPress={() => googleSignIn()}
+            onPress={GoogleSignIn}
             style={[styles.button, styles.buttonGoogle]}
           >
             <AntDesign name="google" size={24} color="white" />
