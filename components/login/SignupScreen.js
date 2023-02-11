@@ -15,7 +15,7 @@ import React, { useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 import { auth, db, storage } from "../../Firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
 import {
@@ -26,12 +26,12 @@ import {
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
-  // const [name, setName] = useState("");
-  // const [image, setImage] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  // const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const GoogleSignIn = () => {
+  const GoogleSignIn = async() => {
     GoogleSignin.configure({
       webClientId:
         "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
@@ -39,21 +39,39 @@ const SignupScreen = ({ navigation }) => {
         "126633133869-hq7rrnm2dk7677v71861p772ua34uoiu.apps.googleusercontent.com",
     });
 
-    GoogleSignin.hasPlayServices()
-      .then((hasPlayService) => {
-        if (hasPlayService) {
-          GoogleSignin.signIn()
-            .then((userInfo) => {
-              console.log(JSON.stringify(userInfo));
-            })
-            .catch((e) => {
-              console.log("ERROR IS: " + JSON.stringify(e));
-            });
-        }
-      })
-      .catch((e) => {
-        console.log("ERROR IS: " + JSON.stringify(e));
-      });
+    // Check if your device supports Google Play
+  await GoogleSignin.hasPlayServices();
+  // Get the users ID token
+  const { idToken } = await GoogleSignin.signIn();
+
+  // Create a Google credential with the token
+  const googleCredential = GoogleAuthProvider.credential(idToken);
+
+  // Sign-in the user with the credential
+  return signInWithCredential(auth, googleCredential);
+
+    // GoogleSignin.hasPlayServices()
+    //   .then((hasPlayService) => {
+    //     if (hasPlayService) {
+    //       const {idToken} = GoogleSignin.signIn()
+    //         .then((userInfo) => {
+    //           console.log(userInfo);
+    //           setEmail(userInfo.email)
+    //           setName(userInfo.name)
+    //           setImage(userInfo.photo)
+    //         })
+    //         .catch((e) => {
+    //           console.log("ERROR IS: " + JSON.stringify(e));
+    //         });
+    //         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    //         return signInWithCredential(auth, googleCredential);
+    //     }
+    //   })
+    //   .catch((e) => {
+    //     console.log("ERROR IS: " + JSON.stringify(e));
+    //   });
+      
+      
   };
 
 
