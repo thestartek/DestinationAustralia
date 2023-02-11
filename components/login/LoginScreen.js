@@ -14,11 +14,17 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithCredential,
-  FacebookAuthProvider
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
-import { LoginManager, AccessToken } from "react-native-fbsdk-next";
+import {
+  LoginManager,
+  AccessToken,
+  Settings,
+  Profile,
+  LoginButton,
+} from "react-native-fbsdk-next";
 import { Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -46,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
     const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
     await signInWithCredential(auth, googleCredential)
       .then(() => {
-        setDoc(doc(db, "users", "user.email"), {
+        setDoc(doc(db, "users", user.email), {
           uid: user.id,
           fullname: user.name,
           email: user.email,
@@ -64,46 +70,51 @@ const LoginScreen = ({ navigation }) => {
       });
   };
 
+  // Settings.initializeSDK();
+
   const FacebookSignIn = async () => {
     const result = await LoginManager.logInWithPermissions([
       "public_profile",
       "email",
-    ]);
-
-    if (result.isCancelled) {
-      throw "User cancelled the login process";
-    }
+    ])
+      .then((result) => {
+        console.log(result);
+        getName()
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     // Once signed in, get the users AccesToken
     const data = await AccessToken.getCurrentAccessToken();
-    console.log(data)
-
-    if (!data) {
-      throw "Something went wrong obtaining access token";
-    }
+    console.log(data);
 
     // Create a Firebase credential with the AccessToken
     const facebookCredential = FacebookAuthProvider.credential(
       data.accessToken
     );
-    await signInWithCredential(auth, facebookCredential)
-      .then(() => {
-        setDoc(doc(db, "users", "user.email"), {
-          // uid: user.id,
-          // fullname: user.name,
-          // email: data.email,
-          // // city: city,
-          // // country: country,
-          // // info: info,
-          // profile_picture: user.photo,
-        });
-        console.log("User added to database");
-        Alert.alert("User registered successfully", user.email);
-        setGoogleLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
+    // const currentProfile = Profile.getCurrentProfile();
+    // console.log(currentProfile.name);
+    // console.log(facebookCredential);
+    // await signInWithCredential(auth, facebookCredential)
+    //   .then(() => {
+    //     setDoc(doc(db, "users", "user.email"), {
+    //       // uid: user.id,
+    //       // fullname: user.name,
+    //       // email: data.email,
+    //       // // city: city,
+    //       // // country: country,
+    //       // // info: info,
+    //       // profile_picture: user.photo,
+    //     });
+    //     console.log("User added to database");
+    //     Alert.alert("User registered successfully", user.email);
+    //     setGoogleLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   const handleLogin = () => {
@@ -164,6 +175,20 @@ const LoginScreen = ({ navigation }) => {
             )}
             <Text style={styles.buttonText}>Google</Text>
           </TouchableOpacity>
+          {/* <LoginButton
+            onLoginFinished={(error, result) => {
+              if (error) {
+                console.log("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                console.log("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then((data) => {
+                  console.log(data.accessToken.toString());
+                });
+              }
+            }}
+            onLogoutFinished={() => console.log("logout.")}
+          /> */}
           <TouchableOpacity
             onPress={FacebookSignIn}
             style={[styles.button, styles.buttonFacebook]}
