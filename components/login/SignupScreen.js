@@ -15,7 +15,11 @@ import React, { useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 import { auth, db, storage } from "../../Firebase";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithCredential,
+} from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
 import {
@@ -26,88 +30,83 @@ import {
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  // const [name, setName] = useState("");
+  // const [image, setImage] = useState("");
+  // const [userDetails, setUserDetails] = useState([]);
   // const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const [facebookLoading, setFacebookLoading] = useState(false)
 
-  const GoogleSignIn = async() => {
-    GoogleSignin.configure({
-      webClientId:
-        "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
-      androidClientId:
-        "126633133869-hq7rrnm2dk7677v71861p772ua34uoiu.apps.googleusercontent.com",
-    });
+  GoogleSignin.configure({
+    webClientId:
+      "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
+    androidClientId:
+      "126633133869-hq7rrnm2dk7677v71861p772ua34uoiu.apps.googleusercontent.com",
+  });
 
-    // Check if your device supports Google Play
-  await GoogleSignin.hasPlayServices();
-  // Get the users ID token
-  const { idToken } = await GoogleSignin.signIn();
+  const GoogleSignIn = async () => {
+    setGoogleLoading(true);
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    const userInfo = await GoogleSignin.signIn();
+    // console.log(userInfo)
+    const user = userInfo.user;
+    console.log(user.name + " is signed in with email: " + user.email);
+    const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
 
-  // Create a Google credential with the token
-  const googleCredential = GoogleAuthProvider.credential(idToken);
+    try {
+      setDoc(doc(db, "users", user.email), {
+        uid: user.id,
+        fullname: user.givenName + " " + user.familyName,
+        email: user.email,
+        city: null,
+        country: null,
+        info: null,
+        profile_picture: user.photo,
+      });
+      console.log("User added to database");
+      // Alert.alert("User registered successfully", user.email);
+      setGoogleLoading(false);
+    } catch (e) {
+      console.error("Error adding user", e);
+      setGoogleLoading(false);
+    }
 
-  // Sign-in the user with the credential
-  return signInWithCredential(auth, googleCredential);
-
-    // GoogleSignin.hasPlayServices()
-    //   .then((hasPlayService) => {
-    //     if (hasPlayService) {
-    //       const {idToken} = GoogleSignin.signIn()
-    //         .then((userInfo) => {
-    //           console.log(userInfo);
-    //           setEmail(userInfo.email)
-    //           setName(userInfo.name)
-    //           setImage(userInfo.photo)
-    //         })
-    //         .catch((e) => {
-    //           console.log("ERROR IS: " + JSON.stringify(e));
-    //         });
-    //         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    //         return signInWithCredential(auth, googleCredential);
-    //     }
-    //   })
-    //   .catch((e) => {
-    //     console.log("ERROR IS: " + JSON.stringify(e));
-    //   });
-      
-      
+    return signInWithCredential(auth, googleCredential);
   };
 
+  // const handleSignup = async () => {
+  //   // const imageUrl = await uploadImage();
+  //   // console.log("imageUrl: ", imageUrl);
+  //   setLoading(true);
 
-
-  const handleSignup = async () => {
-    // const imageUrl = await uploadImage();
-    // console.log("imageUrl: ", imageUrl);
-    setLoading(true);
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Registered with:", user.email);
-        navigation.push("Register");
-        try {
-          setDoc(doc(db, "users", user.email), {
-            uid: user.uid,
-            // fullname: fullname,
-            email: user.email,
-            // city: city,
-            // country: country,
-            // info: info,
-            // profile_picture: imageUrl,
-          });
-          console.log("User added to database");
-          Alert.alert("User registered successfully", user.email);
-          setLoading(false);
-        } catch (e) {
-          console.error("Error adding user", e);
-          setLoading(false);
-        }
-      })
-      .catch((error) => [Alert.alert(error.message), setLoading(false)]);
-    // Alert.alert(error.message);
-    // setLoading(true);
-  };
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((userCredentials) => {
+  //       const user = userCredentials.user;
+  //       console.log("Registered with:", user.email);
+  //       navigation.push("Register");
+  //       try {
+  //         setDoc(doc(db, "users", user.email), {
+  //           uid: user.uid,
+  //           // fullname: fullname,
+  //           email: user.email,
+  //           // city: city,
+  //           // country: country,
+  //           // info: info,
+  //           // profile_picture: imageUrl,
+  //         });
+  //         console.log("User added to database");
+  //         Alert.alert("User registered successfully", user.email);
+  //         setLoading(false);
+  //       } catch (e) {
+  //         console.error("Error adding user", e);
+  //         setLoading(false);
+  //       }
+  //     })
+  //     .catch((error) => [Alert.alert(error.message), setLoading(false)]);
+  //   // Alert.alert(error.message);
+  //   // setLoading(true);
+  // };
 
   return (
     <ScrollView style={styles.outerContainer}>
@@ -129,7 +128,11 @@ const SignupScreen = ({ navigation }) => {
             onPress={GoogleSignIn}
             style={[styles.button, styles.buttonGoogle]}
           >
-            <AntDesign name="google" size={24} color="white" />
+            {googleLoading ? (
+              <ActivityIndicator />
+            ) : (
+              <AntDesign name="google" size={24} color="white" />
+            )}
             <Text style={styles.buttonText}>Google</Text>
           </TouchableOpacity>
           <TouchableOpacity

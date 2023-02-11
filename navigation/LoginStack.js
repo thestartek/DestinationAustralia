@@ -18,7 +18,7 @@ function LoginStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Sign up"
+        initialRouteName="Login"
         //screenOptions={{headerShown: false}}
       >
         <Stack.Screen name="Sign up" component={SignupScreen} />
