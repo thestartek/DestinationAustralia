@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -14,26 +14,19 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithCredential,
-  FacebookAuthProvider,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import {
-  LoginManager,
-  AccessToken,
-  Settings,
-  Profile,
-  LoginButton,
-} from "react-native-fbsdk-next";
+  GoogleSignin,
+  GoogleSigninButton,
+} from "@react-native-google-signin/google-signin";
 import { Alert } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
-  const [facebookLoading, setFacebookLoading] = useState(false);
 
   GoogleSignin.configure({
     webClientId:
@@ -62,59 +55,13 @@ const LoginScreen = ({ navigation }) => {
           profile_picture: user.photo,
         });
         console.log("User added to database");
-        Alert.alert("User registered successfully", user.email);
+        Alert.alert("Logged in successfully", user.email);
         setGoogleLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setGoogleLoading(false);
       });
-  };
-
-  // Settings.initializeSDK();
-
-  const FacebookSignIn = async () => {
-    const result = await LoginManager.logInWithPermissions([
-      "public_profile",
-      "email",
-    ])
-      .then((result) => {
-        console.log(result);
-        getName()
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    // Once signed in, get the users AccesToken
-    const data = await AccessToken.getCurrentAccessToken();
-    console.log(data);
-
-    // Create a Firebase credential with the AccessToken
-    const facebookCredential = FacebookAuthProvider.credential(
-      data.accessToken
-    );
-
-    // const currentProfile = Profile.getCurrentProfile();
-    // console.log(currentProfile.name);
-    // console.log(facebookCredential);
-    // await signInWithCredential(auth, facebookCredential)
-    //   .then(() => {
-    //     setDoc(doc(db, "users", "user.email"), {
-    //       // uid: user.id,
-    //       // fullname: user.name,
-    //       // email: data.email,
-    //       // // city: city,
-    //       // // country: country,
-    //       // // info: info,
-    //       // profile_picture: user.photo,
-    //     });
-    //     console.log("User added to database");
-    //     Alert.alert("User registered successfully", user.email);
-    //     setGoogleLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   const handleLogin = () => {
@@ -160,46 +107,38 @@ const LoginScreen = ({ navigation }) => {
           </Text>
         </View>
 
-        <Text style={[styles.text, { marginBottom: 10 }]}>Login with</Text>
+        {/* <Text style={[styles.text, { marginBottom: 10 }]}>Login with</Text> */}
 
         {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={GoogleSignIn}
-            style={[styles.button, styles.buttonGoogle]}
-          >
-            {googleLoading ? (
+          {googleLoading ? (
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                borderWidth: 2,
+                borderColor: "#1267E9",
+                // backgroundColor: '#1267E9',
+                borderRadius: 10,
+                width: 250,
+                height: 50,
+              }}
+            >
               <ActivityIndicator />
-            ) : (
-              <AntDesign name="google" size={24} color="white" />
-            )}
-            <Text style={styles.buttonText}>Google</Text>
-          </TouchableOpacity>
-          {/* <LoginButton
-            onLoginFinished={(error, result) => {
-              if (error) {
-                console.log("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                console.log("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then((data) => {
-                  console.log(data.accessToken.toString());
-                });
-              }
-            }}
-            onLogoutFinished={() => console.log("logout.")}
-          /> */}
-          <TouchableOpacity
-            onPress={FacebookSignIn}
-            style={[styles.button, styles.buttonFacebook]}
-          >
-            {facebookLoading ? (
-              <ActivityIndicator />
-            ) : (
-              <AntDesign name="facebook-square" size={24} color="white" />
-            )}
-            <Text style={styles.buttonText}>Facebook</Text>
-          </TouchableOpacity>
+              <Text style={{ color: "#1267E9", fontWeight: "bold" }}>
+                Signing in with Google
+              </Text>
+            </View>
+          ) : (
+            <GoogleSigninButton
+              style={{ width: 250, height: 52 }}
+              size={GoogleSigninButton.Size.Wide}
+              color={GoogleSigninButton.Color.Dark}
+              onPress={GoogleSignIn}
+              // disabled={this.state.isSigninInProgress}
+            />
+          )}
         </View>
         <Text style={[styles.text, { marginVertical: 10 }]}>
           -------------------- OR --------------------
@@ -283,7 +222,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 12,
     // height: 50,
-    borderRadius: 10,
+    borderRadius: 40,
     alignItems: "center",
     marginHorizontal: 10,
     marginVertical: 10,

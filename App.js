@@ -4,6 +4,6 @@ import AuthNavigation from "./navigation/AuthNavigation";
 import LoginStack from "./navigation/LoginStack";
 
 export default function App() {
-  return <LoginStack />
-  // return <AuthNavigation />;
+  // return <LoginStack />
+  return <AuthNavigation />;
 }

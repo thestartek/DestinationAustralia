@@ -227,20 +227,8 @@ const RegisterScreen = ({ navigation }) => {
             </View>
 
             <View style={{ alignItems: "center", marginLeft: 20 }}>
-              {/* <TextInput
-                placeholder="Current country"
-                value={country}
-                onChangeText={(text) => setCountry(text)}
-                style={styles.textInput}
-              />
               <TextInput
-                placeholder="Current city"
-                value={city}
-                onChangeText={(text) => setCity(text)}
-                style={styles.textInput}
-              /> */}
-              <TextInput
-                placeholder="Write your bio (optional)"
+                placeholder="Write your bio"
                 multiline={true}
                 autoCapitalize="none"
                 value={info}
@@ -408,7 +396,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#1267E9",
     width: "100%",
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 40,
     alignItems: "center",
   },
   buttonUnselected: {
