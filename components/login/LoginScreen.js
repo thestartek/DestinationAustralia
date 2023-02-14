@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
     webClientId:
       "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
     androidClientId:
-      "126633133869-tofcgpuu7t9kdnlbiftrumat5qdf54u1.apps.googleusercontent.com",
+      "126633133869-34u516vbp7j0jbvh2kb1b3cms450o8db.apps.googleusercontent.com",
   });
 
   const GoogleSignIn = async () => {
@@ -71,31 +71,6 @@ const LoginScreen = ({ navigation }) => {
       console.log("Error 2: " + error);
       setGoogleLoading(false);
     }
-    // await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-    // const userInfo = await GoogleSignin.signIn();
-    // // console.log(userInfo)
-    // const user = userInfo.user;
-    // console.log(user.name + " is signed in with email: " + user.email);
-    // const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
-    // await signInWithCredential(auth, googleCredential)
-    //   .then(() => {
-    //     setDoc(doc(db, "users", user.email), {
-    //       uid: user.id,
-    //       fullname: user.name,
-    //       email: user.email,
-    //       // city: city,
-    //       // country: country,
-    //       // info: info,
-    //       profile_picture: user.photo,
-    //     });
-    //     console.log("User added to database");
-    //     Alert.alert("Logged in successfully", user.email);
-    //     setGoogleLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setGoogleLoading(false);
-    //   });
   };
 
   const handleLogin = () => {
