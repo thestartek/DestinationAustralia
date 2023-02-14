@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "126633133869-34u516vbp7j0jbvh2kb1b3cms450o8db.apps.googleusercontent.com",
+          "client_id": "126633133869-vsgh5l06n06t8mvo6osjg2l97hsv3g1s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.name.journeytoaustralia",
-            "certificate_hash": "b1b6abc9968f89f46fd1088ae406b8a21a6a4559"
+            "certificate_hash": "a2068d8bcf32bbb58ee98913508d5a31a200600e"
           }
         },
         {
