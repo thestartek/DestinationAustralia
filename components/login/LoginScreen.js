@@ -237,7 +237,7 @@ const LoginScreen = ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop: 30,
+            marginVertical: 30,
             justifyContent: "center",
           }}
         >

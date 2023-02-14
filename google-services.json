@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "126633133869-4hm4b8g9hl1ja8art6gu01ahtrgsektr.apps.googleusercontent.com",
+          "client_id": "126633133869-gbspki9bh0foqeea0p31e2ehcbvuu1as.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.name.journeytoaustralia",
+            "certificate_hash": "b1b6abc9968f89f46fd1088ae406b8a21a6a4559"
+          }
+        },
+        {
+          "client_id": "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "126633133869-4hm4b8g9hl1ja8art6gu01ahtrgsektr.apps.googleusercontent.com",
+              "client_id": "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
