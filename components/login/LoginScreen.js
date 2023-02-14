@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
     webClientId:
       "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
     androidClientId:
-      "126633133869-hq7rrnm2dk7677v71861p772ua34uoiu.apps.googleusercontent.com",
+      "126633133869-tofcgpuu7t9kdnlbiftrumat5qdf54u1.apps.googleusercontent.com",
   });
 
   const GoogleSignIn = async () => {
