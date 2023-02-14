@@ -21,6 +21,7 @@ import {
   GoogleSigninButton,
 } from "@react-native-google-signin/google-signin";
 import { Alert } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -37,31 +38,64 @@ const LoginScreen = ({ navigation }) => {
 
   const GoogleSignIn = async () => {
     setGoogleLoading(true);
-    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-    const userInfo = await GoogleSignin.signIn();
-    // console.log(userInfo)
-    const user = userInfo.user;
-    console.log(user.name + " is signed in with email: " + user.email);
-    const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
-    await signInWithCredential(auth, googleCredential)
-      .then(() => {
-        setDoc(doc(db, "users", user.email), {
-          uid: user.id,
-          fullname: user.name,
-          email: user.email,
-          // city: city,
-          // country: country,
-          // info: info,
-          profile_picture: user.photo,
-        });
-        console.log("User added to database");
-        Alert.alert("Logged in successfully", user.email);
-        setGoogleLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setGoogleLoading(false);
+    try {
+      await GoogleSignin.hasPlayServices({
+        showPlayServicesUpdateDialog: true,
       });
+      const userInfo = await GoogleSignin.signIn();
+      // console.log(userInfo)
+      const user = userInfo.user;
+      console.log(user.name + " is signed in with email: " + user.email);
+      const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
+      await signInWithCredential(auth, googleCredential)
+        .then(() => {
+          setDoc(doc(db, "users", user.email), {
+            uid: user.id,
+            fullname: user.name,
+            email: user.email,
+            // city: city,
+            // country: country,
+            // info: info,
+            profile_picture: user.photo,
+          });
+          console.log("User added to database");
+          Alert.alert("Logged in successfully", user.email);
+          setGoogleLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error 1: " + error);
+          setGoogleLoading(false);
+        });
+      setGoogleLoading(false);
+    } catch (error) {
+      console.log("Error 2: " + error);
+      setGoogleLoading(false);
+    }
+    // await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    // const userInfo = await GoogleSignin.signIn();
+    // // console.log(userInfo)
+    // const user = userInfo.user;
+    // console.log(user.name + " is signed in with email: " + user.email);
+    // const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
+    // await signInWithCredential(auth, googleCredential)
+    //   .then(() => {
+    //     setDoc(doc(db, "users", user.email), {
+    //       uid: user.id,
+    //       fullname: user.name,
+    //       email: user.email,
+    //       // city: city,
+    //       // country: country,
+    //       // info: info,
+    //       profile_picture: user.photo,
+    //     });
+    //     console.log("User added to database");
+    //     Alert.alert("Logged in successfully", user.email);
+    //     setGoogleLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setGoogleLoading(false);
+    //   });
   };
 
   const handleLogin = () => {
@@ -111,7 +145,24 @@ const LoginScreen = ({ navigation }) => {
 
         {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
         <View style={styles.buttonContainer}>
-          {googleLoading ? (
+          <TouchableOpacity
+            onPress={GoogleSignIn}
+            style={[styles.button, styles.buttonGoogle]}
+          >
+            {googleLoading ? (
+              <View style={{ flexDirection: "row" }}>
+                <ActivityIndicator />
+                <Text style={styles.buttonText}>Signing with Google</Text>
+              </View>
+            ) : (
+              <View style={{ flexDirection: "row" }}>
+                <AntDesign name="google" size={24} color="white" />
+                <Text style={styles.buttonText}>Sign in with Google</Text>
+              </View>
+            )}
+            {/* <Text style={styles.buttonText}>Sign in with Google</Text> */}
+          </TouchableOpacity>
+          {/* {googleLoading ? (
             <View
               style={{
                 flexDirection: "row",
@@ -135,10 +186,10 @@ const LoginScreen = ({ navigation }) => {
               style={{ width: 250, height: 52 }}
               size={GoogleSigninButton.Size.Wide}
               color={GoogleSigninButton.Color.Dark}
-              onPress={GoogleSignIn}
+              onPress={GoogleSignIn()}
               // disabled={this.state.isSigninInProgress}
             />
-          )}
+          )} */}
         </View>
         <Text style={[styles.text, { marginVertical: 10 }]}>
           -------------------- OR --------------------
@@ -236,7 +287,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#1267E9",
   },
   buttonGoogle: {
-    backgroundColor: "red",
+    borderRadius: 8,
+    width: 250,
+    // backgroundColor: 'red'
   },
   buttonText: {
     color: "white",
