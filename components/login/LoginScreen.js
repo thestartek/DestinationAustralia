@@ -54,8 +54,8 @@ const LoginScreen = ({ navigation }) => {
             fullname: user.name,
             email: user.email,
             city: "",
-            country: "country",
-            info: "info",
+            country: "",
+            info: "",
             profile_picture: user.photo,
           });
           console.log("User added to database");
@@ -127,7 +127,7 @@ const LoginScreen = ({ navigation }) => {
             {googleLoading ? (
               <View style={{ flexDirection: "row" }}>
                 <ActivityIndicator />
-                <Text style={styles.buttonText}>Signing with Google</Text>
+                <Text style={styles.buttonText}>Signing in with Google</Text>
               </View>
             ) : (
               <View style={{ flexDirection: "row" }}>
@@ -137,34 +137,6 @@ const LoginScreen = ({ navigation }) => {
             )}
             {/* <Text style={styles.buttonText}>Sign in with Google</Text> */}
           </TouchableOpacity>
-          {/* {googleLoading ? (
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                borderWidth: 2,
-                borderColor: "#1267E9",
-                // backgroundColor: '#1267E9',
-                borderRadius: 10,
-                width: 250,
-                height: 50,
-              }}
-            >
-              <ActivityIndicator />
-              <Text style={{ color: "#1267E9", fontWeight: "bold" }}>
-                Signing in with Google
-              </Text>
-            </View>
-          ) : (
-            <GoogleSigninButton
-              style={{ width: 250, height: 52 }}
-              size={GoogleSigninButton.Size.Wide}
-              color={GoogleSigninButton.Color.Dark}
-              onPress={GoogleSignIn()}
-              // disabled={this.state.isSigninInProgress}
-            />
-          )} */}
         </View>
         <Text style={[styles.text, { marginVertical: 10 }]}>
           -------------------- OR --------------------
