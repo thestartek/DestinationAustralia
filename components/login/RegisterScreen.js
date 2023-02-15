@@ -7,13 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  modal,
+  ActivityIndicator
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
-import { ActivityIndicator, Divider, Modal } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
 import {
   getDownloadURL,
@@ -21,16 +20,6 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
-
-import {
-  BannerAd,
-  BannerAdSize,
-  TestIds,
-} from "react-native-google-mobile-ads";
-
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : "ca-app-pub-8686062104433125/8511852168";
 
 const ThumbnailImage = () => (
   <Image
@@ -220,61 +209,36 @@ const RegisterScreen = ({ navigation }) => {
               />
             </View>
 
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <AstrikIcon />
-              {/* {country ? (
-              <View
-                style={[
-                  styles.textInput,
-                  { flexDirection: "row", justifyContent: "space-between" },
-                ]}
-              >
-                <Text >{country.name}</Text>
-                <CountryPicker
-                  withEmoji
-                  withFilter
-                  onSelect={(select) => setCountry(select)}
-                />
-              </View>
-            ) : (
-              <View style={styles.textInput}>
-                <CountryPicker
-                  withEmoji
-                  withFilter
-                  onSelect={(select) => setCountry(select)}
-                />
-              </View>
-            )} */}
-
-              <TextInput
+            <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 20, justifyContent: 'space-between' }}>
+              
+            <TextInput
                 placeholder="Current country"
                 value={country}
                 onChangeText={(text) => setCountry(text)}
-                style={styles.textInput}
+                style={[styles.textInput, styles.textInputSmall]}
               />
-            </View>
-
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <AstrikIcon />
               <TextInput
                 placeholder="Current city"
                 value={city}
                 onChangeText={(text) => setCity(text)}
+                style={[styles.textInput, styles.textInputSmall]}
+              />
+            </View>
+
+            <View style={{ alignItems: "center", marginLeft: 20 }}>
+              <TextInput
+                placeholder="Write your bio"
+                multiline={true}
+                autoCapitalize="none"
+                value={info}
+                onChangeText={(text) => setInfo(text)}
                 style={styles.textInput}
+                //onSubmitEditing={Keyboard.dismiss}
               />
             </View>
 
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={{ marginRight: 20 }} />
-              <TextInput
-                placeholder="Write your bio (optional)"
-                multiline={true}
-                autoCapitalize="none"
-                value={info}
-                onChangeText={(text) => setInfo(text)}
-                style={[styles.textInput, { height: 100 }]}
-                //onSubmitEditing={Keyboard.dismiss}
-              />
             </View>
 
             {checkBox != true ? (
@@ -343,7 +307,6 @@ const RegisterScreen = ({ navigation }) => {
           {fullname == null ||
           email == null ||
           password == null ||
-          city == null ||
           !checkBox ? (
             <View style={styles.buttonContainer}>
               <View
@@ -363,7 +326,7 @@ const RegisterScreen = ({ navigation }) => {
                 style={[styles.button, { marginBottom: 200 }]}
               >
                 {loading ? (
-                  <ActivityIndicator />
+                  <ActivityIndicator color='white'/>
                 ) : (
                   <Text style={styles.buttonText}>Register</Text>
                 )}
@@ -373,9 +336,6 @@ const RegisterScreen = ({ navigation }) => {
           )}
         </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-      </View>
     </View>
   );
 };
@@ -422,6 +382,9 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     width: 280,
   },
+  textInputSmall: {
+    width: 130
+  },
   buttonContainer: {
     width: 300,
     justifyContent: "center",
@@ -432,7 +395,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#1267E9",
     width: "100%",
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 40,
     alignItems: "center",
   },
   buttonUnselected: {

@@ -104,7 +104,7 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginBottom: 20 }}>Version 2.0.2</Text>
+        <Text style={{ marginBottom: 20 }}>Version 2.1.0</Text>
         <View style={{ alignItems: "center", marginBottom: 40 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
         </View>

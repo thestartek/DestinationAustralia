@@ -6,7 +6,17 @@
     "notification": {
       "icon": "./assets/appIcon_transparent.png"
     },
-    "plugins": [
+    "plugins": ["@react-native-google-signin/google-signin",
+      ["react-native-fbsdk-next",
+        {
+         "appID": "848636436204602",
+          "clientToken": "9ce42daa1b40c2d06eb72ce79d6726d8",
+          "displayName": "Destination Australia",
+          "scheme": "fb848636436204602",
+          "advertiserIDCollectionEnabled": true,
+          "autoLogAppEventsEnabled": true
+        }
+      ],
       [
         "expo-notifications",
         {

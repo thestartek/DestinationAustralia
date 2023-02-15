@@ -2,4 +2,7 @@
   <string name="app_name">Destination Australia</string>
   <string name="expo_splash_screen_resize_mode" translatable="false">contain</string>
   <string name="expo_splash_screen_status_bar_translucent" translatable="false">false</string>
+  <string name="facebook_app_id">848636436204602</string>
+  <string name="facebook_client_token">9ce42daa1b40c2d06eb72ce79d6726d8</string>
+  <string name="fb_login_protocol_scheme">fb848636436204602</string>
 </resources>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -9,25 +9,69 @@ import {
   View,
   ActivityIndicator,
 } from "react-native";
-import { auth } from "../../Firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { Alert } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import { auth, db } from "../../Firebase";
 import {
-  BannerAd,
-  BannerAdSize,
-  TestIds,
-} from "react-native-google-mobile-ads";
-
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : "ca-app-pub-8686062104433125/8511852168";
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithCredential,
+} from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+} from "@react-native-google-signin/google-signin";
+import { Alert } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+
+  GoogleSignin.configure({
+    webClientId:
+      "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
+    androidClientId:
+      "126633133869-vsgh5l06n06t8mvo6osjg2l97hsv3g1s.apps.googleusercontent.com",
+  });
+
+  const GoogleSignIn = async () => {
+    setGoogleLoading(true);
+    try {
+      await GoogleSignin.hasPlayServices({
+        showPlayServicesUpdateDialog: true,
+      });
+      const userInfo = await GoogleSignin.signIn();
+      // console.log(userInfo)
+      const user = userInfo.user;
+      console.log(user.name + " is signed in with email: " + user.email);
+      const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
+      await signInWithCredential(auth, googleCredential)
+        .then(() => {
+          setDoc(doc(db, "users", user.email), {
+            uid: user.id,
+            fullname: user.name,
+            email: user.email,
+            city: "",
+            country: "",
+            info: "",
+            profile_picture: user.photo,
+          });
+          console.log("User added to database");
+          Alert.alert("Logged in successfully", user.email);
+          setGoogleLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error 1: " + error);
+          setGoogleLoading(false);
+        });
+      setGoogleLoading(false);
+    } catch (error) {
+      console.log("Error 2: " + error);
+      setGoogleLoading(false);
+    }
+  };
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -60,14 +104,44 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <ScrollView style={styles.outerContainer}>
+      <View style={{ alignItems: "center" }}>
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/appIcon_transparent.png")}
-            style={{ height: 100, width: 100, margin: 30 }}
+            style={{ height: 100, width: 100, marginTop: 20 }}
           />
+          <Text style={[styles.text, { color: "grey", marginBottom: 20 }]}>
+            Your friend for Australia related contents
+          </Text>
         </View>
+
+        {/* <Text style={[styles.text, { marginBottom: 10 }]}>Login with</Text> */}
+
+        {/* LOGIN WIHT FACEBOOK AND LOGIN WITH GOOGLE BUTTONS */}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={GoogleSignIn}
+            style={[styles.button, styles.buttonGoogle]}
+          >
+            {googleLoading ? (
+              <View style={{ flexDirection: "row" }}>
+                <ActivityIndicator color = 'white'/>
+                <Text style={styles.buttonText}>Signing in with Google</Text>
+              </View>
+            ) : (
+              <View style={{ flexDirection: "row" }}>
+                <AntDesign name="google" size={24} color="white" />
+                <Text style={styles.buttonText}>Sign in with Google</Text>
+              </View>
+            )}
+            {/* <Text style={styles.buttonText}>Sign in with Google</Text> */}
+          </TouchableOpacity>
+        </View>
+        <Text style={[styles.text, { marginVertical: 10 }]}>
+          -------------------- OR --------------------
+        </Text>
+
         <View>
           <TextInput
             placeholder="Email"
@@ -84,22 +158,22 @@ const LoginScreen = ({ navigation }) => {
             style={styles.textInput}
             secureTextEntry
           />
+          <TouchableOpacity
+            onPress={() => navigation.push("Reset password")}
+            style={{ alignItems: "flex-end" }}
+          >
+            <Text
+              style={{ color: "#1267E9", fontSize: 16, marginVertical: 10 }}
+            >
+              Forgot password ?{" "}
+            </Text>
+          </TouchableOpacity>
         </View>
-
-        <TouchableOpacity
-          onPress={() => navigation.push("Reset password")}
-          style={{ alignItems: "flex-end" }}
-        >
-          <Text style={{ color: "#1267E9", fontSize: 16 }}>
-            {" "}
-            Forgot password ?{" "}
-          </Text>
-        </TouchableOpacity>
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={handleLogin} style={styles.button}>
             {loading ? (
-              <ActivityIndicator />
+              <ActivityIndicator color = 'white'/>
             ) : (
               <Text style={styles.buttonText}>Login</Text>
             )}
@@ -110,38 +184,69 @@ const LoginScreen = ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop: 30,
+            marginVertical: 30,
             justifyContent: "center",
           }}
         >
-          <Text style={{ fontSize: 16 }}> Don't have an account ? </Text>
+          <Text style={styles.text}> Don't have an account ? </Text>
           <TouchableOpacity onPress={() => navigation.push("Register")}>
-            <Text style={styles.buttonFacebookText}>Register</Text>
+            <Text style={[styles.buttonText, { color: "#1267E9" }]}>
+              Register
+            </Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    marginHorizontal: 10,
+    backgroundColor: "white",
+  },
   logoContainer: {
     alignItems: "center",
   },
-
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
+  buttonContainer: {
+    flexDirection: "row",
     marginHorizontal: 10,
+    // width: 300,
+    justifyContent: "center",
+    // marginTop: 20,
   },
-
+  button: {
+    padding: 12,
+    // height: 50,
+    borderRadius: 40,
+    alignItems: "center",
+    marginHorizontal: 10,
+    marginVertical: 10,
+    justifyContent: "center",
+    flexDirection: "row",
+    width: 140,
+    backgroundColor: "#1267E9",
+    // marginTop: 10,
+  },
+  buttonFacebook: {
+    backgroundColor: "#1267E9",
+  },
+  buttonGoogle: {
+    borderRadius: 8,
+    width: 250,
+    // backgroundColor: 'red'
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    marginLeft: 10,
+  },
+  text: {
+    fontSize: 16,
+  },
   textInput: {
     backgroundColor: "white",
     padding: 12,
@@ -150,51 +255,5 @@ const styles = StyleSheet.create({
     borderColor: "darkgrey",
     marginVertical: 5,
     width: 300,
-  },
-  buttonContainer: {
-    width: 300,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20,
-  },
-  button: {
-    backgroundColor: "#1267E9",
-    width: "100%",
-    padding: 12,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonLogo: {},
-  buttonFacebook: {
-    backgroundColor: "white",
-    marginTop: 10,
-    borderColor: "#1267E9",
-    borderWidth: 2,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  buttonGoogle: {
-    backgroundColor: "white",
-    marginTop: 10,
-    borderColor: "red",
-    borderWidth: 2,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-
-  buttonFacebookText: {
-    color: "#1267E9",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  buttonGoogleText: {
-    color: "red",
-    fontWeight: "bold",
-    fontSize: 16,
   },
 });

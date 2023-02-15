@@ -38,6 +38,8 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 
+// const adUnitId = TestIds.BANNER;
+
 const adUnitId = __DEV__
   ? TestIds.BANNER
   : "ca-app-pub-8686062104433125/8511852168";

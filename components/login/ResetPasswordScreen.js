@@ -82,7 +82,7 @@ const ResetPasswordScreen = ({ navigation }) => {
           ) : (
             <TouchableOpacity onPress={resetPassword} style={styles.button}>
               {loading ? (
-                <ActivityIndicator />
+                <ActivityIndicator color='white'/>
               ) : (
                 <Text style={styles.buttonText}>Reset password</Text>
               )}
@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: 'white',
+    marginHorizontal: 10
   },
 
   textInput: {

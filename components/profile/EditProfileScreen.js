@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
@@ -17,7 +18,6 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
-import { ActivityIndicator } from "react-native-paper";
 
 import {
   BannerAd,
@@ -107,8 +107,10 @@ const EditProfileScreen = ({ navigation }) => {
   };
 
   const handleChange = async () => {
+    setLoading(true);
     const imageUrl = await uploadImage();
     console.log("imageUrl: ", imageUrl);
+
     try {
       const unsub = setDoc(
         doc(db, "users", user.email),
@@ -124,7 +126,7 @@ const EditProfileScreen = ({ navigation }) => {
       );
       console.log("Profile updated");
       navigation.goBack();
-      setLoading(false);
+      // setLoading(false);
       //Alert.alert("User registered successfully", user.email);
     } catch (error) {
       console.log(error);
@@ -209,7 +211,7 @@ const EditProfileScreen = ({ navigation }) => {
                 autoCapitalize="none"
                 onChangeText={setInfo}
                 value={info}
-                style={[styles.textInput, { height: 100 }]}
+                style={styles.textInput}
                 //onSubmitEditing={Keyboard.dismiss}
               />
             </View>
@@ -218,7 +220,7 @@ const EditProfileScreen = ({ navigation }) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleChange} style={styles.button}>
               {loading ? (
-                <ActivityIndicator />
+                <ActivityIndicator color="white" />
               ) : (
                 <Text style={styles.buttonText}>Save</Text>
               )}
@@ -243,6 +245,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     marginHorizontal: 10,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   photoSection: {
     marginTop: 40,
