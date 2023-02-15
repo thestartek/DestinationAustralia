@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
@@ -17,7 +18,6 @@ import {
   uploadBytesResumable,
   uploadBytes,
 } from "firebase/storage";
-import { ActivityIndicator } from "react-native-paper";
 
 import {
   BannerAd,
@@ -220,7 +220,7 @@ const EditProfileScreen = ({ navigation }) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleChange} style={styles.button}>
               {loading ? (
-                <ActivityIndicator />
+                <ActivityIndicator color="white" />
               ) : (
                 <Text style={styles.buttonText}>Save</Text>
               )}

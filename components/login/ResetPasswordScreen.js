@@ -82,7 +82,7 @@ const ResetPasswordScreen = ({ navigation }) => {
           ) : (
             <TouchableOpacity onPress={resetPassword} style={styles.button}>
               {loading ? (
-                <ActivityIndicator />
+                <ActivityIndicator color='white'/>
               ) : (
                 <Text style={styles.buttonText}>Reset password</Text>
               )}

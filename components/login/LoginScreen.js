@@ -126,7 +126,7 @@ const LoginScreen = ({ navigation }) => {
           >
             {googleLoading ? (
               <View style={{ flexDirection: "row" }}>
-                <ActivityIndicator />
+                <ActivityIndicator color = 'white'/>
                 <Text style={styles.buttonText}>Signing in with Google</Text>
               </View>
             ) : (
@@ -173,7 +173,7 @@ const LoginScreen = ({ navigation }) => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={handleLogin} style={styles.button}>
             {loading ? (
-              <ActivityIndicator />
+              <ActivityIndicator color = 'white'/>
             ) : (
               <Text style={styles.buttonText}>Login</Text>
             )}

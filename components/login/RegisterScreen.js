@@ -7,13 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  modal,
+  ActivityIndicator
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Alert, Keyboard } from "react-native";
 import { setDoc, doc } from "firebase/firestore";
-import { ActivityIndicator, Divider, Modal } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
 import {
   getDownloadURL,
@@ -327,7 +326,7 @@ const RegisterScreen = ({ navigation }) => {
                 style={[styles.button, { marginBottom: 200 }]}
               >
                 {loading ? (
-                  <ActivityIndicator />
+                  <ActivityIndicator color='white'/>
                 ) : (
                   <Text style={styles.buttonText}>Register</Text>
                 )}

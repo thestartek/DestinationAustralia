@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
 import { React, useEffect, useState } from "react";
 import { TextInput } from "react-native";
@@ -18,7 +19,6 @@ import {
   serverTimestamp,
   onSnapshot,
 } from "firebase/firestore";
-import { ActivityIndicator } from "react-native-paper";
 import {
   BannerAd,
   BannerAdSize,
