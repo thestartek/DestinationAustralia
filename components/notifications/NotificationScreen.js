@@ -40,6 +40,7 @@ async function sendPushNotification_Highlights(expoPushToken) {
     },
     body: JSON.stringify(message),
   });
+  console.log("Highlights sent")
 }
 
 // send notifications for Posts

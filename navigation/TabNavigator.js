@@ -14,75 +14,31 @@ import { getDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../Firebase";
 import LearnStack from "./LearnStack";
 
+import {
+  requestUserPermission,
+  getDeviceToken,
+  handleIncomingNotification,
+} from "../Firebase";
+
 const Tab = createBottomTabNavigator();
 
 const screenOptions = {
   tabBarShowLabel: false,
 };
 
-async function registerForPushNotificationsAsync() {
-  let token;
-  if (Device.isDevice) {
-    const { status: existingStatus } =
-      await Notifications.getPermissionsAsync();
-    let finalStatus = existingStatus;
-    if (existingStatus !== "granted") {
-      const { status } = await Notifications.requestPermissionsAsync();
-      finalStatus = status;
-    }
-    if (finalStatus !== "granted") {
-      alert("Failed to get push token for push notification!");
-      return;
-    }
-    token = (await Notifications.getExpoPushTokenAsync()).data;
-    console.log(token);
-    updateDoc(doc(db, "notifications", "token"), {
-      expoPushToken: arrayUnion(token),
-    });
-  } else {
-    alert("Must use physical device for Push Notifications");
-  }
-
-  if (Platform.OS === "android") {
-    Notifications.setNotificationChannelAsync("default", {
-      name: "default",
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: "#FF231F7C",
-    });
-  }
-
-  return token;
-}
-
 const TabNavigator = (navigation) => {
-  const [expoPushToken, setExpoPushToken] = useState("");
-  const [notification, setNotification] = useState(false);
-  const notificationListener = useRef();
-  const responseListener = useRef();
-
   useEffect(() => {
-    registerForPushNotificationsAsync().then((token) =>
-      setExpoPushToken(token)
-    );
-    // console.log(expoPushToken)
+    // Request user permission for push notifications
+    requestUserPermission();
 
-    notificationListener.current =
-      Notifications.addNotificationReceivedListener((notification) => {
-        setNotification(notification);
-      });
+    // Get the device token for push notifications
+    getDeviceToken();
 
-    responseListener.current =
-      Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log(response);
-      });
-
-    return () => {
-      Notifications.removeNotificationSubscription(
-        notificationListener.current
-      );
-      Notifications.removeNotificationSubscription(responseListener.current);
-    };
+    // Handle incoming push notifications
+    handleIncomingNotification((remoteMessage) => {
+      console.log("Remote message:", remoteMessage);
+      // Do something with the remote message
+    });
   }, []);
 
   return (
