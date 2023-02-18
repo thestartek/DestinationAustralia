@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { Alert } from "react-native";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import {
@@ -75,6 +76,7 @@ export const handleIncomingNotification = (callback) => {
 export const handleForegroundNotification = () => {
   messaging().onMessage(async (remoteMessage) => {
     Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+    console.log("Message handled in foreground", remoteMessage);
   });
 };
 
