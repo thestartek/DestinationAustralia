@@ -7,109 +7,9 @@ import {
   ScrollView,
   Linking,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import * as WebBrowser from "expo-web-browser";
-import { db, auth } from "../../Firebase";
-import { getDoc, doc } from "firebase/firestore";
-import * as Notifications from "expo-notifications";
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-  }),
-});
-
-// send notifications for highlights
-async function sendPushNotification_Highlights(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: "default",
-    title: "Destination Australia",
-    body: "New highlights added, check it now !",
-    data: { someData: "goes here" },
-  };
-
-  await fetch("https://exp.host/--/api/v2/push/send", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Accept-encoding": "gzip, deflate",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
-  console.log("Highlights sent")
-}
-
-// send notifications for Posts
-async function sendPushNotification_Posts(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: "default",
-    title: "Destination Australia",
-    body: "New Posts added, check it now !",
-    data: { someData: "goes here" },
-  };
-
-  await fetch("https://exp.host/--/api/v2/push/send", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Accept-encoding": "gzip, deflate",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
-}
-
-// send notifications for News
-async function sendPushNotification_News(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: "default",
-    title: "Destination Australia",
-    body: "Latest News added, check it now !",
-    data: { someData: "goes here" },
-  };
-
-  await fetch("https://exp.host/--/api/v2/push/send", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Accept-encoding": "gzip, deflate",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
-}
-
-// send notifications for Videos
-async function sendPushNotification_Videos(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: "default",
-    title: "Destination Australia",
-    body: "New Video added, check it now !",
-    data: { someData: "goes here" },
-  };
-
-  await fetch("https://exp.host/--/api/v2/push/send", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Accept-encoding": "gzip, deflate",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
-}
+import React from "react";
 
 const NotificationScreen = () => {
-  const [token, setToken] = useState([]);
-  //   // const [messageRef, setMessageRef] = useState("");
-
   const payLink = () => {
     Linking.openURL("https://PayPal.Me/thestartek")
       .then((result) => {
@@ -120,61 +20,8 @@ const NotificationScreen = () => {
       });
   };
 
-  useEffect(() => {
-    const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
-      setToken(doc.data().expoPushToken);
-    });
-  }, []);
-  // const tokenRef = getDoc(doc(db, "notifications", "token")).then((doc) => {
-  //   setToken(doc.data().expoPushToken);
-  // });
-
   return (
     <ScrollView>
-      {auth.currentUser.email == "destinationau@starteknp.com" ? (
-        <View style={{ alignItems: "center" }}>
-          <TouchableOpacity
-            onPress={async () => {
-              await sendPushNotification_Highlights(token);
-            }}
-            style={styles.button}
-          >
-            <Text style={{ color: "white", fontWeight: "bold" }}>
-              Send Highlights notifications
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={async () => {
-              await sendPushNotification_Posts(token);
-            }}
-            style={styles.button}
-          >
-            <Text style={{ color: "white", fontWeight: "bold" }}>
-              Send Posts notifications
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={async () => {
-              await sendPushNotification_News(token);
-            }}
-            style={styles.button}
-          >
-            <Text style={{ color: "white", fontWeight: "bold" }}>
-              Send News notifications
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={async () => {
-              await sendPushNotification_Videos(token);
-            }}
-            style={styles.button}
-          >
-            <Text style={{ color: "white", fontWeight: "bold" }}>
-              Send Videos notifications
-            </Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
       <View>
         <Text style={styles.headerText}>
           Notifications are not available right now.

@@ -7,11 +7,6 @@ import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../components/newPost/NewPostScreen";
 import PostStack from "./PostStack";
-
-import * as Device from "expo-device";
-import * as Notifications from "expo-notifications";
-import { getDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { db } from "../Firebase";
 import LearnStack from "./LearnStack";
 
 import {
@@ -32,6 +27,8 @@ const TabNavigator = (navigation) => {
   useEffect(() => {
     // Request user permission for push notifications
     requestUserPermission();
+    handleForegroundNotification();
+    handleBackgroundNotification();
 
     // Get the device token for push notifications
     getDeviceToken();
@@ -40,9 +37,6 @@ const TabNavigator = (navigation) => {
     handleIncomingNotification((remoteMessage) => {
       console.log("Remote message:", remoteMessage);
       // Do something with the remote message
-
-      handleForegroundNotification();
-      handleBackgroundNotification();
     });
   }, []);
 

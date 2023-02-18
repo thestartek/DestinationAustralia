@@ -75,7 +75,8 @@ export const handleIncomingNotification = (callback) => {
 
 export const handleForegroundNotification = () => {
   messaging().onMessage(async (remoteMessage) => {
-    Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+    const message = remoteMessage.notification;
+    Alert.alert(message.title, message.body);
     console.log("Message handled in foreground", remoteMessage);
   });
 };
