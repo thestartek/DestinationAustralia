@@ -18,6 +18,8 @@ import {
   requestUserPermission,
   getDeviceToken,
   handleIncomingNotification,
+  handleForegroundNotification,
+  handleBackgroundNotification,
 } from "../Firebase";
 
 const Tab = createBottomTabNavigator();
@@ -38,6 +40,9 @@ const TabNavigator = (navigation) => {
     handleIncomingNotification((remoteMessage) => {
       console.log("Remote message:", remoteMessage);
       // Do something with the remote message
+
+      handleForegroundNotification();
+      handleBackgroundNotification();
     });
   }, []);
 

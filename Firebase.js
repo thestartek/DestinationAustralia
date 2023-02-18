@@ -72,6 +72,19 @@ export const handleIncomingNotification = (callback) => {
     });
 };
 
+export const handleForegroundNotification = () => {
+  messaging().onMessage(async (remoteMessage) => {
+    Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+  });
+};
+
+// Register background handler
+export const handleBackgroundNotification = () => {
+  messaging().setBackgroundMessageHandler(async (remoteMessage) => {
+    console.log("Message handled in the background!", remoteMessage);
+  });
+};
+
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);

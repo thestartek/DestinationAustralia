@@ -13,7 +13,6 @@
     "c/**/left-pad": "^1.1.2"
   },
   "dependencies": {
-    "@expo/config-plugins": "^5.0.4",
     "@react-native-firebase/analytics": "^17.3.0",
     "@react-native-firebase/app": "^17.3.0",
     "@react-native-firebase/messaging": "^17.3.0",

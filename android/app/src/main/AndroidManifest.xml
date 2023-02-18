@@ -52,7 +52,7 @@
       </intent-filter>
     </activity>
     <service
-    android:name="org.name.journeytoaustralia.MyFirebaseMessagingService"
+    android:name="org.name.journeytoaustralia.java.MyFirebaseMessagingService"
     android:exported="false">
     <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT" />
