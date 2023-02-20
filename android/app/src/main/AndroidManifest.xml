@@ -50,7 +50,7 @@
         <data android:scheme="@string/fb_login_protocol_scheme"/>
       </intent-filter>
     </activity>
-    <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
+    <!-- <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
   <intent-filter>
     <action android:name="com.google.firebase.MESSAGING_EVENT" />
   </intent-filter>
@@ -59,6 +59,6 @@
   <intent-filter>
     <action android:name="com.google.firebase.MESSAGING_EVENT" />
   </intent-filter>
-</receiver>
+</receiver> -->
   </application>
 </manifest>

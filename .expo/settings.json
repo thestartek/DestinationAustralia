@@ -6,5 +6,5 @@
   "urlRandomness": "eX53UfY",
   "https": false,
   "scheme": "org.name.journeytoaustralia",
-  "devClient": false
+  "devClient": true
 }

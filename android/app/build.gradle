@@ -280,7 +280,7 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation "com.google.firebase:firebase-messaging:22.0.0"
-    implementation 'io.invertase.firebase:react-native-firebase-messaging:12.8.0'
+    // implementation 'io.invertase.firebase:react-native-firebase-messaging:12.8.0'
     implementation "com.google.gms:google-services:4.3.10"
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
