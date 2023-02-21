@@ -27,16 +27,11 @@ import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
 import {
-  BeforeAus,
-  FindJob,
-  GetTFN,
-  RentHouse,
-} from "../components/forYou/ForYouScreen.js";
-import {
   BannerAd,
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
+import * as WebBrowser from "expo-web-browser";
 
 // const adUnitId = TestIds.BANNER;
 
@@ -67,7 +62,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "highlights"), orderBy("random")),
+      query(collection(db, "highlights")),
       (snapshot) => {
         setHighlights(
           snapshot.docs.map((highlights) => ({
@@ -141,7 +136,13 @@ const HomeScreen = ({ isLoading, navigation }) => {
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <Text style={styles.headingText}>Useful articles</Text>
-              <TouchableOpacity onPress={() => navigation.push("All articles")}>
+              <TouchableOpacity
+                onPress={() => navigation.push("All articles")
+                  // WebBrowser.openBrowserAsync(
+                  //   "https://startekau.com/destination-australia/"
+                  // )
+                }
+              >
                 <Text style={styles.seeMoreText}>See all</Text>
               </TouchableOpacity>
             </View>

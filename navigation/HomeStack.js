@@ -13,18 +13,11 @@ import LearnScreen from "../components/learn/LearnScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
 import PostStack from "./PostStack";
-import ForYouScreen from "../components/forYou/ForYouScreen";
-import RentHouseScreen from "../components/forYou/RentHouseScreen";
-import FindJobScreen from "../components/forYou/FindJobScreen";
-import GetTFNScreen from "../components/forYou/GetTFNScreen";
-import BeforeVisaScreen from "../components/forYou/BeforeComingAus";
 import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
 import ExpenseEstimatorScreen from "../components/tools/ExpenseEstimatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
-import BeforeComingAus from "../components/forYou/BeforeComingAus";
 import AllArticles from "../components/articles/AllArticles";
-
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
