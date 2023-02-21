@@ -65,17 +65,9 @@ const HomeScreen = ({ isLoading, navigation }) => {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
-  // const highlights = {
-  //   date: "20 Jan",
-  //   image:
-  //     "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fjob-search-vector.jpeg?alt=media&token=b6da3af5-4cdd-461f-b437-4a0a70c7d89f",
-  //   link: "https://startekau.com/",
-  //   title: "This is highlights 1",
-  // };
-
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "highlights"), orderBy("title", "arrays")),
+      query(collection(db, "highlights"), orderBy("random")),
       (snapshot) => {
         setHighlights(
           snapshot.docs.map((highlights) => ({
