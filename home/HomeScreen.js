@@ -20,7 +20,7 @@ import {
   query,
 } from "firebase/firestore";
 import { db, auth } from "../Firebase";
-import Highlights from "./Highlights.js";
+import Highlights from "../components/articles/Highlights.js";
 import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
@@ -65,9 +65,17 @@ const HomeScreen = ({ isLoading, navigation }) => {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
+  // const highlights = {
+  //   date: "20 Jan",
+  //   image:
+  //     "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/articles%2Fjob-search-vector.jpeg?alt=media&token=b6da3af5-4cdd-461f-b437-4a0a70c7d89f",
+  //   link: "https://startekau.com/",
+  //   title: "This is highlights 1",
+  // };
+
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "highlights")),
+      query(collection(db, "highlights"), orderBy("title", "arrays")),
       (snapshot) => {
         setHighlights(
           snapshot.docs.map((highlights) => ({
@@ -141,23 +149,10 @@ const HomeScreen = ({ isLoading, navigation }) => {
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <Text style={styles.headingText}>Useful articles</Text>
-              <TouchableOpacity onPress={() => navigation.push("For you")}>
+              <TouchableOpacity onPress={() => navigation.push("All articles")}>
                 <Text style={styles.seeMoreText}>See all</Text>
               </TouchableOpacity>
             </View>
-
-            <ScrollView horizontal={true}>
-              <FindJob navigation={navigation} />
-              <RentHouse navigation={navigation} />
-              <GetTFN navigation={navigation} />
-              <BeforeAus navigation={navigation} />
-            </ScrollView>
-            <View style={{ margin: 10 }}></View>
-          </View>
-
-          {/* Highlights section */}
-          {/* <View style={styles.highlightsContainer}>
-            <Text style={styles.headingText}>Highlights</Text>
             <ScrollView horizontal={true}>
               {highlights.map((highlights, index) => (
                 <Highlights
@@ -167,7 +162,8 @@ const HomeScreen = ({ isLoading, navigation }) => {
                 />
               ))}
             </ScrollView>
-          </View> */}
+            <View style={{ margin: 10 }}></View>
+          </View>
 
           {/* Post section */}
           <View style={styles.postContainer}>

@@ -19,16 +19,9 @@ const Highlights = ({ highlights, navigation }) => {
           />
         )}
 
-        <View
-          style={{
-            width: 120,
-            height: 166,
-            backgroundColor: "rgba(0, 0, 0, .4)",
-            borderRadius: 10,
-            marginTop: -166,
-          }}
-        ></View>
-        <Text style={styles.text}>{highlights.title} </Text>
+        <View style={styles.textBox}>
+          <Text style={styles.text}>{highlights.title} </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -38,38 +31,39 @@ export default Highlights;
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: "center",
     alignItems: "flex-start",
     backgroundColor: "white",
-    marginHorizontal: 5,
+    marginHorizontal: 10,
     marginTop: 10,
-    marginBottom: 20,
-    width: 120,
-  },
-  image: {
-    width: 120,
-    height: 166,
+    marginBottom: 10,
+    width: 150,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: "lightgrey",
-    // opacity: 0.9
+  },
+  image: {
+    width: "100%",
+    height: 100,
+    borderWidth: 1,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+    borderColor: "lightgrey",
+  },
+  textBox: {
+    backgroundColor: "#e6ecf5",
+    width: "100%",
+    borderColor: "lightgrey",
+    borderTopWidth: 1,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   text: {
     marginVertical: 5,
-    height: 166,
-    width: 116,
-    marginTop: -166,
+    height: 70,
     marginHorizontal: 3,
     fontWeight: "800",
-    fontSize: 15,
-    color: "white",
-    textShadowRadius: 1,
-    textShadowColor: "black",
-    textShadowOffset: {
-      width: 1,
-      height: 1,
-    },
+    fontSize: 16,
+    color: "#1267E9",
     padding: 4,
-    // textDecorationLine: 'underline'
   },
 });
