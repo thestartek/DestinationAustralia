@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 100,
-    borderWidth: 1,
+    // borderWidth: 1,
     borderTopRightRadius: 8,
     borderTopLeftRadius: 8,
     borderColor: "lightgrey",

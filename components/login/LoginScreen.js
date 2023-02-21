@@ -53,9 +53,6 @@ const LoginScreen = ({ navigation }) => {
             uid: user.id,
             fullname: user.name,
             email: user.email,
-            city: "",
-            country: "",
-            info: "",
             profile_picture: user.photo,
           });
           console.log("User added to database");
