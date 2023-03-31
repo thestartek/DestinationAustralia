@@ -22,30 +22,59 @@ const adUnitId = __DEV__
 const ToolsScreen = ({ navigation }) => {
   return (
     <View>
-      <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-      </View>
-      <ScrollView style={styles.outerContainer}>
-        <View style={styles.mainContainer}>
-          <PrPointsCalculator navigation={navigation} />
-          <ExploreAustralia navigation={navigation} />
-          <UniversityFinder navigation={navigation} />
-          <ExpenseEstimator navigation={navigation} />
+      <View style={styles.toolsContainer}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text style={styles.headingText}>Useful Tools</Text>
         </View>
 
-        {/* Second Row */}
-        {/* /////////////////////////////// */}
-
-        {/* <View style={{ margin: 20 }}></View> */}
-
-        {/* Third Row */}
-        {/* /////////////////////////////// */}
-        <View style={{ alignItems: "center", marginVertical: 40 }}>
-          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        {/* List tools here */}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.container}>
+            <PrPointsCalculator navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <ExploreAustralia navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <UniversityFinder navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <ExpenseEstimator navigation={navigation} />
+          </View>
         </View>
-      </ScrollView>
-      <View style={{ alignItems: "center", marginTop: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+
+        <View style={{ alignItems: "center", marginVertical: 20 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.container}>
+            <UsefulLinks navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <ImportantContacts navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <ScholarshipFinder navigation={navigation} />
+          </View>
+          <View style={[styles.container, {width: 50}]}>
+
+          </View>
+        </View>
+
+        <View style={{ margin: 15 }}></View>
       </View>
     </View>
   );
@@ -119,6 +148,57 @@ export const ExpenseEstimator = ({ navigation }) => {
   );
 };
 
+export const UsefulLinks = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("Useful Links")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FUsefulLinks_Logo.png?alt=media&token=5b87e397-d4dc-48a6-a513-5dfb2a2ede31",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Useful{"\n"}Links</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const ImportantContacts = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("Important Contacts")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FImportantContacts_Logo.png?alt=media&token=274dee5e-80b7-4667-bacf-be9df1445294",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Important{"\n"}Contacts</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const ScholarshipFinder = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("Scholarship Finder")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FScholarshipFinder_Logo.png?alt=media&token=b77527b5-f586-4f54-8250-b47ed2a6ef01",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Scholarship{"\n"}Finder</Text>
+    </TouchableOpacity>
+  );
+};
+
 export default ToolsScreen;
 
 const styles = StyleSheet.create({
@@ -126,6 +206,30 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginHorizontal: 10,
     borderRadius: 8,
+  },
+  container: {
+    marginHorizontal: 15,
+  },
+  toolsContainer: {
+    borderRadius: 10,
+    marginHorizontal: 6,
+    marginVertical: 10,
+    backgroundColor: "white",
+  },
+  headingText: {
+    marginHorizontal: 10,
+    marginVertical: 20,
+    fontWeight: "bold",
+    fontWeight: "bold",
+    fontSize: 22,
+  },
+  seeMoreText: {
+    textAlign: "center",
+    color: "#1267E9",
+    marginVertical: 20,
+    marginHorizontal: 10,
+    fontSize: 15,
+    fontWeight: "bold",
   },
   mainContainer: {
     flexDirection: "row",

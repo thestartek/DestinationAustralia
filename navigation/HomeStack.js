@@ -18,6 +18,9 @@ import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
 import ExpenseEstimatorScreen from "../components/tools/ExpenseEstimatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import AllArticles from "../components/articles/AllArticles";
+import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
+import ImportantContactsScreen from "../components/tools/ImportantContactsScreen";
+import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -49,6 +52,9 @@ const HomeStack = () => {
         name="Explore Australia"
         component={ExploreAustraliaScreen}
       />
+      <Stack.Screen name="Useful Links" component={UsefulLinksScreen}/>
+      <Stack.Screen name="Important Contacts" component={ImportantContactsScreen}/>
+      <Stack.Screen name="Scholarship Finder" component={ScholarshipFinderScreen}/>
       <Stack.Screen name="Support us" component={DonateScreen} />
       <Stack.Screen name="Videos" component={VideoScreen} />
       <Stack.Screen name="News" component={NewsPostScreen} />

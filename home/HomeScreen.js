@@ -11,7 +11,6 @@ import {
 import React, { useEffect, useState } from "react";
 import Header from "./Header.js";
 import Post4home from "./Post4home.js";
-// import * as Analytics from "expo-firebase-analytics";
 import {
   collection,
   onSnapshot,
@@ -19,9 +18,8 @@ import {
   limit,
   query,
 } from "firebase/firestore";
-import { db, auth } from "../Firebase";
+import { db } from "../Firebase";
 import Highlights from "../components/articles/Highlights.js";
-import Tools4Home from "./Tools4Home.js";
 import NewsPostScreen from "./NewsPostScreen.js";
 import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
@@ -31,7 +29,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import * as WebBrowser from "expo-web-browser";
+import ToolsScreen from "../components/tools/ToolsScreen.js";
 
 // const adUnitId = TestIds.BANNER;
 
@@ -44,16 +42,14 @@ const wait = (timeout) => {
 };
 const { width } = Dimensions.get("window");
 
-// const shuffleForyou = [FindJob, RentHouse, GetTFN, BeforeAus];
-
 const HomeScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [newsposts, setNewsPosts] = useState([]);
+  // const [newsposts, setNewsPosts] = useState([]);
   const [highlights, setHighlights] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [videos, setVideos] = useState([]);
-  const user = auth.currentUser;
+  // const user = auth.currentUser;
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -137,7 +133,8 @@ const HomeScreen = ({ isLoading, navigation }) => {
             >
               <Text style={styles.headingText}>Useful articles</Text>
               <TouchableOpacity
-                onPress={() => navigation.push("All articles")
+                onPress={
+                  () => navigation.push("All articles")
                   // WebBrowser.openBrowserAsync(
                   //   "https://startekau.com/destination-australia/"
                   // )
@@ -158,6 +155,13 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <View style={{ margin: 10 }}></View>
           </View>
 
+          {/* Tools section */}
+          <ToolsScreen navigation={navigation} />
+
+          <View style={{ alignItems: "center", marginVertical: 10 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+
           {/* Post section */}
           <View style={styles.postContainer}>
             <View
@@ -175,13 +179,16 @@ const HomeScreen = ({ isLoading, navigation }) => {
             </ScrollView>
             <View style={{ margin: 20 }}></View>
           </View>
-          <View style={{ alignItems: "center" }}>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+          <View style={{ alignItems: "center", marginVertical: 10 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 
           {/* video section */}
           {/* <Text style={styles.headingText}>Videos</Text> */}
-          <ScrollView
+          <View>
+            <Text>Videos lie here........</Text>
+          </View>
+          {/* <ScrollView
             horizontal={true}
             pagingEnabled={true}
             // ref={ScrollView}
@@ -191,26 +198,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             {videos.map((video, index) => (
               <Video4home video={video} key={index} navigation={navigation} />
             ))}
-          </ScrollView>
-
-          {/* Tools section */}
-          <View style={styles.toolsContainer}>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={styles.headingText}>Tools</Text>
-              <TouchableOpacity onPress={() => navigation.push("Tools")}>
-                <Text style={styles.seeMoreText}>All tools</Text>
-              </TouchableOpacity>
-            </View>
-
-            {/* List tools here */}
-            <Tools4Home navigation={navigation} />
-            <View style={{ margin: 15 }}></View>
-          </View>
-          <View style={{ alignItems: "center", marginBottom: 10 }}>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
-          </View>
+          </ScrollView> */}
 
           {/* News section */}
 

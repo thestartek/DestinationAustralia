@@ -46,7 +46,7 @@ const CustomDrawer = (props) => {
           <TouchableOpacity
             style={{ margin: 5 }}
             onPress={() =>
-              Linking.openURL("https://www.facebook.com/starteknp")
+              Linking.openURL("https://www.facebook.com/destination.aust")
             }
           >
             <FontAwesome5 name="facebook" size={25} color="#1267E9" />
@@ -55,7 +55,7 @@ const CustomDrawer = (props) => {
             style={{ margin: 5 }}
             onPress={() =>
               Linking.openURL(
-                "https://www.youtube.com/channel/UCZ9yNb94w_SFsz7rQ1LGkyw"
+                "https://www.youtube.com/channel/UCx1woeDAXSyWGkIC0kB0vzw"
               )
             }
           >
@@ -64,7 +64,7 @@ const CustomDrawer = (props) => {
           <TouchableOpacity
             style={{ margin: 5 }}
             onPress={() =>
-              Linking.openURL("https://www.instagram.com/starteknp/")
+              Linking.openURL("https://www.instagram.com/destination.au/")
             }
           >
             <Image
@@ -77,7 +77,7 @@ const CustomDrawer = (props) => {
           <TouchableOpacity
             style={{ margin: 5 }}
             onPress={() =>
-              Linking.openURL("https://www.tiktok.com/@starteknp/")
+              Linking.openURL("https://www.tiktok.com/@startek_au/")
             }
           >
             <Image
@@ -92,19 +92,24 @@ const CustomDrawer = (props) => {
           <Text>Powered by: </Text>
           <TouchableOpacity
             style={{ flexDirection: "row" }}
-            onPress={() => Linking.openURL("https://www.starteknp.com")}
+            onPress={() => Linking.openURL("https://www.startekau.com")}
           >
             <Image
-              style={{ height: 20, width: 20, marginHorizontal: 5 }}
+              style={{
+                height: 30,
+                width: 30,
+                marginHorizontal: 5,
+                marginTop: -5,
+              }}
               source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/StarTek_Logo_Circular.gif?alt=media&token=fe95f337-e6af-4a9a-959f-b1baa433f6b5",
+                uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/StarTek_Logo_Circular.png?alt=media&token=8c9b85d9-b18b-4511-a3db-ebfa5da8cfb2",
               }}
             />
-            <Text>StarTek</Text>
+            <Text>StarTek AU</Text>
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginBottom: 20 }}>Version 2.1.1</Text>
+        <Text style={{ marginBottom: 20 }}>Version 2.3.0</Text>
         <View style={{ alignItems: "center", marginBottom: 40 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
         </View>
