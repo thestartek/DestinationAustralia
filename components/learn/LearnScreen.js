@@ -25,21 +25,20 @@ const adUnitId = __DEV__
 const LearnScreen = ({ navigation }) => {
   return (
     <View>
-      <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 20 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
       <ScrollView>
         <View style={styles.learnContainer}>
-          <Text style={styles.mainHeader}>Learning material for you</Text>
           <TouchableOpacity
-            style={styles.titleContainer}
+            style={[styles.titleContainer, {backgroundColor: '#00afaf'}]}
             onPress={() => navigation.push("PTE Academic")}
           >
             <Text style={styles.titleText}>PTE Academic</Text>
             <AntDesign name="rightcircleo" size={24} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.titleContainer}
+            style={[styles.titleContainer, {backgroundColor: '#bf0a30'}]}
             onPress={() => navigation.push("IELTS")}
           >
             <Text style={styles.titleText}>IELTS</Text>
@@ -55,14 +54,10 @@ const LearnScreen = ({ navigation }) => {
 
           <View style={{ margin: 10 }}></View>
         </View>
-
-        {/* ///////// Videos /////// */}
-        
-        {/* <Divider style={{ height: 8 }} /> */}
-        <View style={{ margin: 10 }}></View>
-        
-        <VideoScreen />
       </ScrollView>
+      <View style={{ alignItems: "center", marginVertical: 20 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
     </View>
   );
 };
@@ -83,7 +78,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     backgroundColor: "#1267E9",
-    padding: 12,
+    padding: 20,
     marginTop: 20,
     marginHorizontal: 20,
     borderRadius: 5,
@@ -91,9 +86,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   titleText: {
-    padding: 2,
-    fontSize: 16,
-    fontWeight: "bold",
+    // padding: 2,
+    fontSize: 20,
+    fontWeight: "400",
     color: "white",
   },
 });

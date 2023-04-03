@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
 import {
+  EnglishTestPreparation,
   ExpenseEstimator,
   ExploreAustralia,
   ImportantContacts,
@@ -8,6 +9,7 @@ import {
   ScholarshipFinder,
   UniversityFinder,
   UsefulLinks,
+  UsefulVideos,
 } from "../components/tools/AllTools";
 import {
   BannerAd,
@@ -41,11 +43,11 @@ const Tools4Home = ({ navigation }) => {
             <UniversityFinder navigation={navigation} />
           </View>
           <View style={styles.container}>
-            <ExpenseEstimator navigation={navigation} />
+            <UsefulLinks navigation={navigation} />
           </View>
         </View>
 
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <View style={{ alignItems: "center" }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         </View>
 
@@ -57,15 +59,17 @@ const Tools4Home = ({ navigation }) => {
           }}
         >
           <View style={styles.container}>
-            <UsefulLinks navigation={navigation} />
-          </View>
-          <View style={styles.container}>
             <ImportantContacts navigation={navigation} />
           </View>
           <View style={styles.container}>
             <ScholarshipFinder navigation={navigation} />
           </View>
-          <View style={[styles.container, { width: 50 }]}></View>
+          <View style={styles.container}>
+            <EnglishTestPreparation navigation={navigation} />
+          </View>
+          <View style={styles.container}>
+            <UsefulVideos navigation={navigation} />
+          </View>
         </View>
       </View>
     </View>

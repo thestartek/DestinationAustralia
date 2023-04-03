@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 
 export const PrPointsCalculator = ({ navigation }) => {
@@ -54,23 +48,6 @@ export const UniversityFinder = ({ navigation }) => {
         style={styles.toolsImage}
       />
       <Text style={styles.toolsName}>University{"\n"}Finder</Text>
-    </TouchableOpacity>
-  );
-};
-
-export const ExpenseEstimator = ({ navigation }) => {
-  return (
-    <TouchableOpacity
-      onPress={() => navigation.push("Expense Estimator")}
-      style={styles.innerContainer}
-    >
-      <Image
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FexpenseEstimator.png?alt=media&token=3893a795-952a-4f2e-a3ec-e625d4e2060f",
-        }}
-        style={styles.toolsImage}
-      />
-      <Text style={styles.toolsName}>Expense{"\n"}Estimator</Text>
     </TouchableOpacity>
   );
 };
@@ -126,6 +103,38 @@ export const ScholarshipFinder = ({ navigation }) => {
   );
 };
 
+export const EnglishTestPreparation = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("English Tests Preparation")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>English Tests{"\n"}Preparation</Text>
+    </TouchableOpacity>
+  );
+};
+export const UsefulVideos = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.push("Useful Videos")}
+      style={styles.innerContainer}
+    >
+      <Image
+        source={{
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fvideo-icon.webp?alt=media&token=1f527c62-3d89-4709-9d3e-1110addb2df4",
+        }}
+        style={styles.toolsImage}
+      />
+      <Text style={styles.toolsName}>Useful{"\n"}Videos</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   innerContainer: {

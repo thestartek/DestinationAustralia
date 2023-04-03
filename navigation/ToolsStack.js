@@ -4,10 +4,11 @@ import ToolsScreen from "../components/tools/ToolsScreen";
 import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
-import ExpenseEstimatorScreen from "../components/tools/ExpenseEstimatorScreen";
 import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
 import ImportantContactsScreen from "../components/tools/ImportantContactsScreen";
 import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
+import LearnStack from "./LearnStack";
+import VideoScreen from "../components/learn/VideoScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,10 +35,6 @@ const ToolsStack = () => {
         name="University Finder"
         component={UniversityFinderScreen}
       />
-      <Stack.Screen
-        name="Expense Estimator"
-        component={ExpenseEstimatorScreen}
-      />
       <Stack.Screen name="Useful Links" component={UsefulLinksScreen} />
       <Stack.Screen
         name="Important Contacts"
@@ -47,6 +44,8 @@ const ToolsStack = () => {
         name="Scholarship Finder"
         component={ScholarshipFinderScreen}
       />
+      <Stack.Screen name="English Tests Preparation" component={LearnStack} />
+      <Stack.Screen name="Useful Videos" component={VideoScreen} />
     </Stack.Navigator>
   );
 };

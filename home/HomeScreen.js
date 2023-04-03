@@ -30,6 +30,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import Tools4Home from "./Tools4Home.js";
+import ToolsScreen from "../components/tools/ToolsScreen.js";
 
 // const adUnitId = TestIds.BANNER;
 
@@ -157,6 +158,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
           {/* Tools section */}
           <Tools4Home navigation={navigation} />
+          {/* <ToolsScreen navigation={navigation}/> */}
 
           <View style={{ alignItems: "center", marginVertical: 10 }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
@@ -182,23 +184,6 @@ const HomeScreen = ({ isLoading, navigation }) => {
           <View style={{ alignItems: "center", marginVertical: 10 }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
-
-          {/* video section */}
-          {/* <Text style={styles.headingText}>Videos</Text> */}
-          <View>
-            <Text>Videos lie here........</Text>
-          </View>
-          {/* <ScrollView
-            horizontal={true}
-            pagingEnabled={true}
-            // ref={ScrollView}
-            snapToInterval={width - 40}
-            // snapToAlignment={"center"}
-          >
-            {videos.map((video, index) => (
-              <Video4home video={video} key={index} navigation={navigation} />
-            ))}
-          </ScrollView> */}
 
           {/* News section */}
 

@@ -10,6 +10,7 @@ import VideoScreen from "../components/learn/VideoScreen";
 import ToolsStack from "./ToolsStack";
 import CustomDrawer from "../components/drawer/CustomDrawer";
 import { Image, StyleSheet } from "react-native";
+import PostScreen from "../components/post/PostsScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -17,6 +18,15 @@ const homeIcon = ({ focused }) => (
   <Image
     source={{
       uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FhomeIcon_Active.png?alt=media&token=1a44acea-55f5-4676-9eda-d31f4051cd62",
+    }}
+    style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
+  />
+);
+
+const postIcon = ({ focused }) => (
+  <Image
+    source={{
+      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FcommentIcon_Active.png?alt=media&token=f560024d-a9ed-4917-8473-4bc1bbe5ade7",
     }}
     style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
   />
@@ -87,7 +97,11 @@ const DrawerNavigatior = () => {
         name="Home"
         component={HomeStack}
       />
-      {/* <Drawer.Screen name="Posts" component={PostScreen} /> */}
+      <Drawer.Screen
+        options={{ drawerIcon: postIcon }}
+        name="Posts"
+        component={PostScreen}
+      />
       <Drawer.Screen
         options={{ drawerIcon: newsIcon }}
         name="News"
