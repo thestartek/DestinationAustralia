@@ -1,6 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ToolsScreen, { UsefulLinks } from "../components/tools/ToolsScreen";
+import ToolsScreen from "../components/tools/ToolsScreen";
 import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
@@ -26,12 +26,27 @@ const ToolsStack = () => {
         name="PR Points Calculator"
         component={PrPointsCalculatorScreen}
       />
-      <Stack.Screen name="Explore Australia" component={ExploreAustraliaScreen} />
-      <Stack.Screen name="University Finder" component={UniversityFinderScreen} />
-      <Stack.Screen name="Expense Estimator" component={ExpenseEstimatorScreen} />
-      <Stack.Screen name="Useful Links" component = {UsefulLinksScreen}/>
-      <Stack.Screen name="Important Contacts" component={ImportantContactsScreen}/>
-      <Stack.Screen name="Scholarship Finder" component={ScholarshipFinderScreen}/>
+      <Stack.Screen
+        name="Explore Australia"
+        component={ExploreAustraliaScreen}
+      />
+      <Stack.Screen
+        name="University Finder"
+        component={UniversityFinderScreen}
+      />
+      <Stack.Screen
+        name="Expense Estimator"
+        component={ExpenseEstimatorScreen}
+      />
+      <Stack.Screen name="Useful Links" component={UsefulLinksScreen} />
+      <Stack.Screen
+        name="Important Contacts"
+        component={ImportantContactsScreen}
+      />
+      <Stack.Screen
+        name="Scholarship Finder"
+        component={ScholarshipFinderScreen}
+      />
     </Stack.Navigator>
   );
 };

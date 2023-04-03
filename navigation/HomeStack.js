@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../home/HomeScreen";
-import ToolsScreen from "../components/tools/ToolsScreen";
+// import ToolsScreen from "../components/tools/ToolsScreen";
 import DonateScreen from "../components/drawer/DonateScreen";
 import VideoScreen from "../components/learn/VideoScreen";
 import NewsPostScreen from "../home/NewsPostScreen";
@@ -35,7 +35,7 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Posts" component={PostStack} />
-      <Stack.Screen name="Tools" component={ToolsScreen} />
+      {/* <Stack.Screen name="Tools" component={ToolsScreen} /> */}
       <Stack.Screen
         name="PR Points Calculator"
         component={PrPointsCalculatorScreen}

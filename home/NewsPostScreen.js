@@ -34,7 +34,7 @@ const NewsPostScreen = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
 

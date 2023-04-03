@@ -29,7 +29,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import ToolsScreen from "../components/tools/ToolsScreen.js";
+import Tools4Home from "./Tools4Home.js";
 
 // const adUnitId = TestIds.BANNER;
 
@@ -156,10 +156,10 @@ const HomeScreen = ({ isLoading, navigation }) => {
           </View>
 
           {/* Tools section */}
-          <ToolsScreen navigation={navigation} />
+          <Tools4Home navigation={navigation} />
 
           <View style={{ alignItems: "center", marginVertical: 10 }}>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+            <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
           </View>
 
           {/* Post section */}

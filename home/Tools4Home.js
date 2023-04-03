@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React from "react";
 import {
   ExpenseEstimator,
@@ -8,8 +8,7 @@ import {
   ScholarshipFinder,
   UniversityFinder,
   UsefulLinks,
-} from "./AllTools";
-
+} from "../components/tools/AllTools";
 import {
   BannerAd,
   BannerAdSize,
@@ -20,17 +19,10 @@ const adUnitId = __DEV__
   ? TestIds.BANNER
   : "ca-app-pub-8686062104433125/8511852168";
 
-const ToolsScreen = ({ navigation }) => {
+const Tools4Home = ({ navigation }) => {
   return (
     <View>
-      <View style={{ alignItems: "center", marginVertical: 10 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
-      </View>
       <View style={styles.toolsContainer}>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text style={styles.headingText}>Useful Tools</Text>
-        </View>
-
         {/* List tools here */}
         <View
           style={{
@@ -53,7 +45,7 @@ const ToolsScreen = ({ navigation }) => {
           </View>
         </View>
 
-        <View style={{ alignItems: "center", marginVertical: 20 }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         </View>
 
@@ -80,17 +72,12 @@ const ToolsScreen = ({ navigation }) => {
   );
 };
 
-export default ToolsScreen;
+export default Tools4Home;
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    backgroundColor: "white",
-    marginHorizontal: 10,
-    borderRadius: 8,
-  },
   container: {
     marginHorizontal: 15,
-    // marginVertical: 20
+    marginVertical: 15,
   },
   toolsContainer: {
     borderRadius: 10,
@@ -112,24 +99,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     fontSize: 15,
     fontWeight: "bold",
-  },
-  innerContainer: {
-    // marginHorizontal: 10,
-    marginVertical: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    // width: "16%"
-  },
-  toolsImage: {
-    width: 40,
-    height: 40,
-    tintColor: "#1267E9",
-    resizeMode: "contain",
-  },
-  toolsName: {
-    marginTop: 10,
-    textAlign: "center",
-    // fontSize: 12
-    // color: "#1267E9"
   },
 });
