@@ -19,7 +19,7 @@ import {
     ? TestIds.BANNER
     : "ca-app-pub-8686062104433125/8511852168";
   
-  const EnglishTestScreen = ({ navigation }) => {
+  const ResumeBuilderScreen = ({ navigation }) => {
     return (
       <View>
         <View style={{ alignItems: "center" }}>
@@ -56,7 +56,7 @@ import {
     );
   };
   
-  export default EnglishTestScreen;
+  export default ResumeBuilderScreen;
   
   const styles = StyleSheet.create({
     button: {

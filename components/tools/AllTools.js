@@ -9,7 +9,7 @@ export const PrPointsCalculator = ({ navigation }) => {
     >
       <Image
         source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FprPointsCalculator.png?alt=media&token=7722bbef-ee9e-47e2-ac5f-e823cb871e5d",
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FPrPoints_Logo.png?alt=media&token=b7a7b9b6-8fbc-4b33-9fb2-51764b5040b1",
         }}
         style={styles.toolsImage}
       />
@@ -119,19 +119,19 @@ export const EnglishTestPreparation = ({ navigation }) => {
     </TouchableOpacity>
   );
 };
-export const UsefulVideos = ({ navigation }) => {
+export const ResumeBuilder = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.push("Useful Videos")}
+      onPress={() => navigation.push("Resume Builder")}
       style={styles.innerContainer}
     >
       <Image
         source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fvideo-icon.webp?alt=media&token=1f527c62-3d89-4709-9d3e-1110addb2df4",
+          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FResumeBuilder_Logo.png?alt=media&token=7f8a6b94-d421-4ca4-bc89-7ee12a822f7f",
         }}
         style={styles.toolsImage}
       />
-      <Text style={styles.toolsName}>Useful{"\n"}Videos</Text>
+      <Text style={styles.toolsName}>Resume{"\n"}Builder</Text>
     </TouchableOpacity>
   );
 };
@@ -145,15 +145,15 @@ const styles = StyleSheet.create({
     // width: "16%"
   },
   toolsImage: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     tintColor: "#1267E9",
     resizeMode: "contain",
   },
   toolsName: {
     marginTop: 10,
     textAlign: "center",
-    // fontSize: 12
+    fontSize: 12,
     // color: "#1267E9"
   },
 });

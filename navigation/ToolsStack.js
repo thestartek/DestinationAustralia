@@ -8,7 +8,7 @@ import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
 import ImportantContactsScreen from "../components/tools/ImportantContactsScreen";
 import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
 import LearnStack from "./LearnStack";
-import VideoScreen from "../components/learn/VideoScreen";
+import ResumeBuilderScreen from "../components/tools/ResumeBuilderScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,7 +45,7 @@ const ToolsStack = () => {
         component={ScholarshipFinderScreen}
       />
       <Stack.Screen name="English Tests Preparation" component={LearnStack} />
-      <Stack.Screen name="Useful Videos" component={VideoScreen} />
+      <Stack.Screen name="Resume Builder" component={ResumeBuilderScreen} />
     </Stack.Navigator>
   );
 };

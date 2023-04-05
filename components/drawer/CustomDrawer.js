@@ -1,6 +1,5 @@
 import {
   View,
-  SafeAreaView,
   Text,
   StyleSheet,
   Image,
@@ -11,10 +10,8 @@ import React from "react";
 import {
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem,
 } from "@react-navigation/drawer";
 import { FontAwesome5, Entypo } from "@expo/vector-icons";
-import * as WebBrowser from "expo-web-browser";
 import {
   BannerAd,
   BannerAdSize,

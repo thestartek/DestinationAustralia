@@ -1,13 +1,11 @@
 import "react-native-gesture-handler";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, Text, Image, Platform, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigatior";
 import ProfileStack from "./ProfileStack";
 import NewPostScreen from "../components/newPost/NewPostScreen";
-import PostStack from "./PostStack";
-import LearnStack from "./LearnStack";
 
 import {
   requestUserPermission,
@@ -16,6 +14,8 @@ import {
   handleForegroundNotification,
   handleBackgroundNotification,
 } from "../Firebase";
+import VideoScreen from "../components/learn/VideoScreen";
+import NewsPostScreen from "../home/NewsPostScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -70,14 +70,14 @@ const TabNavigator = (navigation) => {
         />
 
         <Tab.Screen
-          name="Posts"
-          component={PostStack}
+          name="Videos"
+          component={VideoScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.tabIconView}>
                 <Image
                   source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FcommentIcon_Active.png?alt=media&token=f560024d-a9ed-4917-8473-4bc1bbe5ade7",
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FVideoIcon.png?alt=media&token=ec5b432a-fbda-4d57-a558-321054fcf055",
                   }}
                   style={[
                     styles.tabIcon,
@@ -87,7 +87,7 @@ const TabNavigator = (navigation) => {
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
                 >
-                  Community
+                  Videos
                 </Text>
               </View>
             ),
@@ -120,14 +120,14 @@ const TabNavigator = (navigation) => {
         />
 
         <Tab.Screen
-          name="Learn"
-          component={LearnStack}
+          name="News"
+          component={NewsPostScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.tabIconView}>
                 <Image
                   source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FlearnIcon.png?alt=media&token=758a9d79-0c98-440f-922d-9309c64c57df",
+                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FNews_article_icon.png?alt=media&token=4a3c9969-cd67-44ef-884b-298c57d9dae3",
                   }}
                   style={[
                     styles.tabIcon,
@@ -137,45 +137,13 @@ const TabNavigator = (navigation) => {
                 <Text
                   style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
                 >
-                  Learn
+                  News
                 </Text>
               </View>
             ),
           }}
         />
 
-        {/* <Tab.Screen
-          name="Notifications"
-          component={NotificationScreen}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
-                <Image
-                  source={{
-                    uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FnotificationIcon_Active.png?alt=media&token=98374cc5-0a7d-461b-a826-a3cacc0a2b6c",
-                  }}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#1267E9" : "grey",
-                  }}
-                />
-                <Text
-                  style={{ color: focused ? "#1267E9" : "grey", fontSize: 12 }}
-                >
-                  Notifications
-                </Text>
-              </View>
-            ),
-          }}
-        /> */}
         <Tab.Screen
           name="Profile"
           component={ProfileStack}

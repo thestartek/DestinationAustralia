@@ -31,9 +31,16 @@ const NotificationScreen = () => {
           Please come back later to see notifications.
         </Text>
         <Text style={styles.contentText}>
-          For now, you can support us to make this application the bast app for
-          Australia related contents by offering your support amount to the
-          following PayPal ID.
+          This app is a hard work of a team of International students studying
+          in Australia. We study full time and work multiple jobs to sustain
+          life in Australia and pay a huge amount of tution fee.
+        </Text>
+        <Text style={styles.contentText}>
+          You can show your support by offering a cup of coffee or your own
+          support amount to the following PayPal ID. This will greatly motivate
+          us to make this application the best app for Australian visa,
+          immigration and related contents whilst proving all the useful
+          contents for free.
         </Text>
 
         <View style={{ justifyContent: "center", alignItems: "center" }}>

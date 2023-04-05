@@ -5,12 +5,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import React, { useState, useEffect } from "react";
-import { Divider } from "react-native-paper";
-import PTE from "./PTE";
-import IELTS from "./IELTS";
-import TOEFL from "./TOEFL";
-import VideoScreen from "./VideoScreen";
+import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import {
   BannerAd,
@@ -31,14 +26,14 @@ const LearnScreen = ({ navigation }) => {
       <ScrollView>
         <View style={styles.learnContainer}>
           <TouchableOpacity
-            style={[styles.titleContainer, {backgroundColor: '#00afaf'}]}
+            style={[styles.titleContainer, { backgroundColor: "#00afaf" }]}
             onPress={() => navigation.push("PTE Academic")}
           >
             <Text style={styles.titleText}>PTE Academic</Text>
             <AntDesign name="rightcircleo" size={24} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.titleContainer, {backgroundColor: '#bf0a30'}]}
+            style={[styles.titleContainer, { backgroundColor: "#bf0a30" }]}
             onPress={() => navigation.push("IELTS")}
           >
             <Text style={styles.titleText}>IELTS</Text>
@@ -65,12 +60,6 @@ const LearnScreen = ({ navigation }) => {
 export default LearnScreen;
 
 const styles = StyleSheet.create({
-  mainHeader: {
-    fontSize: 26,
-    marginHorizontal: 20,
-    marginTop: 20,
-    marginBottom: 10,
-  },
   learnContainer: {
     backgroundColor: "white",
     marginHorizontal: 10,

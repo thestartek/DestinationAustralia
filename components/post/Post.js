@@ -20,8 +20,6 @@ import CommentModal from "./CommentModal";
 const windowWidth = Dimensions.get("window").width
 
 const Post = ({ post, navigation }) => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const user = auth.currentUser;
   // const [currentLoggedInUser, setCurrentLoggedInUser] = useState([]);
@@ -317,5 +315,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-// ABC posted in Journey to Australia App: First post from ABC

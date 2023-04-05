@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
   ScrollView,
 } from "react-native";
@@ -45,6 +44,7 @@ const VideoScreen = ({ navigation }) => {
       <View style={{ alignItems: "center", marginVertical: 20 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
+      <Text style={styles.headingText}>Useful videos for you</Text>
       <ScrollView>
         {/* ///////// Videos /////// */}
         {/* <View style={{ margin: 5 }}></View> */}
@@ -62,3 +62,16 @@ const VideoScreen = ({ navigation }) => {
 };
 
 export default VideoScreen;
+
+const styles = StyleSheet.create({
+  headingText: {
+    marginHorizontal: 10,
+    marginVertical: 20,
+    fontWeight: "bold",
+    fontWeight: "bold",
+    fontSize: 22,
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 8
+  },
+});

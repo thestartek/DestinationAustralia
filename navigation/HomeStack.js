@@ -8,7 +8,7 @@ import NewsPostScreen from "../home/NewsPostScreen";
 import NewPostScreen from "../components/newPost/NewPostScreen";
 import ReportScreen from "../components/drawer/ReportScreen";
 import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
-import LearnScreen from "../components/learn/LearnScreen";
+import LearnScreen from "../components/learn/EnglishTestsScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
 import PostStack from "./PostStack";
@@ -20,6 +20,7 @@ import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
 import ImportantContactsScreen from "../components/tools/ImportantContactsScreen";
 import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
 import LearnStack from "./LearnStack";
+import ResumeBuilderScreen from "../components/tools/ResumeBuilderScreen";
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -48,10 +49,7 @@ const HomeStack = () => {
         component={ExploreAustraliaScreen}
       />
       <Stack.Screen name="Useful Links" component={UsefulLinksScreen} />
-      <Stack.Screen
-        name="English Tests Preparation"
-        component={LearnStack}
-      />
+      <Stack.Screen name="English Tests Preparation" component={LearnStack} />
       <Stack.Screen
         name="Important Contacts"
         component={ImportantContactsScreen}
@@ -60,10 +58,8 @@ const HomeStack = () => {
         name="Scholarship Finder"
         component={ScholarshipFinderScreen}
       />
-      <Stack.Screen
-        name="Useful Videos"
-        component={VideoScreen}
-      />
+      <Stack.Screen name="Resume Builder" component={ResumeBuilderScreen} />
+      <Stack.Screen name="Useful Videos" component={VideoScreen} />
       <Stack.Screen name="Support us" component={DonateScreen} />
       <Stack.Screen name="Videos" component={VideoScreen} />
       <Stack.Screen name="News" component={NewsPostScreen} />

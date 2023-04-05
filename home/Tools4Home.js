@@ -5,6 +5,7 @@ import {
   ExploreAustralia,
   ImportantContacts,
   PrPointsCalculator,
+  ResumeBuilder,
   ScholarshipFinder,
   UniversityFinder,
   UsefulLinks,
@@ -43,8 +44,9 @@ const Tools4Home = ({ navigation }) => {
           <ImportantContacts navigation={navigation} />
           <ScholarshipFinder navigation={navigation} />
           <EnglishTestPreparation navigation={navigation} />
-          <UsefulVideos navigation={navigation} />
+          <ResumeBuilder navigation={navigation}/>
         </View>
+        <View style={{ height: 20 }}></View>
       </View>
     </View>
   );

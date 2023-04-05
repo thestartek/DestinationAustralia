@@ -1,6 +1,6 @@
 import { View, ScrollView, Text, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query, limit } from "firebase/firestore";
 import { db, auth } from "../Firebase";
 import NewsPost from "./NewsPost.js";
 import {
@@ -18,7 +18,7 @@ const NewsPostScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsub = onSnapshot(query(collection(db, "newsposts")), (snapshot) => {
+    const unsub = onSnapshot(query(collection(db, "newsposts"), limit(30)), (snapshot) => {
       setNewsPosts(
         snapshot.docs.map((newspost) => ({
           id: newspost.id,

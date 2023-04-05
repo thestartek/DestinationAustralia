@@ -21,7 +21,6 @@ import {
 import { db } from "../Firebase";
 import Highlights from "../components/articles/Highlights.js";
 import NewsPostScreen from "./NewsPostScreen.js";
-import Video4home from "./Video4home.js";
 import BannerHome_linkedtoApp from "../components/cards/BannerHome_linkedtoApp.js";
 import BannerHome_linkedtoWeb from "../components/cards/BannerHome_linkedtoWeb.js";
 import {
@@ -30,7 +29,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import Tools4Home from "./Tools4Home.js";
-import ToolsScreen from "../components/tools/ToolsScreen.js";
+import Post from "../components/post/Post.js";
 
 // const adUnitId = TestIds.BANNER;
 
@@ -77,7 +76,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("created", "desc"), limit(6)),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(2)),
       (snapshot) => {
         setPosts(
           snapshot.docs.map((post) => ({ id: post.id, ...post.data() }))
@@ -132,7 +131,7 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
-              <Text style={styles.headingText}>Useful articles</Text>
+              <Text style={styles.headingText}>Useful articles for you</Text>
               <TouchableOpacity
                 onPress={
                   () => navigation.push("All articles")
@@ -156,33 +155,32 @@ const HomeScreen = ({ isLoading, navigation }) => {
             <View style={{ margin: 10 }}></View>
           </View>
 
+          {/* Post section */}
+          <View style={styles.postContainer}>
+            <Text style={styles.headingText}>Latest posts</Text>
+
+            <View horizontal={true}>
+              {posts.map((post, index) => (
+                <Post post={post} key={index} navigation={navigation} />
+              ))}
+            </View>
+            <TouchableOpacity onPress={() => navigation.push("Posts")}>
+              <Text style={styles.seeMoreText}>More posts</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ alignItems: "center", marginVertical: 10 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+
+          <View style={{ alignItems: "center", marginVertical: 10 }}>
+            <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+          </View>
+
           {/* Tools section */}
           <Tools4Home navigation={navigation} />
-          {/* <ToolsScreen navigation={navigation}/> */}
 
           <View style={{ alignItems: "center", marginVertical: 10 }}>
             <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-          </View>
-
-          {/* Post section */}
-          <View style={styles.postContainer}>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={styles.headingText}>Latest posts</Text>
-              <TouchableOpacity onPress={() => navigation.push("Posts")}>
-                <Text style={styles.seeMoreText}>More posts</Text>
-              </TouchableOpacity>
-            </View>
-            <ScrollView horizontal={true}>
-              {posts.map((post, index) => (
-                <Post4home post={post} key={index} navigation={navigation} />
-              ))}
-            </ScrollView>
-            <View style={{ margin: 20 }}></View>
-          </View>
-          <View style={{ alignItems: "center", marginVertical: 10 }}>
-            <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
           </View>
 
           {/* News section */}

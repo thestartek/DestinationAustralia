@@ -44,7 +44,7 @@ const newsIcon = ({ focused }) => (
 const videoIcon = ({ focused }) => (
   <Image
     source={{
-      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fvideo-icon.webp?alt=media&token=1f527c62-3d89-4709-9d3e-1110addb2df4",
+      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FVideoIcon.png?alt=media&token=ec5b432a-fbda-4d57-a558-321054fcf055",
     }}
     style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
   />
