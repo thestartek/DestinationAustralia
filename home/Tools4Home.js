@@ -1,8 +1,7 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import React from "react";
 import {
   EnglishTestPreparation,
-  ExpenseEstimator,
   ExploreAustralia,
   ImportantContacts,
   PrPointsCalculator,
@@ -25,51 +24,26 @@ const Tools4Home = ({ navigation }) => {
   return (
     <View>
       <View style={styles.toolsContainer}>
+        <View style={{ marginLeft: 10 }}>
+          <Text style={styles.headingText}>Useful Tools</Text>
+        </View>
         {/* List tools here */}
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <View style={styles.container}>
-            <PrPointsCalculator navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <ExploreAustralia navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <UniversityFinder navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <UsefulLinks navigation={navigation} />
-          </View>
+        <View style={styles.innerContainer}>
+          <PrPointsCalculator navigation={navigation} />
+          <ExploreAustralia navigation={navigation} />
+          <UniversityFinder navigation={navigation} />
+          <UsefulLinks navigation={navigation} />
         </View>
 
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         </View>
 
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <View style={styles.container}>
-            <ImportantContacts navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <ScholarshipFinder navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <EnglishTestPreparation navigation={navigation} />
-          </View>
-          <View style={styles.container}>
-            <UsefulVideos navigation={navigation} />
-          </View>
+        <View style={styles.innerContainer}>
+          <ImportantContacts navigation={navigation} />
+          <ScholarshipFinder navigation={navigation} />
+          <EnglishTestPreparation navigation={navigation} />
+          <UsefulVideos navigation={navigation} />
         </View>
       </View>
     </View>
@@ -79,29 +53,22 @@ const Tools4Home = ({ navigation }) => {
 export default Tools4Home;
 
 const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 15,
-    marginVertical: 15,
-  },
   toolsContainer: {
     borderRadius: 10,
     marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: "white",
   },
+  innerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 20,
+  },
   headingText: {
     marginHorizontal: 10,
     marginVertical: 20,
     fontWeight: "bold",
-    fontWeight: "bold",
     fontSize: 22,
-  },
-  seeMoreText: {
-    textAlign: "center",
-    color: "#1267E9",
-    marginVertical: 20,
-    marginHorizontal: 10,
-    fontSize: 15,
-    fontWeight: "bold",
   },
 });
