@@ -12,7 +12,7 @@ import LearnScreen from "../components/learn/EnglishTestsScreen";
 import ProfileStack from "./ProfileStack";
 import NotificationScreen from "../components/notifications/NotificationScreen";
 import PostStack from "./PostStack";
-import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
+import PrPointsCalculatorScreen from "../components/tools/prPoints/PrPointsCalculatorScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import AllArticles from "../components/articles/AllArticles";
@@ -21,6 +21,7 @@ import ImportantContactsScreen from "../components/tools/ImportantContactsScreen
 import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
 import LearnStack from "./LearnStack";
 import ResumeBuilderScreen from "../components/tools/ResumeBuilderScreen";
+import PrPointsStack from "./PrPointsStack";
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -38,7 +39,7 @@ const HomeStack = () => {
       {/* <Stack.Screen name="Tools" component={ToolsScreen} /> */}
       <Stack.Screen
         name="PR Points Calculator"
-        component={PrPointsCalculatorScreen}
+        component={PrPointsStack}
       />
       <Stack.Screen
         name="University Finder"

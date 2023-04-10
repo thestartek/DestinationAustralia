@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ToolsScreen from "../components/tools/ToolsScreen";
-import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
+import PrPointsCalculatorScreen from "../components/tools/prPoints/PrPointsCalculatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
 import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
@@ -9,6 +9,7 @@ import ImportantContactsScreen from "../components/tools/ImportantContactsScreen
 import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
 import LearnStack from "./LearnStack";
 import ResumeBuilderScreen from "../components/tools/ResumeBuilderScreen";
+import PrPointsStack from "./PrPointsStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,7 @@ const ToolsStack = () => {
       />
       <Stack.Screen
         name="PR Points Calculator"
-        component={PrPointsCalculatorScreen}
+        component={PrPointsStack}
       />
       <Stack.Screen
         name="Explore Australia"
