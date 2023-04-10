@@ -92,7 +92,7 @@ const PrPointsCalculatorScreen = ({ navigation }) => {
           </View>
         </View>
 
-        <View style={{ alignItems: "center", marginVertical: 60 }}>
+        <View style={{ alignItems: "center", marginVertical: 100 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
         </View>
       </ScrollView>

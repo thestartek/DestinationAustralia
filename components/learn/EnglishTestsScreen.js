@@ -49,10 +49,10 @@ const LearnScreen = ({ navigation }) => {
 
           <View style={{ margin: 10 }}></View>
         </View>
+        <View style={{ alignItems: "center", marginTop: 50, marginBottom: 150 }}>
+          <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+        </View>
       </ScrollView>
-      <View style={{ alignItems: "center", marginVertical: 20 }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
-      </View>
     </View>
   );
 };
