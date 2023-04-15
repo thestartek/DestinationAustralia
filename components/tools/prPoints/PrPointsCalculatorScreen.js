@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     backgroundColor: "#1267E9",
-    padding: 8,
+    padding: 10,
     // marginHorizontal: 5,
     marginVertical: 8,
     borderRadius: 5,
