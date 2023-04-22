@@ -160,8 +160,13 @@ export const EnglishLanguage = () => {
 
       <Divider bold={true} style={{ marginHorizontal: 20 }} />
       <View style={styles.selectionBox}>
-        <Text style={styles.contentText}>Competent English</Text>
-
+        <View>
+          <Text style={styles.contentText}>Competent English</Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            At least 6 in IELTS (50 in PTE) or equivalent in other approved
+            tests
+          </Text>
+        </View>
         {competentEng ? (
           <TouchableOpacity
             style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
@@ -185,7 +190,13 @@ export const EnglishLanguage = () => {
       <Divider bold={true} style={{ marginHorizontal: 20 }} />
 
       <View style={styles.selectionBox}>
-        <Text style={styles.contentText}>Proficient English</Text>
+        <View>
+          <Text style={styles.contentText}>Proficient English</Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            At least 7 in IELTS (65 in PTE) or equivalent in other approved
+            tests
+          </Text>
+        </View>
 
         {proficientEng ? (
           <TouchableOpacity
@@ -211,7 +222,13 @@ export const EnglishLanguage = () => {
       <Divider bold={true} style={{ marginHorizontal: 20 }} />
 
       <View style={styles.selectionBox}>
-        <Text style={styles.contentText}>Superior English</Text>
+        <View>
+          <Text style={styles.contentText}>Superior English</Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            At least 8 in IELTS (79 in PTE) or equivalent in other approved
+            tests
+          </Text>
+        </View>
 
         {superiorEng ? (
           <TouchableOpacity
@@ -237,10 +254,433 @@ export const EnglishLanguage = () => {
   );
 };
 
+export const OverseasEmployment = () => {
+  const [checkOVemp03, setCheckOVemp03] = useState(false);
+  const [checkOVemp35, setCheckOVemp35] = useState(false);
+  const [checkOVemp58, setCheckOVemp58] = useState(false);
+  const [checkOVemp80, setCheckOVemp80] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Overseas skilled employment (Outside Australia)
+      </Text>
+
+      <Text style={styles.subHeadingText}>
+        Select your work experience outside Australia{" "}
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Less than 3 years</Text>
+
+        {checkOVemp03 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckOVemp03(true),
+              setCheckOVemp35(false),
+              setCheckOVemp58(false),
+              setCheckOVemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 3 but less than 5 years</Text>
+
+        {checkOVemp35 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckOVemp03(false),
+              setCheckOVemp35(true),
+              setCheckOVemp58(false),
+              setCheckOVemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 5 but less than 8 years</Text>
+
+        {checkOVemp58 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckOVemp03(false),
+              setCheckOVemp35(false),
+              setCheckOVemp58(true),
+              setCheckOVemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 8 years</Text>
+
+        {checkOVemp80 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckOVemp03(false),
+              setCheckOVemp35(false),
+              setCheckOVemp58(false),
+              setCheckOVemp80(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const AustralianEmployment = () => {
+  const [checkAUemp01, setCheckAUemp01] = useState(false);
+  const [checkAUemp13, setCheckAUemp13] = useState(false);
+  const [checkAUemp35, setCheckAUemp35] = useState(false);
+  const [checkAUemp58, setCheckAUemp58] = useState(false);
+  const [checkAUemp80, setCheckAUemp80] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Australian skilled employment (Inside Australia)
+      </Text>
+
+      <Text style={styles.subHeadingText}>
+        Select your work experience inside Australia{" "}
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Less than 1 year</Text>
+
+        {checkAUemp01 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAUemp01(true),
+              setCheckAUemp13(false),
+              setCheckAUemp35(false),
+              setCheckAUemp58(false),
+              setCheckAUemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 1 but less than 3 years</Text>
+
+        {checkAUemp13 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAUemp01(false),
+              setCheckAUemp13(true),
+              setCheckAUemp35(false),
+              setCheckAUemp58(false),
+              setCheckAUemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 3 but less than 5 years</Text>
+
+        {checkAUemp35 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAUemp01(false),
+              setCheckAUemp13(false),
+              setCheckAUemp35(true),
+              setCheckAUemp58(false),
+              setCheckAUemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 5 but less than 8 years</Text>
+
+        {checkAUemp58 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAUemp01(false),
+              setCheckAUemp13(false),
+              setCheckAUemp35(false),
+              setCheckAUemp58(true),
+              setCheckAUemp80(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>At least 8 years</Text>
+
+        {checkAUemp80 ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAUemp01(false),
+              setCheckAUemp13(false),
+              setCheckAUemp35(false),
+              setCheckAUemp58(false),
+              setCheckAUemp80(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const Education = () => {
+  const [checkEduDoc, setCheckEduDoc] = useState(false);
+  const [checkEduBach, setCheckEduBach] = useState(false);
+  const [checkEduDpl, setCheckEduDpl] = useState(false);
+  const [checkEduRel, setCheckEduRel] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Educational qualifications</Text>
+
+      <Text style={styles.subHeadingText}>
+        Select your educational qualification{" "}
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>
+          A Doctorate from an Australian educational institution or a Doctorate
+          from another educational institution, that is of a recognised
+          standard.
+        </Text>
+
+        {checkEduDoc ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckEduDoc(true),
+              setCheckEduBach(false),
+              setCheckEduDpl(false),
+              setCheckEduRel(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>
+          At least a Bachelor degree from an Australian educational institution
+          or at least a Bachelor qualification, from another educational
+          institution, that is of a recognised standard.
+        </Text>
+
+        {checkEduBach ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckEduDoc(false),
+              setCheckEduBach(true),
+              setCheckEduDpl(false),
+              setCheckEduRel(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>
+          A diploma or trade qualification from an Australian educational
+          institution.
+        </Text>
+
+        {checkEduDpl ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckEduDoc(false),
+              setCheckEduBach(false),
+              setCheckEduDpl(true),
+              setCheckEduRel(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>
+          Attained a qualification or award recognised by the relevant assessing
+          authority for your nominated skilled occupation as being suitable for
+          that occupation
+        </Text>
+
+        {checkEduRel ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckEduDoc(false),
+              setCheckEduBach(false),
+              setCheckEduDpl(false),
+              setCheckEduRel(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: "white",
-    marginVertical: 10,
+    marginVertical: 15,
     marginHorizontal: 10,
     borderRadius: 6,
   },

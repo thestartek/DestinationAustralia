@@ -38,7 +38,7 @@ const HomeStack = () => {
       <Stack.Screen name="Posts" component={PostStack} />
       {/* <Stack.Screen name="Tools" component={ToolsScreen} /> */}
       <Stack.Screen
-        name="PR Points Calculator"
+        name="PR Points"
         component={PrPointsStack}
       />
       <Stack.Screen

@@ -4,7 +4,7 @@ import React from "react";
 export const PrPointsCalculator = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.push("PR Points Calculator")}
+      onPress={() => navigation.push("PR Points")}
       style={styles.innerContainer}
     >
       <Image

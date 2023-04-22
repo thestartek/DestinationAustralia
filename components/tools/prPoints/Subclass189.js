@@ -15,7 +15,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import { Age, EnglishLanguage } from "./PoinsTable";
+import { Age, AustralianEmployment, Education, EnglishLanguage, OverseasEmployment } from "./PoinsTable";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -32,6 +32,9 @@ const Subclass189 = () => {
       </View>
       <Age />
       <EnglishLanguage />
+      <OverseasEmployment />
+      <AustralianEmployment />
+      <Education />
     </ScrollView>
   );
 };
