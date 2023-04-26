@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
     webClientId:
       "126633133869-s0m5p25e3ccme62qhg2ire4lr0jtv4u9.apps.googleusercontent.com",
     androidClientId:
-      "126633133869-vsgh5l06n06t8mvo6osjg2l97hsv3g1s.apps.googleusercontent.com",
+      "126633133869-0gtrkbu5gliin40ivi5a82na4pff06b4.apps.googleusercontent.com",
   });
 
   const GoogleSignIn = async () => {
@@ -53,9 +53,6 @@ const LoginScreen = ({ navigation }) => {
             uid: user.id,
             fullname: user.name,
             email: user.email,
-            city: "",
-            country: "",
-            info: "",
             profile_picture: user.photo,
           });
           console.log("User added to database");

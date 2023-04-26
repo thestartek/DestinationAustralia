@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
   ScrollView,
 } from "react-native";
@@ -42,16 +41,13 @@ const VideoScreen = ({ navigation }) => {
 
   return (
     <View>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginVertical: 20 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
+      <Text style={styles.headingText}>Useful videos for you</Text>
       <ScrollView>
         {/* ///////// Videos /////// */}
         {/* <View style={{ margin: 5 }}></View> */}
-
-        <View>
-          <Text style={styles.mainHeader}>Useful videos for you</Text>
-        </View>
         {videos.map((video, index) => (
           <Video video={video} key={index} navigation={navigation} />
         ))}
@@ -68,48 +64,14 @@ const VideoScreen = ({ navigation }) => {
 export default VideoScreen;
 
 const styles = StyleSheet.create({
-  mainHeader: {
-    fontSize: 26,
-    marginHorizontal: 20,
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  header: {
-    backgroundColor: "#1267E9",
-    padding: 12,
-    marginTop: 20,
+  headingText: {
     marginHorizontal: 10,
-    borderRadius: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  headerText: {
-    padding: 2,
-    fontSize: 16,
+    marginVertical: 20,
     fontWeight: "bold",
-    color: "white",
-  },
-  content: {
-    padding: 10,
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  contentHeading: { fontSize: 16, marginTop: 10, marginBottom: 5 },
-  contentText: { margin: 5, color: "#545050" },
-  moreButton: {
-    // backgroundColor: "#1267E9",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: 42,
-    borderRadius: 10,
-    // marginVertical: 5,
-  },
-  videoContent: {
-    marginHorizontal: 15,
-    backgroundColor: "white",
-    marginVertical: 5,
-    borderRadius: 5,
+    fontWeight: "bold",
+    fontSize: 22,
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 8
   },
 });

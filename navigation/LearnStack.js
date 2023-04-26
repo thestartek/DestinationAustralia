@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import LearnScreen from "../components/learn/LearnScreen";
+import LearnScreen from "../components/learn/EnglishTestsScreen";
 import PTE from "../components/learn/PTE";
 import IELTS from "../components/learn/IELTS";
 import TOEFL from "../components/learn/TOEFL";

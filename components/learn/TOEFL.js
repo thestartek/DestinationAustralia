@@ -23,7 +23,7 @@ const adUnitId = __DEV__
 const TOEFL = () => {
   return (
     <ScrollView>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginVertical: 5 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       {/* /////////////// Reading ////////////////// */}

@@ -51,8 +51,8 @@ const IELTS = () => {
 
   return (
     <ScrollView>
-      <View style={{ alignItems: "center" }}>
-        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      <View style={{ alignItems: "center", marginVertical: 5 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       {/* /////////////// Listening ////////////////// */}
       <View style={styles.content}>

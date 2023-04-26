@@ -40,12 +40,13 @@ const DonateScreen = () => {
         <Text style={styles.contentText}>
           This app is a hard work of a team of International students studying
           in Australia. We study full time and work multiple jobs to sustain
-          life and pay a huge amount of tution fee.
+          life in Australia and pay a huge amount of tution fee.
         </Text>
         <Text style={styles.contentText}>
-          You can show your love by offering a cup of coffee or your own support
+          You can show your support by offering a cup of coffee or your own support
           amount to the following PayPal ID. This will greatly motivate us to
-          make this application more useful and knowledgable for you.
+          make this application the best app for Australian visa, immigration
+          and related contents whilst proving all the useful contents for free.
         </Text>
 
         <View style={{ justifyContent: "center", alignItems: "center" }}>

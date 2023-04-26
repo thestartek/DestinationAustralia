@@ -2,17 +2,15 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
 import DonateScreen from "../components/drawer/DonateScreen";
-import AboutusScreen from "../components/drawer/AboutusScreen";
 import HomeStack from "./HomeStack";
-import PostScreen from "../components/post/PostsScreen";
 import NewsPostScreen from "../home/NewsPostScreen";
-import ContactScreen from "../components/drawer/ContactScreen";
 import ReportScreen from "../components/drawer/ReportScreen";
 import PrivacyPolicy from "../components/drawer/PrivacyPolicy";
 import VideoScreen from "../components/learn/VideoScreen";
 import ToolsStack from "./ToolsStack";
 import CustomDrawer from "../components/drawer/CustomDrawer";
 import { Image, StyleSheet } from "react-native";
+import PostScreen from "../components/post/PostsScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,6 +18,15 @@ const homeIcon = ({ focused }) => (
   <Image
     source={{
       uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FhomeIcon_Active.png?alt=media&token=1a44acea-55f5-4676-9eda-d31f4051cd62",
+    }}
+    style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
+  />
+);
+
+const postIcon = ({ focused }) => (
+  <Image
+    source={{
+      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FcommentIcon_Active.png?alt=media&token=f560024d-a9ed-4917-8473-4bc1bbe5ade7",
     }}
     style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
   />
@@ -37,7 +44,7 @@ const newsIcon = ({ focused }) => (
 const videoIcon = ({ focused }) => (
   <Image
     source={{
-      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2Fvideo-icon.webp?alt=media&token=1f527c62-3d89-4709-9d3e-1110addb2df4",
+      uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FVideoIcon.png?alt=media&token=ec5b432a-fbda-4d57-a558-321054fcf055",
     }}
     style={[styles.iconStyle, { tintColor: focused ? "#1267E9" : "grey" }]}
   />
@@ -90,7 +97,11 @@ const DrawerNavigatior = () => {
         name="Home"
         component={HomeStack}
       />
-      {/* <Drawer.Screen name="Posts" component={PostScreen} /> */}
+      <Drawer.Screen
+        options={{ drawerIcon: postIcon }}
+        name="Posts"
+        component={PostScreen}
+      />
       <Drawer.Screen
         options={{ drawerIcon: newsIcon }}
         name="News"

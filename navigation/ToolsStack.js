@@ -1,14 +1,15 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ToolsScreen from "../components/tools/ToolsScreen";
-import PrPointsCalculator from "../components/tools/PrPointsCalculatorScreen";
-import UniversityFinder from "../components/tools/UniversityFinderScreen";
-import ExpenseEstimator from "../components/tools/ExpenseEstimatorScreen";
-import ExploreAustralia from "../components/tools/ExploreAustraliaScreen";
-import PrPointsCalculatorScreen from "../components/tools/PrPointsCalculatorScreen";
+import PrPointsCalculatorScreen from "../components/tools/prPoints/PrPointsCalculatorScreen";
 import ExploreAustraliaScreen from "../components/tools/ExploreAustraliaScreen";
 import UniversityFinderScreen from "../components/tools/UniversityFinderScreen";
-import ExpenseEstimatorScreen from "../components/tools/ExpenseEstimatorScreen";
+import UsefulLinksScreen from "../components/tools/UsefulLinksScreen";
+import ImportantContactsScreen from "../components/tools/ImportantContactsScreen";
+import ScholarshipFinderScreen from "../components/tools/ScholarshipFinderScreen";
+import LearnStack from "./LearnStack";
+import ResumeBuilderScreen from "../components/tools/ResumeBuilderScreen";
+import PrPointsStack from "./PrPointsStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,11 +26,27 @@ const ToolsStack = () => {
       />
       <Stack.Screen
         name="PR Points Calculator"
-        component={PrPointsCalculatorScreen}
+        component={PrPointsStack}
       />
-      <Stack.Screen name="Explore Australia" component={ExploreAustraliaScreen} />
-      <Stack.Screen name="University Finder" component={UniversityFinderScreen} />
-      <Stack.Screen name="Expense Estimator" component={ExpenseEstimatorScreen} />
+      <Stack.Screen
+        name="Explore Australia"
+        component={ExploreAustraliaScreen}
+      />
+      <Stack.Screen
+        name="University Finder"
+        component={UniversityFinderScreen}
+      />
+      <Stack.Screen name="Useful Links" component={UsefulLinksScreen} />
+      <Stack.Screen
+        name="Important Contacts"
+        component={ImportantContactsScreen}
+      />
+      <Stack.Screen
+        name="Scholarship Finder"
+        component={ScholarshipFinderScreen}
+      />
+      <Stack.Screen name="English Tests Preparation" component={LearnStack} />
+      <Stack.Screen name="Resume Builder" component={ResumeBuilderScreen} />
     </Stack.Navigator>
   );
 };

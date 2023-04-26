@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   ActivityIndicator,
+  Alert
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
@@ -124,7 +125,7 @@ const EditProfileScreen = ({ navigation }) => {
         },
         { merge: true }
       );
-      console.log("Profile updated");
+      Alert.alert("Your profile has been updated !");
       navigation.goBack();
       // setLoading(false);
       //Alert.alert("User registered successfully", user.email);
