@@ -49,7 +49,7 @@ const PTE = () => {
   return (
     <ScrollView>
       {/* /////////////// Speaking and Writing ////////////////// */}
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginVertical: 5 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       <View style={styles.content}>

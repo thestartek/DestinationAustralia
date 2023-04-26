@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Post from "./Post.js";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, limit } from "firebase/firestore";
 import { db } from "../../Firebase";
 import { Divider } from "react-native-paper";
 import {
@@ -26,7 +26,6 @@ const wait = (timeout) => {
 
 const PostScreen = ({ isLoading, navigation }) => {
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = React.useState(false);
   // const user = auth.currentUser;
@@ -38,7 +37,7 @@ const PostScreen = ({ isLoading, navigation }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(
-      query(collection(db, "posts"), orderBy("created", "desc")),
+      query(collection(db, "posts"), orderBy("created", "desc"), limit(100)),
       orderBy("caption"),
       (snapshot) => {
         setPosts(

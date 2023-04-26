@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import { auth, db, storage } from "../../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -50,7 +50,6 @@ const RegisterScreen = ({ navigation }) => {
   const [info, setInfo] = useState(null);
   const [image, setImage] = useState(null);
   const [checkBox, setCheckBox] = useState(false);
-  const [countryPickerVisible, setCountryPickerVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -209,9 +208,15 @@ const RegisterScreen = ({ navigation }) => {
               />
             </View>
 
-            <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 20, justifyContent: 'space-between' }}>
-              
-            <TextInput
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginLeft: 20,
+                justifyContent: "space-between",
+              }}
+            >
+              <TextInput
                 placeholder="Current country"
                 value={country}
                 onChangeText={(text) => setCountry(text)}
@@ -271,10 +276,13 @@ const RegisterScreen = ({ navigation }) => {
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <TouchableOpacity
                   onPress={() => setCheckBox(false)}
-                  style={[styles.checkBoxOuter, styles.checkedBoxOuter]}
+                  style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
                 >
                   <View
-                    style={[styles.checkBoxInner, styles.checkedBoxInner]}
+                    style={[
+                      styles.checkBoxInner,
+                      { backgroundColor: "#1267E9" },
+                    ]}
                   ></View>
                 </TouchableOpacity>
                 <Text
@@ -326,7 +334,7 @@ const RegisterScreen = ({ navigation }) => {
                 style={[styles.button, { marginBottom: 200 }]}
               >
                 {loading ? (
-                  <ActivityIndicator color='white'/>
+                  <ActivityIndicator color="white" />
                 ) : (
                   <Text style={styles.buttonText}>Register</Text>
                 )}
@@ -383,7 +391,7 @@ const styles = StyleSheet.create({
     width: 280,
   },
   textInputSmall: {
-    width: 130
+    width: 130,
   },
   buttonContainer: {
     width: 300,
@@ -429,11 +437,5 @@ const styles = StyleSheet.create({
     width: 15,
     borderRadius: 12,
     backgroundColor: "darkgrey",
-  },
-  checkedBoxOuter: {
-    borderColor: "#1267E9",
-  },
-  checkedBoxInner: {
-    backgroundColor: "#1267E9",
-  },
+  }
 });

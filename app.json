@@ -6,7 +6,8 @@
     "notification": {
       "icon": "./assets/appIcon_transparent.png"
     },
-    "plugins": ["@react-native-google-signin/google-signin",
+    "plugins": [["@react-native-google-signin/google-signin"],
+    ["@react-native-firebase/app"],
       ["react-native-fbsdk-next",
         {
          "appID": "848636436204602",
@@ -15,14 +16,6 @@
           "scheme": "fb848636436204602",
           "advertiserIDCollectionEnabled": true,
           "autoLogAppEventsEnabled": true
-        }
-      ],
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/appIcon_transparent.png",
-          "color": "#ffffff",
-          "sounds": []
         }
       ],
       [
