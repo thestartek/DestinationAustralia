@@ -15,7 +15,19 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import { Age, AustralianEmployment, Education, EnglishLanguage, OverseasEmployment } from "./PoinsTable";
+import {
+  Age,
+  AusStudy,
+  AustralianEmployment,
+  Education,
+  EnglishLanguage,
+  Naati,
+  OverseasEmployment,
+  PartnerSkills,
+  ProfYear,
+  RegionalStudy,
+  SpecEdu,
+} from "./PoinsTable";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -32,9 +44,34 @@ const Subclass189 = () => {
       </View>
       <Age />
       <EnglishLanguage />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <OverseasEmployment />
       <AustralianEmployment />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
       <Education />
+      <SpecEdu />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
+      </View>
+      <AusStudy />
+      <RegionalStudy />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
+      <ProfYear />
+      <Naati />
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
+      </View>
+      <PartnerSkills />
+    {/* Calculate now */}
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
+      </View>
     </ScrollView>
   );
 };

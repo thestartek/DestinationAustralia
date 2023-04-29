@@ -539,7 +539,7 @@ export const AustralianEmployment = () => {
 };
 
 export const Education = () => {
-  const [checkEduDoc, setCheckEduDoc] = useState(false);
+  const [checkEduDoc, setcheckEduDoc] = useState(false);
   const [checkEduBach, setCheckEduBach] = useState(false);
   const [checkEduDpl, setCheckEduDpl] = useState(false);
   const [checkEduRel, setCheckEduRel] = useState(false);
@@ -573,7 +573,7 @@ export const Education = () => {
         ) : (
           <TouchableOpacity
             onPress={() => [
-              setCheckEduDoc(true),
+              setcheckEduDoc(true),
               setCheckEduBach(false),
               setCheckEduDpl(false),
               setCheckEduRel(false),
@@ -603,7 +603,7 @@ export const Education = () => {
         ) : (
           <TouchableOpacity
             onPress={() => [
-              setCheckEduDoc(false),
+              setcheckEduDoc(false),
               setCheckEduBach(true),
               setCheckEduDpl(false),
               setCheckEduRel(false),
@@ -633,7 +633,7 @@ export const Education = () => {
         ) : (
           <TouchableOpacity
             onPress={() => [
-              setCheckEduDoc(false),
+              setcheckEduDoc(false),
               setCheckEduBach(false),
               setCheckEduDpl(true),
               setCheckEduRel(false),
@@ -664,10 +664,453 @@ export const Education = () => {
         ) : (
           <TouchableOpacity
             onPress={() => [
-              setCheckEduDoc(false),
+              setcheckEduDoc(false),
               setCheckEduBach(false),
               setCheckEduDpl(false),
               setCheckEduRel(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const SpecEdu = () => {
+  const [checkSpecEduYes, setCheckSpecEduYes] = useState(false);
+  const [checkSpecEduNo, setCheckSpecEduNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Specialist education qualification</Text>
+
+      <Text style={styles.subHeadingText}>
+        Do you have a Masters degree by research or a Doctorate degree from an
+        Australian educational institution that included at least 2 academic
+        years to in a relevant field?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkSpecEduYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckSpecEduYes(true), setCheckSpecEduNo(false)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkSpecEduNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckSpecEduYes(false), setCheckSpecEduNo(true)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const AusStudy = () => {
+  const [checkAusStudyYes, setCheckAusStudyYes] = useState(false);
+  const [checkAusStudyNo, setCheckAusStudyNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Australian study requirement</Text>
+
+      <Text style={styles.subHeadingText}>
+        Do you have at least 1 degree, diploma or trade qualification from an
+        Australian educational institution that meets the Australian study
+        requirement?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkAusStudyYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAusStudyYes(true),
+              setCheckAusStudyNo(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkAusStudyNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckAusStudyYes(false),
+              setCheckAusStudyNo(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const RegionalStudy = () => {
+  const [checkRegionalStudyYes, setCheckRegionalStudyYes] = useState(false);
+  const [checkRegionalStudyNo, setCheckRegionalStudyNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Study in regional Australia</Text>
+
+      <Text style={styles.subHeadingText}>
+        Do you have at least 1 degree, diploma or trade qualification from an
+        Australian educational institution that satisfies the Australian study
+        requirement obtained while living and studying in an eligible area of
+        regional Australia?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkRegionalStudyYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckRegionalStudyYes(true),
+              setCheckRegionalStudyNo(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkRegionalStudyNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckRegionalStudyYes(false),
+              setCheckRegionalStudyNo(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const ProfYear = () => {
+  const [checkProfYearYes, setCheckProfYearYes] = useState(false);
+  const [checkProfYearNo, setCheckProfYearNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Professional year in Australia</Text>
+
+      <Text style={styles.subHeadingText}>
+        Did you complete a professional year in Australia?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkProfYearYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckProfYearYes(true),
+              setCheckProfYearNo(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkProfYearNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setCheckProfYearYes(false),
+              setCheckProfYearNo(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const Naati = () => {
+  const [checkNaatiYes, setCheckNaatiYes] = useState(false);
+  const [checkNaatiNo, setCheckNaatiNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Credentialled community language (NAATI)
+      </Text>
+
+      <Text style={styles.subHeadingText}>
+        Have you been accredited at the paraprofessional level or above,
+        certified at the certified provisional level or above, or have a
+        community language credential for interpreting or translating by the
+        National Accreditation Authority for Translators and Interpreters?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkNaatiYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckNaatiYes(true), setCheckNaatiNo(false)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkNaatiNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckNaatiYes(false), setCheckNaatiNo(true)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const PartnerSkills = () => {
+  const [partnerSkill, setPartnerSkill] = useState(false);
+  const [partnerEng, setPartnerEng] = useState(false);
+  const [partnerNo, setPartnerNo] = useState(false);
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Partner skills</Text>
+
+      <Text style={styles.subHeadingText}>
+        Select the relevant partner skills qualifications
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+            Your spouse or de facto partner must also be an applicant for this
+            visa and meet age, English and skill criteria
+          </Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            - were under 45 years old {"\n"}- had competent English {"\n"}- had
+            nominated a skilled occupation that is on the same skilled
+            occupation list as your nominated skilled occupation {"\n"}- had a
+            suitable skills assessment from the relevant assessing authority for
+            their nominated skilled occupation, and the assessment wasn't for a
+            Subclass 485 visa.
+          </Text>
+        </View>
+        {partnerSkill ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setPartnerSkill(true),
+              setPartnerEng(false),
+              setPartnerNo(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+            Your spouse or de facto partner must also be an applicant for this
+            visa and has competent English
+          </Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            At least 7 in IELTS (65 in PTE) or equivalent in other approved
+            tests
+          </Text>
+        </View>
+
+        {partnerEng ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setPartnerSkill(false),
+              setPartnerEng(true),
+              setPartnerNo(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+            You are single or your partner is an Australian citizen or permanent
+            resident
+          </Text>
+          <Text style={{ color: "grey", marginBottom: 10 }}>
+            At least 8 in IELTS (79 in PTE) or equivalent in other approved
+            tests
+          </Text>
+        </View>
+
+        {partnerNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setPartnerSkill(false),
+              setPartnerEng(false),
+              setPartnerNo(true),
             ]}
             style={styles.checkBoxOuter}
           ></TouchableOpacity>
