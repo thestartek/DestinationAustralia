@@ -26,6 +26,7 @@ import {
   PartnerSkills,
   ProfYear,
   RegionalStudy,
+  Result,
   SpecEdu,
 } from "./PoinsTable";
 
@@ -34,6 +35,8 @@ const adUnitId = __DEV__
   : "ca-app-pub-8686062104433125/8511852168";
 
 const Subclass189 = () => {
+  const [pointsAge, setPointsAge] = useState(0);
+
   return (
     <ScrollView>
       <Text style={styles.headingText}>
@@ -42,7 +45,7 @@ const Subclass189 = () => {
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-      <Age />
+      <Age  setPointsAge={setPointsAge}/>
       <EnglishLanguage />
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
@@ -72,6 +75,7 @@ const Subclass189 = () => {
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
+      <Result pointsAge={pointsAge}/>
     </ScrollView>
   );
 };

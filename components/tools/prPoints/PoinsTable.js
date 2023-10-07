@@ -11,13 +11,29 @@ import { Divider } from "react-native-paper";
 //       <Text>PoinsTable</Text>
 //     </View>
 //   );
-// };
+// }
 
-export const Age = () => {
+export const Age = ({ setPointsAge }) => {
   const [checkAge1825, setCheckAge1825] = useState(false);
   const [checkAge2533, setCheckAge2533] = useState(false);
   const [checkAge3340, setCheckAge3340] = useState(false);
   const [checkAge4045, setCheckAge4045] = useState(false);
+
+  if (checkAge1825) {
+    setPointsAge(25)
+  };
+
+  if (checkAge2533) {
+    setPointsAge(30)
+  };
+
+  if (checkAge3340) {
+    setPointsAge(25)
+  };
+
+  if (checkAge4045) {
+    setPointsAge(15)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -1116,6 +1132,19 @@ export const PartnerSkills = () => {
           ></TouchableOpacity>
         )}
       </View>
+    </View>
+  );
+};
+
+export const Result = ({pointsAge}) => {
+  // let pointsAge = 0;
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Your total points is <Text style={{ color: '#1267E9' }}>{pointsAge}</Text>
+      </Text>
+      {/* ... other code ... */}
     </View>
   );
 };
