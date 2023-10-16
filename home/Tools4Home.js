@@ -33,10 +33,11 @@ const Tools4Home = ({ navigation }) => {
           <PrPointsCalculator navigation={navigation} />
           <ExploreAustralia navigation={navigation} />
           <UniversityFinder navigation={navigation} />
-          <UsefulLinks navigation={navigation} />
+          {/* <UsefulLinks navigation={navigation} /> */}
+          <EnglishTestPreparation navigation={navigation} />
         </View>
 
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
+        {/* <View style={{ alignItems: "center", marginVertical: 10 }}>
           <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
         </View>
 
@@ -45,7 +46,7 @@ const Tools4Home = ({ navigation }) => {
           <ScholarshipFinder navigation={navigation} />
           <EnglishTestPreparation navigation={navigation} />
           <ResumeBuilder navigation={navigation}/>
-        </View>
+        </View> */}
         <View style={{ height: 20 }}></View>
       </View>
     </View>

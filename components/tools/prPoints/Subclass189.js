@@ -26,7 +26,7 @@ import {
   PartnerSkills,
   ProfYear,
   RegionalStudy,
-  Result,
+  Result189,
   SpecEdu,
 } from "./PoinsTable";
 
@@ -36,6 +36,16 @@ const adUnitId = __DEV__
 
 const Subclass189 = () => {
   const [pointsAge, setPointsAge] = useState(0);
+  const [pointsEng, setPointsEng] = useState(0);
+  const [pointsOVemp, setPointsOVemp] = useState(0);
+  const [pointsAUemp, setPointsAUemp] = useState(0);
+  const [pointsEdu, setPointsEdu] = useState(0);
+  const [pointsSepcEdu, setPointsSpecEdu] = useState(0);
+  const [pointsAusStudy, setPointsAusStudy] = useState(0);
+  const [pointsRegStudy, setPointsRegStudy] = useState(0);
+  const [pointsProfYear, setPointsProfYear] = useState(0);
+  const [pointsNaati, setPointsNaati] = useState(0);
+  const [pointsPartner, setPointsPartner] = useState(0);
 
   return (
     <ScrollView>
@@ -46,36 +56,39 @@ const Subclass189 = () => {
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
       <Age  setPointsAge={setPointsAge}/>
-      <EnglishLanguage />
+      <EnglishLanguage setPointsEng={setPointsEng}/>
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
-      <OverseasEmployment />
-      <AustralianEmployment />
+      <OverseasEmployment setPointsOVemp={setPointsOVemp}/>
+      <AustralianEmployment setPointsAUemp={setPointsAUemp}/>
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-      <Education />
-      <SpecEdu />
+      <Education setPointsEdu={setPointsEdu}/>
+      <SpecEdu setPointsSpecEdu={setPointsSpecEdu}/>
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.MEDIUM_RECTANGLE} />
       </View>
-      <AusStudy />
-      <RegionalStudy />
+      <AusStudy setPointsAusStudy={setPointsAusStudy}/>
+      <RegionalStudy setPointsRegStudy={setPointsRegStudy}/>
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
-      <ProfYear />
-      <Naati />
+      <ProfYear setPointsProfYear={setPointsProfYear}/>
+      <Naati setPointsNaati={setPointsNaati}/>
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.BANNER} />
       </View>
-      <PartnerSkills />
+      <PartnerSkills setPointsPartner={setPointsPartner}/>
     {/* Calculate now */}
       <View style={{ alignItems: "center", marginVertical: 10 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
-      <Result pointsAge={pointsAge}/>
+      <Result189 pointsAge={pointsAge} pointsEng={pointsEng} pointsOVemp={pointsOVemp}
+      pointsAUemp={pointsAUemp} pointsEdu={pointsEdu} pointsSepcEdu={pointsSepcEdu}
+      pointsAusStudy={pointsAusStudy} pointsRegStudy={pointsRegStudy} pointsProfYear={pointsProfYear}
+      pointsNaati={pointsNaati} pointsPartner={pointsPartner}/>
     </ScrollView>
   );
 };

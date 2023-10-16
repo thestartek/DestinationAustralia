@@ -160,10 +160,20 @@ export const Age = ({ setPointsAge }) => {
   );
 };
 
-export const EnglishLanguage = () => {
+export const EnglishLanguage = ({ setPointsEng }) => {
   const [competentEng, setCompetentEng] = useState(false);
   const [proficientEng, setProficientEng] = useState(false);
   const [superiorEng, setSuperiorEng] = useState(false);
+
+  if (competentEng) {
+    setPointsEng(0)
+  };
+  if (proficientEng) {
+    setPointsEng(10)
+  };
+  if (superiorEng) {
+    setPointsEng(20)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -270,11 +280,24 @@ export const EnglishLanguage = () => {
   );
 };
 
-export const OverseasEmployment = () => {
+export const OverseasEmployment = ({setPointsOVemp}) => {
   const [checkOVemp03, setCheckOVemp03] = useState(false);
   const [checkOVemp35, setCheckOVemp35] = useState(false);
   const [checkOVemp58, setCheckOVemp58] = useState(false);
   const [checkOVemp80, setCheckOVemp80] = useState(false);
+
+  if (checkOVemp03) {
+    setPointsOVemp(0)
+  };
+  if (checkOVemp35) {
+    setPointsOVemp(5)
+  };
+  if (checkOVemp58) {
+    setPointsOVemp(10)
+  };
+  if (checkOVemp80) {
+    setPointsOVemp(15)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -396,12 +419,28 @@ export const OverseasEmployment = () => {
   );
 };
 
-export const AustralianEmployment = () => {
+export const AustralianEmployment = ({setPointsAUemp}) => {
   const [checkAUemp01, setCheckAUemp01] = useState(false);
   const [checkAUemp13, setCheckAUemp13] = useState(false);
   const [checkAUemp35, setCheckAUemp35] = useState(false);
   const [checkAUemp58, setCheckAUemp58] = useState(false);
   const [checkAUemp80, setCheckAUemp80] = useState(false);
+
+  if (checkAUemp01) {
+    setPointsAUemp(0)
+  };
+  if (checkAUemp13) {
+    setPointsAUemp(5)
+  };
+  if (checkAUemp35) {
+    setPointsAUemp(10)
+  };
+  if (checkAUemp58) {
+    setPointsAUemp(15)
+  };
+  if (checkAUemp80) {
+    setPointsAUemp(20)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -554,11 +593,24 @@ export const AustralianEmployment = () => {
   );
 };
 
-export const Education = () => {
+export const Education = ({setPointsEdu}) => {
   const [checkEduDoc, setcheckEduDoc] = useState(false);
   const [checkEduBach, setCheckEduBach] = useState(false);
   const [checkEduDpl, setCheckEduDpl] = useState(false);
   const [checkEduRel, setCheckEduRel] = useState(false);
+
+  if (checkEduDoc) {
+    setPointsEdu(20)
+  };
+  if (checkEduBach) {
+    setPointsEdu(15)
+  };
+  if (checkEduDpl) {
+    setPointsEdu(10)
+  };
+  if (checkEduRel) {
+    setPointsEdu(10)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -693,9 +745,16 @@ export const Education = () => {
   );
 };
 
-export const SpecEdu = () => {
+export const SpecEdu = ({setPointsSpecEdu}) => {
   const [checkSpecEduYes, setCheckSpecEduYes] = useState(false);
   const [checkSpecEduNo, setCheckSpecEduNo] = useState(false);
+
+  if (checkSpecEduYes) {
+    setPointsSpecEdu(10)
+  };
+  if (checkSpecEduNo) {
+    setPointsSpecEdu(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -753,9 +812,16 @@ export const SpecEdu = () => {
   );
 };
 
-export const AusStudy = () => {
+export const AusStudy = ({setPointsAusStudy}) => {
   const [checkAusStudyYes, setCheckAusStudyYes] = useState(false);
   const [checkAusStudyNo, setCheckAusStudyNo] = useState(false);
+
+  if (checkAusStudyYes) {
+    setPointsAusStudy(5)
+  };
+  if (checkAusStudyNo) {
+    setPointsAusStudy(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -819,9 +885,16 @@ export const AusStudy = () => {
   );
 };
 
-export const RegionalStudy = () => {
+export const RegionalStudy = ({setPointsRegStudy}) => {
   const [checkRegionalStudyYes, setCheckRegionalStudyYes] = useState(false);
   const [checkRegionalStudyNo, setCheckRegionalStudyNo] = useState(false);
+
+  if (checkRegionalStudyYes) {
+    setPointsRegStudy(5)
+  };
+  if (checkRegionalStudyNo) {
+    setPointsRegStudy(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -886,9 +959,16 @@ export const RegionalStudy = () => {
   );
 };
 
-export const ProfYear = () => {
+export const ProfYear = ({setPointsProfYear}) => {
   const [checkProfYearYes, setCheckProfYearYes] = useState(false);
   const [checkProfYearNo, setCheckProfYearNo] = useState(false);
+
+  if (checkProfYearYes) {
+    setPointsProfYear(5)
+  };
+  if (checkProfYearNo) {
+    setPointsProfYear(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -950,9 +1030,16 @@ export const ProfYear = () => {
   );
 };
 
-export const Naati = () => {
+export const Naati = ({setPointsNaati}) => {
   const [checkNaatiYes, setCheckNaatiYes] = useState(false);
   const [checkNaatiNo, setCheckNaatiNo] = useState(false);
+
+  if (checkNaatiYes) {
+    setPointsNaati(5)
+  };
+  if (checkNaatiNo) {
+    setPointsNaati(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -1013,10 +1100,20 @@ export const Naati = () => {
   );
 };
 
-export const PartnerSkills = () => {
+export const PartnerSkills = ({setPointsPartner}) => {
   const [partnerSkill, setPartnerSkill] = useState(false);
   const [partnerEng, setPartnerEng] = useState(false);
   const [partnerNo, setPartnerNo] = useState(false);
+
+  if (partnerSkill) {
+    setPointsPartner(10)
+  };
+  if (partnerEng) {
+    setPointsPartner(5)
+  };
+  if (partnerNo) {
+    setPointsPartner(10)
+  };
 
   return (
     <View style={styles.outerContainer}>
@@ -1136,13 +1233,232 @@ export const PartnerSkills = () => {
   );
 };
 
-export const Result = ({pointsAge}) => {
-  // let pointsAge = 0;
+export const Nomination = ({setPointsNomination}) => {
+  const [checkNominationYes, setCheckNominationYes] = useState(false);
+  const [checkNominationNo, setCheckNominationNo] = useState(false);
+
+  if (checkNominationYes) {
+    setPointsNomination(5)
+  };
+  if (checkNominationNo) {
+    setPointsNomination(0)
+  };
 
   return (
     <View style={styles.outerContainer}>
       <Text style={styles.headingText}>
-        Your total points is <Text style={{ color: '#1267E9' }}>{pointsAge}</Text>
+        Nomination
+      </Text>
+
+      <Text style={styles.subHeadingText}>
+      Have you been invited to apply for a Skilled Nominated visa (subclass 190) 
+      and the nominating State or Territory government agency has not withdrawn the nomination?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>Yes</Text>
+
+        {checkNominationYes ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckNominationYes(true), setCheckNominationNo(false)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <Text style={styles.contentText}>No</Text>
+
+        {checkNominationNo ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [setCheckNominationYes(false), setCheckNominationNo(true)]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const Sponsor491 = ({setPointsSponsor491}) => {
+  const [nominated, setNominated] = useState(false);
+  const [sponsored, setSponsored] = useState(false);
+  const [noneApp, setNonApp] = useState(false);
+
+  if (nominated) {
+    setPointsSponsor491(15)
+  };
+  if (sponsored) {
+    setPointsSponsor491(15)
+  };
+  if (noneApp) {
+    setPointsSponsor491(0)
+  };
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>Nomination or Sponsorship</Text>
+
+      <Text style={styles.subHeadingText}>
+      Have you been nominated or sponsored to apply for this visa?
+        <Text style={{ color: "red" }}>*</Text>
+      </Text>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+          You were invited to apply for a Skilled Work Regional (Provisional) visa 
+          because you were nominated and the nominating State or Territory government agency has not withdrawn that nomination
+          </Text>
+        </View>
+        {nominated ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setNominated(true),
+              setSponsored(false),
+              setNonApp(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+          You are being sponsored for a Skilled Work Regional (Provisional) visa 
+          by a family member and the Minister has accepted that sponsorship
+          </Text>
+        </View>
+
+        {sponsored ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setNominated(false),
+              setSponsored(true),
+              setNonApp(false),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+
+      <Divider bold={true} style={{ marginHorizontal: 20 }} />
+
+      <View style={styles.selectionBox}>
+        <View>
+          <Text style={styles.contentText}>
+            Not Applicable
+          </Text>
+        </View>
+
+        {noneApp ? (
+          <TouchableOpacity
+            style={[styles.checkBoxOuter, { borderColor: "#1267E9" }]}
+          >
+            <Image
+              style={styles.checkedImage}
+              source={{ uri: "https://bit.ly/trueIcon" }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => [
+              setNominated(false),
+              setSponsored(false),
+              setNonApp(true),
+            ]}
+            style={styles.checkBoxOuter}
+          ></TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export const Result189 = ({pointsAge, pointsEng, pointsOVemp, pointsAUemp, pointsEdu, pointsSepcEdu, 
+  pointsAusStudy, pointsRegStudy, pointsProfYear, pointsNaati, pointsPartner}) => {
+  
+    const totalPoints = 0 | pointsAge + pointsEng + pointsOVemp + pointsAUemp + pointsEdu + pointsSepcEdu +
+  pointsAusStudy + pointsRegStudy + pointsProfYear + pointsNaati + pointsPartner;
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Your total points is <Text style={{ color: '#1267E9' }}>{totalPoints}</Text>
+      </Text>
+      {/* ... other code ... */}
+    </View>
+  );
+};
+
+export const Result190 = ({pointsAge, pointsEng, pointsOVemp, pointsAUemp, pointsEdu, pointsSepcEdu, 
+  pointsAusStudy, pointsRegStudy, pointsProfYear, pointsNaati, pointsPartner, pointsNomination}) => {
+  
+    const totalPoints = 0 | pointsAge + pointsEng + pointsOVemp + pointsAUemp + pointsEdu + pointsSepcEdu +
+  pointsAusStudy + pointsRegStudy + pointsProfYear + pointsNaati + pointsPartner + pointsNomination;
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Your total points is <Text style={{ color: '#1267E9' }}>{totalPoints}</Text>
+      </Text>
+      {/* ... other code ... */}
+    </View>
+  );
+};
+
+export const Result491 = ({pointsAge, pointsEng, pointsOVemp, pointsAUemp, pointsEdu, pointsSepcEdu, 
+  pointsAusStudy, pointsRegStudy, pointsProfYear, pointsNaati, pointsPartner, pointsSponsor491}) => {
+  
+    const totalPoints = 0 | pointsAge + pointsEng + pointsOVemp + pointsAUemp + pointsEdu + pointsSepcEdu +
+  pointsAusStudy + pointsRegStudy + pointsProfYear + pointsNaati + pointsPartner + pointsSponsor491;
+
+  return (
+    <View style={styles.outerContainer}>
+      <Text style={styles.headingText}>
+        Your total points is <Text style={{ color: '#1267E9' }}>{totalPoints}</Text>
       </Text>
       {/* ... other code ... */}
     </View>
