@@ -57,7 +57,7 @@ const Post = ({ post, navigation }) => {
     </ScrollView>
       
       <AddComment post={post} />
-      {/* <Divider style={{ height: 6 }} /> */}
+      <Divider style={{ height: 6 }} />
     </View>
   );
 };

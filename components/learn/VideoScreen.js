@@ -40,12 +40,13 @@ const VideoScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View>
+  
+      <ScrollView>
       <View style={{ alignItems: "center", marginVertical: 20 }}>
         <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
       </View>
       <Text style={styles.headingText}>Useful videos for you</Text>
-      <ScrollView>
+      
         {/* ///////// Videos /////// */}
         {/* <View style={{ margin: 5 }}></View> */}
         {videos.map((video, index) => (
@@ -57,7 +58,7 @@ const VideoScreen = ({ navigation }) => {
           <BannerAd unitId={adUnitId} size={BannerAdSize.LARGE_BANNER} />
         </View>
       </ScrollView>
-    </View>
+    
   );
 };
 

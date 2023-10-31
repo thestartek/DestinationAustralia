@@ -66,6 +66,12 @@ const HomeScreen = ({ isLoading, navigation }) => {
             ...highlights.data(),
           }))
         );
+
+    for (let i = highlights.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [highlights[i], highlights[j]] = [highlights[j], highlights[i]];
+    }
+
         if (loading) {
           setLoading(false);
         }
@@ -73,6 +79,36 @@ const HomeScreen = ({ isLoading, navigation }) => {
     );
     return unsub;
   }, []);
+
+
+  // function YourComponent() {
+  //   const [highlights, setHighlights] = useState([]);
+  //   const [loading, setLoading] = useState(true);
+  
+  //   useEffect(() => {
+  //     const unsub = onSnapshot(query(collection(db, "highlights")), (snapshot) => {
+  //       const shuffledHighlights = snapshot.docs.map((highlight) => ({
+  //         id: highlight.id,
+  //         ...highlight.data(),
+  //       }));
+  
+  //       // Shuffle the highlights array randomly
+  //       shuffledHighlights.sort(() => Math.random() - 0.5);
+  
+  //       setHighlights(shuffledHighlights);
+  //       if (loading) {
+  //         setLoading(false);
+  //       }
+  //     });
+  
+  //     return unsub;
+  //   }, []);
+  
+  //   return (
+  //     // Your rendering logic here
+  //   );
+  // }
+  
 
   useEffect(() => {
     const unsub = onSnapshot(

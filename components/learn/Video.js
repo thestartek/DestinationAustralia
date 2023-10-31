@@ -21,6 +21,7 @@ import {
 } from "firebase/firestore";
 
 import * as WebBrowser from "expo-web-browser";
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const { width } = Dimensions.get("window");
 
@@ -36,13 +37,15 @@ const Video = ({ video }) => {
     });
   };
 
+  const VideoID = video.videoLink.split('v=')[1]
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.videoContainer}>
         <TouchableOpacity
           onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
         >
-          <ThumbnailImage video={video} />
+          <YoutubePlayer height={300} play={false} videoId={VideoID} />
         </TouchableOpacity>
 
         <VideoHeader video={video} />
@@ -57,50 +60,12 @@ const Video = ({ video }) => {
 };
 
 export const VideoHeader = ({ video }) => (
-  <View style={{ margin: 10, minHeight: 85 }}>
+  <View style={{ marginHorizontal: 10, marginBottom: 10, marginTop: -80 }}>
     <TouchableOpacity
       onPress={() => WebBrowser.openBrowserAsync(video.videoLink)}
     >
       <Text style={styles.titleText}>{video.title}</Text>
     </TouchableOpacity>
-
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <TouchableOpacity
-        onPress={() => WebBrowser.openBrowserAsync(video.channelLink)}
-      >
-        <Text style={styles.timstampText}>{video.channelName}</Text>
-      </TouchableOpacity>
-
-      {/* <Image
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FdotIcon.png?alt=media&token=68370fe8-e55e-41ff-8a19-eda08ca7016d",
-        }}
-        style={{ width: 20, height: 20, tintColor: "grey" }}
-      />
-      <Text style={styles.timstampText}>{video.date}</Text> */}
-    </View>
-  </View>
-);
-
-export const ThumbnailImage = ({ video }) => (
-  <View>
-    {video.thumbnail ? (
-      <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} />
-    ) : (
-      <Image
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/JourneytoAustralia_colored.png?alt=media&token=b3fabee8-8a76-41ad-adec-250b21c6fd76",
-        }}
-        style={styles.thumbnailImage}
-      />
-    )}
-    {/* <Image source={{ uri: video.thumbnail }} style={styles.thumbnailImage} /> */}
-    <Image
-      source={{
-        uri: "https://firebasestorage.googleapis.com/v0/b/journeytoaustralia-b21d4.appspot.com/o/icons%2FplayButtonIcon.png?alt=media&token=1d40a234-b110-436b-8c5d-db993c852b55",
-      }}
-      style={styles.playButton}
-    />
   </View>
 );
 
@@ -186,13 +151,13 @@ const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "white",
     marginHorizontal: 15,
-    marginBottom: 10,
+    marginVertical: 10,
     borderRadius: 10,
   },
   videoContainer: {
-    flexDirection: "row",
+    // flexDirection: "row",
     marginHorizontal: 10,
-    // marginVertical: 5,
+    marginVertical: 10,
     // alignItems: 'center'
     // backgroundColor: "lightgrey",
   },
@@ -214,9 +179,8 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
     color: "#1267E9",
-    maxWidth: width - 170,
   },
   timstampText: {
     marginTop: 5,

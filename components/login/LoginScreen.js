@@ -109,7 +109,7 @@ const LoginScreen = ({ navigation }) => {
             style={{ height: 100, width: 100, marginTop: 20 }}
           />
           <Text style={[styles.text, { color: "grey", marginBottom: 20 }]}>
-            Your friend for Australia related contents
+            Your Friend for Australian Dreams
           </Text>
         </View>
 
