@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <WebView
         source={{
-          uri: "https://starteknp.com/destinationau/privacy-policy-and-terms-of-use/",
+          uri: "https://destinationaus.com/privacy-policy/",
         }}
       />
     </SafeAreaView>

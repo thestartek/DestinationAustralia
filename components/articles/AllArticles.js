@@ -7,7 +7,7 @@ const AllArticles = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <WebView
         source={{
-          uri: "https://startekau.com/destination-australia/",
+          uri: "https://destinationaus.com/blog/",
         }}
       />
     </SafeAreaView>

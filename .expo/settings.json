@@ -4,7 +4,5 @@
   "dev": true,
   "minify": false,
   "urlRandomness": "eX53UfY",
-  "https": false,
-  "scheme": "org.name.journeytoaustralia",
-  "devClient": false
+  "https": false
 }
